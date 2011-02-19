@@ -1,0 +1,16 @@
+ess
+.htaccess
+webroot/.htaccess
+
+# config
+config/core.php
+config/database.php
+
+# cache
+tmp/cache/
+tmp/cache/models/
+tmp/cache/persistent/
+tmp/cache/views/
+
+!empty
+
