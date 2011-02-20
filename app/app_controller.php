@@ -20,6 +20,15 @@ class AppController extends Controller {
 		$this->setupAuth();
 	}
 
+	public function beforeRender() {
+		$this->theme = Configure::read('Site.theme') ? Configure::read('Site.theme') : 'default';
+
+		$this->set(array(
+			'User' => $this->Auth->user(),
+			'Webroot' => $this->webroot
+		));
+	}
+
 	/**
 	 * Read configuration data from the cache or database.
 	 */
@@ -62,6 +71,7 @@ class AppController extends Controller {
 		if($this->isAdmin()) {
 			$this->Auth->userScope = array_merge($this->Auth->userScope, array('User.is_admin' => 1));
 			$this->Auth->loginAction = '/admin/login';
+			$this->layout = 'admin';
 		}
 
 		if($this->_secure || $this->isAdmin())
