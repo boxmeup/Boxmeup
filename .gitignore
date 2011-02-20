@@ -14,8 +14,6 @@ app/webroot/tmp/*
 # misc
 cakephp/
 cakephp/*/**
-app/plugins/debug_kit
-app/pluging/debug_kit/*
 
 !empty
 
