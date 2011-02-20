@@ -4,8 +4,9 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
-			<th><?php echo $this->Paginator->sort('password');?></th>
 			<th><?php echo $this->Paginator->sort('uuid');?></th>
+			<th><?php echo $this->Paginator->sort('is_active');?></th>
+			<th><?php echo $this->Paginator->sort('is_admin');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -21,8 +22,9 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $user['User']['id']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['email']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['password']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['uuid']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['is_active']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['is_admin']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['created']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['modified']; ?>&nbsp;</td>
 		<td class="actions">

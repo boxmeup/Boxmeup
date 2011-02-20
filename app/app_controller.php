@@ -44,16 +44,31 @@ class AppController extends Controller {
 		$this->Auth->loginRedirect = '/';
 		$this->Auth->logoutRedirect = '/';
 		$this->Auth->loginError = 'No username and password was found with that combination';
+		$this->Auth->userScope = array('User.is_active' => 1);
 
 		$this->Auth->fields = array(
 			'username' => 'email',
 			'password' => 'password'
 		);
 
-		if($this->_secure)
+		// Setup a scope for admin users accessing admin section
+		if($this->isAdmin()) {
+			$this->Auth->userScope = array_merge($this->Auth->userScope, array('User.is_admin' => 1));
+			$this->Auth->loginAction = '/admin/login';
+		}
+
+		if($this->_secure || $this->isAdmin())
 			$this->Auth->deny();
 		else
 			$this->Auth->allow();
 
+	}
+
+	public function isAuthorized() {
+		var_dump('im here');
+	}
+
+	public function isAdmin() {
+		return isset($this->params['admin']) && $this->params['admin'];
 	}
 }
