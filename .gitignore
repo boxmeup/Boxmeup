@@ -10,8 +10,12 @@ app/config/database.php
 # cache
 app/tmp/**/*
 app/webroot/tmp/*
-cakephp
+
+# misc
+cakephp/
 cakephp/*/**
+app/plugins/debug_kit
+app/pluging/debug_kit/*
 
 !empty
 
