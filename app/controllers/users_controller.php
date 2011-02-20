@@ -3,6 +3,18 @@ class UsersController extends AppController {
 
 	public $name = 'Users';
 
+	public function login() {
+		
+	}
+
+	public function logout() {
+		$this->Auth->logout();
+		$this->redirect('/');
+	}
+
+	public function admin_login() {
+		$this->render('login');
+	}
 	
 	function admin_index() {
 		$this->User->recursive = 0;
@@ -35,14 +47,15 @@ class UsersController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+			if(!empty($this->data['User']['new_password']))
+				$this->data['User']['password'] = Security::hash($this->data['User']['new_password'], Configure::read('Security.hash'), true);
 			if ($this->User->save($this->data)) {
 				$this->Session->setFlash(__('The user has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
 			}
-		}
-		if (empty($this->data)) {
+		} else {
 			$this->data = $this->User->read(null, $id);
 		}
 	}
