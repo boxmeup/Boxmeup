@@ -37,7 +37,7 @@ class AppController extends Controller {
 	 * Setup the authentication component.
 	 */
 	public function setupAuth() {
-		Security::setHash('sha1');
+		Security::setHash(Configure::read('Security.hash'));
 
 		$this->Auth->userModel = 'User';
 		$this->Auth->loginAction = '/login';
