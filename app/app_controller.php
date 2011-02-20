@@ -3,7 +3,14 @@ class AppController extends Controller {
 	public $view = 'Theme';
 	public $theme = 'default';
 
-	public $components = array('Auth', 'RequestHandler', 'Session', 'Cookie', 'Security', 'DebugKit.Toolbar');
+	public $components = array(
+		'Auth',
+		'RequestHandler',
+		'Session',
+		'Cookie',
+		'Security',
+		'DebugKit.Toolbar' => array('panels' => array('history' => false))
+	);
 	public $helpers = array('Html', 'Form', 'Session');
 
 	public $_secure = false;
