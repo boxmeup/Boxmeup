@@ -1,15 +1,21 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
-		<?php echo $title_for_layout; ?>
+		<?php echo $title_for_layout; ?> |
+		<?php __('Boxmeup'); ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('main');
+		echo $this->Html->script('https://www.google.com/jsapi');
+		echo $this->Html->scriptBlock("google.load('jquery', '1.4');");
+		echo $this->Html->scriptBlock("
+			var WEBROOT = '$Webroot';
+		");
+		//echo $this->Javascript->link('util.base');
 
 		echo $scripts_for_layout;
 	?>
@@ -17,22 +23,18 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link(__('CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
+			<h1><?php echo $html->link('Boxmeup.com', '/'); ?></h1>
 		</div>
+		<nav id="menu">
+			<ul>
+				<li><?php echo $html->link('Home', '/'); ?></li>
+			</ul>
+		</nav>
 		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-
+			<?php echo $this->element('error'); ?>
 			<?php echo $content_for_layout; ?>
-
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
 		</div>
 	</div>
 </body>
