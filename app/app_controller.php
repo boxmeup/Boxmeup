@@ -52,7 +52,7 @@ class AppController extends Controller {
 	/**
 	 * Setup the authentication component.
 	 */
-	public function setupAuth() {
+	private function setupAuth() {
 		Security::setHash(Configure::read('Security.hash'));
 
 		$this->Auth->userModel = 'User';
@@ -79,10 +79,6 @@ class AppController extends Controller {
 		else
 			$this->Auth->allow();
 
-	}
-
-	public function isAuthorized() {
-		var_dump('im here');
 	}
 
 	public function isAdmin() {

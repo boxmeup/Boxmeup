@@ -6,5 +6,6 @@
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
+	Router::connect('/signup', array('controller' => 'users', 'action' => 'signup'));
 
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
