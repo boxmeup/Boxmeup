@@ -41,12 +41,12 @@ class User extends AppModel {
 		)
 	);
 
-        public $hasMany = array(
-            'Container' => array(
-                'className' => 'Container',
-                'foreignKey' => 'user_id',
-                'order' => 'Container.created'
-            )
-        );
+	public $hasMany = array(
+		'Container' => array(
+			'className' => 'Container',
+			'foreignKey' => 'user_id',
+			'order' => 'Container.created'
+		)
+	);
 }
 ?>

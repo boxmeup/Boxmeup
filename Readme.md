@@ -8,26 +8,26 @@ you to scan and pull up a list of items in the container on your phone.  It also
 allows you to search all of your containers to find a specific item and Boxmeup
 tells you where it is!
 
-## Installation
+# Installation
 
-    git clone git://github.com/cjsaylor/Boxmeup .
+    git clone git://github.com/cjsaylor/Boxmeup boxmeup
 
-## Configure the shell
+## Configure the shell ##
 
-#### edit your bash rc file:
+_edit your bash rc (or .bash_alias) file:_
 
     vim ~/.bashrc
     alias boxmeup='/path/to/boxmeup/cakephp/cake/console/cake -app /path/to/boxmeup/app'
 
-## Copy configuration files
+## Copy configuration files ##
 
 * app/config/database.php.default -> app/config/database.php
 ** Enter in your DB credentials
 * app/config/core.php.sample -> app/config/core.php
 
-## Configure the database
+## Configure the database ##
 
-#### Execute schema create
+_Execute schema create_
 
     boxmeup schema create App
 
