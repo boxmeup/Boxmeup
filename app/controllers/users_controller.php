@@ -32,6 +32,10 @@ class UsersController extends AppController {
 		$this->redirect('/');
 	}
 
+	public function account() {
+		
+	}
+
 // ADMIN FUNCTION
 	
 	public function admin_login() {
