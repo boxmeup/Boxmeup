@@ -22,9 +22,9 @@ class AppController extends Controller {
 
 	public function beforeRender() {
 		$this->theme = Configure::read('Site.theme') ? Configure::read('Site.theme') : 'default';
-
+		$User = $this->Auth->user();
 		$this->set(array(
-			'User' => $this->Auth->user(),
+			'User' => is_array($User) ? $User[$this->Auth->userModel] : false,
 			'Webroot' => $this->webroot
 		));
 	}
