@@ -25,9 +25,11 @@
 		<div id="header">
 			<h1><?php echo $html->link('Boxmeup.com', '/'); ?></h1>
 		</div>
+		<?php echo $this->element('account'); ?>
 		<nav id="menu">
 			<ul>
 				<li><?php echo $html->link('Home', '/'); ?></li>
+				<li><?php echo $html->link('About', '/about'); ?></li>
 			</ul>
 		</nav>
 		<div id="content">

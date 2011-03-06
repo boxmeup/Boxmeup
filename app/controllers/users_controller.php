@@ -3,6 +3,26 @@ class UsersController extends AppController {
 
 	public $name = 'Users';
 
+	/**
+	 * Responsible for registering new users.
+	 * Once registered, admins can do more changes and priveledges to this user.
+	 */
+	public function signup() {
+		if(!empty($this->data)) {
+			if($this->data['User']['password'] != Security::hash($this->data['User']['confirm_password'], Configure::read('Security.hash'), true))
+				$this->Session->setFlash(__('Password confirmation does not match.'));
+			else {
+				$result = $this->User->save($this->data);
+				if($result) {
+					$this->Auth->login($result);
+					$this->redirect('/');
+				} else
+					$this->Session->setFlash(__('There was a problem signing you up.', true));
+			}
+        }
+		$this->data['User']['password'] = $this->data['User']['confirm_password'] = '';
+	}
+
 	public function login() {
 		
 	}
@@ -12,6 +32,12 @@ class UsersController extends AppController {
 		$this->redirect('/');
 	}
 
+	public function account() {
+		
+	}
+
+// ADMIN FUNCTION
+	
 	public function admin_login() {
 		$this->render('login');
 	}
