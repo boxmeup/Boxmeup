@@ -22,9 +22,9 @@ class AppController extends Controller {
 
 	public function beforeRender() {
 		$this->theme = Configure::read('Site.theme') ? Configure::read('Site.theme') : 'default';
-
+		$User = $this->Auth->user();
 		$this->set(array(
-			'User' => $this->Auth->user(),
+			'User' => is_array($User) ? $User[$this->Auth->userModel] : false,
 			'Webroot' => $this->webroot
 		));
 	}
@@ -69,6 +69,12 @@ class AppController extends Controller {
 
 		// Setup a scope for admin users accessing admin section
 		if($this->isAdmin()) {
+			// If a user is logged in, but is not an admin...
+			if($this->Auth->user() && !$this->Auth->user('is_admin')) {
+				$this->Session->setFlash(__('Not authorized to view this resource.', true));
+				$this->redirect('/');
+			}
+				
 			$this->Auth->userScope = array_merge($this->Auth->userScope, array('User.is_admin' => 1));
 			$this->Auth->loginAction = '/admin/login';
 			$this->layout = 'admin';

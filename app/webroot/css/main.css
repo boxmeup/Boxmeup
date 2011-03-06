@@ -13,11 +13,11 @@ nav ul {line-height: 24px; list-style: none; margin-bottom: 20px;}
       nav li a {display: block; text-decoration: none; color: #333; }
       nav li a:hover {text-decoration: underline; }
 
-#cart {float: right; padding: 10px 20px; background-color: #282E30; color: #eee; -webkit-border-bottom-right-radius: 18px; -webkit-border-bottom-left-radius: 18px; -moz-border-radius-bottomright: 18px; -moz-border-radius-bottomleft: 18px; border-bottom-right-radius: 18px; border-bottom-left-radius: 18px;}
-   #cart ul {line-height: 24px; list-style: none;}
-   #cart li {float: left; padding: 0 10px 0 0;}
-      #cart li a { display: block; text-decoration: none; color: #eee; font-weight: bold; border-bottom: 2px solid #282E30; }
-      #cart li a:hover {border-bottom: 2px solid #eee; }
+#account {float: right; padding: 10px 20px; background-color: #282E30; color: #eee; -webkit-border-bottom-right-radius: 18px; -webkit-border-bottom-left-radius: 18px; -moz-border-radius-bottomright: 18px; -moz-border-radius-bottomleft: 18px; border-bottom-right-radius: 18px; border-bottom-left-radius: 18px;}
+   #account ul {line-height: 24px; list-style: none;}
+   #account li {float: left; padding: 0 10px 0 0;}
+      #account li a { display: block; text-decoration: none; color: #eee; font-weight: bold; border-bottom: 2px solid #282E30; }
+      #account li a:hover {border-bottom: 2px solid #eee; }
    
 #content { clear: both; margin: 20px 0; padding: 20px;  background-color: white; border: 1px solid #C8C5B3; border-radius: 18px; -moz-border-radius: 18px; -webkit-border-radius: 18px;}
 

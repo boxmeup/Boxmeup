@@ -1,26 +1,5 @@
 <?php
 /**
- * This is core configuration file.
- *
- * Use it to configure core behavior of Cake.
- *
- * PHP versions 4 and 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       cake
- * @subpackage    cake.app.config
- * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-
-/**
  * CakePHP Debug Level:
  *
  * Production Mode:
@@ -33,7 +12,7 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-	Configure::write('debug', 2);
+	Configure::write('debug', 0);
 
 /**
  * CakePHP Log Level:
@@ -85,7 +64,7 @@
  *
  * [Note Routing.admin is deprecated in 1.3.  Use Routing.prefixes instead]
  */
-	//Configure::write('Routing.prefixes', array('admin'));
+	Configure::write('Routing.prefixes', array('admin'));
 
 /**
  * Turn off all caching application-wide.
@@ -164,7 +143,7 @@
  * characters."
  * @link http://php.net/session_name
  */
-	Configure::write('Session.cookie', 'CAKEPHP');
+	Configure::write('Session.cookie', 'BOXMEUP');
 
 /**
  * Session time out time (in seconds).
@@ -201,12 +180,12 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'd5bbd4dedd2cd66d3615b389edfb5520a09dc4f3');
+	Configure::write('Security.salt', '');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '376236363033613336663666663838');
+	Configure::write('Security.cipherSeed', '');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -216,7 +195,7 @@
  * Set to `true` to apply timestamps, when debug = 0, or set to 'force' to always enable
  * timestamping.
  */
-	//Configure::write('Asset.timestamp', true);
+	Configure::write('Asset.timestamp', true);
 /**
  * Compress CSS output by removing comments, whitespace, repeating tags, etc.
  * This requires a/var/cache directory to be writable by the web server for caching.
@@ -247,57 +226,35 @@
  */
 	//date_default_timezone_set('UTC');
 
-/**
- *
- * Cache Engine Configuration
- * Default settings provided below
- *
- * File storage engine.
- *
- * 	 Cache::config('default', array(
- *		'engine' => 'File', //[required]
- *		'duration'=> 3600, //[optional]
- *		'probability'=> 100, //[optional]
- * 		'path' => CACHE, //[optional] use system tmp directory - remember to use absolute path
- * 		'prefix' => 'cake_', //[optional]  prefix every cache file with this string
- * 		'lock' => false, //[optional]  use file locking
- * 		'serialize' => true, [optional]
- *	));
- *
- *
- * APC (http://pecl.php.net/package/APC)
- *
- * 	 Cache::config('default', array(
- *		'engine' => 'Apc', //[required]
- *		'duration'=> 3600, //[optional]
- *		'probability'=> 100, //[optional]
- * 		'prefix' => Inflector::slug(APP_DIR) . '_', //[optional]  prefix every cache file with this string
- *	));
- *
- * Xcache (http://xcache.lighttpd.net/)
- *
- * 	 Cache::config('default', array(
- *		'engine' => 'Xcache', //[required]
- *		'duration'=> 3600, //[optional]
- *		'probability'=> 100, //[optional]
- * 		'prefix' => Inflector::slug(APP_DIR) . '_', //[optional] prefix every cache file with this string
- *		'user' => 'user', //user from xcache.admin.user settings
- *      'password' => 'password', //plaintext password (xcache.admin.pass)
- *	));
- *
- *
- * Memcache (http://www.danga.com/memcached/)
- *
- * 	 Cache::config('default', array(
- *		'engine' => 'Memcache', //[required]
- *		'duration'=> 3600, //[optional]
- *		'probability'=> 100, //[optional]
- * 		'prefix' => Inflector::slug(APP_DIR) . '_', //[optional]  prefix every cache file with this string
- * 		'servers' => array(
- * 			'127.0.0.1:11211' // localhost, default port 11211
- * 		), //[optional]
- * 		'compress' => false, // [optional] compress data in Memcache (slower, but uses less memory)
- *	));
- *
- */
-	Cache::config('default', array('engine' => 'File'));
+	if (!class_exists('Memcache')) {
+      // Fallback in case php doesn't have Memchached support!
+      Cache::config('default', array(
+         'engine'      => 'File',
+         'duration'    => '+1 day',
+         'probability' => 100,
+         'path'        => CACHE,
+         'prefix'      => 'bmu_',
+         'lock'        => false,
+         'serialize'   => true));
+      Cache::config('short', array(
+         'engine'      => 'File',
+         'duration'    => '+10 minutes',
+         'probability' => 100,
+         'path'        => CACHE,
+         'prefix'      => 'bmu_',
+         'lock'        => false,
+         'serialize'   => true));
+   } else {
+      Cache::config('default', array(
+         'engine' => 'Memcache',
+         'duration' => '+1 day',
+         'probability' => 100,
+         'servers' => array(),
+         'compress' => true));
+       Cache::config('short', array(
+          'engine' => 'Memcache',
+          'duration' => '+30 minutes',
+          'probability' => 100,
+          'servers' => array(),
+          'compress' => true));
+    }
