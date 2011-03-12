@@ -27,6 +27,7 @@ class AppController extends Controller {
 			'User' => is_array($User) ? $User[$this->Auth->userModel] : false,
 			'Webroot' => $this->webroot
 		));
+
 	}
 
 	/**
@@ -57,7 +58,7 @@ class AppController extends Controller {
 
 		$this->Auth->userModel = 'User';
 		$this->Auth->loginAction = '/login';
-		$this->Auth->loginRedirect = '/';
+		$this->Auth->loginRedirect = !$this->isAdmin() ? array('controller' => 'containers', 'action' => 'index') : '/';
 		$this->Auth->logoutRedirect = '/';
 		$this->Auth->loginError = 'No username and password was found with that combination';
 		$this->Auth->userScope = array('User.is_active' => 1);

@@ -3,7 +3,8 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $title_for_layout; ?>
+		<?php echo $title_for_layout; ?> |
+		<?php __('Boxmeup.com'); ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -30,10 +31,14 @@
 	</div>
 	<div class="container">
 		<?php echo $this->element('navigation'); ?>
-		<div id="main">
-			<div id="content">
-				<?php echo $this->element('error'); ?>
+		<?php echo $this->element('error'); ?>
+		<div id="app-container">
+			<div id="app">
 				<?php echo $content_for_layout; ?>
+			</div>
+			<div id="sidebar">
+				<?php echo $this->element('app/control'); ?>
+				<?php echo $this->element('app/advertise'); ?>
 			</div>
 			<div style="clear: both"></div>
 		</div>
