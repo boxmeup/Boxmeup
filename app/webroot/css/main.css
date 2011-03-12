@@ -14,19 +14,25 @@ a:hover { color: #2575cf;}
 	#auth li { float: left; padding: 10px 10px 10px 0; }
 		#auth li a { text-decoration: none; }
 
-#main { background-color: white; padding: 10px; }
+#main { background-color: white; padding: 10px 10px 40px 10px; -moz-box-shadow: 0 1px 2px #888; -webkit-box-shadow: 0 2px 2px 1px #888; box-shadow: 0 2px 2px 1px #888;}
 
-#navigation { display: block; margin: 10px 0;}
 #navigation ul { list-style: none; }
 	#navigation li { float: left; padding: 10px;}
 		#navigation li.first {padding: 10px 10px 10px 0; }
 
 #content .content-title { margin-bottom: 10px; }
 
+#app-container { -moz-box-shadow: 0 1px 2px #888; -webkit-box-shadow: 0 1px 2px #888; box-shadow: 0 1px 2px #888; }
+#app { height: 550px; width: 680px; float: left; overflow: auto; padding: 10px 10px 40px 10px; background-color: white; }
+
+#sidebar {height: 550px; border-left: 1px solid #ccc; width: 249px; overflow: none; float: left; padding: 10px 0 40px 10px; background-color: #DDDEFF; }
+	#control { width: 220px; margin: 0 auto; padding-top: 10px; }
+	#rev { width: 160px; margin: 0 auto; padding-top: 10px; }
+
 #footer { padding: 10px; margin-top: 10px; font-size: 12px; float: right;}
 
 .button, .button:visited {
-	background: #222 url(overlay.png) repeat-x;
+	background: #222 repeat-x;
 	display: inline-block;
 	padding: 5px 10px 6px; 
 	color: #fff;
