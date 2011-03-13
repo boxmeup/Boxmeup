@@ -48,7 +48,7 @@ class PagesController extends AppController {
 			$title_for_layout = $page === 'home' ? 'Boxmeup.com' : Inflector::humanize($path[$count - 1]);
 		
 		if($this->Auth->user() && $page === 'home')
-			$this->redirect(array('controller' => 'containers', 'action' => 'index'));
+			$this->redirect('/dashboard');
 
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));
