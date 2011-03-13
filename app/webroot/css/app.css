@@ -1,0 +1,19 @@
+#navigation {padding-top: 5px; }
+	#navigation ul li { background-color: #2981e4; padding: 5px 10px; margin-right: 3px; }
+	#navigation ul li.active {background-color:#c0caff; }
+		#navigation ul li a{ color: #eee; }
+		#navigation ul li.active a { color: #333; }
+	#search {float: right; padding-right: 10px; }
+#app {
+	height: 550px; width: 680px; float: left; overflow: auto; padding: 10px 10px 40px 10px; background-color: white;
+	-moz-box-shadow: 0 1px 2px #888; -webkit-box-shadow: 0 1px 2px #888; box-shadow: 0 1px 2px #888;
+}
+
+#sidebar {height: 550px; border-left: 1px solid #ccc; width: 249px; overflow: none; float: left; padding: 10px 0 40px 10px; }
+	#control { width: 220px; margin: 0 auto; padding-top: 10px; }
+	#rev { width: 160px; margin: 0 auto; padding-top: 10px; }
+
+#footer { float: left; padding: 10px 0;}
+
+.container-box { float: left; padding: 10px; width: 137px; height: 160px; text-align: center; }
+	.container-name { width: 127px; height: 50px; overflow: hidden; }
