@@ -9,4 +9,5 @@ if ($paging['pageCount'] > 0) {
    <?php echo $paginator->numbers(array('tag' => 'div','separator' => ''));?>
  <?php echo $paginator->next(__('next', true).' >>', array(), array(), array('class' => 'off'));?>
 </div>
+<div style="clear: both"></div>
 <?php } ?>

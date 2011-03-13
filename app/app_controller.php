@@ -1,8 +1,5 @@
 <?php
 class AppController extends Controller {
-	public $view = 'Theme';
-	public $theme = 'default';
-
 	public $components = array(
 		'Auth',
 		'RequestHandler',
@@ -16,38 +13,19 @@ class AppController extends Controller {
 	public $_secure = false;
 
 	public function beforeFilter() {
-		$this->setupConfig();
 		$this->setupAuth();
 	}
 
 	public function beforeRender() {
-		$this->theme = Configure::read('Site.theme') ? Configure::read('Site.theme') : 'default';
+		if(Configure::read('Site.theme')) {
+			$this->view = 'Theme';
+			$this->theme = Configure::read('Site.theme');
+		}
 		$User = $this->Auth->user();
 		$this->set(array(
-			'User' => is_array($User) ? $User[$this->Auth->userModel] : false,
+			'User' => $User[$this->Auth->userModel],
 			'Webroot' => $this->webroot
 		));
-
-	}
-
-	/**
-	 * Read configuration data from the cache or database.
-	 */
-	private function setupConfig() {
-		// Read the configuration from the cache if available
-		$cache_key = 'configuration_settings';
-		if (!$cache_data = Cache::read($cache_key)) {
-			$configuration = ClassRegistry::init('Configuration')->find('all', array(
-				'fields' => array('name', 'value')
-			));
-			Cache::write($cache_key, $configuration, 'short');
-		} else {
-			$configuration = $cache_data;
-		}
-
-		// Loop through the configuration and set the configuration up for each key => value
-		foreach($configuration as $config)
-			Configure::write($config['Configuration']['name'], $config['Configuration']['value']);
 	}
 
 	/**
@@ -74,7 +52,7 @@ class AppController extends Controller {
 		if($this->isAdmin()) {
 			// If a user is logged in, but is not an admin...
 			if($this->Auth->user() && !$this->Auth->user('is_admin')) {
-				$this->Session->setFlash(__('Not authorized to view this resource.', true));
+				$this->Session->setFlash(__('Not authorized to view this resource.', true), 'notification/error');
 				$this->redirect('/');
 			}
 				
