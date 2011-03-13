@@ -29,7 +29,6 @@
 		echo $form->create('Search', array('url' => array('controller' => 'searches', 'action' => 'find')));
 		echo $form->input('query', array('label' => false, 'type' => 'text', 'div' => false));
 		echo $form->input('category', array('options' => array('Containers', 'Items'), 'div' => false, 'label' => false));
-		echo $form->submit('Search', array('div' => false));
 		echo $form->end();
 	?>
 	</div>

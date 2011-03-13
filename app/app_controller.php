@@ -58,10 +58,12 @@ class AppController extends Controller {
 
 		$this->Auth->userModel = 'User';
 		$this->Auth->loginAction = '/login';
-		$this->Auth->loginRedirect = !$this->isAdmin() ? array('controller' => 'containers', 'action' => 'index') : '/';
+		$this->Auth->loginRedirect = !$this->isAdmin() ? '/dashboard' : '/';
 		$this->Auth->logoutRedirect = '/';
 		$this->Auth->loginError = 'No username and password was found with that combination';
 		$this->Auth->userScope = array('User.is_active' => 1);
+
+		$this->Auth->flashElement = 'notification/error';
 
 		$this->Auth->fields = array(
 			'username' => 'email',
