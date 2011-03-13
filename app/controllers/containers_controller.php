@@ -9,6 +9,7 @@ class ContainersController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
+		$this->helpers[] = 'Paginator';
 		$this->set('active', 'containers.index');
 	}
 
@@ -32,10 +33,10 @@ class ContainersController extends AppController {
 		if(!empty($this->data)) {
 			$this->data['Container']['user_id'] = $this->Session->read('Auth.User.id');
 			if($this->Container->save($this->data)) {
-				$this->Session->setFlash('Successfully added new container');
+				$this->Session->setFlash('Successfully added new container', 'notification/success');
 				$this->redirect(array('controller' => 'containers', 'action' => 'index'));
 			} else {
-				$this->Session->setFlash('There was a problem saving your container.');
+				$this->Session->setFlash('There was a problem saving your container.', 'notification/error');
 			}
 		}
 		$this->set('controls', 'container_add');
