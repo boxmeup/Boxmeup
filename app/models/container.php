@@ -76,5 +76,21 @@ class Container extends AppModel {
 		)
 	);
 
+	public function getTotalContainersPerUser($user_id) {
+		$this->recursive = -1;
+		return $this->find('count', array(
+			'conditions' => array(
+				'Container.user_id' => $user_id
+			)
+		));
+	}
+
+	public function verifyContainerUser($id, $user_id) {
+		$this->recursive = -1;
+		return $this->find('first', array(
+			'fields' => array('id'),
+			'conditions' => array('Container.id' => $id, 'Container.user_id' => $user_id)
+		));
+	}
 }
 ?>

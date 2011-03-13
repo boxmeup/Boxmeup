@@ -14,6 +14,8 @@
  */
 	Configure::write('debug', 0);
 
+	Configure::write('Security.hash', 'sha1');
+
 /**
  * CakePHP Log Level:
  *
