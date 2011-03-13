@@ -15,5 +15,17 @@
 
 #footer { float: left; padding: 10px 0;}
 
-.container-box { float: left; padding: 10px; width: 137px; height: 160px; text-align: center; }
+a.container-box { float: left; padding: 10px; width: 137px; height: 160px; text-align: center; border: 1px solid white; color: #333; }
+a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 	.container-name { width: 127px; height: 50px; overflow: hidden; }
+
+.paging { float: right; height:25px; padding: 10px 0 10px 20px; }
+	.paging div,
+	.paging a { border:0; margin:0; padding:0; font-size:11px; list-style:none; float:left; }
+	.paging a{ border:solid 1px #667151; margin-right:2px; }
+	.paging .off { display: none; }
+	.paging .current{ border:solid 1px #667151; background:#c0caff; color: #333;
+					  font-weight:bold; display:block; float:left; padding:3px 4px; margin-right:2px; }
+	.paging a:link,
+	.paging a:visited { color:#333; display:block; float:left; padding:3px 4px; text-decoration:none; }
+	.paging a:hover{ border:solid 1px #667151; background:#c0caff; color:#333; }
