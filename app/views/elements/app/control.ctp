@@ -35,7 +35,9 @@
 ?>
 <div id="control">
 	<?php
-		foreach($control_links[$controls] as $key => $control)
-			echo $html->link($control['label'], $control['link'], array('class' => $control['class']));
+		if(isset($controls)) {
+			foreach($control_links[$controls] as $key => $control)
+				echo $html->link($control['label'], $control['link'], array('class' => $control['class'])).'<br/>';
+		}
 	?>
 </div>
