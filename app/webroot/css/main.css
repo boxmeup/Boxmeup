@@ -2,6 +2,7 @@
 body { font-family: 'PT Sans', arial, serif; background-color: #EFEBE3; font-size: 16px; }
 a, a:visited { text-decoration: none; color: #2981e4; }
 a:hover { color: #2575cf;}
+a img { border: none; }
 .container { width: 960px; margin: 0 auto; }
 
 #header { background-color: #111; }
@@ -21,13 +22,6 @@ a:hover { color: #2575cf;}
 		#navigation li.first {padding: 10px 10px 10px 0; }
 
 #content .content-title { margin-bottom: 10px; }
-
-#app-container { -moz-box-shadow: 0 1px 2px #888; -webkit-box-shadow: 0 1px 2px #888; box-shadow: 0 1px 2px #888; }
-#app { height: 550px; width: 680px; float: left; overflow: auto; padding: 10px 10px 40px 10px; background-color: white; }
-
-#sidebar {height: 550px; border-left: 1px solid #ccc; width: 249px; overflow: none; float: left; padding: 10px 0 40px 10px; background-color: #DDDEFF; }
-	#control { width: 220px; margin: 0 auto; padding-top: 10px; }
-	#rev { width: 160px; margin: 0 auto; padding-top: 10px; }
 
 #footer { padding: 10px; margin-top: 10px; font-size: 12px; float: right;}
 

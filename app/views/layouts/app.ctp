@@ -11,6 +11,7 @@
 		echo $this->Html->css('http://fonts.googleapis.com/css?family=PT+Sans');
 		echo $this->Html->css('http://fonts.googleapis.com/css?family=Nobile');
 		echo $this->Html->css('main');
+		echo $this->Html->css('app');
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.4');");
 		echo $this->Html->scriptBlock("
@@ -30,7 +31,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<?php echo $this->element('navigation'); ?>
+		<?php echo $this->element('app/navigation'); ?>
 		<?php echo $this->element('error'); ?>
 		<div id="app-container">
 			<div id="app">

@@ -7,6 +7,15 @@ class ContainersController extends AppController {
 
 	public $_secure = true;
 
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->set('active', 'containers.index');
+	}
+
+	public function dashboard() {
+		$this->set('active', 'containers.dashboard');
+	}
+
 	public function index() {
 		$this->paginate = array(
 			'conditions' => array(
