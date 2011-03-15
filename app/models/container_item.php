@@ -1,8 +1,8 @@
 <?php
 class ContainerItem extends AppModel {
-	var $name = 'ContainerItem';
-	var $displayField = 'title';
-	var $validate = array(
+	public $name = 'ContainerItem';
+	public $displayField = 'name';
+	public $validate = array(
 		'container_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -13,7 +13,7 @@ class ContainerItem extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'category_id' => array(
+		'tag_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -24,9 +24,9 @@ class ContainerItem extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $belongsTo = array(
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+	public $belongsTo = array(
 		'Container' => array(
 			'className' => 'Container',
 			'foreignKey' => 'container_id',
@@ -35,9 +35,9 @@ class ContainerItem extends AppModel {
 			'order' => 'Container.created',
                         'counterCache' => true
 		),
-		'Category' => array(
-			'className' => 'Category',
-			'foreignKey' => 'category_id',
+		'Tag' => array(
+			'className' => 'Tag',
+			'foreignKey' => 'tag_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
