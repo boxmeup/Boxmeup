@@ -1,9 +1,9 @@
 <?php
 class Container extends AppModel {
-	var $name = 'Container';
-	var $displayField = 'name';
-	var $validate = array(
-		'category_id' => array(
+	public $name = 'Container';
+	public $displayField = 'name';
+	public $validate = array(
+		'tag_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -13,7 +13,7 @@ class Container extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'user_Id' => array(
+		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -44,23 +44,22 @@ class Container extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $belongsTo = array(
-		'Category' => array(
-			'className' => 'Category',
-			'foreignKey' => 'category_id',
+	public $belongsTo = array(
+		'Tag' => array(
+			'className' => 'Tag',
+			'foreignKey' => 'tag_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-                'User' => array(
-                    'className' => 'User',
-                    'foreignKey' => 'user_id',
-                )
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
+		)
 	);
 
-	var $hasMany = array(
+	public $hasMany = array(
 		'ContainerItem' => array(
 			'className' => 'ContainerItem',
 			'foreignKey' => 'container_id',

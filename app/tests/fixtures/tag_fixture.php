@@ -1,7 +1,7 @@
 <?php
-/* Category Fixture generated on: 2011-03-02 23:14:23 : 1299125663 */
-class CategoryFixture extends CakeTestFixture {
-	var $name = 'Category';
+/* Tag Fixture generated on: 2011-03-14 21:08:57 : 1300151337 */
+class TagFixture extends CakeTestFixture {
+	var $name = 'Tag';
 
 	var $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
@@ -18,8 +18,8 @@ class CategoryFixture extends CakeTestFixture {
 			'id' => 1,
 			'name' => 'Lorem ipsum dolor sit amet',
 			'slug' => 'Lorem ipsum dolor sit amet',
-			'created' => '2011-03-02 23:14:23',
-			'modified' => '2011-03-02 23:14:23'
+			'created' => '2011-03-14 21:08:57',
+			'modified' => '2011-03-14 21:08:57'
 		),
 	);
 }
