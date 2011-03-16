@@ -63,7 +63,7 @@ class Container extends AppModel {
 		'ContainerItem' => array(
 			'className' => 'ContainerItem',
 			'foreignKey' => 'container_id',
-			'dependent' => false,
+			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
 			'order' => 'ContainerItem.modified DESC',
@@ -84,12 +84,21 @@ class Container extends AppModel {
 		));
 	}
 
+	public function getTotalContainerItemsPerUser($user_id) {
+		$this->recursive = -1;
+		return $this->field('SUM(container_item_count) AS total_item_count', array('user_id' => $user_id));
+	}
+
 	public function verifyContainerUser($id, $user_id) {
 		$this->recursive = -1;
 		return $this->find('first', array(
 			'fields' => array('id'),
 			'conditions' => array('Container.id' => $id, 'Container.user_id' => $user_id)
 		));
+	}
+
+	public function getIdByUUID($uuid) {
+		return $this->field('id', array('uuid' => $uuid));
 	}
 }
 ?>
