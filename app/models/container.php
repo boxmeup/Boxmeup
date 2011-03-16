@@ -1,9 +1,9 @@
 <?php
 class Container extends AppModel {
-	var $name = 'Container';
-	var $displayField = 'name';
-	var $validate = array(
-		'category_id' => array(
+	public $name = 'Container';
+	public $displayField = 'name';
+	public $validate = array(
+		'tag_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -13,7 +13,7 @@ class Container extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'user_Id' => array(
+		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -44,27 +44,26 @@ class Container extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $belongsTo = array(
-		'Category' => array(
-			'className' => 'Category',
-			'foreignKey' => 'category_id',
+	public $belongsTo = array(
+		'Tag' => array(
+			'className' => 'Tag',
+			'foreignKey' => 'tag_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-                'User' => array(
-                    'className' => 'User',
-                    'foreignKey' => 'user_id',
-                )
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
+		)
 	);
 
-	var $hasMany = array(
+	public $hasMany = array(
 		'ContainerItem' => array(
 			'className' => 'ContainerItem',
 			'foreignKey' => 'container_id',
-			'dependent' => false,
+			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
 			'order' => 'ContainerItem.modified DESC',
@@ -76,5 +75,30 @@ class Container extends AppModel {
 		)
 	);
 
+	public function getTotalContainersPerUser($user_id) {
+		$this->recursive = -1;
+		return $this->find('count', array(
+			'conditions' => array(
+				'Container.user_id' => $user_id
+			)
+		));
+	}
+
+	public function getTotalContainerItemsPerUser($user_id) {
+		$this->recursive = -1;
+		return $this->field('SUM(container_item_count) AS total_item_count', array('user_id' => $user_id));
+	}
+
+	public function verifyContainerUser($id, $user_id) {
+		$this->recursive = -1;
+		return $this->find('first', array(
+			'fields' => array('id'),
+			'conditions' => array('Container.id' => $id, 'Container.user_id' => $user_id)
+		));
+	}
+
+	public function getIdByUUID($uuid) {
+		return $this->field('id', array('uuid' => $uuid));
+	}
 }
 ?>

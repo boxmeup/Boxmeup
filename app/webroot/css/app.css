@@ -1,0 +1,34 @@
+#navigation {padding-top: 5px; }
+	#navigation ul li { background-color: #2981e4; padding: 5px 10px; margin-right: 3px; }
+	#navigation ul li.active {background-color:#c0caff; }
+		#navigation ul li a{ color: #eee; }
+		#navigation ul li.active a { color: #333; }
+	#search {float: right; padding-right: 10px; }
+#app {
+	height: 500px; width: 680px; float: left; overflow: auto; padding: 10px 10px 40px 10px; background-color: white;
+	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 1px 2px #888;
+}
+
+#sidebar {height: 500px; border-left: 1px solid #ccc; width: 249px; overflow: none; float: left; padding: 10px 0 40px 10px; }
+	#control { width: 220px; margin: 0 auto; padding-top: 10px; height: 150px;}
+	#rev { width: 160px; margin: 0 auto; padding-top: 10px; }
+
+#footer { float: left; padding: 10px 0;}
+
+a.container-box { float: left; padding: 10px; width: 137px; height: 160px; text-align: center; border: 1px solid white; color: #333; }
+a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
+	.container-name { width: 127px; height: 50px; overflow: hidden; }
+
+.paging { float: right; height:25px; padding: 10px 0 10px 20px; }
+	.paging div,
+	.paging a { border:0; margin:0; padding:0; font-size:11px; list-style:none; float:left; }
+	.paging a{ border:solid 1px #667151; margin-right:2px; }
+	.paging .off { display: none; }
+	.paging .current{ border:solid 1px #667151; background:#c0caff; color: #333;
+					  font-weight:bold; display:block; float:left; padding:3px 4px; margin-right:2px; }
+	.paging a:link,
+	.paging a:visited { color:#333; display:block; float:left; padding:3px 4px; text-decoration:none; }
+	.paging a:hover{ border:solid 1px #667151; background:#c0caff; color:#333; }
+
+.container-item-list { padding: 10px 20px; }
+	.alternate { background-color: #ddd; }

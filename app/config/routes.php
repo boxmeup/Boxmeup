@@ -23,5 +23,8 @@
 	Router::connect('/admin', array('controller' => 'manager', 'action' => 'index', 'admin' => true));
 	Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
 
+	// Application
+	Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
+
 	// Fallback
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
