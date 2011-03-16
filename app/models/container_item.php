@@ -33,7 +33,7 @@ class ContainerItem extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => 'Container.created',
-                        'counterCache' => true
+            'counterCache' => true
 		),
 		'Tag' => array(
 			'className' => 'Tag',
