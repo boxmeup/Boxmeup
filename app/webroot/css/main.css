@@ -15,7 +15,7 @@ a img { border: none; }
 	#auth li { float: left; padding: 10px 10px 10px 0; }
 		#auth li a { text-decoration: none; }
 
-#main { background-color: white; padding: 10px 10px 40px 10px; -moz-box-shadow: 0 1px 2px #888; -webkit-box-shadow: 0 2px 2px 1px #888; box-shadow: 0 2px 2px 1px #888;}
+#main { background-color: white; padding: 10px 10px 40px 10px; -moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 1px 2px #888; }
 
 #navigation ul { list-style: none; }
 	#navigation li { float: left; padding: 10px;}
