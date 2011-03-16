@@ -1,14 +1,14 @@
-<div id="account">
+<div id="auth">
 	<ul>
 	<?php
 		if(!empty($User)) {
-			echo $html->tag('li', $html->link('My Account', '/account'));
+			echo $html->tag('li', $html->link('My Account', '/account', array('class' => 'large blue button')));
 			if($User['is_admin'] == '1')
-				echo $html->tag('li', $html->link('Admin', '/admin', array('style' => 'float: right')));
-			echo $html->tag('li', $html->link('Sign Out', '/logout'));
+				echo $html->tag('li', $html->link('Admin', '/admin', array('class' => 'large red button')));
+			echo $html->tag('li', $html->link('Sign Out', '/logout', array('class' => 'large orange button')));
 		} else {
-			echo $html->tag('li', $html->link('Sign Up', '/signup'));
-			echo $html->tag('li', $html->link('Login', '/login'));
+			echo $html->tag('li', $html->link('Sign Up', '/signup', array('class' => 'large green button')));
+			echo $html->tag('li', $html->link('Login', '/login', array('class' => 'large blue button')));
 		}
 	?>
 	</ul>
