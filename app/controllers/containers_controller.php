@@ -12,7 +12,6 @@ class ContainersController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->helpers[] = 'Paginator';
 		$this->set('active', 'containers.index');
 	}
 
@@ -72,23 +71,23 @@ class ContainersController extends AppController {
 			$this->Session->setFlash(__('Invalid container ID.', true), 'notification/error');
 			$this->redirect(array('controller' => 'containers', 'action' => 'index'));
 		} else {
-
+			$this->verifyUser($container_uuid);
 			if($this->Container->delete($this->Container->getIdByUUID($container_uuid)))
 				$this->Session->setFlash(__('Successfully deleted container and all contained items.', true), 'notification/success');
 			else
 				$this->Session->setFlash(__('Error deleting container.', true), 'notification/error');
-			$this->redirect(array('controllers' => 'containers', 'action' => 'index'));
+			$this->redirect(array('controller' => 'containers', 'action' => 'index'));
 		}
 	}
 
-	private function verifyUser($id) {
-		if(!$this->Container->verifyContainerUser($id, $this->Auth->user('id'))) {
-			$this->Session->setFlash(__('Not authorized to view this container', true), 'notification/error');
-			$this->redirect(array(
-				'controller' => 'containers',
-				'action' => 'index'
-			));
-		}
+	public function print_label($container_uuid) {
+		$this->layout = 'print';
+		$this->verifyUser($container_uuid);
+		$this->set('container', $this->Container->find('first', array(
+			'fields' => array('id', 'uuid', 'slug', 'name'),
+			'conditions' => array('Container.uuid' => $container_uuid),
+			'contain' => array()
+		)));
 	}
 
 }
