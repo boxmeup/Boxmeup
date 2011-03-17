@@ -47,7 +47,15 @@ class ContainersController extends AppController {
 			$this->verifyUser($container['Container']['id']);
 			$this->set('container_slug', $container['Container']['slug']);
 		}
-		$this->set('container', $container);
+		$this->paginate = array(
+			'conditions' => array(
+				'ContainerItem.container_id' => $container['Container']['id'],
+			),
+			'contain' => array(),
+			'limit' => $this->_container_page_limit
+		);
+		$container_items = $this->paginate('ContainerItem');
+		$this->set(compact('container', 'container_items'));
 		$this->set('control', 'containers.view');
 	}
 
