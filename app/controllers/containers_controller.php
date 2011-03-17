@@ -52,6 +52,7 @@ class ContainersController extends AppController {
 				'ContainerItem.container_id' => $container['Container']['id'],
 			),
 			'contain' => array(),
+			'order' => 'ContainerItem.modified DESC',
 			'limit' => $this->_container_page_limit
 		);
 		$container_items = $this->paginate('ContainerItem');
