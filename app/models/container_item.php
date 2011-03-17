@@ -43,5 +43,9 @@ class ContainerItem extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public function getContainerSlug($container_uuid) {
+		return $this->Container->field('slug', array('uuid' => $container_uuid));
+	}
 }
 ?>
