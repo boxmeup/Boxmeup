@@ -31,6 +31,6 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 	.paging a:hover{ border:solid 1px #667151; background:#c0caff; color:#333; }
 
 .container-item-list { padding: 10px 20px; }
-	.container-item-list-content { width: 590px; float: left;}
+	.container-item-list-content { width: 570px; float: left;}
 	.container-item-list-options { margin-left: 10px; float: left; }
 	.alternate { background-color: #ddd; }
