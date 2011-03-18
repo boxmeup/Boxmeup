@@ -13,6 +13,12 @@ class ContainerItem extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'body' => array(
+			'empty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Please enter some content for the item.'
+			)
+		),
 		'tag_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),

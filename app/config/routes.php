@@ -26,5 +26,8 @@
 	// Application
 	Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
 
+	// Feedback plugin
+	Router::connect('/feedback', array('plugin' => 'feedback', 'controller' => 'communicate', 'action' => 'index'));
+
 	// Fallback
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
