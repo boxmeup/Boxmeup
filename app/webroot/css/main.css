@@ -41,6 +41,8 @@ a img { border: none; }
 	cursor: pointer
 }
 
+input.button { border: 0; }
+
 .button:hover							{ background-color: #111; color: #fff; }
 .button:active							{ top: 1px; }
 .small.button, .small.button:visited 			{ font-size: 11px}
