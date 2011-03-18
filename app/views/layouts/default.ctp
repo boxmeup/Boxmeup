@@ -11,6 +11,7 @@
 		echo $this->Html->css('http://fonts.googleapis.com/css?family=Nobile');
 		echo $this->Html->css('main');
 		echo $this->Html->css('jquery-ui-1.8.10.custom');
+		echo $this->Html->css('/feedback/css/feedback.css');
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.5.1');");
 		echo $this->Html->scriptBlock("google.load('jqueryui', '1.8.10');");
@@ -42,5 +43,6 @@
 		</div>
 		<?php echo $this->element('footer'); ?>
 	</div>
+	<?php echo $this->element('feedback', array('plugin' => 'feedback')); ?>
 </body>
 </html>
