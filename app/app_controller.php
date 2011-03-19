@@ -24,7 +24,8 @@ class AppController extends Controller {
 		$User = $this->Auth->user();
 		$this->set(array(
 			'User' => $User[$this->Auth->userModel],
-			'Webroot' => $this->webroot
+			'Webroot' => $this->webroot,
+			'Fullwebroot' => env('SERVER_NAME') . $this->webroot
 		));
 	}
 
