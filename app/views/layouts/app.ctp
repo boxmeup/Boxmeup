@@ -36,6 +36,10 @@
 	<div class="container">
 		<?php echo $this->element('app/navigation'); ?>
 		<div id="app-container">
+			<div id="submenu">
+				<?php echo $this->element('app/submenu'); ?>
+				<?php echo $this->element('paginate'); ?>
+			</div>
 			<div id="app">
 				<noscript>
 					<div class="widget">
@@ -49,9 +53,7 @@
 				</noscript>
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->Session->flash('auth'); ?>
-				<?php echo $this->element('paginate'); ?>
 				<?php echo $content_for_layout; ?>
-				<?php echo $this->element('paginate'); ?>
 			</div>
 			<div id="sidebar">
 				<?php echo $this->element('app/control'); ?>
