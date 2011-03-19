@@ -4,12 +4,19 @@
 		#navigation ul li a{ color: #eee; }
 		#navigation ul li.active a { color: #333; }
 	#search {float: right; padding-right: 10px; }
-#app {
-	height: 500px; width: 680px; float: left; overflow: auto; padding: 10px 10px 40px 10px; background-color: white;
+#submenu {
+	padding: 0 10px; background-color: #C0CAFF; width: 680px; float: left;
 	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 1px 2px #888;
 }
+	#submenu-content { float: left; padding: 5px 0; }
+	#submenu-content a { margin-right: 8px; }
+		#submenu-content a img {width: 9px; height: 9px;}
+#app {
+	height: 480px; width: 680px; float: left; overflow: auto; padding: 10px 10px 40px 10px; background-color: white;
+	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 1px 2px #888; z-index: 2;
+}
 
-#sidebar {height: 500px; border-left: 1px solid #ccc; width: 249px; overflow: none; float: left; padding: 10px 0 40px 10px; }
+#sidebar {height: 480px; border-left: 1px solid #ccc; width: 249px; overflow: none; float: left; padding: 10px 0 40px 10px; }
 	#control { width: 220px; margin: 0 auto; padding-top: 10px; height: 150px;}
 	#rev { width: 160px; margin: 0 auto; padding-top: 10px; }
 
@@ -19,16 +26,16 @@ a.container-box { float: left; padding: 10px; width: 137px; height: 160px; text-
 a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 	.container-name { width: 127px; height: 50px; overflow: hidden; }
 
-.paging { float: right; height:25px; padding: 10px 0 10px 20px; }
+.paging { float: right; padding: 13px 0 0 0; }
 	.paging div,
-	.paging a { border:0; margin:0; padding:0; font-size:11px; list-style:none; float:left; }
-	.paging a{ border:solid 1px #667151; margin-right:2px; }
+	.paging a { font-size:12px; list-style:none; float:left; }
+	.paging a { border:solid 1px #667151; border-bottom: 0; margin-right:2px; }
 	.paging .off { display: none; }
-	.paging .current{ border:solid 1px #667151; background:#c0caff; color: #333;
+	.paging .current{ border:solid 1px #667151; border-bottom: 0; background: white; color: #333;
 					  font-weight:bold; display:block; float:left; padding:3px 4px; margin-right:2px; }
 	.paging a:link,
-	.paging a:visited { color:#333; display:block; float:left; padding:3px 4px; text-decoration:none; }
-	.paging a:hover{ border:solid 1px #667151; background:#c0caff; color:#333; }
+	.paging a:visited { background: white; color:#333; display:block; float:left; padding:3px 4px; text-decoration:none; }
+	.paging a:hover{ border:solid 1px #667151; border-bottom: 0; background:#2981E4; color:#efefef; }
 
 .container-item-list { padding: 10px 20px; }
 	.container-item-list-content { width: 570px; float: left;}
