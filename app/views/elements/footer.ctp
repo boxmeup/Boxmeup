@@ -1,5 +1,6 @@
 <?php
 	$footer_links = array(
+		'Features' => '/features',
 		'About' => '/about',
 		'Terms of Service' => '/terms',
 		'Privacy Policy' => '/privacy'
