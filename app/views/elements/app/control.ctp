@@ -1,6 +1,11 @@
+<?php
+	if(isset($control)) {
+?>
 <div id="control">
-	<?php
-		if(isset($control))
-			echo $this->element('app/controls/'.$control);
-	?>
+<?php
+		echo $this->element('app/controls/'.$control);
+?>
 </div>
+<?php
+	}
+?>

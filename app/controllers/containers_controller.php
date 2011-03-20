@@ -72,7 +72,6 @@ class ContainersController extends AppController {
 				$this->Session->setFlash('There was a problem saving your container.', 'notification/error');
 			}
 		}
-		$this->set('control', 'containers.add');
 	}
 
 	public function delete($container_uuid) {
