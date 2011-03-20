@@ -40,6 +40,10 @@
 				<?php echo $this->element('app/submenu'); ?>
 				<?php echo $this->element('paginate'); ?>
 			</div>
+			<div id="sidebar">
+				<?php echo $this->element('app/control'); ?>
+				<?php echo $this->element('app/advertise'); ?>
+			</div>
 			<div id="app">
 				<noscript>
 					<div class="widget">
@@ -54,10 +58,6 @@
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->Session->flash('auth'); ?>
 				<?php echo $content_for_layout; ?>
-			</div>
-			<div id="sidebar">
-				<?php echo $this->element('app/control'); ?>
-				<?php echo $this->element('app/advertise'); ?>
 			</div>
 			<div style="clear: both"></div>
 		</div>
