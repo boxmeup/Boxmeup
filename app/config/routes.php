@@ -7,7 +7,8 @@
 	 */
 	$static_pages = array(
 		'' => 'home',
-		'about' => 'about'
+		'about' => 'about',
+		'features' => 'features'
 	);
 	foreach($static_pages as $slug => $page)
 		Router::connect('/'.$slug, array('controller' => 'pages', 'action' => 'display', $page));
