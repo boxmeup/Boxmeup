@@ -11,7 +11,25 @@ class ContainerItemsController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->set('active', 'containers.index');
+		$this->set('active', 'container_items.index');
+	}
+
+	public function index() {
+		$this->helpers[] = 'Time';
+		$containers = $this->Container->find('list', array(
+			'conditions' => array('Container.user_id' => $this->Auth->user('id')),
+			'order' => 'Container.name'
+		));
+		$this->paginate = array(
+			'conditions' => array('Container.user_id' => $this->Auth->user('id')),
+			'limit' => 25,
+			'contain' => array(
+				'Container' => array('fields' => array('id', 'name', 'slug'))
+			),
+			'order' => 'ContainerItem.modified DESC'
+		);
+		$container_items = $this->paginate('ContainerItem');
+		$this->set(compact('containers', 'container_items'));
 	}
 
 	public function add($container_uuid) {
@@ -32,6 +50,24 @@ class ContainerItemsController extends AppController {
 			}
 		}
 		$this->set('container', array('Container' => array('uuid' => $container_uuid)));
+	}
+
+	public function add_item() {
+		if(!empty($this->data)) {
+			if(!empty($this->data['ContainerItem']['container_id']))
+				$this->verifyUser($this->data['ContainerItem']['container_id']);
+			if($this->ContainerItem->save($this->data)) {
+				$this->Session->setFlash(__('Successfully added new container item.', true), 'notification/success');
+				$this->redirect(array('controller' => 'container_items', 'action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Error adding new container item.', true), 'notification/error');
+			}
+		}
+		$containers = $this->Container->find('list', array(
+			'conditions' => array('Container.user_id' => $this->Auth->user('id')),
+			'order' => 'Container.name'
+		));
+		$this->set(compact('containers'));
 	}
 
 	public function edit($item_uuid) {
