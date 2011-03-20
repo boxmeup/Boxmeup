@@ -10,9 +10,9 @@
 			'label' => 'My Containers',
 			'link' => array('controller' => 'containers', 'action' => 'index')
 		),
-		'tags.index' => array(
-			'label' => 'Manage Tags',
-			'link' => '#'
+		'container_items.index' => array(
+			'label' => 'My Items',
+			'link' => array('controller' => 'container_items', 'action' => 'index')
 		)
 	);
 ?>
