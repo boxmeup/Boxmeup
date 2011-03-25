@@ -13,52 +13,68 @@
 		echo $this->Html->css('main');
 		echo $this->Html->css('app');
 		echo $this->Html->css('jquery-ui-1.8.10.custom');
+		echo $this->Html->css('jquery.fancybox-1.3.4');
+		echo $this->Html->css('/feedback/css/feedback.css');
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.5.1');");
 		echo $this->Html->scriptBlock("google.load('jqueryui', '1.8.10');");
 		echo $this->Html->scriptBlock("
 			var WEBROOT = '$Webroot';
 		");
+		echo $this->Html->script('jquery.fancybox-1.3.4.pack');
+		echo $this->Html->script('app');
 		echo $scripts_for_layout;
 	?>
 </head>
 <body>
-	<div id="header">
-		<div class="container">
-			<div id="logo">
-				<h1><?php echo $html->link('Boxmeup', '/'); ?></h1>
+	<div class="fixed-header">
+		<div id="header">
+			<div class="container">
+				<div id="logo">
+					<h1><?php echo $html->link('Boxmeup', '/'); ?></h1>
+				</div>
+				<?php echo $this->element('account'); ?>
+				<div style="clear: both"></div>
 			</div>
-			<?php echo $this->element('account'); ?>
+		</div>
+		<div class="container">
+			<?php echo $this->element('app/navigation'); ?>
+			<div id="submenu">
+				<?php echo $this->element('app/submenu'); ?>
+				<?php echo $this->element('paginate'); ?>
+			</div>
 			<div style="clear: both"></div>
 		</div>
 	</div>
 	<div class="container">
-		<?php echo $this->element('app/navigation'); ?>
-		<div id="app-container">
+		<div id="app-container" class="app-begin">
+			<div id="sidebar">
+				<?php echo $this->element('app/control'); ?>
+				<?php echo $this->element('app/advertise'); ?>
+				
+			</div>
 			<div id="app">
 				<noscript>
-					<div class="widget">
+					<div class="ui-widget">
 						<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
 							<p style="padding: 5px;">
 								<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em;"></span>
-								Please enable Javascript for this application to function properly.
+								Boxmeup works best with JavaScript enabled.
 							</p>
 						</div>
 					</div>
 				</noscript>
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->Session->flash('auth'); ?>
-				<?php echo $this->element('paginate'); ?>
 				<?php echo $content_for_layout; ?>
-				<?php echo $this->element('paginate'); ?>
+
 			</div>
-			<div id="sidebar">
-				<?php echo $this->element('app/control'); ?>
-				<?php echo $this->element('app/advertise'); ?>
-			</div>
+			<?php echo $this->element('footer'); ?>
 			<div style="clear: both"></div>
+			
 		</div>
-		<?php echo $this->element('footer'); ?>
+		
 	</div>
+	<?php echo $this->element('feedback', array('plugin' => 'feedback')); ?>
 </body>
 </html>

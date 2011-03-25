@@ -41,6 +41,8 @@ a img { border: none; }
 	cursor: pointer
 }
 
+input.button { border: 0; }
+
 .button:hover							{ background-color: #111; color: #fff; }
 .button:active							{ top: 1px; }
 .small.button, .small.button:visited 			{ font-size: 11px}
@@ -69,3 +71,21 @@ a img { border: none; }
 .blue.button:hover							{ background-color: #2575cf; }
 .yellow.button, .yellow.button:visited		{ background-color: #ffb515; }
 .yellow.button:hover						{ background-color: #fc9200; }
+
+form input, form select, form textarea {
+	background-color: #eaeaea;
+	background: -moz-linear-gradient(top, #ffffff, #eaeaea);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ffffff), color-stop(1.0, #eaeaea));
+	border: 1px solid #cacaca;
+	color: #444;
+	padding: 3px 5px;
+}
+form label {
+	display: block;
+}
+form textarea {
+	width: 400px;
+	height: 150px;
+}
+
+.error-message { margin: 0 5px; padding: 5px; color: #CD0A0A; border: 1px solid #CD0A0A; background: #FEF1EC; display: inline; }

@@ -7,7 +7,8 @@
 	 */
 	$static_pages = array(
 		'' => 'home',
-		'about' => 'about'
+		'about' => 'about',
+		'features' => 'features'
 	);
 	foreach($static_pages as $slug => $page)
 		Router::connect('/'.$slug, array('controller' => 'pages', 'action' => 'display', $page));
@@ -25,6 +26,9 @@
 
 	// Application
 	Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
+
+	// Feedback plugin
+	Router::connect('/feedback', array('plugin' => 'feedback', 'controller' => 'communicate', 'action' => 'index'));
 
 	// Fallback
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
