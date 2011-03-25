@@ -6,12 +6,18 @@ class ContainerItem extends AppModel {
 		'container_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Please select a container.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+		),
+		'body' => array(
+			'empty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Please enter some content for the item.'
+			)
 		),
 		'tag_id' => array(
 			'numeric' => array(
@@ -43,5 +49,9 @@ class ContainerItem extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public function getContainerSlug($container_uuid) {
+		return $this->Container->field('slug', array('uuid' => $container_uuid));
+	}
 }
 ?>

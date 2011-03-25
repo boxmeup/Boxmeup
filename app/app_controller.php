@@ -8,7 +8,7 @@ class AppController extends Controller {
 		'Security',
 		'DebugKit.Toolbar' => array('panels' => array('history' => false))
 	);
-	public $helpers = array('Html', 'Form', 'Session');
+	public $helpers = array('Html', 'Form', 'Session', 'Paginator');
 
 	public $_secure = false;
 
@@ -24,7 +24,8 @@ class AppController extends Controller {
 		$User = $this->Auth->user();
 		$this->set(array(
 			'User' => $User[$this->Auth->userModel],
-			'Webroot' => $this->webroot
+			'Webroot' => $this->webroot,
+			'Fullwebroot' => env('SERVER_NAME') . $this->webroot
 		));
 	}
 
@@ -70,5 +71,22 @@ class AppController extends Controller {
 
 	public function isAdmin() {
 		return isset($this->params['admin']) && $this->params['admin'];
+	}
+
+	/**
+	 * Verifies the current user can perform sensitive actions on container.
+	 *
+	 * @param <mixed> $id Can be either integer ID or UUID
+	 */
+	public function verifyUser($id) {
+		if(strstr($id, '-') !== false)
+			$id = ClassRegistry::init('Container')->getIdByUUID($id);
+		if(!ClassRegistry::init('Container')->verifyContainerUser($id, $this->Auth->user('id'))) {
+			$this->Session->setFlash(__('Not authorized to perform actions on this container', true), 'notification/error');
+			$this->redirect(array(
+				'controller' => 'containers',
+				'action' => 'index'
+			));
+		}
 	}
 }
