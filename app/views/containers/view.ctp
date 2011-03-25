@@ -10,6 +10,7 @@
 			});
 		});
 	");
+	echo $html->script('views/containers/view', array('inline' => false));
 ?>
 <h2><?php echo $container['Container']['name']; ?></h2>
 <br/>
@@ -27,7 +28,7 @@
 			<div class="container-item-list <?php echo $key % 2 != 0 ? 'alternate' : '' ?>" >
 				<p class="container-item-list-content"><?php echo Sanitize::html($item['ContainerItem']['body'], array('remove' => true)); ?></p>
 				<div class="container-item-list-options">
-					<?php echo $html->link($html->image('icons/edit.png'), array('controller' => 'container_items', 'action' => 'edit', $item['ContainerItem']['uuid']), array('escape' => false)); ?>
+					<?php echo $html->link($html->image('icons/edit.png'), array('controller' => 'container_items', 'action' => 'edit', $item['ContainerItem']['uuid']), array('escape' => false, 'class' => 'ui-modal')); ?>
 					<?php echo $html->link($html->image('icons/delete.png'), array('controller' => 'container_items', 'action' => 'delete', $item['ContainerItem']['uuid']), array('escape' => false), 'Are you sure you want to delete this item?'); ?>
 				</div>
 				<div style="clear: both"></div>

@@ -11,6 +11,7 @@
 		echo $this->Html->css('http://fonts.googleapis.com/css?family=Nobile');
 		echo $this->Html->css('main');
 		echo $this->Html->css('jquery-ui-1.8.10.custom');
+		echo $this->Html->css('jquery.fancybox-1.3.4');
 		echo $this->Html->css('/feedback/css/feedback.css');
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.5.1');");
@@ -18,6 +19,8 @@
 		echo $this->Html->scriptBlock("
 			var WEBROOT = '$Webroot';
 		");
+		echo $this->Html->script('jquery.fancybox-1.3.4.pack');
+		echo $this->Html->script('main');
 		echo $scripts_for_layout;
 	?>
 </head>
