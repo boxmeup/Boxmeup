@@ -87,3 +87,5 @@ form textarea {
 	width: 400px;
 	height: 150px;
 }
+
+.error-message { margin: 0 5px; padding: 5px; color: #CD0A0A; border: 1px solid #CD0A0A; background: #FEF1EC; display: inline; }
