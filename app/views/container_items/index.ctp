@@ -29,7 +29,7 @@
 					$item['ContainerItem']['body'],
 					$html->link($item['Container']['name'], array('controller' => 'containers', 'action' => 'view', $item['Container']['slug'])),
 					$time->niceShort($item['ContainerItem']['modified']),
-					$html->link($html->image('icons/edit.png'), array('controller' => 'container_items', 'action' => 'edit', $item['ContainerItem']['uuid']), array('escape' => false)).' '.
+					$html->link($html->image('icons/edit.png'), array('controller' => 'container_items', 'action' => 'edit', $item['ContainerItem']['uuid']), array('escape' => false, 'class' => 'ui-modal')).' '.
 					$html->link($html->image('icons/delete.png'), array('controller' => 'container_items', 'action' => 'delete', $item['ContainerItem']['uuid']), array('escape' => false), 'Are you sure you want to delete this item?')
 				), array('class' => 'alternate'));
 			}

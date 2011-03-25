@@ -13,6 +13,7 @@
 		echo $this->Html->css('main');
 		echo $this->Html->css('app');
 		echo $this->Html->css('jquery-ui-1.8.10.custom');
+		echo $this->Html->css('jquery.fancybox-1.3.4');
 		echo $this->Html->css('/feedback/css/feedback.css');
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.5.1');");
@@ -20,6 +21,8 @@
 		echo $this->Html->scriptBlock("
 			var WEBROOT = '$Webroot';
 		");
+		echo $this->Html->script('jquery.fancybox-1.3.4.pack');
+		echo $this->Html->script('app');
 		echo $scripts_for_layout;
 	?>
 </head>
@@ -52,11 +55,11 @@
 			</div>
 			<div id="app">
 				<noscript>
-					<div class="widget">
+					<div class="ui-widget">
 						<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
 							<p style="padding: 5px;">
 								<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em;"></span>
-								Please enable Javascript for this application to function properly.
+								Boxmeup works best with JavaScript enabled.
 							</p>
 						</div>
 					</div>

@@ -4,7 +4,9 @@
 	#navigation ul li { background-color: #2981e4; padding: 5px 10px; margin-right: 3px; }
 	#navigation ul li.active {background-color:#c0caff; }
 		#navigation ul li a{ color: #eee; }
+		#navigation ul li a:hover { color: white; text-decoration: underline; }
 		#navigation ul li.active a { color: #333; }
+		#navigation ul li.action a:hover { color: black; }
 	#search {float: right; padding-right: 10px; }
 #submenu {
 	padding: 0 10px; background-color: #C0CAFF; width: 680px; float: left;
@@ -44,7 +46,7 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 	.paging a:hover{ border:solid 1px #667151; border-bottom: 0; background:#2981E4; color:#efefef; }
 
 .container-item-list { padding: 10px 20px; }
-	.container-item-list-content { width: 570px; float: left;}
+	.container-item-list-content { width: 570px; float: left; padding: 2px;}
 	.container-item-list-options { margin-left: 10px; float: left; }
 	.alternate { background-color: #ddd; }
 
