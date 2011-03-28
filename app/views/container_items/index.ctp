@@ -1,6 +1,6 @@
 <?php
 	echo $form->create('ContainerItem', array('url' => array('controller' => 'container_items', 'action' => 'add_item')));
-	echo $form->input('ContainerItem.body', array('type' => 'text', 'label' => false, 'style' => 'float: left'));
+	echo $form->input('ContainerItem.body', array('type' => 'text', 'label' => false, 'class' => 'container_item_index', 'maxlength' => 100));
 	echo $form->input('ContainerItem.container_id', array('options' => $containers, 'empty' => 'Select a container', 'label' => false, 'style' => 'float: left'));
 	echo $form->submit('Add Item', array('div' => false, 'class' => 'small green button', 'style' => 'float: left'));
 	echo $form->end();
