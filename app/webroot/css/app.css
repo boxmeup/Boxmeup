@@ -34,6 +34,9 @@ a.container-box { float: left; padding: 10px; width: 137px; height: 160px; text-
 a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 	.container-name { width: 127px; height: 50px; overflow: hidden; }
 
+.widget { background: #EFEBE3; border: 1px solid #ccc; padding: 10px; }
+.hint { color: #aaa; font-size: 10px; }
+
 .paging { float: right; padding: 13px 0 0 0; }
 	.paging div,
 	.paging a { font-size:12px; list-style:none; float:left; }
@@ -49,6 +52,9 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 	.container-item-list-content { width: 570px; float: left; padding: 2px;}
 	.container-item-list-options { margin-left: 10px; float: left; }
 	.alternate { background-color: #ddd; }
+
+.container_view_add { float: left; width: 400px; }
+.container_item_index { float: left; width: 350px; }
 
 table { width: 100%; }
 	table tbody td { padding: 10px; }

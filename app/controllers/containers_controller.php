@@ -19,6 +19,7 @@ class ContainersController extends AppController {
 
 	public function dashboard() {
 		$this->helpers[] = 'GChart';
+		$this->helpers[] = 'Time';
 		$total_containers = $this->Container->getTotalContainersPerUser($this->Auth->user('id'));
 		$total_container_items = $this->Container->getTotalContainerItemsPerUser($this->Auth->user('id'));
 
@@ -58,24 +59,37 @@ class ContainersController extends AppController {
 				array('number' => 'Items')
 			),
 			'data' => $graph_data,
-			'title' => 'Containers Stats over past 7 days',
+			'title' => 'My Container Stats over the past 7 days',
 			'type' => 'line',
 			'width' => 650,
 		);
 
-		$this->set(compact('total_containers', 'total_container_items', 'container_graph'));
+		// Recent items
+		$recent_items = $this->ContainerItem->find('all', array(
+			'limit' => 5,
+			'order' => 'ContainerItem.created DESC',
+			'contain' => array('Container'),
+			'conditions' => array('Container.user_id' => $this->Auth->user('id'))
+		));
+
+		$this->set(compact('total_containers', 'total_container_items', 'container_graph', 'recent_items'));
 		$this->set('active', 'containers.dashboard');
 	}
 
 	public function index() {
 		$this->paginate = array(
 			'conditions' => array(
-				'Container.user_id' => $this->Session->read('Auth.User.id')
+				'Container.user_id' => $this->Auth->user('id')
 			),
 			'contain' => array(),
 			'limit' => $this->_container_page_limit
 		);
-		$this->set('containers', $this->paginate('Container'));
+		$containers = $this->paginate('Container');
+		if(empty($containers)) {
+			$this->Session->setFlash('Start by creating a container.', 'notification/notice');
+			$this->redirect(array('action' => 'add'));
+		}
+		$this->set('containers', $containers);
 		$this->set('control', 'containers.index');
 	}
 
