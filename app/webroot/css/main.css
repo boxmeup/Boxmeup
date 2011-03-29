@@ -41,6 +41,8 @@ a img { border: none; }
 	cursor: pointer
 }
 
+.ui-notification { font-size: 12px; }
+
 input.button { border: 0; }
 
 .button:hover							{ background-color: #111; color: #fff; }
@@ -81,6 +83,8 @@ form input, form select, form textarea {
 	padding: 3px 5px;
 }
 form label {
+	margin-top: 10px;
+	font-size: 12px;
 	display: block;
 }
 form textarea {

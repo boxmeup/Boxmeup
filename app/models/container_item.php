@@ -2,6 +2,7 @@
 class ContainerItem extends AppModel {
 	public $name = 'ContainerItem';
 	public $displayField = 'name';
+	public $actsAs = array('Sphinx');
 	public $validate = array(
 		'container_id' => array(
 			'numeric' => array(
