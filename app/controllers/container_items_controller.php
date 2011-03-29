@@ -20,6 +20,10 @@ class ContainerItemsController extends AppController {
 			'conditions' => array('Container.user_id' => $this->Auth->user('id')),
 			'order' => 'Container.name'
 		));
+		if(empty($containers)) {
+			$this->Session->setFlash('Start by creating a container.', 'notification/notice');
+			$this->redirect(array('controller' => 'containers', 'action' => 'add'));
+		}
 		$this->paginate = array(
 			'conditions' => array('Container.user_id' => $this->Auth->user('id')),
 			'limit' => 25,
