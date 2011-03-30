@@ -16,7 +16,7 @@
 <br/>
 <?php
 	echo $form->create('ContainerItem', array('url' => array('controller' => 'container_items', 'action' => 'add', $container['Container']['uuid'])));
-	echo $form->input('body', array('type' => 'text', 'label' => false, 'class' => 'container_view_add', 'maxlength' => 100));
+	echo $form->input('body', array('type' => 'text', 'label' => false, 'class' => 'container_view_add focus', 'maxlength' => 100));
 	echo $form->submit('Add Item', array('div' => false, 'class' => 'small green button', 'style' => 'float: left'));
 	echo $form->end();
 	echo $html->tag('div', '', array('style' => 'clear: both'));
