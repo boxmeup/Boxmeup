@@ -9,10 +9,13 @@ $(document).ready(function() {
 				$.fancybox.showActivity();
 			},
 			success: function(data) {
-				$.fancybox(data);
+				$.fancybox({content: data});
 			},
 			error: function(data) {
 				$.fancybox({content: 'Error processing request.'});
+			},
+			complete: function() {
+				$('.focus:last').focus();
 			}
 		});
 		return false;
@@ -34,5 +37,9 @@ $(document).ready(function() {
 	$('body').delegate('#SearchQuery', 'blur', function() {
 		if($(this).attr('value').length == 0)
 			$(this).attr('value', search_default);
+	});
+
+	$('.focus:first').each(function() {
+		$(this).removeClass('focus').focus();
 	});
 });
