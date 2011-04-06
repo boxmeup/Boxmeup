@@ -108,6 +108,6 @@ class AppController extends Controller {
 	 * @return <boolean>
 	 */
 	protected function isMobile() {
-		return true; //return $this->RequestHandler->isMobile() && !$this->Session->read('mobile_disabled');
+		return $this->RequestHandler->isMobile() && !$this->Session->read('mobile_disabled');
 	}
 }
