@@ -17,16 +17,28 @@ class AppController extends Controller {
 	}
 
 	public function beforeRender() {
-		if(Configure::read('Site.theme')) {
-			$this->view = 'Theme';
-			$this->theme = Configure::read('Site.theme');
-		}
 		$User = $this->Auth->user();
 		$this->set(array(
 			'User' => $User[$this->Auth->userModel],
 			'Webroot' => $this->webroot,
 			'Fullwebroot' => env('SERVER_NAME') . $this->webroot
 		));
+		
+		if(Configure::read('Site.theme')) {
+			$this->view = 'Theme';
+			$this->theme = Configure::read('Site.theme');
+		}
+
+		if($this->isMobile()) {
+			$this->view = 'Theme';
+			$this->theme = Configure::read('Site.mobile_theme') ?
+				Configure::read('Site.mobile_theme') :
+				'mobile';
+			$this->layout = 'app';
+			$this->autoLayout = true;
+			$this->autoRender = true;
+			$this->set('mobile_page_id', $this->name.$this->action);
+		}
 	}
 
 	/**
@@ -69,7 +81,7 @@ class AppController extends Controller {
 
 	}
 
-	public function isAdmin() {
+	protected function isAdmin() {
 		return isset($this->params['admin']) && $this->params['admin'];
 	}
 
@@ -78,7 +90,7 @@ class AppController extends Controller {
 	 *
 	 * @param <mixed> $id Can be either integer ID or UUID
 	 */
-	public function verifyUser($id) {
+	protected function verifyUser($id) {
 		if(strstr($id, '-') !== false)
 			$id = ClassRegistry::init('Container')->getIdByUUID($id);
 		if(!ClassRegistry::init('Container')->verifyContainerUser($id, $this->Auth->user('id'))) {
@@ -88,5 +100,14 @@ class AppController extends Controller {
 				'action' => 'index'
 			));
 		}
+	}
+
+	/**
+	 * Determines if the client is a mobile device.
+	 * 
+	 * @return <boolean>
+	 */
+	protected function isMobile() {
+		return true; //return $this->RequestHandler->isMobile() && !$this->Session->read('mobile_disabled');
 	}
 }
