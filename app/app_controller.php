@@ -31,7 +31,6 @@ class AppController extends Controller {
 		}
 
 		if($this->isMobile()) {
-			Configure::write('debug', 1);
 			$this->view = 'Theme';
 			$this->theme = Configure::read('Site.mobile_theme') ?
 				Configure::read('Site.mobile_theme') :
