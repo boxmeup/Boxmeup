@@ -18,16 +18,20 @@
 
 </head>
 <body>
-	<div data-role="page" data-theme="d" id="<?php echo $mobile_page_id; ?>">
+	<div data-role="page" data-theme="<?php echo Configure::read('Site.jquery_mobile_theme'); ?>" id="<?php echo $mobile_page_id; ?>">
 		<div data-role="header" data-position="inline">
 		<?php
-		if(!empty($User))
+		if($this->name == 'Containers' && $this->action == 'index' && !empty($User))
 			echo $html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('data-icon' => 'delete', 'class' => 'ui-btn-right no-ajax'));
+		else if($this->name !== 'Pages' && $this->action !== 'home')
+			echo $html->link('Home', '/', array('data-iconpos' => 'notext', 'data-icon' => 'home', 'class' => 'ui-btn-right no-ajax'))
 		?>
 		<h1><?php echo $title_for_layout; ?></h1>
 		</div>
 		<div data-role="content">
 			<?php echo $content_for_layout; ?>
+			<br/>
+			<?php echo $this->element('paginate'); ?>
 		</div>
 	</div>
 </body>

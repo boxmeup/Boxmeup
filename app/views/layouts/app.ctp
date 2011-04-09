@@ -4,7 +4,7 @@
 	<?php echo $this->Html->charset(); ?>
 	<title>
 		<?php echo $title_for_layout; ?> |
-		<?php __('Boxmeup.com'); ?>
+		<?php __('Boxmeup'); ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
