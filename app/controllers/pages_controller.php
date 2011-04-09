@@ -45,10 +45,10 @@ class PagesController extends AppController {
 			$subpage = $path[1];
 		
 		if (!empty($path[$count - 1]))
-			$title_for_layout = $page === 'home' ? 'Boxmeup.com' : Inflector::humanize($path[$count - 1]);
+			$title_for_layout = $page === 'home' ? 'Boxmeup' : Inflector::humanize($path[$count - 1]);
 		
 		if($this->Auth->user() && $page === 'home')
-			$this->redirect('/dashboard');
+			$this->redirect($this->isMobile() ? '/containers' : '/dashboard');
 
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));
