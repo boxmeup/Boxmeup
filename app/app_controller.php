@@ -21,7 +21,8 @@ class AppController extends Controller {
 		$this->set(array(
 			'User' => $User[$this->Auth->userModel],
 			'Webroot' => $this->webroot,
-			'Fullwebroot' => env('SERVER_NAME') . $this->webroot
+			'Fullwebroot' => env('SERVER_NAME') . $this->webroot,
+			'Here' => $this->here
 		));
 		
 		if(Configure::read('Site.theme')) {
@@ -30,11 +31,12 @@ class AppController extends Controller {
 		}
 
 		if($this->isMobile()) {
+			Configure::write('debug', 1);
 			$this->view = 'Theme';
 			$this->theme = Configure::read('Site.mobile_theme') ?
 				Configure::read('Site.mobile_theme') :
 				'mobile';
-			$this->layout = 'app';
+			$this->layout = 'mobile';
 			$this->autoLayout = true;
 			$this->autoRender = true;
 			$this->set('mobile_page_id', $this->name.$this->action);
@@ -60,6 +62,9 @@ class AppController extends Controller {
 			'username' => 'email',
 			'password' => 'password'
 		);
+
+		if($this->isMobile())
+			$this->Auth->loginRedirect = '/containers';
 
 		// Setup a scope for admin users accessing admin section
 		if($this->isAdmin()) {
