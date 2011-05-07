@@ -48,10 +48,11 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 	.paging a:visited { background: white; color:#333; display:block; float:left; padding:3px 4px; text-decoration:none; }
 	.paging a:hover{ border:solid 1px #667151; border-bottom: 0; background:#2981E4; color:#efefef; }
 
-.container-item-list { padding: 10px 20px; }
+.container-item-list { padding: 10px 20px; border-bottom: 1px solid #bbb; }
 	.container-item-list-content { width: 570px; float: left; padding: 2px;}
 	.container-item-list-options { margin-left: 10px; float: left; }
 	.alternate { background-color: #ddd; }
+.container-item-list:hover { background-color: #eee; }
 
 .container_view_add { float: left; width: 400px; }
 .container_item_index { float: left; width: 350px; }
