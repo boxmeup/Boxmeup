@@ -78,6 +78,7 @@ class ContainersController extends AppController {
 	}
 
 	public function view($slug=null) {
+		$this->helpers[] = 'Time';
 		$container = $this->Container->getContainerBySlug($slug, $this->Auth->user('id'));
 		if(!empty($container)) {
 			$this->verifyUser($container['Container']['id']);
