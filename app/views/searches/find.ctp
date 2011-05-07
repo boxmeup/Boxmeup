@@ -6,22 +6,16 @@
 ?>
 <h2>Found <?php echo $paging['count']; ?> results for &quot;<?php echo $this->data['Search']['query']; ?>&quot;.</h2>
 <br/>
-<table class="search-results" style="width: 100%">
-	<thead>
-		<?php echo $html->tableHeaders(array('Item', 'Container', 'Modified')); ?>
-	</thead>
-	<tbody>
-		<?php
-		foreach ($results as $result)  {
-			echo $html->tableCells(array(
-				$result['ContainerItem']['body'],
-				$html->link($result['Container']['name'], array('controller' => 'containers', 'action' => 'view', $result['Container']['slug'])),
-				$time->niceShort($result['ContainerItem']['modified'])
-			), array('class' => 'alternate'));
-		}
-		?>
-	</tbody>
-</table>
+		<?php foreach ($results as $result) { ?>
+			<div class="container-item-list" >
+				<p class="container-item-list-content">
+					<?php echo Sanitize::html($result['ContainerItem']['body'], array('remove' => true)); ?><br/>
+					<?php echo $html->link($result['Container']['name'], array('controller' => 'containers', 'action' => 'view', $result['Container']['slug'])); ?><br/>
+					<small><?php echo $time->timeAgoInWords($result['ContainerItem']['modified']); ?></small>
+				</p>
+				<div style="clear: both"></div>
+			</div>
+		<?php } ?>
 <?php
 	}
 ?>
