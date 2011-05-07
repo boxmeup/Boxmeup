@@ -45,6 +45,8 @@ class Container extends AppModel {
 		),
 	);
 
+	public $pagination_limit = 20;
+
 	public $belongsTo = array(
 		'Tag' => array(
 			'className' => 'Tag',
@@ -74,6 +76,30 @@ class Container extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+
+	public function getPaginatedContainers(&$controller, $user_id) {
+		$controller->paginate = array(
+            'conditions' => array(
+                'Container.user_id' => $user_id
+            ),
+            'contain' => array(),
+            'limit' => $this->pagination_limit
+        );
+
+		return $controller->paginate($this);
+	}
+	
+	public function getContainerBySlug($slug, $user_id) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'Container.slug' => $slug, 
+				'Container.user_id' => $user_id
+			),
+			'contain' => array(
+				'ContainerItem'
+			)
+		));
+	}
 
 	public function getTotalContainersPerUser($user_id) {
 		$this->recursive = -1;
