@@ -25,7 +25,7 @@
 	else {
 		foreach($container_items as $key => $item) {
 ?>
-			<div class="container-item-list <?php echo $key % 2 != 0 ? 'alternate' : '' ?>" >
+			<div class="container-item-list" >
 				<p class="container-item-list-content"><?php echo Sanitize::html($item['ContainerItem']['body'], array('remove' => true)); ?></p>
 				<div class="container-item-list-options">
 					<?php echo $html->link($html->image('icons/edit.png'), array('controller' => 'container_items', 'action' => 'edit', $item['ContainerItem']['uuid']), array('escape' => false, 'class' => 'ui-modal')); ?>

@@ -1,4 +1,5 @@
 <?php
+App::import('lib', array('Sanitize'));
 class SearchesController extends AppController {
 
 	public $name = 'Searches';
