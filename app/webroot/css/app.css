@@ -3,7 +3,7 @@
 #navigation {padding-top: 5px; }
 	#navigation ul li { background-color: #2981e4; padding: 5px 10px; margin-right: 3px; }
 	#navigation ul li.active {background-color:#c0caff; }
-		#navigation ul li a{ color: #eee; }
+		#navigation ul li a{ color: white; }
 		#navigation ul li a:hover { color: white; text-decoration: underline; }
 		#navigation ul li.active a { color: #333; }
 		#navigation ul li.action a:hover { color: black; }
