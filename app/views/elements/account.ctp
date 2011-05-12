@@ -7,8 +7,8 @@
 				echo $html->tag('li', $html->link('Admin', '/admin', array('class' => 'large red button')));
 			echo $html->tag('li', $html->link('Sign Out', '/logout', array('class' => 'large orange button')));
 		} else {
-			echo $html->tag('li', $html->link('Sign Up', '/signup', array('class' => 'large green button')));
-			echo $html->tag('li', $html->link('Login', '/login', array('class' => 'large blue button')));
+			echo $html->tag('li', $html->link('Sign Up', '/signup', array('class' => 'large green button ui-modal')));
+			echo $html->tag('li', $html->link('Login', '/login', array('class' => 'large blue button ui-modal')));
 		}
 	?>
 	</ul>
