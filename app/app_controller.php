@@ -22,7 +22,8 @@ class AppController extends Controller {
 			'User' => $User[$this->Auth->userModel],
 			'Webroot' => $this->webroot,
 			'Fullwebroot' => env('SERVER_NAME') . $this->webroot,
-			'Here' => $this->here
+			'Here' => $this->here,
+			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0'
 		));
 		
 		if(Configure::read('Site.theme')) {
