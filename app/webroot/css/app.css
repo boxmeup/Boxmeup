@@ -10,14 +10,14 @@
 	#search {float: right; padding-right: 10px; }
 #submenu {
 	padding: 0 10px; background-color: #C0CAFF; width: 680px; float: left;
-	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 1px 2px #888;
+	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 2px 2px #888;
 }
 	#submenu-content { float: left; padding: 5px 0; }
 	#submenu-content a { margin-right: 8px; }
 		#submenu-content a img {width: 9px; height: 9px;}
 #app {
 	min-height: 400px; width: 680px; float: left; overflow: auto; padding: 10px 10px 40px 10px; background-color: white;
-	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 1px 2px #888; z-index: 2;
+	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 2px 2px #888; z-index: 2;
 }
 
 #sidebar {min-height: 400px; width: 249px; overflow: none; float: right; padding: 10px 0 40px 10px; }

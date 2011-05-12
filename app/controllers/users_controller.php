@@ -10,21 +10,22 @@ class UsersController extends AppController {
 	public function signup() {
 		if(!empty($this->data)) {
 			if($this->data['User']['password'] != Security::hash($this->data['User']['confirm_password'], Configure::read('Security.hash'), true))
-				$this->Session->setFlash(__('Password confirmation does not match.'));
+				$this->Session->setFlash(__('Password confirmation does not match.', true), 'notification/error');
 			else {
 				$result = $this->User->save($this->data);
 				if($result) {
 					$this->Auth->login($result);
 					$this->redirect('/');
 				} else
-					$this->Session->setFlash(__('There was a problem signing you up.', true));
+					$this->Session->setFlash(__('There was a problem signing you up.', true), 'notification/error');
 			}
         }
 		$this->data['User']['password'] = $this->data['User']['confirm_password'] = '';
+		$this->set('title_for_layout', 'Join Boxmeup');
 	}
 
 	public function login() {
-		
+		$this->set('title_for_layout', 'Login');
 	}
 
 	public function logout() {
