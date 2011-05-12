@@ -8,14 +8,10 @@ class ContainersController extends AppController {
 
 	public $_secure = true;
 
-	public $_container_page_limit = 20;
-
-	public $uses = array('Container', 'ContainerItem');
-
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->set('active', 'containers.index');
-	}
+	}	
 
 	public function dashboard() {
 		$this->helpers[] = 'GChart';
@@ -33,7 +29,7 @@ class ContainersController extends AppController {
 			'order' => 'timestamp',
 			'contain' => array()
 		)), '{n}.0.timestamp', '{n}.0');
-		$container_item_stats = Set::combine($this->ContainerItem->find('all', array(
+		$container_item_stats = Set::combine($this->Container->ContainerItem->find('all', array(
 			'fields' => array('COUNT(ContainerItem.id) as items', 'DATE(ContainerItem.modified) AS timestamp'),
 			'conditions' => array(
 				'Container.user_id' => $this->Auth->user('id'),
@@ -65,57 +61,32 @@ class ContainersController extends AppController {
 		);
 
 		// Recent items
-		$recent_items = $this->ContainerItem->find('all', array(
-			'limit' => 5,
-			'order' => 'ContainerItem.created DESC',
-			'contain' => array('Container'),
-			'conditions' => array('Container.user_id' => $this->Auth->user('id'))
-		));
+		$recent_items = $this->Container->ContainerItem->getRecentItems($this->Auth->user('id'));
 
 		$this->set(compact('total_containers', 'total_container_items', 'container_graph', 'recent_items'));
 		$this->set('active', 'containers.dashboard');
 	}
 
 	public function index() {
-		$this->paginate = array(
-			'conditions' => array(
-				'Container.user_id' => $this->Auth->user('id')
-			),
-			'contain' => array(),
-			'limit' => $this->_container_page_limit
-		);
-		$containers = $this->paginate('Container');
+		$control = 'containers.index';
+		$containers = $this->Container->getPaginatedContainers($this, $this->Auth->user('id'));
 		if(empty($containers)) {
 			$this->Session->setFlash('Start by creating a container.', 'notification/notice');
 			$this->redirect(array('action' => 'add'));
 		}
-		$this->set('containers', $containers);
-		$this->set('control', 'containers.index');
+		$this->set(compact('containers', 'control'));
 	}
 
 	public function view($slug=null) {
-		$container = $this->Container->find('first', array(
-			'conditions' => array(
-				'Container.slug' => $slug, 'Container.user_id' => $this->Auth->user('id')
-			),
-			'contain' => array(
-				'ContainerItem'
-			)
-		));
+		$this->helpers[] = 'Time';
+		$container = $this->Container->getContainerBySlug($slug, $this->Auth->user('id'));
 		if(!empty($container)) {
 			$this->verifyUser($container['Container']['id']);
 			$this->set('container_slug', $container['Container']['slug']);
 		}
-		$this->paginate = array(
-			'conditions' => array(
-				'ContainerItem.container_id' => $container['Container']['id'],
-			),
-			'contain' => array(),
-			'order' => 'ContainerItem.modified DESC',
-			'limit' => $this->_container_page_limit
-		);
-		$container_items = $this->paginate('ContainerItem');
-		$this->set(compact('container', 'container_items'));
+		$title_for_layout = $container['Container']['name'];
+		$container_items = $this->Container->ContainerItem->getPaginatedContainerItems($this, $container['Container']['id']);
+		$this->set(compact('container', 'container_items', 'title_for_layout'));
 		$this->set('control', 'containers.view');
 	}
 
@@ -125,7 +96,7 @@ class ContainersController extends AppController {
 			$results = $this->Container->save($this->data);
 			if($results) {
 				$this->Session->setFlash('Successfully added new container', 'notification/success');
-				$page = (int) ceil($this->Container->getTotalContainersPerUser($this->Session->read('Auth.User.id')) / $this->_container_page_limit);
+				$page = (int) ceil($this->Container->getTotalContainersPerUser($this->Session->read('Auth.User.id')) / $this->Container->pagination_limit);
 				$this->redirect(array('controller' => 'containers', 'action' => 'view', $results['Container']['slug']));
 			} else {
 				$this->Session->setFlash('There was a problem saving your container.', 'notification/error');
