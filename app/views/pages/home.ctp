@@ -1,12 +1,25 @@
 <p>&nbsp;</p>
 <div style="width: 650px; float: left;">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mauris erat, ultricies vitae condimentum vel, consectetur at mi. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur at magna blandit ante egestas pharetra id sed augue. Etiam accumsan porttitor lacinia. Vivamus nec ligula arcu, non convallis ligula. Pellentesque nec consequat erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec auctor nisl at metus tincidunt sit amet adipiscing dui ornare. Donec consectetur metus fringilla odio semper eleifend. Vestibulum volutpat fermentum porttitor. Vestibulum in nisi nisi, vitae laoreet sem. Suspendisse in lectus vitae dolor vehicula sagittis eu non mi. Integer vel augue sed est malesuada tempus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam egestas lorem at nisi pellentesque sit amet tristique est vulputate.<br/><br/>
-
-Curabitur vitae metus dui. Donec sit amet metus ante, ac malesuada turpis. In semper diam eget mi tempor in malesuada est molestie. Nulla viverra eros eu magna ultricies a pharetra nisi semper. Nullam quis consequat enim. Etiam id elit orci. Proin vitae vehicula libero. Proin non velit sed sapien porttitor pharetra ut a lectus. Mauris scelerisque, augue bibendum congue semper, dolor lacus vehicula enim, non suscipit nibh ante ut mauris. In nisl risus, placerat egestas pellentesque a, pellentesque in velit.
+	<?php echo $html->image('demo1.png'); ?>
 </div>
 <div style="float: left; margin-left: 15px; width: 250px;">
-	<h2>Organize your life.</h2>
+	<h2>Organize your life.</h2><br/>
 	<p>As the amount of stuff we collect grows, the need to organize all of that stuff also grows.  Sign up with us and start organizing!</p>
 	<br/>
-	<?php echo $html->link('Sign Up Now', '/signup', array('class' => 'super button green')); ?>
+	<?php echo $html->link('Sign Up Now', '/signup', array('class' => 'super button green ui-modal')); ?>
+</div>
+<div style="clear: both;  border-bottom: 1px solid #ccc; margin: 0 50px 20px 50px;">&nbsp;</div>
+<div style="width: 900px; margin: 0 auto;">
+	<div style="width: 250px; float: left; padding: 10px 20px;">
+		<h2 style="text-align: center">Moving</h2>
+		<p>Can't remember where you packed your toothbrush?  Use our search feature to find it!</p>
+	</div>
+	<div style="width: 250px; float: left; padding: 10px 20px;">
+		<h2 style="text-align: center">Collectors</h2>
+		<p>Collect baseball cards, comic books, or stamps?  Use this app to organize your collection.</p>
+	</div>
+	<div style="width: 250px; float: left; padding: 10px 20px;">
+		<h2 style="text-align: center">Mobile</h2>
+		<p>Use your smartphone to scan labels to pull up a manifest anywhere.</p>
+	</div>
 </div>

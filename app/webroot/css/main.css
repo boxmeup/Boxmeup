@@ -92,4 +92,4 @@ form textarea {
 	height: 150px;
 }
 
-.error-message { margin: 0 5px; padding: 5px; color: #CD0A0A; border: 1px solid #CD0A0A; background: #FEF1EC; display: inline; }
+.error-message { padding: 4px; color: #CD0A0A; border: 1px solid #CD0A0A; background: #FEF1EC; display: inline; font-size: 13px; }

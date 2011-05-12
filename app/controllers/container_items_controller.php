@@ -1,4 +1,5 @@
 <?php
+App::import('lib', array('Sanitize'));
 class ContainerItemsController extends AppController {
 
 	public $name = 'ContainerItems';
@@ -32,6 +33,8 @@ class ContainerItemsController extends AppController {
 			),
 			'order' => 'ContainerItem.modified DESC'
 		);
+		$this->data['order'] = !empty($this->params['named']['sort']) ? $this->params['named']['sort'] : '';
+		$this->data['direction'] = !empty($this->params['named']['direction']) ? $this->params['named']['direction'] : '';
 		$container_items = $this->paginate('ContainerItem');
 		$this->set(compact('containers', 'container_items'));
 	}
