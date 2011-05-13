@@ -12,8 +12,11 @@
 	");
 	echo $html->script('views/containers/view', array('inline' => false));
 ?>
-<h2><?php echo $container['Container']['name']; ?></h2>
-<br/>
+<h2 style="float: left;"><?php echo $container['Container']['name']; ?></h2>
+<?php 
+	echo $html->link('Edit', array('action' => 'edit', $container['Container']['uuid']), array('class' => 'ui-modal small blue button', 'style' => 'margin-left: 20px;')); 
+?>
+<div style="clear: both">&nbsp;</div>
 <?php
 	echo $form->create('ContainerItem', array('url' => array('controller' => 'container_items', 'action' => 'add', $container['Container']['uuid'])));
 	echo $form->input('body', array('type' => 'text', 'label' => false, 'class' => 'container_view_add focus', 'maxlength' => 100));
