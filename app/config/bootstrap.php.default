@@ -1,0 +1,13 @@
+<?php
+
+	Configure::write('Security.hash', 'sha1');
+
+	// Site Theme
+	// Configure::write('Site.theme', 'default');
+
+	// Mobile themes
+	Configure::write('Site.mobile_theme', 'mobile');
+	Configure::write('Site.jquery_mobile_theme', 'b');
+	
+	// Analytics
+	Configure::write('Analytics.tracking_code', '');
