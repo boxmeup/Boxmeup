@@ -20,7 +20,9 @@
 <?php
 	echo $form->create('ContainerItem', array('url' => array('controller' => 'container_items', 'action' => 'add', $container['Container']['uuid'])));
 	echo $form->input('body', array('type' => 'text', 'label' => false, 'class' => 'container_view_add focus', 'maxlength' => 100));
-	echo $form->submit('Add Item', array('div' => false, 'class' => 'small green button', 'style' => 'float: left'));
+	echo $html->tag('span', ' x ', array('style' => 'float: left; padding: 0 10px;'));
+	echo $form->input('quantity', array('type' => 'text', 'label' => false, 'maxlength' => 5, 'style' => 'width: 40px; float: left'));
+	echo $form->submit('Add Item', array('div' => false, 'class' => 'small green button', 'style' => 'float: left; margin-left: 5px;'));
 	echo $form->end();
 	echo $html->tag('div', '', array('style' => 'clear: both'));
 	if(empty($container_items))
