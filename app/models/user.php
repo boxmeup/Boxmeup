@@ -22,7 +22,7 @@ class User extends AppModel {
 			),
 			'unique' => array(
 				'rule' => array('isUnique'),
-				'message' => 'That email has already been registered.'
+				'message' => 'Email has already been registered.'
 			)
 		),
 		'password' => array(

@@ -9,18 +9,14 @@ class UsersController extends AppController {
 	 */
 	public function signup() {
 		if(!empty($this->data)) {
-			if($this->data['User']['password'] != Security::hash($this->data['User']['confirm_password'], Configure::read('Security.hash'), true))
-				$this->Session->setFlash(__('Password confirmation does not match.', true), 'notification/error');
-			else {
-				$result = $this->User->save($this->data);
-				if($result) {
-					$this->Auth->login($result);
-					$this->redirect('/');
-				} else
-					$this->Session->setFlash(__('There was a problem signing you up.', true), 'notification/error');
-			}
+			$result = $this->User->save($this->data);
+			if($result) {
+				$this->Auth->login($result);
+				$this->redirect('/');
+			} else
+				$this->Session->setFlash(__('There was a problem signing you up.', true), 'notification/error');
         }
-		$this->data['User']['password'] = $this->data['User']['confirm_password'] = '';
+		$this->data['User']['password'] = '';
 		$this->set('title_for_layout', 'Join Boxmeup');
 	}
 
@@ -34,7 +30,21 @@ class UsersController extends AppController {
 	}
 
 	public function account() {
-		
+		$this->layout = 'app';
+		if(!empty($this->data)) {
+			$this->data['User']['id'] = $this->Auth->user('id');
+			if($this->data['User']['password'] === Security::hash('', null, true)) {
+				unset($this->data['User']['password']);
+			}
+			if($this->User->save($this->data)) {
+				$this->Session->setFlash(__('Successfully updated account settings.', true), 'notification/success');
+				$this->redirect(array('action' => 'account'));
+			} else {
+				$this->Session->setFlash(__('Error updating account settings.', true), 'notification/error');
+			}
+		} else {
+			$this->data['User']['email'] = $this->User->field('email', array('id' => $this->Auth->user('id')));
+		}
 	}
 
 // ADMIN FUNCTION

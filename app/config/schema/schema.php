@@ -1,5 +1,5 @@
 <?php 
-/* App schema generated on: 2011-03-14 21:23:45 : 1300152225*/
+/* App schema generated on: 2011-05-14 09:32:13 : 1305379933*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -15,8 +15,7 @@ class AppSchema extends CakeSchema {
 		'container_id' => array('type' => 'integer', 'null' => false, 'default' => '0', 'key' => 'index'),
 		'tag_id' => array('type' => 'integer', 'null' => true, 'default' => '0', 'key' => 'index'),
 		'uuid' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 36, 'key' => 'index', 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'name' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 30, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'body' => array('type' => 'text', 'null' => true, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'body' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 100, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'container' => array('column' => 'container_id', 'unique' => 0), 'category' => array('column' => 'tag_id', 'unique' => 0), 'fk_container_items_containers1' => array('column' => 'container_id', 'unique' => 0), 'uuid' => array('column' => 'uuid', 'unique' => 0)),

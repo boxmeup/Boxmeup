@@ -82,6 +82,7 @@ form input, form select, form textarea {
 	color: #444;
 	padding: 3px 5px;
 }
+form select { width: 138px;}
 form label {
 	margin-top: 10px;
 	font-size: 12px;

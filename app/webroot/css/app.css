@@ -49,8 +49,9 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 	.paging a:hover{ border:solid 1px #667151; border-bottom: 0; background:#2981E4; color:#efefef; }
 
 .container-item-list { padding: 10px 20px; border-bottom: 1px solid #bbb; }
-	.container-item-list-content { width: 570px; float: left; padding: 2px;}
-	.container-item-list-options { margin-left: 10px; float: left; }
+	.container-item-list-quantity { width: 60px; float: left; padding: 8px 5px 0 0; font-size: 22px; overflow: hidden; color: #555;}
+	.container-item-list-content { width: 520px; float: left; padding: 2px;}
+	.container-item-list-options { margin: 8px 0 0 10px; float: left; }
 	.alternate { background-color: #ddd; }
 .container-item-list:hover { background-color: #eee; }
 
