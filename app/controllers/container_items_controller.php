@@ -101,7 +101,9 @@ class ContainerItemsController extends AppController {
 			));
 			$this->verifyUser($this->data['Container']['uuid']);
 		}
+		$containers = $this->Container->getContainerUuidList($this->Auth->user('id'));
 		$this->set('control', 'container_items.edit');
+		$this->set(compact('containers'));
 	}
 
 	public function delete($item_uuid) {

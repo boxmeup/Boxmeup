@@ -6,7 +6,9 @@
 <?php
 	echo $form->create('ContainerItem', array('url' => array('controller' => 'container_items', 'action' => 'add_item')));
 	echo $form->input('ContainerItem.body', array('type' => 'text', 'label' => false, 'class' => 'container_item_index focus', 'maxlength' => 100));
-	echo $form->input('ContainerItem.container_id', array('options' => $containers, 'empty' => 'Select a container', 'label' => false, 'style' => 'float: left'));
+	echo $html->tag('span', ' x ', array('style' => 'float: left; padding: 0 10px;'));
+	echo $form->input('ContainerItem.quantity', array('type' => 'text', 'label' => false, 'maxlength' => 5, 'style' => 'width: 40px; float: left'));
+	echo $form->input('ContainerItem.container_id', array('options' => $containers, 'empty' => 'Select a container', 'label' => false, 'style' => 'float: left; margin-left: 5px;'));
 	echo $form->submit('Add Item', array('div' => false, 'class' => 'small green button', 'style' => 'float: left'));
 	echo $form->end();
 ?>
@@ -28,6 +30,9 @@
 			foreach($container_items as $key => $item) {
 		?>	
 				<div class="container-item-list" >
+					<span class="container-item-list-quantity">
+						<?php echo $item['ContainerItem']['quantity']; ?>
+					</span>
 					<p class="container-item-list-content">
 						<?php echo Sanitize::html($item['ContainerItem']['body'], array('remove' => true)); ?><br/>
 						<?php echo $html->link($item['Container']['name'], array('controller' => 'containers', 'action' => 'view', $item['Container']['slug'])); ?><br/>

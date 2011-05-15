@@ -29,6 +29,9 @@
 		foreach($container_items as $key => $item) {
 ?>
 			<div class="container-item-list" >
+				<span class="container-item-list-quantity">
+					<?php echo $item['ContainerItem']['quantity']; ?>
+				</span>
 				<p class="container-item-list-content">
 					<?php echo Sanitize::html($item['ContainerItem']['body'], array('remove' => true)); ?>
 					<br/><small><?php echo $time->timeAgoInWords($item['ContainerItem']['modified']); ?></small>
