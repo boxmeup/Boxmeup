@@ -104,6 +104,25 @@ class ContainersController extends AppController {
 		}
 	}
 
+	public function edit($container_uuid='') {
+		if(!empty($container_uuid))
+			$this->verifyUser($container_uuid);
+		$name = $this->Container->field('name', array('uuid' => $container_uuid));
+		if(!empty($this->data)) {
+			$this->verifyUser($this->data['Container']['uuid']);
+			$this->data['Container']['id'] = $this->Container->getIdByUUID($this->data['Container']['uuid']);
+			if($this->Container->save($this->data)) {
+				$this->Session->setFlash(__('Successfully updated the container.', true), 'notification/success');
+				$this->redirect(array('action' => 'view', $this->Container->getSlugByUUID($this->data['Container']['uuid'])));
+			} else {
+				$this->Session->setFlash(__('Unable to update the container.', true), 'notification/error');
+			}
+		} else {
+			$this->data['Container']['name'] = $name;
+			$this->data['Container']['uuid'] = $container_uuid;
+		}
+	}
+
 	public function delete($container_uuid) {
 		if(empty($container_uuid)) {
 			$this->Session->setFlash(__('Invalid container ID.', true), 'notification/error');

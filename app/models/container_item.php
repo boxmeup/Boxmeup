@@ -8,10 +8,6 @@ class ContainerItem extends AppModel {
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'Please select a container.',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'body' => array(
@@ -20,14 +16,19 @@ class ContainerItem extends AppModel {
 				'message' => 'Please enter some content for the item.'
 			)
 		),
+		'quantity' => array(
+			'empty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Please enter a quantity.'
+			),
+			'numeric' => array(
+				'rule' => 'numeric',
+				'message' => 'Must be a numeric value.'
+			)
+		),
 		'tag_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);

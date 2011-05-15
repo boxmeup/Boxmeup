@@ -126,5 +126,18 @@ class Container extends AppModel {
 	public function getIdByUUID($uuid) {
 		return $this->field('id', array('uuid' => $uuid));
 	}
+
+	public function getSlugByUUID($uuid) {
+		return $this->field('slug', array('uuid' => $uuid));
+	}
+
+	public function getContainerUuidList($user_id) {
+		return $this->find('list', array(
+			'fields' => array('uuid', 'name'),
+			'conditions' => array(
+				'user_id' => $user_id
+			)
+		));
+	}
 }
 ?>

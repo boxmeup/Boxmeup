@@ -12,12 +12,17 @@
 	");
 	echo $html->script('views/containers/view', array('inline' => false));
 ?>
-<h2><?php echo $container['Container']['name']; ?></h2>
-<br/>
+<h2 style="float: left;"><?php echo $container['Container']['name']; ?></h2>
+<?php 
+	echo $html->link('Edit', array('action' => 'edit', $container['Container']['uuid']), array('class' => 'ui-modal small blue button', 'style' => 'margin-left: 20px;')); 
+?>
+<div style="clear: both">&nbsp;</div>
 <?php
 	echo $form->create('ContainerItem', array('url' => array('controller' => 'container_items', 'action' => 'add', $container['Container']['uuid'])));
 	echo $form->input('body', array('type' => 'text', 'label' => false, 'class' => 'container_view_add focus', 'maxlength' => 100));
-	echo $form->submit('Add Item', array('div' => false, 'class' => 'small green button', 'style' => 'float: left'));
+	echo $html->tag('span', ' x ', array('style' => 'float: left; padding: 0 10px;'));
+	echo $form->input('quantity', array('type' => 'text', 'label' => false, 'maxlength' => 5, 'style' => 'width: 40px; float: left'));
+	echo $form->submit('Add Item', array('div' => false, 'class' => 'small green button', 'style' => 'float: left; margin-left: 5px;'));
 	echo $form->end();
 	echo $html->tag('div', '', array('style' => 'clear: both'));
 	if(empty($container_items))
@@ -26,6 +31,9 @@
 		foreach($container_items as $key => $item) {
 ?>
 			<div class="container-item-list" >
+				<span class="container-item-list-quantity">
+					<?php echo $item['ContainerItem']['quantity']; ?>
+				</span>
 				<p class="container-item-list-content">
 					<?php echo Sanitize::html($item['ContainerItem']['body'], array('remove' => true)); ?>
 					<br/><small><?php echo $time->timeAgoInWords($item['ContainerItem']['modified']); ?></small>

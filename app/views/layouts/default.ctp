@@ -21,6 +21,7 @@
 		");
 		echo $this->Html->script('jquery.fancybox-1.3.4.pack');
 		echo $this->Html->script('main');
+		echo $this->element('analytics');
 		echo $scripts_for_layout;
 	?>
 </head>
