@@ -30,7 +30,21 @@ class UsersController extends AppController {
 	}
 
 	public function account() {
-		
+		$this->layout = 'app';
+		if(!empty($this->data)) {
+			$this->data['User']['id'] = $this->Auth->user('id');
+			if($this->data['User']['password'] === Security::hash('', null, true)) {
+				unset($this->data['User']['password']);
+			}
+			if($this->User->save($this->data)) {
+				$this->Session->setFlash(__('Successfully updated account settings.', true), 'notification/success');
+				$this->redirect(array('action' => 'account'));
+			} else {
+				$this->Session->setFlash(__('Error updating account settings.', true), 'notification/error');
+			}
+		} else {
+			$this->data['User']['email'] = $this->User->field('email', array('id' => $this->Auth->user('id')));
+		}
 	}
 
 // ADMIN FUNCTION
