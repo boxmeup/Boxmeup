@@ -1,6 +1,7 @@
 <?php
 	Router::parseExtensions();
-
+	Router::mapResources('api');
+	
 	/**
 	 * Static pages:
 	 * /slug => template name

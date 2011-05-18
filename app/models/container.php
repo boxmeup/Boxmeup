@@ -87,7 +87,7 @@ class Container extends AppModel {
         );
 
 		return $controller->paginate($this);
-	}
+	}	
 	
 	public function getContainerBySlug($slug, $user_id) {
 		return $this->find('first', array(
@@ -139,5 +139,17 @@ class Container extends AppModel {
 			)
 		));
 	}
+
+	// API functions
+
+	public function getApiContainers($user_id, $conditions = array()) {
+		$conditions = array_merge(array('Container.user_id' => $user_id), $conditions);
+		return $this->find('all', array(
+			'fields' => array(
+				'uuid', 'name', 'slug', 'container_item_count', 'created', 'modified'
+			),
+			'conditions' => $conditions,
+			'contain' => array()
+		));
+	}
 }
-?>

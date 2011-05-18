@@ -45,6 +45,8 @@ class UsersController extends AppController {
 		} else {
 			$this->data['User']['email'] = $this->User->field('email', array('id' => $this->Auth->user('id')));
 		}
+		$api_key = ClassRegistry::init('Api.ApiUser')->getApiKey($this->Auth->user('id'));
+		$this->set(compact('api_key'));
 	}
 
 // ADMIN FUNCTION
