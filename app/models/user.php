@@ -48,5 +48,13 @@ class User extends AppModel {
 			'order' => 'Container.created'
 		)
 	);
+
+	public function afterSave($created) {
+		if($created) {
+			ClassRegistry::init('Api.ApiUser')->save(array('ApiUser' => array(
+				'user_id' => $this->id,
+				'api_key' => Security::hash($this->data['User']['email'], null, true)
+			)));
+		}
+	}
 }
-?>
