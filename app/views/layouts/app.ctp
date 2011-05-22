@@ -52,7 +52,7 @@
 			<div id="sidebar">
 				<?php echo $this->element('app/control'); ?>
 				<?php echo $this->element('app/advertise'); ?>
-				
+
 			</div>
 			<div id="app">
 				<noscript>
@@ -70,11 +70,11 @@
 				<?php echo $content_for_layout; ?>
 
 			</div>
-			<?php echo $this->element('footer'); ?>
+			<?php echo $this->element('app/footer'); ?>
 			<div style="clear: both"></div>
-			
+
 		</div>
-		
+
 	</div>
 	<?php echo $this->element('feedback', array('plugin' => 'feedback')); ?>
 </body>
