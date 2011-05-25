@@ -8,3 +8,10 @@
 	echo '<br/>';
 	echo $form->submit('Update Account Settings', array('class' => 'large green button'));
 	echo $form->end();
+?>
+<br/><hr/><br/>
+<?php if(!empty($api_key)) { ?>
+<p><b>Api Key</b>: <?php echo $api_key; ?></p>
+<?php } else { ?>
+<p>Api Key: <span style="color: red">Disabled</span></p>
+<?php } ?>

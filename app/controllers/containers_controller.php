@@ -11,14 +11,22 @@ class ContainersController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->set('active', 'containers.index');
-	}	
+	}
 
 	public function dashboard() {
-		$this->helpers[] = 'GChart';
 		$this->helpers[] = 'Time';
 		$total_containers = $this->Container->getTotalContainersPerUser($this->Auth->user('id'));
 		$total_container_items = $this->Container->getTotalContainerItemsPerUser($this->Auth->user('id'));
 
+		// Recent items
+		$recent_items = $this->Container->ContainerItem->getRecentItems($this->Auth->user('id'));
+
+		$this->set(compact('total_containers', 'total_container_items', 'recent_items'));
+		$this->set('active', 'containers.dashboard');
+	}
+
+	public function dashboard_graph() {
+		$this->helpers[] = 'GChart';
 		$container_stats = Set::combine($this->Container->find('all', array(
 			'fields' => array('COUNT(id) AS containers', 'DATE(modified) AS timestamp'),
 			'conditions' => array(
@@ -55,15 +63,11 @@ class ContainersController extends AppController {
 				array('number' => 'Items')
 			),
 			'data' => $graph_data,
-			'title' => 'My Container Stats over the past 7 days',
+			'title' => 'Container activity for last 7 days',
 			'type' => 'line',
 			'width' => 650,
 		);
-
-		// Recent items
-		$recent_items = $this->Container->ContainerItem->getRecentItems($this->Auth->user('id'));
-
-		$this->set(compact('total_containers', 'total_container_items', 'container_graph', 'recent_items'));
+		$this->set(compact('container_graph'));
 		$this->set('active', 'containers.dashboard');
 	}
 
@@ -148,4 +152,3 @@ class ContainersController extends AppController {
 	}
 
 }
-?>

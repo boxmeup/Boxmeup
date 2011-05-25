@@ -24,11 +24,12 @@ a img { border: none; }
 #content .content-title { margin-bottom: 10px; }
 
 #footer { padding: 10px; margin-top: 10px; font-size: 12px; float: right;}
+.social { float: left; padding: 10px; }
 
 .button, .button:visited {
 	background: #222 repeat-x;
 	display: inline-block;
-	padding: 5px 10px 6px; 
+	padding: 5px 10px 6px;
 	color: #fff;
 	text-decoration: none;
 	-moz-border-radius: 6px;
