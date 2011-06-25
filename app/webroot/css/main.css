@@ -3,6 +3,9 @@ body { font-family: 'PT Sans', arial, serif; background-color: #EFEBE3; font-siz
 a, a:visited { text-decoration: none; color: #2981e4; }
 a:hover { color: #2575cf;}
 a img { border: none; }
+p {margin-bottom: 10px; }
+li {margin-left: 20px; }
+
 .container { width: 960px; margin: 0 auto; }
 
 #header { background-color: #111; }
