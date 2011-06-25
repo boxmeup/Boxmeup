@@ -8,6 +8,6 @@
 <?php echo $html->image('icons/magnifier.png', array('style' => 'float: left; padding-right: 30px;')); ?>
 <span>Use the search feature and search for an item to instantly know the item's container.</span>
 <div style="clear: both">&nbsp;</div><br/>
-<div style="width: 250px; margin: 0 auto;">
+<div style="width: 300px; margin: 0 auto;">
 	<?php echo $html->link('Sign Up Today', '/signup', array('class' => 'super button green ui-modal')); ?>
 </div>
