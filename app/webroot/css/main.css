@@ -9,7 +9,7 @@ ul.legal li {margin-left: 20px; }
 .container { width: 960px; margin: 0 auto; }
 
 #header { background-color: #111; }
-#logo { float: left; padding: 10px; }
+#logo { background: url(../img/logo-icon.png) left center no-repeat; float: left; padding: 10px 10px 10px 36px; }
 #logo h1 { font-family: 'Nobile', arial, serif; font-size: 20px;}
 	#logo h1 a { color: #eee; text-decoration: none; display: block;}
 
