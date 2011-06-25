@@ -11,3 +11,6 @@
 	
 	// Analytics
 	Configure::write('Analytics.tracking_code', '');
+	
+	// AdSense
+	Configure::write('Adsense.adunit', '');

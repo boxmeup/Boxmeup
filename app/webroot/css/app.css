@@ -20,8 +20,8 @@
 	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 2px 2px #888; z-index: 2;
 }
 
-#sidebar {min-height: 400px; width: 249px; overflow: none; float: right; padding: 10px 0 40px 10px; }
-	#control { width: 220px; margin: 0 auto; padding-top: 10px; height: 150px;}
+#sidebar {min-height: 600px; width: 249px; overflow: none; float: right; padding: 10px 0 40px 10px; }
+	#control {display: none; width: 220px; margin: 0 auto; padding-top: 10px; height: 150px;}
 	#rev { width: 160px; margin: 0 auto; padding-top: 10px; }
 
 #footer { float: left; padding: 10px 0;}
