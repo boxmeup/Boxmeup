@@ -17,16 +17,28 @@
 	echo $html->link('Edit', array('action' => 'edit', $container['Container']['uuid']), array('class' => 'ui-modal small blue button', 'style' => 'margin-left: 20px;')); 
 ?>
 <div style="clear: both">&nbsp;</div>
+<div class="ui-widget ui-notification ajax-error" style="display: none">
+	<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-bottom: 10px;">
+		<p style="padding: 5px;">
+			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em;"></span>
+			<strong>Error: </strong><span class="ui-error-message"></span>
+		</p>
+	</div>
+</div>
 <?php
 	echo $form->create('ContainerItem', array('url' => array('controller' => 'container_items', 'action' => 'add', $container['Container']['uuid'])));
+	echo $form->hidden('Container.uuid', array('value' => $container['Container']['uuid']));
 	echo $form->input('body', array('type' => 'text', 'label' => false, 'class' => 'container_view_add focus', 'maxlength' => 100));
 	echo $html->tag('span', ' x ', array('style' => 'float: left; padding: 0 10px;'));
 	echo $form->input('quantity', array('type' => 'text', 'label' => false, 'maxlength' => 5, 'style' => 'width: 40px; float: left'));
 	echo $form->submit('Add Item', array('div' => false, 'class' => 'small green button', 'style' => 'float: left; margin-left: 5px;'));
 	echo $form->end();
 	echo $html->tag('div', '', array('style' => 'clear: both'));
+?>
+	<div id="item-container">
+<?php
 	if(empty($container_items))
-		echo $html->tag('p', __('No items yet.', true));
+		echo $html->tag('p', __('No items yet.', true), array('class' => 'no-items'));
 	else {
 		foreach($container_items as $key => $item) {
 ?>
@@ -47,3 +59,5 @@
 <?php
 		}
 	}
+?>
+	</div>

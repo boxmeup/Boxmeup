@@ -1,4 +1,5 @@
 <div id="rev">
+	<?php if($adsense_enabled) { ?>
 	<script type="text/javascript"><!--
 		google_ad_client = "ca-pub-7904143507693921";
 		/* App Display */
@@ -8,4 +9,5 @@
 		//-->
 	</script>
 	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+	<?php } ?>
 </div>

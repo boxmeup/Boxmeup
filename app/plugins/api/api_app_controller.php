@@ -4,7 +4,9 @@ class ApiAppController extends AppController {
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->api_key = !empty($this->params['url']['api_key']) ? $this->params['url']['api_key'] : '';
+		if(empty($this->api_key)) {
+			$this->api_key = !empty($this->params['url']['api_key']) ? $this->params['url']['api_key'] : '';
+		}
 		$this->user_id = ClassRegistry::init('Api.ApiUser')->getUserId($this->api_key);
 		$this->setView();
 	}
@@ -17,7 +19,7 @@ class ApiAppController extends AppController {
 			$this->set('output', array('error' => array('message' => 'Invalid API Key provided.')));
 	}
 	
-	private function setView() {
+	protected function setView() {
 		switch($this->params['url']['ext']) {
 			case 'xml':
 				$this->view = 'Xml';

@@ -6,6 +6,8 @@ a img { border: none; }
 p {margin-bottom: 10px; }
 ul.legal li {margin-left: 20px; }
 
+.beta { background: url(../img/beta_ribbon.png) no-repeat left top; position: absolute; left: 0; top: 0; width: 78px; height: 75px; z-index: 2; }
+
 .container { width: 960px; margin: 0 auto; }
 
 #header { background-color: #111; }

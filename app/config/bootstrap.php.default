@@ -1,6 +1,7 @@
 <?php
 
 	Configure::write('Security.hash', 'sha1');
+	Configure::write('beta', true);
 
 	// Site Theme
 	// Configure::write('Site.theme', 'default');
@@ -13,4 +14,5 @@
 	Configure::write('Analytics.tracking_code', '');
 	
 	// AdSense
+	Configure::write('Adsense.active', false);
 	Configure::write('Adsense.adunit', '');
