@@ -107,6 +107,17 @@ class ContainersController extends AppController {
 			}
 		}
 	}
+	
+	public function ajax_add($container_item_id) {
+		$this->helpers[] = 'Time';
+		$item = $this->Container->ContainerItem->find('first', array(
+			'conditions' => array(
+				'ContainerItem.id' => $container_item_id
+			),
+			'contain' => array()
+		));
+		$this->set(compact('item'));
+	}
 
 	public function edit($container_uuid='') {
 		if(!empty($container_uuid))

@@ -48,5 +48,6 @@
 		<?php echo $this->element('footer'); ?>
 	</div>
 	<?php echo $this->element('feedback', array('plugin' => 'feedback')); ?>
+	<?php if($beta) echo $this->Html->tag('div', '', array('class' => 'beta')); ?>
 </body>
 </html>

@@ -53,7 +53,7 @@ class ContainerItemsController extends AppController {
 				$this->Session->setFlash(__('Successfully added new container item.', true), 'notification/success');
 				$this->redirect(array('controller' => 'containers', 'action' => 'view', $container['Container']['slug']));
 			} else {
-				$this->Session->setFlash(__('Error adding new container item.', true), 'notification/error');
+				$this->Session->setFlash(__('Error adding new container item.', true), 'notification/error');				
 			}
 		}
 		$this->set('container', array('Container' => array('uuid' => $container_uuid)));

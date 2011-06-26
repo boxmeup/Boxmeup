@@ -1,3 +1,22 @@
+var boxmeup = {
+	displayError: function(msg, type) {
+		var $notification = $('.' + type),
+			$error_msg = $('.ui-error-message');
+		$notification.hide();
+		$error_msg.html(msg);
+		$notification.fadeIn();
+	},
+	hideError: function(type) {
+		$('.' + type).slideUp();
+	},
+	clearForm: function(formId) {
+		$(':input','#' + formId)
+			.not(':button, :submit, :reset, :hidden')
+			.val('')
+			.removeAttr('checked')
+			.removeAttr('selected');
+	}
+}
 $(document).ready(function() {
 	$('body').delegate('a.ui-modal, a.feedback-plugin', 'click', function() {
 		$.ajax({
@@ -22,7 +41,7 @@ $(document).ready(function() {
 	});
 
 	$('body').delegate('.ui-notification', 'click', function() {
-		$(this).slideUp();
+		boxmeup.hideError('ui-notification');
 	});
 
 	// Search

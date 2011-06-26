@@ -14,6 +14,9 @@ class AppController extends Controller {
 
 	public function beforeFilter() {
 		$this->setupAuth();
+		
+		$user_id = $this->Auth->user('id');
+		$this->api_key = !empty($user_id) ? ClassRegistry::init('Api.ApiUser')->getApiKey($user_id) : '';
 	}
 
 	public function beforeRender() {
@@ -23,7 +26,10 @@ class AppController extends Controller {
 			'Webroot' => $this->webroot,
 			'Fullwebroot' => env('SERVER_NAME') . $this->webroot,
 			'Here' => $this->here,
-			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0'
+			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0',
+			'adsense_enabled' => Configure::read('Adsense.active'),
+			'api_key' => $this->api_key,
+			'beta' => Configure::read('beta')
 		));
 		
 		if(Configure::read('Site.theme')) {
@@ -95,16 +101,19 @@ class AppController extends Controller {
 	 *
 	 * @param <mixed> $id Can be either integer ID or UUID
 	 */
-	protected function verifyUser($id) {
+	protected function verifyUser($id, $user_id = null) {
 		if(strstr($id, '-') !== false)
 			$id = ClassRegistry::init('Container')->getIdByUUID($id);
-		if(!ClassRegistry::init('Container')->verifyContainerUser($id, $this->Auth->user('id'))) {
+		if(!ClassRegistry::init('Container')->verifyContainerUser($id, empty($user_id) ? $this->Auth->user('id') : $user_id)) {
+			if($this->RequestHandler->isAjax())
+				return false;
 			$this->Session->setFlash(__('Not authorized to perform actions on this container', true), 'notification/error');
 			$this->redirect(array(
 				'controller' => 'containers',
 				'action' => 'index'
 			));
 		}
+		return true;
 	}
 
 	/**
