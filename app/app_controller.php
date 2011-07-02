@@ -28,7 +28,7 @@ class AppController extends Controller {
 			'Here' => $this->here,
 			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0',
 			'adsense_enabled' => Configure::read('Adsense.active'),
-			'api_key' => $this->api_key,
+			'api_key' => !empty($this->api_key) ? $this->api_key : null,
 			'beta' => Configure::read('beta')
 		));
 		

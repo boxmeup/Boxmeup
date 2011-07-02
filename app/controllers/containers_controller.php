@@ -161,5 +161,22 @@ class ContainersController extends AppController {
 			'contain' => array()
 		)));
 	}
+	
+	public function export($container_uuid) {
+		$this->helpers[] = 'Csv';
+		$this->layout = false;
+		$this->verifyUser($container_uuid);
+		$data = $this->Container->find('first', array(
+			'fields' => array('id', 'uuid', 'slug', 'name'),
+			'conditions' => array('Container.uuid' => $container_uuid),
+			'contain' => array(
+				'ContainerItem.body',
+				'ContainerItem.quantity',
+				'ContainerItem.created',
+				'ContainerItem.modified'
+			)
+		));
+		$this->set(compact('data'));
+	}
 
 }
