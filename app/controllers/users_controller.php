@@ -23,6 +23,21 @@ class UsersController extends AppController {
 	public function login() {
 		$this->set('title_for_layout', 'Login');
 	}
+	
+	public function qr_login($api_key = null) {
+		if(!empty($api_key)) {
+			$login_data = $this->User->find('first', array(
+				'fields' => array('User.email', 'User.password'),
+				'conditions' => array(
+					'User.id' => ClassRegistry::init('Api.ApiUser')->getUserId($api_key)
+				),
+				'contain' => array()
+			));
+			$this->redirect($this->Auth->login($login_data) ? '/' : '/login');
+		}
+		$this->set('api_key', $this->api_key);
+		$this->set('title_for_layout', 'Mobile Login');
+	}
 
 	public function logout() {
 		$this->Auth->logout();
