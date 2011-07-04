@@ -3,11 +3,11 @@ class UsersController extends AppController {
 
 	public $name = 'Users';
 	
-	public function beforeFilter() {
-		if($this->action === 'qr_login')
-			$this->_secure = true;
-		parent::beforeFilter();
-	}
+	//public function beforeFilter() {
+	//	if($this->action === 'qr_login')
+	//		$this->_secure = true;
+	//	parent::beforeFilter();
+	//}
 
 	/**
 	 * Responsible for registering new users.
