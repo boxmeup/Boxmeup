@@ -2,6 +2,7 @@
 	$footer_links = array(
 		'Features' => '/features',
 		'About' => '/about',
+		'Blog' => 'http://blog.boxmeupapp.com',
 		'Terms of Service' => '/terms',
 		'Privacy Policy' => '/privacy'
 	);
