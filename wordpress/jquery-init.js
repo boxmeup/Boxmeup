@@ -1,0 +1,1 @@
+google.load('jquery', '1.4');
