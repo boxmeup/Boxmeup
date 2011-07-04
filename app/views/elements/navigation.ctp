@@ -3,6 +3,7 @@
 		<li><?php echo $this->Html->link('Home', '/'); ?></li>
 		<li><?php echo $this->Html->link('Features', '/features'); ?></li>
 		<li><?php echo $this->Html->link('About', '/about'); ?></li>
+		<li><?php echo $this->Html->link('Blog', 'http://blog.boxmeupapp.com'); ?></li>
 	</ul>
 	<div style="clear: both"></div>
 </div>
