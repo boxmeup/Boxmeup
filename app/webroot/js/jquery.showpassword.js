@@ -33,13 +33,14 @@
 			if(typeof options == 'object'){ $.extend(def, options); }
 			var spname = def.name;
 			// define the class name of the object
-			if(def.classname==''){ theclass=''; }else{ theclass=' class="'+def.clasname+'"'; }
+			if(def.classname==''){ theclass=''; }else{ theclass=' class="'+def.classname+'"'; }
 			// build the checkbox
 			$(this).before('<input type="text" value="" class="'+spclass+'" style="display: none;" />');
 			var thecheckbox = '<label><input'+theclass+' type="checkbox" id="'+spcbid+'" name="'+spname+'" value="sp" />'+def.text+'</label>';
 			// check if there is a request to place the checkbox in a specific placeholder. 
 			// if not, place directly after the input.
-			if(ph == 'object' || typeof ph == 'undefined'){ $(this).after(thecheckbox); }else{ $(ph).html(thecheckbox); }
+			//if(ph == 'object' || typeof ph == 'undefined'){ $(this).after(thecheckbox); }else{ $(ph).html(thecheckbox); }
+			$(this).after(thecheckbox);
 			$.fn.showPassword.checker(spcbid, spinid);
 			return this;
 		});
