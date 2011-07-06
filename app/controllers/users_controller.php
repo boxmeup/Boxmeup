@@ -2,12 +2,6 @@
 class UsersController extends AppController {
 
 	public $name = 'Users';
-	
-	//public function beforeFilter() {
-	//	if($this->action === 'qr_login')
-	//		$this->_secure = true;
-	//	parent::beforeFilter();
-	//}
 
 	/**
 	 * Responsible for registering new users.
@@ -69,6 +63,8 @@ class UsersController extends AppController {
 		$api_key = ClassRegistry::init('Api.ApiUser')->getApiKey($this->Auth->user('id'));
 		$this->set(compact('api_key'));
 	}
+	
+	
 
 // ADMIN FUNCTION
 	
