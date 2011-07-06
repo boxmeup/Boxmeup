@@ -1,6 +1,11 @@
 <ul data-role="listview" data-theme="c">
-<?php
-	echo $html->link('Add Container', array('action' => 'add'), array('data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown'));
+	<div data-role="controlgroup" data-type="horizontal" style="width: 100%; text-align: center">
+	<?php
+		echo $html->link('Add Container', array('action' => 'add'), array('data-icon' => 'plus', 'data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown'));
+		echo $html->link('Search', array('controller' => 'searches', 'action' => 'find'), array('data-icon' => 'search', 'data-role' => 'button'));
+	?>
+	</div>
+	<?php
 	foreach($containers as $container) {
 		echo $html->tag('li',
 			$html->link($container['Container']['name'],
