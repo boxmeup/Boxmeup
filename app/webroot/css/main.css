@@ -48,7 +48,7 @@ ul.legal li {margin-left: 20px; }
 }
 
 .ui-notification { font-size: 12px; }
-
+#UserPassword { width: 250px; }
 input.button { border: 0; }
 
 .button:hover							{ background-color: #111; color: #fff; }
