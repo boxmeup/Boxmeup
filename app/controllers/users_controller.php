@@ -2,6 +2,8 @@
 class UsersController extends AppController {
 
 	public $name = 'Users';
+	
+	public $components = array('Email');
 
 	/**
 	 * Responsible for registering new users.
@@ -64,7 +66,30 @@ class UsersController extends AppController {
 		$this->set(compact('api_key'));
 	}
 	
-	
+	public function forgot_password() {
+		if(!empty($this->data)) {
+			if($this->User->verifyEmail($this->data['User']['email'])) {
+				$new_password = $this->User->resetPassword($this->data['User']['email']);
+				if($new_password) {
+					$this->Email->to = $this->data['User']['email'];
+					$this->Email->subject = 'Boxmeup Password Recovery';
+					$this->Email->replyTo = 'no-reply@boxmeupapp.com';
+					$this->Email->from = 'Boxmeup App <no-reply@boxmeupapp.com';
+					$this->Email->template = 'forgot_password';
+					$this->Email->sendAs = 'text';
+					$this->set(array(
+						'password' => $new_password,
+						'api_key' => ClassRegistry::init('Api.ApiUser')->getApiKey($this->User->getUserIdByEmail($this->data['User']['email']))
+					));
+					$this->Email->send();
+				}
+				$this->Session->setFlash(__('Successfully sent recovery request.', true), 'notification/success');
+				$this->redirect('/login');
+			} else {
+				$this->Session->setFlash(__('Invalid or un-registered email address supplied.', true), 'notification/error');
+			}
+		}
+	}
 
 // ADMIN FUNCTION
 	

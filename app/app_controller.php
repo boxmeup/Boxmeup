@@ -16,6 +16,12 @@ class AppController extends Controller {
 		$this->setupAuth();
 		
 		$user_id = $this->Auth->user('id');
+		if(!empty($user_id)) {
+			// If a password reset is required, force redirect to reset_password
+			$reset_exceptions = array('reset_password', 'logout');
+			if($this->Auth->user('reset_password') && !in_array($this->action, $reset_exceptions))
+				$this->redirect(array('controller' => 'users', 'action' => 'reset_password'));
+		}
 		$this->api_key = !empty($user_id) ? ClassRegistry::init('Api.ApiUser')->getApiKey($user_id) : '';
 	}
 

@@ -16,3 +16,8 @@
 	// AdSense
 	Configure::write('Adsense.active', false);
 	Configure::write('Adsense.adunit', '');
+	
+	// Feature activation
+	Configure::write('Feature.user_registration', true);
+	Configure::write('Feature.bulk_export', true);
+	Configure::write('Feature.Email.reset_password', true);
