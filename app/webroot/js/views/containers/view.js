@@ -9,7 +9,8 @@ $(document).ready(function() {
 	
 	$('#ContainerItemViewForm').bind('submit', function(event) {
 		var $this = $(this),
-			container_uuid = $('#ContainerUuid').attr('value');
+			container_uuid = $('#ContainerUuid').attr('value'),
+			$quantity = $('#ContainerItemQuantity');
 		$.ajax({
 			type: 'POST',
 			url: '/api/container_items/add/' + container_uuid + '.json',
@@ -22,6 +23,7 @@ $(document).ready(function() {
 				$('.no-items').fadeOut();
 				if(rdata.success) {
 					boxmeup.clearForm('ContainerItemViewForm');
+					$quantity.attr('value', '1');
 					$.get('/containers/ajax_add/' + rdata.message.id, function(data) {
 						$('#item-container').prepend(data);
 						$('.new-item').removeClass('new-item').slideDown();

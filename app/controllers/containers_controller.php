@@ -87,6 +87,7 @@ class ContainersController extends AppController {
 		if(!empty($container)) {
 			$this->verifyUser($container['Container']['id']);
 			$this->set('container_slug', $container['Container']['slug']);
+			$this->data['ContainerItem']['quantity'] = 1;
 		}
 		$title_for_layout = $container['Container']['name'];
 		$container_items = $this->Container->ContainerItem->getPaginatedContainerItems($this, $container['Container']['id']);
