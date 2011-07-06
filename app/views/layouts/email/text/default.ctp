@@ -20,4 +20,4 @@
 
 <?php echo $content_for_layout;?>
 
-This email was sent using the CakePHP Framework, http://cakephp.org.
+This email was sent by an automated system.  Please do not reply to the message as it is not monitored.

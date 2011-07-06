@@ -57,4 +57,38 @@ class User extends AppModel {
 			)));
 		}
 	}
+	
+	public function getUserIdByEmail($email) {
+		return $this->field('id', array('email' => $email));
+	}
+	
+	public function verifyEmail($email) {
+		return $this->find('count', array(
+			'conditions' => array(
+				'email' => $email
+			)
+		)) > 0;
+	}
+	
+	public function resetPassword($email) {
+		$user_id = $this->getUserIdByEmail($email);
+		$rand_password = $this->genRandomString();
+		$new_password = Security::hash($rand_password, Configure::read('Security.hash'), true);
+		$result = $this->save(array('User' => array(
+			'id' => $user_id,
+			'password' => $new_password,
+			'reset_password' => '1'
+		)));
+		
+		return $result ? $rand_password : false;
+	}
+	
+	private function genRandomString($length = 8) {
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+		$string = '';    
+		for ($p = 0; $p < $length; $p++)
+			$string .= $characters[mt_rand(0, strlen($characters))];
+			
+		return $string;
+	}
 }
