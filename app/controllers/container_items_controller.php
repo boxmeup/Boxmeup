@@ -86,6 +86,7 @@ class ContainerItemsController extends AppController {
 			))));
 			$this->verifyUser($this->data['Container']['id']);
 			$this->data['ContainerItem']['id'] = $this->ContainerItem->field('id', array('uuid' => $this->data['ContainerItem']['uuid']));
+			$this->data['ContainerItem']['container_id'] = $this->Container->field('id', array('uuid' => $this->data['Container']['uuid']));
 			if($this->ContainerItem->save($this->data)) {
 				$this->Session->setFlash(__('Container item successfully saved.', true), 'notification/success');
 				$this->redirect(array(

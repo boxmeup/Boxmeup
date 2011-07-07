@@ -1,11 +1,14 @@
 $(document).ready(function() {
-	$('.container-item-list-options').hide();
-	$('body').delegate('.container-item-list', 'mouseover', function() {
-		$(this).find('.container-item-list-options').show();
-	});
-	$('body').delegate('.container-item-list', 'mouseout', function() {
-		$(this).find('.container-item-list-options').hide();
-	});
+	var isiPad = navigator.userAgent.match(/iPad/i) != null;
+	if(!isiPad) {
+		$('.container-item-list-options').hide();
+		$('body').delegate('.container-item-list', 'mouseover', function() {
+			$(this).find('.container-item-list-options').show();
+		});
+		$('body').delegate('.container-item-list', 'mouseout', function() {
+			$(this).find('.container-item-list-options').hide();
+		});
+	}
 	
 	$('#sort-button').bind('click', function() {
 		var $order = $('#order'),

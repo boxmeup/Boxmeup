@@ -22,9 +22,9 @@
 		<div data-role="header" data-position="inline">
 		<?php
 		if($this->name == 'Containers' && $this->action == 'index' && !empty($User))
-			echo $html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('data-icon' => 'delete', 'class' => 'ui-btn-right no-ajax'));
+			echo $html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('data-ajax' => 'false', 'data-icon' => 'delete', 'class' => 'ui-btn-right'));
 		else if($this->name !== 'Pages' && $this->action !== 'home')
-			echo $html->link('Home', '/', array('data-iconpos' => 'notext', 'data-icon' => 'home', 'class' => 'ui-btn-right no-ajax'))
+			echo $html->link('Home', '/', array('data-ajax' => 'false', 'data-iconpos' => 'notext', 'data-icon' => 'home', 'class' => 'ui-btn-right'))
 		?>
 		<h1><?php echo $title_for_layout; ?></h1>
 		</div>

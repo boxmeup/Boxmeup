@@ -4,6 +4,17 @@ class UsersController extends AppController {
 	public $name = 'Users';
 	
 	public $components = array('Email');
+	
+	public function beforeFilter() {
+		$requires_auth = array(
+			'account',
+			'reset_password',
+		);
+		if(in_array($this->action, $requires_auth)) {
+			$this->_secure = true;
+		}
+		parent::beforeFilter();
+	}
 
 	/**
 	 * Responsible for registering new users.
@@ -87,6 +98,26 @@ class UsersController extends AppController {
 				$this->redirect('/login');
 			} else {
 				$this->Session->setFlash(__('Invalid or un-registered email address supplied.', true), 'notification/error');
+			}
+		}
+	}
+	
+	public function reset_password() {
+		if(!empty($this->data)) {
+			if($this->User->verifyRecoveryKey($this->Auth->user('id'), $this->data['User']['recovery_key'])) {
+				$this->data['User']['id'] = $this->Auth->user('id');
+				$this->data['User']['reset_password'] = '0';
+				$this->data['User']['password'] = $this->User->hashPassword($this->data['User']['password']);
+				$result = $this->User->save($this->data);
+				if($result) {
+					$this->Session->setFlash(__('Successfully reset password.', true), 'notification/success');
+					$this->Auth->login($this->User->read(null, $this->Auth->user('id')));
+					$this->redirect('/');
+				} else {
+					$this->Session->setFlash(__('Error resetting password.', true), 'notification/error');
+				}
+			} else {
+				$this->Session->setFlash(__('Verification key does not match what is on file.', true), 'notification/error');
 			}
 		}
 	}

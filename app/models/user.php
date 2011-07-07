@@ -73,7 +73,7 @@ class User extends AppModel {
 	public function resetPassword($email) {
 		$user_id = $this->getUserIdByEmail($email);
 		$rand_password = $this->genRandomString();
-		$new_password = Security::hash($rand_password, Configure::read('Security.hash'), true);
+		$new_password = $this->hashPassword($rand_password);
 		$result = $this->save(array('User' => array(
 			'id' => $user_id,
 			'password' => $new_password,
@@ -81,6 +81,16 @@ class User extends AppModel {
 		)));
 		
 		return $result ? $rand_password : false;
+	}
+	
+	public function verifyRecoveryKey($user_id, $key) {
+		$hashed_key_on_file = $this->field('password', array('id' => $user_id));
+		$hash_key = $this->hashPassword($key);
+		return $hashed_key_on_file === $hash_key;
+	}
+	
+	public function hashPassword($password) {
+		return Security::hash($password, Configure::read('Security.hash'), true);
 	}
 	
 	private function genRandomString($length = 8) {
