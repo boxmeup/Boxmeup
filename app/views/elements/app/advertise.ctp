@@ -1,5 +1,5 @@
 <div id="rev">
-	<?php if($adsense_enabled) { ?>
+	<?php if(Configure::read('Feature.adsense')) { ?>
 	<script type="text/javascript"><!--
 		google_ad_client = "ca-pub-7904143507693921";
 		/* App Display */

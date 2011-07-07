@@ -16,14 +16,14 @@
 		<?php foreach ($results as $result) { ?>
 			<li>
 				<?php echo $html->link(Sanitize::html($result['ContainerItem']['body'], array('remove' => true)) . ' - ' . $result['Container']['name'], array('controller' => 'containers', 'action' => 'view', $result['Container']['slug'])); ?><br/>
-				<small><?php echo $time->timeAgoInWords($result['ContainerItem']['modified']); ?></small>
+				<small><?php echo '&nbsp;&nbsp;&nbsp;&nbsp;'.$time->timeAgoInWords($result['ContainerItem']['modified']); ?></small>
 			</li>
 		<?php } ?>
 	</ul>
 	<?php
 		}
 	?>
-	<h4 style="margin-top: 20px;">I created an item, but it doesn't show it when I search!</h4>
+	<h4 style="padding-top: 20px;">I created an item, but it doesn't show it when I search!</h4>
 	<p>Please allow up to 1 minute for your item to become searchable.</p>
 <?php	
 	}

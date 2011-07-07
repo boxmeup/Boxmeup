@@ -33,7 +33,6 @@ class AppController extends Controller {
 			'Fullwebroot' => env('SERVER_NAME') . $this->webroot,
 			'Here' => $this->here,
 			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0',
-			'adsense_enabled' => Configure::read('Adsense.active'),
 			'api_key' => !empty($this->api_key) ? $this->api_key : null,
 			'beta' => Configure::read('beta')
 		));

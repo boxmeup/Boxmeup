@@ -8,11 +8,12 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.min.css');
+		echo $this->Html->css('http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css');
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.5.2');");
-		echo $this->Html->script('http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.min.js');
+		echo $this->Html->script('http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js');
 		echo $this->Html->script('app.mobile');
+		echo $this->element('analytics');
 		echo $scripts_for_layout;
 	?>
 

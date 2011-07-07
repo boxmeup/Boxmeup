@@ -14,10 +14,11 @@
 	Configure::write('Analytics.tracking_code', '');
 	
 	// AdSense
-	Configure::write('Adsense.active', false);
 	Configure::write('Adsense.adunit', '');
 	
 	// Feature activation
-	Configure::write('Feature.user_registration', true);
-	Configure::write('Feature.bulk_export', true);
-	Configure::write('Feature.Email.reset_password', true);
+	Configure::write('Feature.analytics', true);
+    Configure::write('Feature.adsense', true);
+    Configure::write('Feature.user_registration', true);
+    Configure::write('Feature.bulk_export', true);
+    Configure::write('Feature.forgot_password', true);
