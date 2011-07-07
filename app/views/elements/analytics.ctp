@@ -1,4 +1,4 @@
-<?php if(Configure::read('debug') === 0) { ?>
+<?php if(Configure::read('Feature.analytics')) { ?>
 <script type="text/javascript">
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', '<?php echo Configure::read('Analytics.tracking_code'); ?>']);
