@@ -1,6 +1,6 @@
 <h2 style="text-align: center">
 Welcome to Boxmeup
-<?php echo $html->image('generic-box.png', array('style' => 'padding-top: 20px;')); ?>
+<?php echo $html->image('generic-box.png', array('style' => 'padding-top: 20px;', 'width' => '64', 'height' => '64')); ?>
 </h2>
 <?php
 	echo $html->link('Sign Up', '/signup', array('data-role' => 'button', 'data-ajax' => 'false'));
