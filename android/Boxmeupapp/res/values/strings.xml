@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Boxmeup</string>
 	<string name="url_source">http://boxmeupapp.com</string>
+	<string name="javascript_interface">BoxmeupAndroid</string>
 </resources>
