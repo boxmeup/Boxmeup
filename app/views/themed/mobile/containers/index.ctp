@@ -1,9 +1,12 @@
 <ul data-role="listview" data-theme="c">
-	<div data-role="controlgroup" data-type="horizontal" style="width: 100%; text-align: center">
+	<div data-role="controlgroup" data-type="horizontal" style="width: 100%; text-align: center" id="control-menu">
 	<?php
 		echo $html->link('Add Container', array('action' => 'add'), array('data-icon' => 'plus', 'data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown'));
 		echo $html->link('Search', array('controller' => 'searches', 'action' => 'find'), array('data-icon' => 'search', 'data-role' => 'button'));
 	?>
+	</div>
+	<div data-role="controlgroup" data-type="horizontal" style="width: 100%; text-align: center" id="control-menu">
+		<?php echo $html->link('Scan', '#', array('data-icon' => 'grid', 'data-role' => 'button', 'style' => 'display: none;', 'class' => 'qr-scan-button')); ?>
 	</div>
 	<?php
 	foreach($containers as $container) {

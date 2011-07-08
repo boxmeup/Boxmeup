@@ -5,3 +5,4 @@ Welcome to Boxmeup
 <?php
 	echo $html->link('Sign Up', '/signup', array('data-role' => 'button', 'data-ajax' => 'false'));
 	echo $html->link('Log In', '/login', array('data-role' => 'button', 'data-ajax' => 'false'));
+	echo $html->link('QR Login', '#', array('data-role' => 'button', 'data-ajax' => 'false', 'style' => 'display: none;', 'class' => 'qr-scan-button'));
