@@ -1,0 +1,6 @@
+build
+bin
+build.xml
+manifest.mf
+local.properties
+gen/com/boxmeup/app/R.java
