@@ -30,7 +30,7 @@ class AppController extends Controller {
 		$this->set(array(
 			'User' => $User[$this->Auth->userModel],
 			'Webroot' => $this->webroot,
-			'Fullwebroot' => env('SERVER_NAME') . $this->webroot,
+			'Fullwebroot' => 'http://' . env('SERVER_NAME') . $this->webroot,
 			'Here' => $this->here,
 			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0',
 			'api_key' => !empty($this->api_key) ? $this->api_key : null,
