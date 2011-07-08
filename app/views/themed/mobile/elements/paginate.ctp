@@ -1,5 +1,5 @@
 <?php
-$paginator->options(array('url' => $this->passedArgs));
+$paginator->options = array('url' => $this->passedArgs);
 $paging = $paginator->params();
 if ($paging['pageCount'] > 1) {
 ?>
