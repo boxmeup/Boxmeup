@@ -28,7 +28,10 @@ $(document).ready(function() {
 				$.fancybox.showActivity();
 			},
 			success: function(data) {
-				$.fancybox({content: data});
+				$.fancybox({
+					content: data,
+					overlayShow: true
+				});
 			},
 			error: function(data) {
 				$.fancybox({content: 'Error processing request.'});
@@ -42,6 +45,15 @@ $(document).ready(function() {
 
 	$('body').delegate('.ui-notification', 'click', function() {
 		boxmeup.hideError('ui-notification');
+	});
+	
+	$('.tip-s').tipsy({
+		gravity: 's',
+		live: true
+	});
+	$('.tip-n').tipsy({
+		gravity: 'n',
+		live: true
 	});
 
 	// Search
