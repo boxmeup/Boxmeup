@@ -8,7 +8,29 @@
 		#navigation ul li a:hover { color: white; text-decoration: underline; }
 		#navigation ul li.active a { color: #333; }
 		#navigation ul li.action a:hover { color: black; }
-	#search {float: right; padding-right: 10px; }
+#search {float: right; padding-right: 10px; display: inline; padding-top: 12px; }
+#search input {
+	background: url(../img/search-dark.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #eee;
+    width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+}
+#search input:focus {
+    width: 200px;
+}
 #submenu {
 	padding: 0 10px; background-color: #C0CAFF; width: 680px; float: left;
 	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 2px 2px #888;
@@ -59,7 +81,8 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 .container_view_add { float: left; width: 400px; }
 .container_item_index { float: left; width: 350px; }
 
-#fancybox-content h2 { text-align: center;}
+#fancybox-content h2 { font-size: 18px; }
+#fancybox-content form { margin: 0 0 5px 5px; }
 
 table { width: 100%; }
 	table tbody td { padding: 10px; }

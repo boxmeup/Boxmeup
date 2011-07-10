@@ -10,13 +10,13 @@ ul.legal li {margin-left: 20px; }
 
 .container { width: 960px; margin: 0 auto; }
 
-#header { background-color: #111; }
+#header { background-color: #555; 	border: 1px solid #444444; border-top: none; box-shadow: 0 0 10px rgba(0,0,0,0.5), 0 1px 3px rgba(255, 255, 255, 0.2) inset; }
 #logo { background: url(../img/logo-icon.png) left center no-repeat; float: left; padding: 10px 10px 10px 36px; }
-#logo h1 { font-family: 'Nobile', arial, serif; font-size: 20px;}
+#logo h1 { font-family: 'Nobile', arial, serif; font-size: 20px; text-shadow: 2px 2px 2px #000; }
 	#logo h1 a { color: #eee; text-decoration: none; display: block;}
 
 #auth { float: right; }
-#auth ul { list-style: none; }
+#auth ul { list-style: none; float: right;}
 	#auth li { float: left; padding: 10px 10px 10px 0; }
 		#auth li a { text-decoration: none; }
 
@@ -100,3 +100,12 @@ form textarea {
 }
 
 .error-message { padding: 4px; color: #CD0A0A; border: 1px solid #CD0A0A; background: #FEF1EC; display: inline; font-size: 13px; }
+
+.tipsy { padding: 5px; font-size: 10px; opacity: 0.8; filter: alpha(opacity=80); background-repeat: no-repeat;  background-image: url(../img/tipsy.gif); }
+  .tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }
+  .tipsy-inner { -moz-border-radius:3px; -webkit-border-radius:3px; }
+  .tipsy-north { background-position: top center; }
+  .tipsy-south { background-position: bottom center; }
+  .tipsy-east { background-position: right center; }
+  .tipsy-west { background-position: left center; }
+

@@ -22,6 +22,7 @@
 			var WEBROOT = '$Webroot';
 		");
 		echo $this->Html->script('jquery.fancybox-1.3.4.pack');
+		echo $this->Html->script('jquery.tipsy.min');
 		echo $this->Html->script('app');
 		echo $this->element('analytics');
 		echo $scripts_for_layout;
@@ -34,7 +35,7 @@
 				<div id="logo">
 					<h1><?php echo $html->link('Boxmeup', '/'); ?></h1>
 				</div>
-				<?php echo $this->element('account'); ?>
+				<?php echo $this->element('app/account'); ?>
 				<div style="clear: both"></div>
 			</div>
 		</div>
