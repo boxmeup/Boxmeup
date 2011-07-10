@@ -1,7 +1,18 @@
-<div class="widget" style="float: right; width: 200px;">
-	Total Containers: <?php echo number_format($total_containers); ?><br/>
-	Total Items: <?php echo number_format($total_container_items); ?>
+<div class="stat stat-first">
+	<h4>Containers</h4>
+	<span class="stat-value"><?php echo number_format($total_containers); ?></span>
+	<?php echo $this->Html->link('View Your Containers', array('controller' => 'containers', 'action' => 'index'), array('class' => 'stat-view')); ?>
 </div>
+<div class="stat">
+	<h4>Items</h4>
+	<span class="stat-value"><?php echo number_format($total_container_items); ?></span>
+	<?php echo $this->Html->link('View Your Items', array('controller' => 'container_items', 'action' => 'index'), array('class' => 'stat-view')); ?>
+</div>
+<div style="clear: both">&nbsp;</div>
+<?php
+	echo $this->GChart->start('containers_trend');
+	echo $this->GChart->visualize('containers_trend', $container_graph);
+?>
 <?php if(!empty($recent_items)) {
 	echo $html->tag('h2', 'Recent Items').$html->tag('br');
 	foreach($recent_items as $item) {

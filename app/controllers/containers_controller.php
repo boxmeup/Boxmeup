@@ -15,6 +15,7 @@ class ContainersController extends AppController {
 
 	public function dashboard() {
 		$this->helpers[] = 'Time';
+		$this->helpers[] = 'GChart';
 		$total_containers = $this->Container->getTotalContainersPerUser($this->Auth->user('id'));
 		$total_container_items = $this->Container->getTotalContainerItemsPerUser($this->Auth->user('id'));
 
@@ -23,10 +24,8 @@ class ContainersController extends AppController {
 
 		$this->set(compact('total_containers', 'total_container_items', 'recent_items'));
 		$this->set('active', 'containers.dashboard');
-	}
-
-	public function dashboard_graph() {
-		$this->helpers[] = 'GChart';
+		
+		// Graph stats
 		$container_stats = Set::combine($this->Container->find('all', array(
 			'fields' => array('COUNT(id) AS containers', 'DATE(modified) AS timestamp'),
 			'conditions' => array(
@@ -69,6 +68,10 @@ class ContainersController extends AppController {
 		);
 		$this->set(compact('container_graph'));
 		$this->set('active', 'containers.dashboard');
+	}
+
+	public function dashboard_graph() {
+		$this->redirect('/dashboard');
 	}
 
 	public function index() {
