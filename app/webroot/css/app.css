@@ -39,7 +39,7 @@
 	#submenu-content a { margin-right: 8px; }
 		#submenu-content a img {width: 9px; height: 9px;}
 #app {
-	min-height: 400px; width: 680px; float: left; overflow: auto; padding: 10px 10px 40px 10px; background-color: white;
+	min-height: 600px; width: 680px; float: left; overflow: auto; padding: 10px 10px 40px 10px; background-color: white;
 	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 2px 2px #888; z-index: 2;
 }
 
@@ -86,3 +86,9 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 
 table { width: 100%; }
 	table tbody td { padding: 10px; }
+
+.stat { width: 45%; float: left; padding: 0 2%; height: 90px; border-left: 1px dotted #ccc; }
+	.stat-first { border-left: none; }
+	.stat h4 {  text-transform: uppercase; color: #999; margin-bottom: 1.5em; }
+	.stat-value { font-size: 40px; }
+	.stat-view { float: right; font-size: 12px; margin-top: 20px;}

@@ -19,6 +19,7 @@
 	// Feature activation
 	Configure::write('Feature.analytics', true);
     Configure::write('Feature.adsense', true);
+	Configure::write('Feature.feedback', true);
     Configure::write('Feature.user_registration', true);
     Configure::write('Feature.bulk_export', true);
     Configure::write('Feature.forgot_password', true);

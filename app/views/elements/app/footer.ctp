@@ -1,11 +1,10 @@
 <?php
 	$footer_links = array(
-		'Features' => '/features',
-		'About' => '/about',
 		'Terms of Service' => '/terms',
 		'Privacy Policy' => '/privacy'
 	);
 ?>
+<div style="clear: both"></div>
 <div class="social">
 	<a href="http://market.android.com/details?id=com.boxmeup.app">
 		<img src="http://www.android.com/images/brand/45_avail_market_logo1.png" alt="Available in Android Market" />
