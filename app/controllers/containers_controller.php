@@ -182,5 +182,29 @@ class ContainersController extends AppController {
 		));
 		$this->set(compact('data'));
 	}
+	
+	public function bulk_print() {
+		if(!empty($this->data)) {
+			// Determine if any are checked
+			$checked = array_flip($this->data['Container']['slug']);
+			$unchecked = (boolean) count($checked) == 1 && !isset($checked['1']);
+			if($unchecked) {
+				$this->Session->setFlash(__('Please select containers to print labels.', true), 'notification/error');
+				$this->redirect(array('controller' => 'containers', 'action' => 'bulk_print', 'active' => 1));
+			}
+			$containers = $this->Container->find('all', array(
+				'fields' => array('name', 'slug'),
+				'conditions' => array(
+					'slug' => array_keys($this->data['Container']['slug'])
+				),
+				'contain' => array()
+			));
+			$this->set(compact('containers'));
+			$this->layout = 'print';
+			$this->render('bulk_print_result');
+		} else {
+			$this->index();
+		}
+	}
 
 }

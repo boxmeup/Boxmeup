@@ -80,12 +80,18 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 
 .container_view_add { float: left; width: 400px; }
 .container_item_index { float: left; width: 350px; }
+.container-selectable { float: left; margin: 5px 0 0 10px;}
+.container-selected { background: #eee; }
 
 #fancybox-content h2 { font-size: 18px; }
 #fancybox-content form { margin: 0 0 5px 5px; }
 
-table { width: 100%; }
+table { width: 100%; border-collapse: collapse; }
 	table tbody td { padding: 10px; }
+	table tbody tr.alt { background: #eee; }
+	.table-checkbox { width: 15px; }
+	
+.pagebreak {page-break-before: always}
 
 .stat { width: 45%; float: left; padding: 0 2%; height: 90px; border-left: 1px dotted #ccc; }
 	.stat-first { border-left: none; }
