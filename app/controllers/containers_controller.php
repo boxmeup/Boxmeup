@@ -203,6 +203,7 @@ class ContainersController extends AppController {
 			$this->layout = 'print';
 			$this->render('bulk_print_result');
 		} else {
+			$this->Container->pagination_limit = 16;
 			$this->index();
 		}
 	}
