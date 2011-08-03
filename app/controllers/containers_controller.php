@@ -195,7 +195,7 @@ class ContainersController extends AppController {
 			$containers = $this->Container->find('all', array(
 				'fields' => array('name', 'slug'),
 				'conditions' => array(
-					'slug' => array_keys($this->data['Container']['slug'])
+					'slug' => array_keys(array_filter($this->data['Container']['slug']))
 				),
 				'contain' => array()
 			));
