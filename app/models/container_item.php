@@ -79,6 +79,15 @@ class ContainerItem extends AppModel {
 		));
 	}
 	
+	public function getAllItems($user_id) {
+		return $this->find('all', array(
+			'fields' => array('container_id', 'body', 'quantity', 'created', 'modified'),
+			'order' => 'ContainerItem.created ASC',
+			'contain' => array('Container.name', 'Container.slug'),
+			'conditions' => array('Container.user_id' => $user_id)
+		));
+	}
+	
 	// API Methods
 	public function getApiContainerItems($user_id, $conditions = array()) {
 		$conditions = array_merge(array('user_id' => $user_id), $conditions);

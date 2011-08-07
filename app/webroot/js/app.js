@@ -9,6 +9,14 @@ var boxmeup = {
 	hideError: function(type) {
 		$('.' + type).slideUp();
 	},
+	dismissMessage: function() {
+		$.ajax({
+			url: '/users/dismiss_message',
+			complete: function() {
+				$('.message').slideUp();
+			}
+		});
+	},
 	clearForm: function(formId) {
 		$(':input','#' + formId)
 			.not(':button, :submit, :reset, :hidden')
@@ -45,6 +53,11 @@ $(document).ready(function() {
 
 	$('body').delegate('.ui-notification', 'click', function() {
 		boxmeup.hideError('ui-notification');
+	});
+	
+	$('body').delegate('.dismiss', 'click', function() {
+		boxmeup.dismissMessage();
+		return false;
 	});
 	
 	$('.tip-s').tipsy({

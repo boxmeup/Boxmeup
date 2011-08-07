@@ -120,5 +120,29 @@ class ContainerItemsController extends AppController {
 			$this->Container->field('slug', array('id' => $container_id))
 		));
 	}
-
+	
+	public function export() {
+		if(Configure::read('Feature.bulk_export')) {
+			$this->helpers[] = 'Csv';
+			$this->layout = false;
+			$last_request = $this->Session->read('Feature.bulk_export.last_request');
+			if(empty($last_request))
+				$this->Session->write('Feature.bulk_export.last_request', date('Y-m-d H:i:s'));
+			else if(strtotime($last_request) > strtotime('-1 minute')) {
+				$this->Session->setFlash('Bulk exporting is an intense operation.  Please wait another minute before requesting again.', 'notification/notice');
+				$this->redirect($this->referer());
+			} else {
+				$this->Session->delete('Feature.bulk_export.last_request');
+			}
+			$data = $this->ContainerItem->getAllItems($this->Auth->user('id'));
+			if(empty($data)) {
+				$this->Session->setFlash('You must create some items before exporting.', 'notification/notice');
+				$this->redirect($this->referer());
+			}
+			$this->set(compact('data'));
+		} else {
+			$this->Session->setFlash('Bulk export feature has been temporarily disabled.', 'notification/notice');
+			$this->redirect($this->referer());
+		}
+	}
 }
