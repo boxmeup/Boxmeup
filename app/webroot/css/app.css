@@ -98,3 +98,6 @@ table { width: 100%; border-collapse: collapse; }
 	.stat h4 {  text-transform: uppercase; color: #999; margin-bottom: 1.5em; }
 	.stat-value { font-size: 40px; }
 	.stat-view { float: right; font-size: 12px; margin-top: 20px;}
+	
+.message { background: #DCF7DD; border: 1px solid #BBD2BC; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding: 10px; font-size: 12px; }
+	.message a.dismiss:hover { text-decoration: underline; }

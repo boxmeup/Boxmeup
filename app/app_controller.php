@@ -34,7 +34,8 @@ class AppController extends Controller {
 			'Here' => $this->here,
 			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0',
 			'api_key' => !empty($this->api_key) ? $this->api_key : null,
-			'beta' => Configure::read('beta')
+			'beta' => Configure::read('beta'),
+			'message_dismissed' => $this->Cookie->read('message_dismissed' . Configure::read('Message.cookie_suffix')) == 'hide'
 		));
 		
 		if(Configure::read('Site.theme')) {
