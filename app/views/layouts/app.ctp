@@ -66,10 +66,12 @@
 						</div>
 					</div>
 				</noscript>
-				<?php echo $this->Session->flash(); ?>
-				<?php echo $this->Session->flash('auth'); ?>
-				<?php echo $content_for_layout; ?>
-
+				<div class="app-section">
+					<?php echo $this->Session->flash(); ?>
+					<?php echo $this->Session->flash('auth'); ?>
+					<?php echo $content_for_layout; ?>
+					<div style="clear:both"></div>
+				</div>
 			</div>
 			<?php echo $this->element('app/footer'); ?>
 			<div style="clear: both"></div>

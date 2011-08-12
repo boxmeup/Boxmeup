@@ -75,13 +75,26 @@ class ContainersController extends AppController {
 	}
 
 	public function index() {
+		$this->helpers[] = 'Time';
 		$control = 'containers.index';
 		$containers = $this->Container->getPaginatedContainers($this, $this->Auth->user('id'));
 		if(empty($containers)) {
 			$this->Session->setFlash('Start by creating a container.', 'notification/notice');
 			$this->redirect(array('action' => 'add'));
 		}
-		$this->set(compact('containers', 'control'));
+		
+		// Check the cookie and render the view depending on what was selected
+		$container_view = $this->Session->read('Feature.change_view');
+		$this->set(compact('containers', 'control', 'container_view'));
+		if($container_view === 'list')
+			$this->render('index.table');
+	}
+	
+	public function change_view($view) {
+		if($this->RequestHandler->isAjax())
+			Configure::write('debug', 0);
+		$this->Session->write('Feature.change_view', $view == 'list' ? 'list' : 'grid');
+		$this->redirect($this->referer());
 	}
 
 	public function view($slug=null) {

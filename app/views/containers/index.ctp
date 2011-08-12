@@ -1,4 +1,8 @@
 <?php
+	echo $this->Html->scriptBlock("
+		var container_view = '$container_view'
+	");
+	echo $this->Html->script('views/containers/index', array('inline' => false));
 	foreach($containers as $i => $container) {
 		$link_contents = $html->image('generic-box.png');
 		$link_contents.= $html->tag('br');
