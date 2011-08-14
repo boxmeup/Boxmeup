@@ -216,8 +216,14 @@ class ContainersController extends AppController {
 			$this->layout = 'print';
 			$this->render('bulk_print_result');
 		} else {
-			$this->Container->pagination_limit = 16;
-			$this->index();
+			$this->Container->pagination_limit = 64;
+			$control = 'containers.index';
+			$containers = $this->Container->getPaginatedContainers($this, $this->Auth->user('id'));
+			if(empty($containers)) {
+				$this->Session->setFlash('Start by creating a container.', 'notification/notice');
+				$this->redirect(array('action' => 'add'));
+			}
+			$this->set(compact('containers', 'control', 'container_view'));
 		}
 	}
 
