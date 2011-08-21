@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	boxmeup.optionHoverSetup();
+	boxmeup.optionHide();
 	
 	$('.change-view').bind('click', function() {
 		$this = $(this);
