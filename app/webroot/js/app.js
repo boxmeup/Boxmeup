@@ -23,6 +23,23 @@ var boxmeup = {
 			.val('')
 			.removeAttr('checked')
 			.removeAttr('selected');
+	},
+	isiPad: function() {
+		return navigator.userAgent.match(/iPad/i) != null
+	},
+	optionHide: function() {
+		if(!boxmeup.isiPad())
+			$('.container-item-list-options').hide();
+	},
+	optionHoverSetup: function() {
+		if(!boxmeup.isiPad()) {
+			$('body').delegate('.container-item-list', 'mouseover', function() {
+				$(this).find('.container-item-list-options').show();
+			});
+			$('body').delegate('.container-item-list', 'mouseout', function() {
+				$(this).find('.container-item-list-options').hide();
+			});
+		}
 	}
 }
 $(document).ready(function() {
