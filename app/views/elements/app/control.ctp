@@ -2,6 +2,7 @@
 <div class="message">
 	<?php echo Configure::read('Message.message'); ?>
 	<br/><br/>
-	<?php echo $this->Html->link('Dismiss Message', '#', array('class' => 'dismiss')); ?>
+	<?php echo $this->Html->link('Dismiss Message', '#', array('class' => 'btn small dismiss', 'style' => 'float: right')); ?>
+	<div style="clear: both"></div>
 </div>
 <?php } ?>

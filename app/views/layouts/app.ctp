@@ -8,10 +8,11 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('http://fonts.googleapis.com/css?family=PT+Sans');
+		//echo $this->Html->css('http://fonts.googleapis.com/css?family=PT+Sans');
 		echo $this->Html->css('http://fonts.googleapis.com/css?family=Nobile');
 		echo $this->Html->css('main');
 		echo $this->Html->css('app');
+		echo $this->Html->css('util');
 		echo $this->Html->css('jquery-ui-1.8.10.custom');
 		echo $this->Html->css('jquery.fancybox-1.3.4');
 		echo $this->Html->css('/feedback/css/feedback.css');

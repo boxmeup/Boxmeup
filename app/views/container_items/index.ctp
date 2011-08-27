@@ -8,8 +8,8 @@
 	echo $form->input('ContainerItem.body', array('type' => 'text', 'label' => false, 'class' => 'container_item_index focus', 'maxlength' => 100));
 	echo $html->tag('span', ' x ', array('style' => 'float: left; padding: 0 10px;'));
 	echo $form->input('ContainerItem.quantity', array('type' => 'text', 'label' => false, 'maxlength' => 5, 'style' => 'width: 40px; float: left'));
-	echo $form->input('ContainerItem.container_id', array('options' => $containers, 'empty' => 'Select a container', 'label' => false, 'style' => 'float: left; margin-left: 5px;'));
-	echo $form->submit('Add Item', array('div' => false, 'class' => 'small green button', 'style' => 'float: left'));
+	echo $form->input('ContainerItem.container_id', array('options' => $containers, 'empty' => 'Select a container', 'label' => false, 'style' => 'float: left; margin-left: 5px;')).'&nbsp;';
+	echo $form->submit('Add Item', array('div' => false, 'class' => 'btn success small', 'style' => 'float: left'));
 	echo $form->end();
 ?>
 <div style="clear: both"></div>
@@ -17,7 +17,7 @@
 <div style="float: right">
 	<?php echo $form->input('order', array('options' => array('ContainerItem.body' => 'Item Text', 'Container.name' => 'Container Name', 'ContainerItem.modified' => 'Modified Date'), 'label' => false, 'empty' => '(Order By)', 'div' => false)); ?>
 	<?php echo $form->input('direction', array('options' => array('asc' => 'Ascending', 'desc' => 'Descending'), 'label' => false, 'empty' => '(Direction)', 'div' => false)); ?>
-	<?php echo $form->submit('Sort', array('div' => false, 'class' => 'small blue button', 'id' => 'sort-button')); ?>
+	<?php echo $form->submit('Sort', array('div' => false, 'class' => 'btn primary small', 'id' => 'sort-button')); ?>
 	<div style="clear: both"></div>
 </div>
 <br/>

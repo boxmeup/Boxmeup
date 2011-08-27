@@ -7,5 +7,5 @@
 	echo $form->input('quantity', array('type' => 'text', 'maxlength' => 5, 'style' => 'width: 50px;'));
 	echo $form->input('Container.uuid', array('options' => $containers, 'label' => 'Container'));
 	echo '<br/>';
-	echo $form->submit('Save Item', array('class' => 'medium green button'));
+	echo $form->submit('Save Item', array('class' => 'btn success'));
 	echo $form->end();

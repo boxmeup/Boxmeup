@@ -1,7 +1,7 @@
 var boxmeup = {
 	displayError: function(msg, type) {
 		var $notification = $('.' + type),
-			$error_msg = $('.ui-error-message');
+			$error_msg = $('.alert-message .error-msg');
 		$notification.hide();
 		$error_msg.html(msg);
 		$notification.fadeIn();
@@ -68,9 +68,10 @@ $(document).ready(function() {
 		return false;
 	});
 
-	$('body').delegate('.ui-notification', 'click', function() {
-		boxmeup.hideError('ui-notification');
-	});
+    $('body').delegate('.alert-message .close', 'click', function() {
+        $(this).parent().slideUp();
+        return false;
+    });
 	
 	$('body').delegate('.dismiss', 'click', function() {
 		boxmeup.dismissMessage();

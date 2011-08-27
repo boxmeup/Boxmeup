@@ -43,6 +43,8 @@
 	-moz-box-shadow: 1px 2px 2px #888; -webkit-box-shadow: 1px 2px 2px #888; box-shadow: 1px 2px 2px #888; z-index: 2;
 }
 
+.app-section { padding-top: 10px; }
+
 #sidebar {min-height: 600px; width: 249px; overflow: none; float: right; padding: 10px 0 40px 10px; }
 	#control {display: none; width: 220px; margin: 0 auto; padding-top: 10px; height: 150px;}
 	#rev { width: 200px; margin: 0 auto; padding-top: 10px; }
@@ -63,10 +65,10 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 .paging { float: right; padding: 13px 0 0 0; }
 	.paging div,
 	.paging a { font-size:12px; list-style:none; float:left; }
-	.paging a { border:solid 1px #667151; border-bottom: 0; margin-right:2px; }
+	.paging a { border:solid 1px #667151; border-bottom: 0; margin: 3px 2px 0 0; }
 	.paging .off { display: none; }
 	.paging .current{ border:solid 1px #667151; border-bottom: 0; background: white; color: #333;
-					  font-weight:bold; display:block; float:left; padding:3px 4px; margin-right:2px; }
+					  font-weight:bold; display:block; float:left; padding:3px 4px; margin: 3px 2px 0 0; }
 	.paging a:link,
 	.paging a:visited { background: white; color:#333; display:block; float:left; padding:3px 4px; text-decoration:none; }
 	.paging a:hover{ border:solid 1px #667151; border-bottom: 0; background:#2981E4; color:#efefef; }
@@ -86,6 +88,9 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 #fancybox-content h2 { font-size: 18px; }
 #fancybox-content form { margin: 0 0 5px 5px; }
 
+.input.error { background-color: #FAE5E3; padding: 3px; margin: 2px 0;}
+.input.error .error-message { display: inline; padding-left: 5px; color: #9D261D; font-size: 13px;}
+
 table { width: 100%; border-collapse: collapse; }
 	table tbody td { padding: 10px; }
 	table tbody tr.alt { background: #eee; }
@@ -100,4 +105,3 @@ table { width: 100%; border-collapse: collapse; }
 	.stat-view { float: right; font-size: 12px; margin-top: 20px;}
 	
 .message { background: #DCF7DD; border: 1px solid #BBD2BC; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding: 10px; font-size: 12px; }
-	.message a.dismiss:hover { text-decoration: underline; }
