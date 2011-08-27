@@ -1,5 +1,5 @@
 * { padding: 0; margin: 0 }
-body { font-family: 'PT Sans', arial, serif; background-color: #EFEBE3; font-size: 16px; }
+body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background-color: #EFEBE3; font-size: 16px; }
 a, a:visited { text-decoration: none; color: #2981e4; }
 a:hover { color: #2575cf;}
 a img { border: none; }
@@ -98,8 +98,6 @@ form textarea {
 	width: 400px;
 	height: 150px;
 }
-
-.error-message { padding: 4px; color: #CD0A0A; border: 1px solid #CD0A0A; background: #FEF1EC; display: inline; font-size: 13px; }
 
 .tipsy { padding: 5px; font-size: 10px; opacity: 0.8; filter: alpha(opacity=80); background-repeat: no-repeat;  background-image: url(../img/tipsy.gif); }
   .tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }

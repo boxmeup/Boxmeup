@@ -21,6 +21,6 @@
 ?>
 </table><br/>
 <?php
-	echo $this->Form->submit('Print Selected Labels', array('class' => 'large blue button'));
+	echo $this->Form->submit('Print Selected Labels', array('class' => 'btn primary'));
 	echo $this->Form->end();
 ?>

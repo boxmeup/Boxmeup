@@ -5,5 +5,5 @@
 	echo $form->hidden('Container.uuid');
 	echo $form->input('name', array('label' => 'Container Name'));
 	echo '<br/>';
-	echo $form->submit('Update Container', array('class' => 'large blue button'));
+	echo $form->submit('Update Container', array('class' => 'btn primary'));
 	echo $form->end();

@@ -1,5 +1,9 @@
 $(document).ready(function() {
 	$('#container-selectall').click(function() {
-		$('.container-checkbox').attr('checked', $(this).is(':checked') ? 'checked' : '');
+		if($(this).is(':checked')) {
+			$('.container-checkbox').attr('checked', 'checked');
+		} else {
+			$('.container-checkbox').removeAttr('checked');
+		}
 	});
 });

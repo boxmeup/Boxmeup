@@ -37,7 +37,7 @@ $(document).ready(function() {
 					$.each(errors, function(key, value) {
 						message += key + ': ' + value + '<br/>'
 					});
-					boxmeup.displayError('<br/>' + message, 'ajax-error');
+					boxmeup.displayError(message, 'ajax-error');
 				}
 			},
 			complete: function() {
