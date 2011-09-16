@@ -6,7 +6,7 @@
 	echo $form->input('email', array('label' => 'Update Email'));
 	echo $form->input('password', array('label' => 'Update Password (Leave blank if you do not wish to change.)'));
 	echo '<br/>';
-	echo $form->submit('Update Account Settings', array('class' => 'large green button'));
+	echo $form->submit('Update Account Settings', array('class' => 'btn success'));
 	echo $form->end();
 ?>
 <br/><hr/><br/>
