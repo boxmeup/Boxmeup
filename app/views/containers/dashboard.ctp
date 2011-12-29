@@ -1,4 +1,9 @@
 <div class="stat stat-first">
+	<h4>Locations</h4>
+	<span class="stat-value"><?php echo number_format($total_locations); ?></span>
+	<?php echo $this->Html->link('View Your Locations', array('controller' => 'locations', 'action' => 'index'), array('class' => 'stat-view')); ?>
+</div>
+<div class="stat">
 	<h4>Containers</h4>
 	<span class="stat-value"><?php echo number_format($total_containers); ?></span>
 	<?php echo $this->Html->link('View Your Containers', array('controller' => 'containers', 'action' => 'index'), array('class' => 'stat-view')); ?>

@@ -15,6 +15,10 @@
 	
 	// AdSense
 	Configure::write('Adsense.adunit', '');
+
+	// Message
+    Configure::write('Message.message', 'New feature! Attach containers to locations! <br/><br/> <a href="http://blog.boxmeupapp.com/view/boxmeup-v0-8-released-new-feature-locations" target="_blank">Read More</a>.');
+    Configure::write('Message.cookie_suffix', '002');
 	
 	// Feature activation
 	Configure::write('Feature.analytics', true);
