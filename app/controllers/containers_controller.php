@@ -18,11 +18,12 @@ class ContainersController extends AppController {
 		$this->helpers[] = 'GChart';
 		$total_containers = $this->Container->getTotalContainersPerUser($this->Auth->user('id'));
 		$total_container_items = $this->Container->getTotalContainerItemsPerUser($this->Auth->user('id'));
+		$total_locations = ClassRegistry::init('Location')->getTotalLocationsPerUser($this->Auth->user('id'));
 
 		// Recent items
 		$recent_items = $this->Container->ContainerItem->getRecentItems($this->Auth->user('id'));
 
-		$this->set(compact('total_containers', 'total_container_items', 'recent_items'));
+		$this->set(compact('total_containers', 'total_container_items', 'total_locations', 'recent_items'));
 		$this->set('active', 'containers.dashboard');
 		
 		// Graph stats

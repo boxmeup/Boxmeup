@@ -41,6 +41,13 @@ class Location extends AppModel {
 		return $results;
 	}
 
+	public function getTotalLocationsPerUser($user_id) {
+		return $this->find('count', array(
+			'conditions' => compact('user_id'),
+			'contain' => array()
+		));
+	}
+
 	public function getIdByUUID($uuid) {
 		return $this->field('id', compact('uuid'));
 	}

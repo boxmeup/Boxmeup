@@ -100,7 +100,7 @@ table { width: 100%; border-collapse: collapse; }
 	
 .pagebreak {page-break-before: always}
 
-.stat { width: 45%; float: left; padding: 0 2%; height: 90px; border-left: 1px dotted #ccc; }
+.stat { width: 28%; float: left; padding: 0 2%; height: 90px; border-left: 1px dotted #ccc; }
 	.stat-first { border-left: none; }
 	.stat h4 {  text-transform: uppercase; color: #999; margin-bottom: 1.5em; }
 	.stat-value { font-size: 40px; }
