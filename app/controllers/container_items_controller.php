@@ -55,6 +55,8 @@ class ContainerItemsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Error adding new container item.', true), 'notification/error');				
 			}
+		} else {
+			$this->data['ContainerItem']['quantity'] = 1;
 		}
 		$this->set('container', array('Container' => array('uuid' => $container_uuid)));
 	}

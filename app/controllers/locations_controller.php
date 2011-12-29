@@ -29,7 +29,11 @@ class LocationsController extends AppController {
 			$this->data['Location']['is_mappable'] = !empty($this->data['Location']['address']);
 			if($this->Location->save($this->data)) {
 				$this->Session->setFlash('Successfully added new location', 'notification/success');
-				$this->redirect(array('controller' => 'locations', 'action' => 'index'));
+				if(!$this->isMobile()) {
+					$this->redirect(array('controller' => 'locations', 'action' => 'index'));
+				} else {
+					$this->redirect(array('controller' => 'containers', 'action' => 'index'));
+				}
 			} else {
 				$this->Session->setFlash('There was a problem saving your location.', 'notification/error');
 			}
