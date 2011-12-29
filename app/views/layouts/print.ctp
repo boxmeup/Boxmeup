@@ -12,7 +12,7 @@
 		echo $this->Html->css('main');
 		echo $this->Html->css('jquery-ui-1.8.10.custom');
 		echo $this->Html->script('https://www.google.com/jsapi');
-		echo $this->Html->scriptBlock("google.load('jquery', '1.5.1');");
+		echo $this->Html->scriptBlock("google.load('jquery', '1.7.1');");
 		echo $this->Html->scriptBlock("
 			var WEBROOT = '$Webroot';
 			$(document).ready(function() {

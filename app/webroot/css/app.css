@@ -75,7 +75,9 @@ a.container-box:hover { border: 1px solid #2981e4; background-color: #c0caff; }
 
 .container-item-list { padding: 10px 20px; border-bottom: 1px solid #bbb; }
 	.container-item-list-quantity { width: 60px; float: left; padding: 8px 5px 0 0; font-size: 22px; overflow: hidden; color: #555;}
+	.container-item-list-map { width: 250px; height: 100px; float: left; padding: 0 5px 0 0; overflow: hidden; }
 	.container-item-list-content { width: 520px; float: left; padding: 2px;}
+	.container-item-list-content-short { width: 330px; float: left; padding: 10px 2px 2px 2px; }
 	.container-item-list-options { margin: 8px 0 0 10px; float: left; }
 	.alternate { background-color: #ddd; }
 .container-item-list:hover { background-color: #eee; }
@@ -105,3 +107,10 @@ table { width: 100%; border-collapse: collapse; }
 	.stat-view { float: right; font-size: 12px; margin-top: 20px;}
 	
 .message { background: #DCF7DD; border: 1px solid #BBD2BC; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding: 10px; font-size: 12px; }
+
+.left-form { float: left; }
+	.left-form .text input { width: 250px; }
+	
+.preview { float: left; width: 355px; padding-left: 30px; }
+.preview-button { float: left; }
+.btn-inline { float: left; margin-left: 10px; }

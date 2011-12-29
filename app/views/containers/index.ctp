@@ -3,6 +3,17 @@
 		var container_view = '$container_view'
 	");
 	echo $this->Html->script('views/containers/index', array('inline' => false));
+?>
+<div style="float: right">
+	<?php
+		echo $this->Form->select('Location.uuid', $location_list, null, array('empty' => 'All Locations'));
+	?>
+</div>
+<div style="clear: both">&nbsp;</div>
+<?php
+	if(empty($containers)) {
+		echo '<p>No containers for this location.</p>';
+	}
 	foreach($containers as $i => $container) {
 		$link_contents = $html->image('generic-box.png');
 		$link_contents.= $html->tag('br');

@@ -78,14 +78,16 @@ class ContainersController extends AppController {
 		$this->helpers[] = 'Time';
 		$control = 'containers.index';
 		$containers = $this->Container->getPaginatedContainers($this, $this->Auth->user('id'));
-		if(empty($containers)) {
+		if(empty($containers) && empty($this->params['named']['location'])) {
 			$this->Session->setFlash('Start by creating a container.', 'notification/notice');
 			$this->redirect(array('action' => 'add'));
 		}
 		
 		// Check the cookie and render the view depending on what was selected
 		$container_view = $this->Session->read('Feature.change_view');
-		$this->set(compact('containers', 'control', 'container_view'));
+		$location_list = ClassRegistry::init('Location')->getLocationList($this->Auth->user('id'), true);
+		$this->set(compact('containers', 'control', 'container_view', 'location_list'));
+		$this->data['Location']['uuid'] = !empty($this->params['named']['location']) ? $this->params['named']['location'] : null;
 		if($container_view === 'list')
 			$this->render('index.table');
 	}
@@ -145,13 +147,19 @@ class ContainersController extends AppController {
 			$this->data['Container']['id'] = $this->Container->getIdByUUID($this->data['Container']['uuid']);
 			if($this->Container->save($this->data)) {
 				$this->Session->setFlash(__('Successfully updated the container.', true), 'notification/success');
-				$this->redirect(array('action' => 'view', $this->Container->getSlugByUUID($this->data['Container']['uuid'])));
+				$this->redirect($this->referer());
 			} else {
 				$this->Session->setFlash(__('Unable to update the container.', true), 'notification/error');
 			}
 		} else {
+			$location_list = ClassRegistry::init('Location')->getLocationList($this->Auth->user('id'));
+			$this->data = $this->Container->find('first', array(
+				'conditions' => array('uuid' => $container_uuid),
+				'contain' => array()
+			));
 			$this->data['Container']['name'] = $name;
 			$this->data['Container']['uuid'] = $container_uuid;
+			$this->set(compact('location_list'));
 		}
 	}
 

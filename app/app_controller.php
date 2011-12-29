@@ -104,7 +104,7 @@ class AppController extends Controller {
 
 	/**
 	 * Verifies the current user can perform sensitive actions on container.
-	 *
+	 * @deprecated
 	 * @param <mixed> $id Can be either integer ID or UUID
 	 */
 	protected function verifyUser($id, $user_id = null) {
@@ -116,6 +116,22 @@ class AppController extends Controller {
 			$this->Session->setFlash(__('Not authorized to perform actions on this container', true), 'notification/error');
 			$this->redirect(array(
 				'controller' => 'containers',
+				'action' => 'index'
+			));
+		}
+		return true;
+	}
+
+	protected function verifyUserV2($id, $user_id = null, $type = 'Container') {
+		if(strstr($id, '-') !== false) {
+			$id = ClassRegistry::init($type)->getIdByUUID($id);
+		}
+		if(!ClassRegistry::init($type)->verifyUser($id, empty($user_id) ? $this->Auth->user('id') : $user_id)) {
+			if($this->RequestHandler->isAjax())
+				return false;
+			$this->Session->setFlash(__('Not authorized to perform actions on this object.', true), 'notification/error');
+			$this->redirect(array(
+				'controller' => strtolower(Inflector::pluralize($type)),
 				'action' => 'index'
 			));
 		}
