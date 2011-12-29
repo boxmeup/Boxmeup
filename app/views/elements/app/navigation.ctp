@@ -13,6 +13,10 @@
 		'container_items.index' => array(
 			'label' => 'My Items',
 			'link' => array('controller' => 'container_items', 'action' => 'index')
+		),
+		'locations.index' => array(
+			'label' => 'My Locations',
+			'link' => array('controller' => 'locations', 'action' => 'index')
 		)
 	);
 ?>

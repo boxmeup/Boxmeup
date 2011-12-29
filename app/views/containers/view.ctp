@@ -14,9 +14,21 @@
 ?>
 <h2 style="float: left;"><?php echo $container['Container']['name']; ?></h2>
 <?php 
-	echo $html->link('Edit', array('action' => 'edit', $container['Container']['uuid']), array('class' => 'ui-modal btn primary', 'style' => 'margin-left: 20px;')); 
+	echo $html->link('Edit Name or Location', array('action' => 'edit', $container['Container']['uuid']), array('class' => 'ui-modal btn primary', 'style' => 'margin-left: 20px;')); 
 ?>
 <div style="clear: both">&nbsp;</div>
+<p>
+<?php
+	if(!empty($container['Location']['name'])) {
+		echo '@ ' . $this->Html->link($container['Location']['name'], array('controller' => 'locations', 'action' => 'edit', $container['Location']['uuid'])) . '&nbsp;';
+		if($container['Location']['is_mappable']) {
+			echo '<small>(' . $this->Html->link('View Map', 'http://maps.google.com/maps?q=' . urlencode($container['Location']['address']), array('target' => '_NEW')) . ')</small>';
+		}
+	} else {
+		echo $this->Html->link('Assign a Location', array('action' => 'edit', $container['Container']['uuid']), array('class' => 'ui-modal btn primary', 'style' => 'margin-left: 20px;'));
+	}
+?>
+</p>
 <div class="alert-message error ajax-error" style="display: none">
 	<a href="#" class="close">x</a>
 	<span class="error-msg"></span>

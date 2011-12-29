@@ -58,6 +58,11 @@ class Container extends AppModel {
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
+		),
+		'Location' => array(
+			'className' => 'Location',
+			'foreignKey' => 'location_id',
+			'counterCache' => true
 		)
 	);
 
@@ -77,12 +82,14 @@ class Container extends AppModel {
 		)
 	);
 
-	public function getPaginatedContainers(&$controller, $user_id) {
+	public function getPaginatedContainers($controller, $user_id) {
+		$conditions = array('Container.user_id' => $user_id);
+		if(!empty($controller->params['named']['location'])) {
+			$conditions['Location.uuid'] = $controller->params['named']['location'];
+		}
 		$controller->paginate = array(
-            'conditions' => array(
-                'Container.user_id' => $user_id
-            ),
-            'contain' => array(),
+            'conditions' => $conditions,
+            'contain' => array('Location.uuid', 'Location.name'),
             'limit' => $this->pagination_limit
         );
 
@@ -96,7 +103,8 @@ class Container extends AppModel {
 				'Container.user_id' => $user_id
 			),
 			'contain' => array(
-				'ContainerItem'
+				'ContainerItem',
+				'Location'
 			)
 		));
 	}

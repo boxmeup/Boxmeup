@@ -12,4 +12,9 @@ $(document).ready(function() {
 		});
 		return false;
 	});
+	
+	$('body').delegate('#LocationUuid', 'change', function() {
+		var location = $(this).val();
+		window.location = WEBROOT + 'containers' + (location.length > 0 ? ('/index/location:' + location) : '');
+	});
 });

@@ -3,6 +3,17 @@
 		var container_view = '$container_view'
 	");
 	echo $this->Html->script('views/containers/index', array('inline' => false));
+?>
+<div style="float: right">
+	<?php
+		echo $this->Form->select('Location.uuid', $location_list, null, array('empty' => 'All Locations'));
+	?>
+</div>
+<div style="clear: both">&nbsp;</div>
+<?php
+	if(empty($containers)) {
+		echo '<p>No containers for this location.</p>';
+	}
 	foreach($containers as $i => $container) {
 ?>	
 		<div class="container-item-list" >
@@ -11,6 +22,10 @@
 			</span>
 			<p class="container-item-list-content">
 				<?php echo $html->link($container['Container']['name'], array('controller' => 'containers', 'action' => 'view', $container['Container']['slug'])); ?><br/>
+				<?php if(!empty($container['Location']['uuid'])) { ?>
+					@ <?php echo $this->Html->link($container['Location']['name'], array('controller' => 'containers', 'action' => 'index', 'location' => $container['Location']['uuid'])); ?><br/>
+				<?php } ?>
+				
 				<small><?php echo $time->timeAgoInWords($container['Container']['modified']); ?></small>
 			</p>
 			<div class="container-item-list-options">

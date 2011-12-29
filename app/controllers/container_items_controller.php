@@ -89,11 +89,7 @@ class ContainerItemsController extends AppController {
 			$this->data['ContainerItem']['container_id'] = $this->Container->field('id', array('uuid' => $this->data['Container']['uuid']));
 			if($this->ContainerItem->save($this->data)) {
 				$this->Session->setFlash(__('Container item successfully saved.', true), 'notification/success');
-				$this->redirect(array(
-					'controller' => 'containers',
-					'action' => 'view',
-					$this->ContainerItem->getContainerSlug($this->data['Container']['uuid']))
-				);
+				$this->redirect($this->referer());
 			}
 		} else {
 			$this->data = $this->ContainerItem->find('first', array(
