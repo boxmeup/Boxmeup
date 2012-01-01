@@ -1,7 +1,7 @@
 <?php
 
 	Configure::write('Security.hash', 'sha1');
-	Configure::write('beta', true);
+	Configure::write('beta', false);
 
 	// Site Theme
 	// Configure::write('Site.theme', 'default');

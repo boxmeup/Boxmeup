@@ -19,7 +19,9 @@
 	}
 ?>
 <br/>
-<p>For developer API documentation, visit <a href="http://blog.boxmeupapp.com/api">http://blog.boxmeupapp.com/api</a>.</p><br/>
+<a href="https://github.com/cjsaylor/Boxmeup/wiki/API-Documentation" class="btn info" target="_NEW">Developer API Documentation</a>
+<br/>
+<br/>
 <small>
 * For security purposes of your account, do not share your secret key with anyone.
 </small>
