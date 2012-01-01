@@ -22,14 +22,21 @@ class UsersController extends AppController {
 	 */
 	public function signup() {
 		if(!empty($this->data)) {
-			$result = $this->User->save($this->data);
-			if($result) {
-				$this->Auth->login($result);
+			if(empty($this->data['User']['confirm_password'])) {
+				$result = $this->User->save($this->data);
+				if($result) {
+					$this->Auth->login($result);
+					$this->redirect('/');
+				} else {
+					$this->Session->setFlash(__('There was a problem signing you up.', true), 'notification/error');
+				}
+			} else {
+				$this->Session->setFlash('We think you\'re a bot. :(', 'notification/error');
 				$this->redirect('/');
-			} else
-				$this->Session->setFlash(__('There was a problem signing you up.', true), 'notification/error');
+			}
         }
 		$this->data['User']['password'] = '';
+		$this->data['User']['confirm_password'] = '';
 		$this->set('title_for_layout', 'Join Boxmeup');
 	}
 
