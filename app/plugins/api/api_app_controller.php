@@ -70,6 +70,11 @@ class ApiAppController extends AppController {
 		}
 	}
 
+	protected function setError($code = 404, $message = '') {
+		$this->apiError = $message;
+		$this->apiErrorCode = $code;
+	}
+
 	protected function getUserId() {
 		$user_id = $this->ApiUser->getUserId($this->getApiKeyParam());
 		if(empty($user_id)) {

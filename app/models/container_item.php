@@ -81,7 +81,8 @@ class ContainerItem extends AppModel {
 		$conditions = array_merge(array('user_id' => $user_id), $conditions);
 		return $this->find('all', array(
 			'fields' => array('uuid', 'body', 'quantity', 'created', 'modified'),
-			'conditions' => $conditions
+			'conditions' => $conditions,
+			'limit' => 150
 		));
 	}
 }
