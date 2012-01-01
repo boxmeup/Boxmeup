@@ -1,10 +1,12 @@
 <ul data-role="listview" data-theme="c">
-	<div data-role="controlgroup" data-type="horizontal" style="width: 100%; text-align: center" id="control-menu">
+	<div data-role="navbar" data-type="horizontal" style="width: 100%; text-align: center" id="control-menu">
+		<ul>
 	<?php
-		echo $html->link('Container', array('action' => 'add'), array('data-icon' => 'plus', 'data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown'));
-		echo $html->link('Location', array('controller' => 'locations', 'action' => 'add'), array('data-icon' => 'plus', 'data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown'));
-		echo $html->link('Search', array('controller' => 'searches', 'action' => 'find'), array('data-icon' => 'search', 'data-role' => 'button'));
+		echo '<li>'.$html->link('Container', array('action' => 'add'), array('data-icon' => 'plus', 'data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown')).'</li>';
+		echo '<li>'.$html->link('Location', array('controller' => 'locations', 'action' => 'add'), array('data-icon' => 'plus', 'data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown')).'</li>';
+		echo '<li>'.$html->link('Search', array('controller' => 'searches', 'action' => 'find'), array('data-icon' => 'search', 'data-role' => 'button')).'</li>';
 	?>
+		</ul>
 	</div>
 	<div data-role="controlgroup" data-type="horizontal" style="width: 100%; text-align: center" id="control-menu">
 		<?php echo $html->link('Scan', '#', array('data-icon' => 'grid', 'data-role' => 'button', 'style' => 'display: none;', 'class' => 'qr-scan-button')); ?>
