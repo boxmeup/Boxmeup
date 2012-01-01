@@ -106,12 +106,22 @@ class Container extends AppModel {
 		return $this->field('SUM(container_item_count) AS total_item_count', array('user_id' => $user_id));
 	}
 
+	/**
+	 * @deprecated
+	 */
 	public function verifyContainerUser($id, $user_id) {
 		$this->recursive = -1;
 		return $this->find('first', array(
 			'fields' => array('id'),
 			'conditions' => array('Container.id' => $id, 'Container.user_id' => $user_id)
 		));
+	}
+
+	public function verifyUser($id, $user_id) {
+		$this->recursive = -1;
+		return $this->find('count', array(
+			'condition' => array('Container.id' => $id, 'Container.user_id' => $user_id)
+		)) > 0;
 	}
 
 	public function getIdByUUID($uuid) {
