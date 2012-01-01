@@ -3,7 +3,7 @@
 		'Features' => '/features',
 		'About' => '/about',
 		'Status' => 'http://status.boxmeupapp.com',
-		'API' => 'http://blog.boxmeupapp.com/api',
+		'API' => 'https://github.com/cjsaylor/Boxmeup/wiki/API-Documentation',
 		'Blog' => 'http://blog.boxmeupapp.com',
 		'Terms of Service' => '/terms',
 		'Privacy Policy' => '/privacy'
