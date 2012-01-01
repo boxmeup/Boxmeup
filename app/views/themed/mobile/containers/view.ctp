@@ -1,8 +1,10 @@
-<div data-role="controlgroup" data-type="horizontal" style="width: 100%; text-align: center" id="control-menu">
+<div data-role="navbar" data-type="horizontal" style="width: 100%; text-align: center" id="control-menu">
+	<ul>
 <?php
-	echo $html->link('Add Item', array('controller' => 'container_items', 'action' => 'add', $container['Container']['uuid']), array('data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown'));
-	echo $html->link('Edit Container', array('controller' => 'containers', 'action' => 'edit', $container['Container']['uuid']), array('data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown'));
+	echo '<li>'.$html->link('Add Item', array('controller' => 'container_items', 'action' => 'add', $container['Container']['uuid']), array('data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown')).'</li>';
+	echo '<li>'.$html->link('Edit Container', array('controller' => 'containers', 'action' => 'edit', $container['Container']['uuid']), array('data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown')).'</li>';
 ?>
+	</ul>
 </div>
 <?php
 	echo $html->tag('div', '', array('style' => 'clear: both'));
