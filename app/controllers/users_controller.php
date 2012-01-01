@@ -48,7 +48,7 @@ class UsersController extends AppController {
 			));
 			$this->redirect($this->Auth->login($login_data) ? '/' : '/login');
 		}
-		$this->set('api_key', $this->api_key);
+		$this->set('api_key', ClassRegistry::init('Api.ApiUser')->getApiKey($this->Auth->user('id')));
 		$this->set('title_for_layout', 'Mobile Login');
 	}
 
@@ -74,7 +74,8 @@ class UsersController extends AppController {
 			$this->data['User']['email'] = $this->User->field('email', array('id' => $this->Auth->user('id')));
 		}
 		$api_key = ClassRegistry::init('Api.ApiUser')->getApiKey($this->Auth->user('id'));
-		$this->set(compact('api_key'));
+		$secret_key = ClassRegistry::init('Api.ApiUser')->getSecretKey($api_key);
+		$this->set(compact('api_key', 'secret_key'));
 	}
 	
 	public function forgot_password() {

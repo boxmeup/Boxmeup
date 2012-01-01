@@ -22,7 +22,11 @@ class AppController extends Controller {
 			if($this->Auth->user('reset_password') && !in_array($this->action, $reset_exceptions))
 				$this->redirect(array('controller' => 'users', 'action' => 'reset_password'));
 		}
-		$this->api_key = !empty($user_id) ? ClassRegistry::init('Api.ApiUser')->getApiKey($user_id) : '';
+
+		// Check for mobile feature for mobile requests
+		if($this->isMobile() && !Configure::read('Feature.mobile')) {
+			$this->render(null, null, 'mobile_disabled');
+		}
 	}
 
 	public function beforeRender() {
@@ -33,7 +37,6 @@ class AppController extends Controller {
 			'Fullwebroot' => 'http://' . env('SERVER_NAME') . $this->webroot,
 			'Here' => $this->here,
 			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0',
-			'api_key' => !empty($this->api_key) ? $this->api_key : null,
 			'beta' => Configure::read('beta'),
 			'message_dismissed' => $this->Cookie->read('message_dismissed' . Configure::read('Message.cookie_suffix')) == 'hide'
 		));
@@ -43,16 +46,7 @@ class AppController extends Controller {
 			$this->theme = Configure::read('Site.theme');
 		}
 
-		if($this->isMobile()) {
-			$this->view = 'Theme';
-			$this->theme = Configure::read('Site.mobile_theme') ?
-				Configure::read('Site.mobile_theme') :
-				'mobile';
-			$this->layout = 'mobile';
-			$this->autoLayout = true;
-			$this->autoRender = true;
-			$this->set('mobile_page_id', $this->name.$this->action);
-		}
+		$this->setupMobile();
 	}
 
 	/**
@@ -100,6 +94,19 @@ class AppController extends Controller {
 
 	protected function isAdmin() {
 		return isset($this->params['admin']) && $this->params['admin'];
+	}
+
+	protected function setupMobile() {
+		if($this->isMobile()) {
+			$this->view = 'Theme';
+			$this->theme = Configure::read('Site.mobile_theme') ?
+				Configure::read('Site.mobile_theme') :
+				'mobile';
+			$this->layout = 'mobile';
+			$this->autoLayout = true;
+			$this->autoRender = true;
+			$this->set('mobile_page_id', $this->name.$this->action);
+		}
 	}
 
 	/**

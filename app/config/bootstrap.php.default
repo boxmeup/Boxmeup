@@ -21,6 +21,8 @@
     Configure::write('Message.cookie_suffix', '002');
 	
 	// Feature activation
+	Configure::write('Feature.api', true);
+	Configure::write('Feature.mobile', true);
 	Configure::write('Feature.analytics', true);
     Configure::write('Feature.adsense', true);
 	Configure::write('Feature.feedback', true);

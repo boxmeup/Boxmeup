@@ -3,16 +3,6 @@ class Container extends AppModel {
 	public $name = 'Container';
 	public $displayField = 'name';
 	public $validate = array(
-		'tag_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -48,13 +38,6 @@ class Container extends AppModel {
 	public $pagination_limit = 20;
 
 	public $belongsTo = array(
-		'Tag' => array(
-			'className' => 'Tag',
-			'foreignKey' => 'tag_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
@@ -152,12 +135,17 @@ class Container extends AppModel {
 
 	public function getApiContainers($user_id, $conditions = array()) {
 		$conditions = array_merge(array('Container.user_id' => $user_id), $conditions);
-		return $this->find('all', array(
+		$results = $this->find('all', array(
 			'fields' => array(
 				'uuid', 'name', 'slug', 'container_item_count', 'created', 'modified'
 			),
 			'conditions' => $conditions,
-			'contain' => array()
+			'contain' => array('Location.name', 'Location.uuid')
 		));
+		foreach($results as $key => $result) {
+			unset($results[$key]['Location']['id']);
+		}
+		
+		return $results;
 	}
 }

@@ -10,10 +10,10 @@ class ContainersController extends ApiAppController {
 
 	public function index() {
 		$conditions = !empty($this->params['url']['slug']) ? array('slug' => $this->params['url']['slug']) : array();
-		$output = $this->Container->getApiContainers($this->user_id, $conditions);
-		if(empty($output)) {
-			$output = array('error' => array('message' => 'No containers available.'));
+		$this->output = $this->Container->getApiContainers($this->user_id, $conditions);
+		if(empty($this->output)) {
+			$this->apiError = 'No containers available.';
+			$this->apiErrorCode = '404';
 		}
-		$this->set(compact('output'));
 	}
 }

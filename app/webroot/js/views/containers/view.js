@@ -14,9 +14,11 @@ $(document).ready(function() {
 		var $this = $(this),
 			container_uuid = $('#ContainerUuid').attr('value'),
 			$quantity = $('#ContainerItemQuantity');
+		var data = $this.serialize();
+		data.push
 		$.ajax({
 			type: 'POST',
-			url: '/api/container_items/add/' + container_uuid + '.json',
+			url: '/container_items/add/' + container_uuid + '.json',
 			data: $this.serialize(),
 			beforeSend: function() {
 				boxmeup.hideError('ajax-error');
