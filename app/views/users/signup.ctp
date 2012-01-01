@@ -7,6 +7,10 @@
 		echo $form->create('User', array('style' => 'width: 250px'));
 		echo $form->input('email', array('style' => 'width: 250px'));
 		echo $form->input('password', array('style' => 'width: 250px;'));
+		// Simple bot circumvent
+		echo '<div style="display: none">';
+			echo $form->input('confirm_password');
+		echo '</div>';
 		echo '<br/>';
 		echo $form->submit('Sign Up', array('class' => 'large green button', 'div' => false, 'style' => 'width: 260px'));
 		echo $form->end();
