@@ -9,11 +9,11 @@ class ContainerItemsController extends ApiAppController {
 	
 	public function index() {
 		$conditions = !empty($this->params['url']['Container_slug']) ? array('Container.slug' => $this->params['url']['Container_slug']) : array();
-		$output = $this->ContainerItem->getApiContainerItems($this->user_id, $conditions);
-		if(empty($output)) {
-			$output = array('error' => array('message' => 'No container items.'));
+		$this->output = $this->ContainerItem->getApiContainerItems($this->user_id, $conditions);
+		if(empty($this->output)) {
+			$this->apiError = 'No container items.';
+			$this->apiErrorCode = 404;
 		}
-		$this->set(compact('output'));
 	}
 	
 	public function add($container_uuid = null) {

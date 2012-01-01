@@ -41,6 +41,10 @@ class ContainerItemsController extends AppController {
 
 	public function add($container_uuid) {
 		$this->verifyUser($container_uuid);
+		if($this->RequestHandler->isAjax() && !$this->isMobile()) {
+			$this->layout = false;
+			$this->view = 'Json';
+		}
 		$container = $this->Container->find('first', array(
 			'conditions' => array(
 				'uuid' => $container_uuid
@@ -50,15 +54,30 @@ class ContainerItemsController extends AppController {
 		if(!empty($this->data) && !empty($container)) {
 			$this->data['ContainerItem']['container_id'] = $container['Container']['id'];
 			if($this->ContainerItem->save($this->data)) {
-				$this->Session->setFlash(__('Successfully added new container item.', true), 'notification/success');
-				$this->redirect(array('controller' => 'containers', 'action' => 'view', $container['Container']['slug']));
+				if($this->RequestHandler->isAjax() && !$this->isMobile()) {
+					$output = array(
+						'success' => true,
+						'message' => array('id' => $this->ContainerItem->id)
+					);
+				} else {
+					$this->Session->setFlash(__('Successfully added new container item.', true), 'notification/success');
+					$this->redirect(array('controller' => 'containers', 'action' => 'view', $container['Container']['slug']));
+				}
 			} else {
-				$this->Session->setFlash(__('Error adding new container item.', true), 'notification/error');				
+				if($this->RequestHandler->isAjax() && !$this->isMobile()) {
+					$output = array(
+						'success' => false,
+						'message' => $this->ContainerItem->validationErrors
+					);
+				} else {
+					$this->Session->setFlash(__('Error adding new container item.', true), 'notification/error');				
+				}
 			}
 		} else {
 			$this->data['ContainerItem']['quantity'] = 1;
 		}
 		$this->set('container', array('Container' => array('uuid' => $container_uuid)));
+		$this->set(compact('output'));
 	}
 
 	public function add_item() {

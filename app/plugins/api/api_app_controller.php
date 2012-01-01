@@ -1,22 +1,43 @@
 <?php
 
 class ApiAppController extends AppController {
+
+	public $uses = array('Api.ApiUser');
+
+	public function __construct() {
+		Configure::write('Session.start', false);
+		parent::__construct();
+	}
 	
 	public function beforeFilter() {
-		parent::beforeFilter();
-		if(empty($this->api_key)) {
-			$this->api_key = !empty($this->params['url']['api_key']) ? $this->params['url']['api_key'] : '';
-		}
-		$this->user_id = ClassRegistry::init('Api.ApiUser')->getUserId($this->api_key);
+		$this->Auth->allow();
 		$this->setView();
+		try {
+			if(!Configure::read('Feature.api')) {
+				throw new Exception('API currently unavailable.', 500);
+			} else if($this->ApiUser->isValidRequest($this->parseParams())) {
+				$this->api_key = $this->getApiKeyParam();
+				$this->user_id = $this->getUserId();
+			} else {
+				throw new Exception('Invalid HMAC key.', 401);
+			}
+		} catch (Exception $e) {
+			$this->apiError = $e->getMessage();
+			$this->apiErrorCode = $e->getCode();
+		}
+		$this->checkError(true);
 	}
 
 	public function beforeRender() {
-		parent::beforeRender();
-		if(empty($this->api_key))
-			$this->set('output', array('error' => array('message' => 'No API Key provided.')));
-		else if(empty($this->user_id))
-			$this->set('output', array('error' => array('message' => 'Invalid API Key provided.')));
+		$this->checkError();
+		if(!$this->isError()) {
+			$dyn_key = sha1(date('c'));
+			$this->set('output', array(
+				'results' => $this->output,
+				'dyn_key' => $dyn_key,
+				'signature' => $this->ApiUser->generateSigniture($this->api_key, $dyn_key)
+			));
+		}
 	}
 	
 	protected function setView() {
@@ -28,5 +49,47 @@ class ApiAppController extends AppController {
 			default:
 				$this->view = 'Json';
 		}
+	}
+
+	protected function isError() {
+		return !empty($this->apiError);
+	}
+
+	protected function checkError($interrupt = false) {
+		if($this->isError()) {
+			$this->set('output', array(
+				'error' => array(
+					'message' => $this->apiError,
+					'code' => $this->apiErrorCode
+				)
+			));
+			if($interrupt) {
+				$this->render();
+				exit();
+			}
+		}
+	}
+
+	protected function getUserId() {
+		$user_id = $this->ApiUser->getUserId($this->getApiKeyParam());
+		if(empty($user_id)) {
+			throw new Exception('Invalid api key.', 401);
+		}
+		return $user_id;
+	}
+
+	private function parseParams() {
+		$params = $this->RequestHandler->isPost() ?
+			$this->params['form'] :
+			$this->params['url'];
+		unset($params['ext'], $params['url']);
+		return $params;
+	}
+
+	private function getApiKeyParam() {
+		$params = $this->parseParams();
+		return !empty($params['api_key']) ?
+			$params['api_key'] :
+			null;
 	}
 }
