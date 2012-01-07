@@ -39,5 +39,50 @@ class ContainerItemsController extends ApiAppController {
 		}
 		unset($this->output['ContainerItem']['container_id']);
 	}
+
+	public function edit($uuid = null) {
+		if(!$this->RequestHandler->isPost()) {
+			$this->setError(405, 'Resource method supports only POST method.');
+			return false;
+		}
+		$item = $this->ContainerItem->getItemByUUID($uuid);
+		if(empty($item)) {
+			$this->setError(404, 'Container Item not found.');
+			return false;
+		}
+		if(!$this->ContainerItem->Container->verifyUser($item['Container']['id'], $this->user_id)) {
+			$this->setError(401, 'Not authorized to edit this item.');
+			return false;
+		}
+		$item['ContainerItem']['body'] = $this->params['form']['body'];
+		$item['ContainerItem']['quantity'] = $this->params['form']['quantity'];
+		unset($item['ContainerItem']['modified']);
+		$this->output = $this->ContainerItem->save($item);
+		if(empty($this->output)) {
+			$this->setError(400, 'Error updating item.');
+			return false;
+		}
+		unset($this->output['ContainerItem']['container_id'], $this->output['ContainerItem']['id'], $this->output['Container']);
+	}
+
+	public function delete($uuid = null) {
+		if(!$this->RequestHandler->isDelete()) {
+			$this->setError(405, 'Resource method supports only DELETE method.');
+			return false;
+		}
+		$item = $this->ContainerItem->getItemByUUID($uuid);
+		if(empty($item)) {
+			$this->setError(404, 'Container Item not found.');
+			return false;
+		}
+		if(!$this->ContainerItem->Container->verifyUser($item['Container']['id'], $this->user_id)) {
+			$this->setError(401, 'Not authorized to edit this item.');
+			return false;
+		}
+		if(!$this->output = $this->ContainerItem->delete($item['ContainerItem']['id'])) {
+			$this->setError(400, 'Error deleting item.');
+			return false;
+		}
+	}
 	
 }

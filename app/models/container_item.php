@@ -75,6 +75,15 @@ class ContainerItem extends AppModel {
 			'conditions' => array('Container.user_id' => $user_id)
 		));
 	}
+
+	public function getItemByUUID($uuid) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'ContainerItem.uuid' => $uuid
+			),
+			'contain' => array('Container.id')
+		));
+	}
 	
 	// API Methods
 	public function getApiContainerItems($user_id, $conditions = array()) {
