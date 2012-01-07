@@ -44,18 +44,36 @@ class UsersController extends AppController {
 		$this->set('title_for_layout', 'Login');
 	}
 	
-	public function qr_login($api_key = null) {
+	public function qr_login($api_key = null, $dyn_key = null, $hmac = null) {
 		if(!empty($api_key)) {
-			$login_data = $this->User->find('first', array(
-				'fields' => array('User.email', 'User.password'),
-				'conditions' => array(
-					'User.id' => ClassRegistry::init('Api.ApiUser')->getUserId($api_key)
-				),
-				'contain' => array()
-			));
-			$this->redirect($this->Auth->login($login_data) ? '/' : '/login');
+			if(strtotime(base64_decode($dyn_key)) > strtotime('-15 minutes')) {
+				try {
+					if(ClassRegistry::init('Api.ApiUser')->isValidRequest(compact('api_key', 'dyn_key', 'hmac'))) {
+						$login_data = $this->User->find('first', array(
+							'fields' => array('User.email', 'User.password'),
+							'conditions' => array(
+								'User.id' => ClassRegistry::init('Api.ApiUser')->getUserId($api_key)
+							),
+							'contain' => array()
+						));
+						$this->redirect($this->Auth->login($login_data) ? '/' : '/login');
+					} else {
+						throw new Exception("QR Code login key is invalid.");
+					}
+				} catch (Exception $e) {
+					$this->Session->setFlash($e->getMessage(), 'notification/error');
+					$this->redirect('/login');
+				}
+			} else {
+				$this->Session->setFlash('QR Code authentication expired.', 'notification/error');
+				$this->redirect('/login');
+			}
 		}
-		$this->set('api_key', ClassRegistry::init('Api.ApiUser')->getApiKey($this->Auth->user('id')));
+		$dyn_key = base64_encode(date('c'));
+		$api_key = ClassRegistry::init('Api.ApiUser')->getApiKey($this->Auth->user('id'));
+		$hmac = ClassRegistry::init('Api.ApiUser')->generateSigniture($api_key, $dyn_key);
+		$this->set(compact('api_key', 'dyn_key', 'hmac'));
+
 		$this->set('title_for_layout', 'Mobile Login');
 	}
 
