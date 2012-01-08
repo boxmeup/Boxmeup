@@ -2,5 +2,8 @@
 <resources>
     <string name="app_name">Boxmeup</string>
 	<string name="url_source">http://boxmeupapp.com</string>
+	<string name="valid_host">boxmeupapp.com</string>
 	<string name="javascript_interface">BoxmeupAndroid</string>
+	<string name="qr_scan">Scan Label</string>
+	<string name="upc_scan">Scan Product</string>
 </resources>
