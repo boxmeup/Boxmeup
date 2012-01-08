@@ -86,15 +86,34 @@ class ContainerItemsController extends AppController {
 				$this->verifyUser($this->data['ContainerItem']['container_id']);
 			if($this->ContainerItem->save($this->data)) {
 				$this->Session->setFlash(__('Successfully added new container item.', true), 'notification/success');
+				if($this->isMobile()) {
+					$container = $this->Container->find('first', array(
+						'conditions' => array('id' => $this->data['ContainerItem']['container_id']),
+						'contain' => array()
+					));
+					$this->redirect(array('controller' => 'containers', 'action' => 'view', $container['Container']['slug']));
+				}
 				$this->redirect(array('controller' => 'container_items', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('Error adding new container item.', true), 'notification/error');
 			}
+		} else {
+			if(!empty($this->params['named']['body'])) {
+				$this->data['ContainerItem']['body'] = $this->params['named']['body'];
+			}
+			if(!empty($this->params['named']['slug'])) {
+				$container = $this->Container->getContainerBySlug($this->params['named']['slug'], $this->Auth->user('id'));
+				if(!empty($container)) {
+					$this->data['ContainerItem']['container_id'] = $container['Container']['id'];
+				}
+			}
+			$this->data['ContainerItem']['quantity'] = 1;
 		}
 		$containers = $this->Container->find('list', array(
 			'conditions' => array('Container.user_id' => $this->Auth->user('id')),
 			'order' => 'Container.name'
 		));
+
 		$this->set(compact('containers'));
 	}
 

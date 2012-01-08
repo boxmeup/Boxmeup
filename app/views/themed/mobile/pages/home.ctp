@@ -1,3 +1,10 @@
+<?php
+	echo $this->Html->scriptBlock('
+		if(mobileApp.isAndroid()) {
+			BoxmeupAndroid.clearHistory();
+		}
+	');
+?>
 <h2 style="text-align: center">
 Welcome to Boxmeup
 <?php echo $html->image('generic-box.png', array('style' => 'padding-top: 20px;', 'width' => '64', 'height' => '64')); ?>

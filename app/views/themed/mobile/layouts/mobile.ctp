@@ -8,10 +8,10 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css');
+		echo $this->Html->css('http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css');
 		echo $this->Html->script('https://www.google.com/jsapi');
-		echo $this->Html->scriptBlock("google.load('jquery', '1.5.2');");
-		echo $this->Html->script('http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js');
+		echo $this->Html->scriptBlock("google.load('jquery', '1.6.4');");
+		echo $this->Html->script('http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js');
 		echo $this->Html->script('app.mobile');
 		echo $this->element('analytics');
 		echo $scripts_for_layout;
@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div data-role="page" data-theme="<?php echo Configure::read('Site.jquery_mobile_theme'); ?>" id="<?php echo $mobile_page_id; ?>">
-		<div data-role="header" data-position="inline">
+		<div data-role="header" data-position="inline" data-add-back-btn="true">
 		<?php
 		if($this->name == 'Containers' && $this->action == 'index' && !empty($User))
 			echo $html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('data-ajax' => 'false', 'data-icon' => 'delete', 'class' => 'ui-btn-right'));
