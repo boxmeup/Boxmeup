@@ -84,6 +84,21 @@ class ContainerItem extends AppModel {
 			'contain' => array('Container.id')
 		));
 	}
+
+	public function searchContainers(&$controller, $user_id, $query) {
+		$controller->paginate = array(
+			'search' => $query,
+			'sphinx' => array(
+				'matchMode' => SPH_MATCH_ALL,
+				'index' => array('container_items', 'container_items_delta'),
+				'sortMode' => array(SPH_SORT_TIME_SEGMENTS => 'created'),
+				'filter' => array(array('user_id', $user_id))
+			),
+			'contain' => array('Container')
+		);
+
+		return $controller->paginate($this);
+	}
 	
 	// API Methods
 	public function getApiContainerItems($user_id, $conditions = array()) {
