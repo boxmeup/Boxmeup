@@ -1,6 +1,6 @@
 [submodule "cakephp"]
 	path = cakephp
-	url = https://github.com/cakephp/cakephp.git
+	url = https://github.com/cjsaylor/cakephp.git
 [submodule "app/plugins/lazy_model"]
 	path = app/plugins/lazy_model
 	url = https://github.com/Phally/lazy_model.git

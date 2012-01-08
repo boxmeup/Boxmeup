@@ -4,7 +4,7 @@
 	echo $form->input('ContainerItem.uuid', array('type' => 'hidden'));
 	echo $form->input('Container.slug', array('type' => 'hidden'));
 	echo $form->input('body', array('label' => 'Item Content', 'class' => 'focus'));
-	echo $form->input('quantity', array('type' => 'text', 'maxlength' => 5, 'style' => 'width: 50px;'));
+	echo $form->input('quantity', array('maxlength' => 5, 'style' => 'width: 50px;'));
 	echo $form->input('Container.uuid', array('options' => $containers, 'label' => 'Container'));
 	echo '<br/>';
 	echo $html->link('Delete Item', array('controller' => 'container_items', 'action' => 'delete', $item_uuid), array('escape' => false, 'data-role' => 'button', 'data-icon' => 'delete', 'data-inline' => true, 'data-theme' => 'a'));
