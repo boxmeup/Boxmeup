@@ -11,11 +11,11 @@ msgstr ""
 "X-Poedit-Language: Japanese\n"
 "X-Poedit-Country: JAPAN\n"
 
-#: /app_controller.php:106
+#: /app_controller.php:117
 msgid "Not authorized to perform actions on this container"
 msgstr "このコンテナのアクションを実行する権限がありません"
 
-#: /app_controller.php:122
+#: /app_controller.php:133
 msgid "Not authorized to perform actions on this object."
 msgstr "このオブジェクトのアクションを実行する権限がありません。"
 
@@ -84,6 +84,11 @@ msgstr "ラベルを印刷するコンテナを選択してください。"
 #: /controllers/users_controller.php:31
 msgid "There was a problem signing you up."
 msgstr "あなたがサインアップする問題がありました。"
+
+#: /controllers/users_controller.php:40
+#: /views/users/signup.ctp:2
+msgid "Join Boxmeup"
+msgstr "Boxmeupに参加する"
 
 #: /controllers/users_controller.php:93
 msgid "Successfully updated account settings."
@@ -299,6 +304,11 @@ msgstr "サインアップ"
 msgid "Login"
 msgstr "ログイン"
 
+#: /views/elements/account.ctp:16
+#: /views/elements/app/account.ctp:16
+msgid "Choose Language"
+msgstr "言語を選択してください。"
+
 #: /views/elements/footer.ctp:3
 #: /views/elements/navigation.ctp:4
 #: /views/pages/features.ctp:1
@@ -487,6 +497,10 @@ msgstr "Boxmeup管理s"
 #: /views/layouts/app.ctp:7
 msgid "Boxmeup"
 msgstr "Boxmeup"
+
+#: /views/layouts/app.ctp:24
+msgid "Find an item..."
+msgstr "アイテムを見つける..."
 
 #: /views/locations/add.ctp:10
 #: /views/locations/edit.ctp:11
@@ -713,10 +727,6 @@ msgstr "電子メールによって提供された回復キーを入力してく
 #: /views/users/reset_password.ctp:9
 msgid "Enter a new password for your account"
 msgstr "アカウントの新しいパスワードを入力します"
-
-#: /views/users/signup.ctp:2
-msgid "Join Boxmeup"
-msgstr "Boxmeupに参加する"
 
 #: /views/users/signup.ctp:19
 msgid "User registration is temporarily unavailable."

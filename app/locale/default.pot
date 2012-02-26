@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2012-02-26 02:30-0500\n"
+"POT-Creation-Date: 2012-02-26 05:14-0500\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: /app_controller.php:106
+#: /app_controller.php:117
 msgid "Not authorized to perform actions on this container"
 msgstr ""
 
-#: /app_controller.php:122
+#: /app_controller.php:133
 msgid "Not authorized to perform actions on this object."
 msgstr ""
 
@@ -86,6 +86,11 @@ msgstr ""
 
 #: /controllers/users_controller.php:31
 msgid "There was a problem signing you up."
+msgstr ""
+
+#: /controllers/users_controller.php:40
+#: /views/users/signup.ctp:2
+msgid "Join Boxmeup"
 msgstr ""
 
 #: /controllers/users_controller.php:93
@@ -302,6 +307,11 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
+#: /views/elements/account.ctp:16
+#: /views/elements/app/account.ctp:16
+msgid "Choose Language"
+msgstr ""
+
 #: /views/elements/footer.ctp:3
 #: /views/elements/navigation.ctp:4
 #: /views/pages/features.ctp:1
@@ -493,6 +503,10 @@ msgstr ""
 
 #: /views/layouts/app.ctp:7
 msgid "Boxmeup"
+msgstr ""
+
+#: /views/layouts/app.ctp:24
+msgid "Find an item..."
 msgstr ""
 
 #: /views/locations/add.ctp:10
@@ -719,10 +733,6 @@ msgstr ""
 
 #: /views/users/reset_password.ctp:9
 msgid "Enter a new password for your account"
-msgstr ""
-
-#: /views/users/signup.ctp:2
-msgid "Join Boxmeup"
 msgstr ""
 
 #: /views/users/signup.ctp:19

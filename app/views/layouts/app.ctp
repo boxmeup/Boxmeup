@@ -20,8 +20,9 @@
 		echo $this->Html->scriptBlock("google.load('jquery', '1.7.1');");
 		echo $this->Html->scriptBlock("google.load('jqueryui', '1.8.15');");
 		echo $this->Html->scriptBlock("
-			var WEBROOT = '$Webroot';
-		");
+			var WEBROOT = '$Webroot'; \n"
+			. "var search_default = '" . __('Find an item...', true) . "';"
+		);
 		echo $this->Html->script('jquery.fancybox-1.3.4.pack');
 		echo $this->Html->script('jquery.tipsy.min');
 		echo $this->Html->script('app');

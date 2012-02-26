@@ -10,6 +10,13 @@
 		}
 	?>
 	</ul>
+	<div id="language">
+	<?php
+		echo $form->create('Language', array('id' => 'change-language', 'url' => array('controller' => 'users', 'action' => 'change_language')));
+		echo $form->input('locale', array('id' => 'change-language-locale', 'label' => false, 'options' => $availableLanguages, 'empty' => __('Choose Language', true)));
+		echo $form->end();
+	?>
+	</div>
 	<div id="search">
 	<?php
 		echo $form->create('Search', array('url' => array('controller' => 'searches', 'action' => 'find')));
