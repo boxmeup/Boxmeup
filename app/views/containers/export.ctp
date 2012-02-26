@@ -1,5 +1,12 @@
 <?php
-	$line = array('Container Name', 'Container Slug', 'Item Description', 'Quantity', 'Created', 'Modified'); 
+	$line = array(
+		__('Container Name', true),
+		__('Container Slug', true),
+		__('Item Description', true),
+		__('Quantity', true),
+		__('Created', true),
+		__('Modified', true)
+	); 
 	$this->Csv->addRow($line);
 	foreach($data['ContainerItem'] as $item) {
 		$this->Csv->addRow(array(

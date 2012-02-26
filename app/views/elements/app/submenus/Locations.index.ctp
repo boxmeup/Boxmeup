@@ -1,2 +1,2 @@
 <?php
-	echo $html->link('Add Location', array('controller' => 'locations', 'action' => 'add'), array('class' => 'btn success'));
+	echo $html->link(__('Add Location', true), array('controller' => 'locations', 'action' => 'add'), array('class' => 'btn success'));

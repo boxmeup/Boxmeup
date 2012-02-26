@@ -12,7 +12,7 @@
 <div style="clear: both">&nbsp;</div>
 <?php
 	if(empty($containers)) {
-		echo '<p>No containers for this location.</p>';
+		echo '<p>' . __('No containers for this location.', true) . '</p>';
 	}
 	foreach($containers as $i => $container) {
 ?>	
@@ -30,7 +30,7 @@
 			</p>
 			<div class="container-item-list-options">
 				<?php echo $html->link($html->image('icons/edit.png'), array('controller' => 'containers', 'action' => 'edit', $container['Container']['uuid']), array('escape' => false, 'class' => 'ui-modal')); ?>
-				<?php echo $html->link($html->image('icons/delete.png'), array('controller' => 'containers', 'action' => 'delete', $container['Container']['uuid']), array('escape' => false), 'Are you sure you want to delete this container?'); ?>
+				<?php echo $html->link($html->image('icons/delete.png'), array('controller' => 'containers', 'action' => 'delete', $container['Container']['uuid']), array('escape' => false), __('Are you sure you want to delete this container?', true)); ?>
 			</div>
 			<div style="clear: both"></div>
 		</div>

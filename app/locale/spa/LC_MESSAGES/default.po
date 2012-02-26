@@ -37,6 +37,24 @@ msgstr "Éxito de elementos eliminados."
 msgid "Error deleting item."
 msgstr "Error al eliminar el elemento."
 
+#: /controllers/containers_controller.php:61
+msgid "Date"
+msgstr "Fecha"
+
+#: /controllers/containers_controller.php:62
+#: /views/containers/dashboard.ctp:7
+msgid "Containers"
+msgstr "Contenedores"
+
+#: /controllers/containers_controller.php:63
+#: /views/containers/dashboard.ctp:12
+msgid "Items"
+msgstr "Artículos"
+
+#: /controllers/containers_controller.php:66
+msgid "Container activity for last 7 days"
+msgstr "Contenedor de la actividad de los últimos 7 días"
+
 #: /controllers/containers_controller.php:150
 msgid "Successfully updated the container."
 msgstr "Se ha actualizado correctamente el contenedor."
@@ -203,17 +221,9 @@ msgstr "Mis Localizaciones"
 msgid "View Your Locations"
 msgstr "Mis Localizaciones"
 
-#: /views/containers/dashboard.ctp:7
-msgid "Containers"
-msgstr "Mis Contenedores"
-
 #: /views/containers/dashboard.ctp:9
 msgid "View Your Containers"
 msgstr "Mis Contenedores"
-
-#: /views/containers/dashboard.ctp:12
-msgid "Items"
-msgstr "Mis Artículos"
 
 #: /views/containers/dashboard.ctp:14
 msgid "View Your Items"
@@ -221,7 +231,7 @@ msgstr "Ver los elementos"
 
 #: /views/containers/dashboard.ctp:22
 msgid "Recent Items"
-msgstr "Mis Artículos"
+msgstr "Artículos Recientes"
 
 #: /views/containers/edit.ctp:1
 msgid "Edit Container"
@@ -580,6 +590,10 @@ msgstr "Regístrate"
 #: /views/pages/home.ctp:14
 msgid "Moving"
 msgstr "Mover"
+
+#: /views/pages/home.ctp:15
+msgid "Can't remember where you packed your toothbrush?  Use our search feature to find it!"
+msgstr "No se puede recordar dónde llena el cepillo de dientes? Utilice nuestra función de búsqueda para encontrarlo!"
 
 #: /views/pages/home.ctp:18
 msgid "Collectors"

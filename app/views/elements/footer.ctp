@@ -1,12 +1,12 @@
 <?php
 	$footer_links = array(
-		'Features' => '/features',
-		'About' => '/about',
-		'Status' => 'http://status.boxmeupapp.com',
-		'API' => 'https://github.com/cjsaylor/Boxmeup/wiki/API-Documentation',
-		'Blog' => 'http://blog.boxmeupapp.com',
-		'Terms of Service' => '/terms',
-		'Privacy Policy' => '/privacy'
+		__('Features', true) => '/features',
+		__('About', true) => '/about',
+		__('Status', true) => 'http://status.boxmeupapp.com',
+		__('API', true) => 'https://github.com/cjsaylor/Boxmeup/wiki/API-Documentation',
+		__('Blog', true) => 'http://blog.boxmeupapp.com',
+		__('Terms of Service', true) => '/terms',
+		__('Privacy Policy', true) => '/privacy'
 	);
 ?>
 <div class="social">
@@ -17,7 +17,7 @@
 	</a>
 </div>
 <div id="footer">
-	Copyright &copy; <?php echo date('Y').' ' . $this->Html->link('Boxmeup', '/'); ?>.  All rights reserved. -
+	<?php __('Copyright'); ?> &copy; <?php echo date('Y').' ' . $this->Html->link('Boxmeup', '/'); ?>.  <?php __('All rights reserved.'); ?> -
 	<?php
 		foreach($footer_links as $name => $link) {
 			echo $this->Html->link($name, $link).'&nbsp;&nbsp;&nbsp;';

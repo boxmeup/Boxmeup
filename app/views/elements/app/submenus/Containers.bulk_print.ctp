@@ -1,2 +1,2 @@
 <?php
-	echo $html->link('List Containers', array('controller' => 'containers', 'action' => 'index'), array('class' => 'btn primary'));
+	echo $html->link(__('List Containers', true), array('controller' => 'containers', 'action' => 'index'), array('class' => 'btn primary'));
