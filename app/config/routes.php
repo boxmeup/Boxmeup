@@ -29,6 +29,7 @@
 
 	// Application
 	Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
+	Router::connect('/forgot_login/*', array('controller' => 'users', 'action' => 'qr_login'));
 
 	// Feedback plugin
 	Router::connect('/feedback', array('plugin' => 'feedback', 'controller' => 'communicate', 'action' => 'index'));

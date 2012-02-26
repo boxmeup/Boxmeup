@@ -10,4 +10,13 @@ Your recovery key is: <?php echo $password; ?>
 Follow this link to sign in and reset your password:
 
 
-<?php echo 'http://boxmeupapp.com/users/qr_login/' . $api_key; ?>
+<?php echo 'http://boxmeupapp.com/forgot_login/' . $api_key . '/' . $dynamic_key . '/' . $hash; ?>
+
+
+Please note: this login is only valid for 15 minutes.
+
+
+Thanks,
+
+
+Boxmeup Team

@@ -9,7 +9,7 @@
 		echo $form->end();
 	?>
 		<br/>
-		Enter your registered email address will reset your password and send a new password to the registered email address.
+		Entering your registered email address will reset your password and send a new password to the registered email address.
 <?php } else { ?>
 	<p>Forgot password feature is temporarily unavailable.</p>
 <?php } ?>
