@@ -108,6 +108,10 @@ class UsersController extends AppController {
 			if($this->User->verifyEmail($this->data['User']['email'])) {
 				$new_password = $this->User->resetPassword($this->data['User']['email']);
 				if($new_password) {
+					$apiKey = ClassRegistry::init('Api.ApiUser')->getApiKey($this->User->getUserIdByEmail($this->data['User']['email']));
+					$secretKey = ClassRegistry::init('Api.ApiUser')->getSecretKey($apiKey);
+					$dynKey = base64_encode(date('c'));
+					$hash = sha1($dynKey . $secretKey);
 					$this->Email->to = $this->data['User']['email'];
 					$this->Email->subject = 'Boxmeup Password Recovery';
 					$this->Email->replyTo = 'no-reply@boxmeupapp.com';
@@ -116,7 +120,9 @@ class UsersController extends AppController {
 					$this->Email->sendAs = 'text';
 					$this->set(array(
 						'password' => $new_password,
-						'api_key' => ClassRegistry::init('Api.ApiUser')->getApiKey($this->User->getUserIdByEmail($this->data['User']['email']))
+						'api_key' => $apiKey,
+						'dynamic_key' => $dynKey,
+						'hash' => $hash
 					));
 					$this->Email->send();
 				}
