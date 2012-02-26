@@ -108,3 +108,5 @@ form .checkbox { float: left; margin-right: 5px; }
   .tipsy-east { background-position: right center; }
   .tipsy-west { background-position: left center; }
 
+#language {float: right; padding-right: 10px; margin-top: 3px; display: inline; padding-top: 12px; }
+

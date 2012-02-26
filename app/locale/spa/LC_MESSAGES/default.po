@@ -9,11 +9,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /app_controller.php:106
+#: /app_controller.php:117
 msgid "Not authorized to perform actions on this container"
 msgstr "No está autorizado para realizar acciones en este contenedor."
 
-#: /app_controller.php:122
+#: /app_controller.php:133
 msgid "Not authorized to perform actions on this object."
 msgstr "No está autorizado para realizar acciones en este objeto."
 
@@ -82,6 +82,11 @@ msgstr "Por favor, seleccione los contenedores para imprimir etiquetas."
 #: /controllers/users_controller.php:31
 msgid "There was a problem signing you up."
 msgstr "Hubo un problema al firmar para arriba."
+
+#: /controllers/users_controller.php:40
+#: /views/users/signup.ctp:2
+msgid "Join Boxmeup"
+msgstr "Únete Boxmeup"
 
 #: /controllers/users_controller.php:93
 msgid "Successfully updated account settings."
@@ -297,6 +302,11 @@ msgstr "Regístrate"
 msgid "Login"
 msgstr "Iniciar Sesión"
 
+#: /views/elements/account.ctp:16
+#: /views/elements/app/account.ctp:16
+msgid "Choose Language"
+msgstr "Elegir idioma"
+
 #: /views/elements/footer.ctp:3
 #: /views/elements/navigation.ctp:4
 #: /views/pages/features.ctp:1
@@ -485,6 +495,10 @@ msgstr "Boxmeup Admin"
 #: /views/layouts/app.ctp:7
 msgid "Boxmeup"
 msgstr "Boxmeup"
+
+#: /views/layouts/app.ctp:24
+msgid "Find an item..."
+msgstr "Buscar un artículo ..."
 
 #: /views/locations/add.ctp:10
 #: /views/locations/edit.ctp:11
@@ -711,10 +725,6 @@ msgstr "Introduzca la clave de la recuperación prevista por e-mail"
 #: /views/users/reset_password.ctp:9
 msgid "Enter a new password for your account"
 msgstr "Escriba una contraseña nueva para su cuenta"
-
-#: /views/users/signup.ctp:2
-msgid "Join Boxmeup"
-msgstr "Únete Boxmeup"
 
 #: /views/users/signup.ctp:19
 msgid "User registration is temporarily unavailable."

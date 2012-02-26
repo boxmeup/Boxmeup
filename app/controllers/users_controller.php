@@ -37,7 +37,7 @@ class UsersController extends AppController {
         }
 		$this->data['User']['password'] = '';
 		$this->data['User']['confirm_password'] = '';
-		$this->set('title_for_layout', 'Join Boxmeup');
+		$this->set('title_for_layout', __('Join Boxmeup', true));
 	}
 
 	public function login() {
@@ -157,5 +157,12 @@ class UsersController extends AppController {
 	public function dismiss_message() {
 		$this->Cookie->write('message_dismissed' . Configure::read('Message.cookie_suffix'), 'hide', false, date('Y-m-d H:i:s', strtotime('+2 weeks')));
 		$this->autoRender = false;
+	}
+
+	public function change_language($language = null) {
+		if(!empty($language)) {
+			$this->Cookie->write('language', $language, false, '1 week');
+		}
+		$this->redirect($this->referer());
 	}
 }

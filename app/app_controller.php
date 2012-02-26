@@ -10,11 +10,17 @@ class AppController extends Controller {
 	);
 	public $helpers = array('Html', 'Form', 'Session', 'Paginator');
 
+	public $availableLanguages = array(
+		'eng' => 'English',
+		'spa' => 'Spanish',
+		'jpn' => 'Japanese'
+	);
+
 	public $_secure = false;
 
 	public function beforeFilter() {
 		$this->setupAuth();
-		
+
 		$user_id = $this->Auth->user('id');
 		if(!empty($user_id)) {
 			// If a password reset is required, force redirect to reset_password
@@ -27,6 +33,11 @@ class AppController extends Controller {
 		if($this->isMobile() && !Configure::read('Feature.mobile')) {
 			$this->render(null, null, 'mobile_disabled');
 		}
+
+		// Determine language preference
+		if($this->Cookie->read('language')) {
+			Configure::write('Config.language', $this->Cookie->read('language'));
+		}
 	}
 
 	public function beforeRender() {
@@ -38,7 +49,8 @@ class AppController extends Controller {
 			'Here' => $this->here,
 			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0',
 			'beta' => Configure::read('beta'),
-			'message_dismissed' => $this->Cookie->read('message_dismissed' . Configure::read('Message.cookie_suffix')) == 'hide'
+			'message_dismissed' => $this->Cookie->read('message_dismissed' . Configure::read('Message.cookie_suffix')) == 'hide',
+			'availableLanguages' => $this->availableLanguages
 		));
 		
 		if(Configure::read('Site.theme')) {
@@ -76,7 +88,6 @@ class AppController extends Controller {
 			$this->Auth->deny();
 		else
 			$this->Auth->allow();
-
 	}
 
 	protected function setupMobile() {

@@ -88,7 +88,6 @@ $(document).ready(function() {
 	});
 
 	// Search
-	var search_default = 'Find an item...';
 	var $searchInput = $('#SearchQuery');
 	if($searchInput.attr('value').length == 0)
 		$searchInput.attr('value', search_default);
@@ -103,5 +102,11 @@ $(document).ready(function() {
 
 	$('.focus:first').each(function() {
 		$(this).removeClass('focus').focus();
+	});
+
+	// Language
+	$('body').delegate('#change-language', 'change', function() {
+		url = $(this).attr('action');
+		window.location.href = url + '/' + $('#change-language-locale option:selected').val();
 	});
 });
