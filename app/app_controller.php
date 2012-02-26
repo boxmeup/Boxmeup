@@ -57,7 +57,7 @@ class AppController extends Controller {
 
 		$this->Auth->userModel = 'User';
 		$this->Auth->loginAction = '/login';
-		$this->Auth->loginRedirect = !$this->isAdmin() ? '/dashboard' : '/';
+		$this->Auth->loginRedirect = '/dashboard';
 		$this->Auth->logoutRedirect = '/';
 		$this->Auth->loginError = 'No username and password was found with that combination';
 		$this->Auth->userScope = array('User.is_active' => 1);
@@ -72,28 +72,11 @@ class AppController extends Controller {
 		if($this->isMobile())
 			$this->Auth->loginRedirect = '/containers';
 
-		// Setup a scope for admin users accessing admin section
-		if($this->isAdmin()) {
-			// If a user is logged in, but is not an admin...
-			if($this->Auth->user() && !$this->Auth->user('is_admin')) {
-				$this->Session->setFlash(__('Not authorized to view this resource.', true), 'notification/error');
-				$this->redirect('/');
-			}
-				
-			$this->Auth->userScope = array_merge($this->Auth->userScope, array('User.is_admin' => 1));
-			$this->Auth->loginAction = '/admin/login';
-			$this->layout = 'admin';
-		}
-
-		if($this->_secure || $this->isAdmin())
+		if($this->_secure)
 			$this->Auth->deny();
 		else
 			$this->Auth->allow();
 
-	}
-
-	protected function isAdmin() {
-		return isset($this->params['admin']) && $this->params['admin'];
 	}
 
 	protected function setupMobile() {
