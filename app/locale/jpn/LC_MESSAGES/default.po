@@ -1,0 +1,732 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Boxmeup v1.0\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Saylor <cjsaylor@gmail.com>\n"
+"Language-Team: Boxmeup\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-Country: JAPAN\n"
+
+#: /app_controller.php:106
+msgid "Not authorized to perform actions on this container"
+msgstr "このコンテナのアクションを実行する権限がありません"
+
+#: /app_controller.php:122
+msgid "Not authorized to perform actions on this object."
+msgstr "このオブジェクトのアクションを実行する権限がありません。"
+
+#: /controllers/container_items_controller.php:63;88
+msgid "Successfully added new container item."
+msgstr "成功した新しいコンテナ項目を追加しました。"
+
+#: /controllers/container_items_controller.php:73;98
+msgid "Error adding new container item."
+msgstr "新しいコンテナの項目を追加してエラーが発生しました。"
+
+#: /controllers/container_items_controller.php:131
+msgid "Container item successfully saved."
+msgstr "コンテナのアイテムが正常に保存されます。"
+
+#: /controllers/container_items_controller.php:150
+msgid "Successfully deleted item."
+msgstr "正常にアイテムを削除しました。"
+
+#: /controllers/container_items_controller.php:152
+msgid "Error deleting item."
+msgstr "エラー項目を削除します。"
+
+#: /controllers/containers_controller.php:61
+msgid "Date"
+msgstr "日付"
+
+#: /controllers/containers_controller.php:62
+#: /views/containers/dashboard.ctp:7
+msgid "Containers"
+msgstr "コンテナ"
+
+#: /controllers/containers_controller.php:63
+#: /views/containers/dashboard.ctp:12
+msgid "Items"
+msgstr "アイテム"
+
+#: /controllers/containers_controller.php:66
+msgid "Container activity for last 7 days"
+msgstr "過去7日間のコンテナ·アクティビティ"
+
+#: /controllers/containers_controller.php:150
+msgid "Successfully updated the container."
+msgstr "成功したコンテナを更新しました。"
+
+#: /controllers/containers_controller.php:153
+msgid "Unable to update the container."
+msgstr "コンテナを更新できません。"
+
+#: /controllers/containers_controller.php:169
+msgid "Invalid container ID."
+msgstr "無効なコンテナIDを指定します。"
+
+#: /controllers/containers_controller.php:174
+msgid "Successfully deleted container and all contained items."
+msgstr "正常に削除されたコンテナに含まれるすべてのアイテム。"
+
+#: /controllers/containers_controller.php:176
+msgid "Error deleting container."
+msgstr "コンテナを削除中にエラーが発生。"
+
+#: /controllers/containers_controller.php:214
+msgid "Please select containers to print labels."
+msgstr "ラベルを印刷するコンテナを選択してください。"
+
+#: /controllers/users_controller.php:31
+msgid "There was a problem signing you up."
+msgstr "あなたがサインアップする問題がありました。"
+
+#: /controllers/users_controller.php:93
+msgid "Successfully updated account settings."
+msgstr "成功したアカウント設定を更新しました。"
+
+#: /controllers/users_controller.php:96
+msgid "Error updating account settings."
+msgstr "アカウント設定を更新中にエラーが発生。"
+
+#: /controllers/users_controller.php:129
+msgid "Successfully sent recovery request."
+msgstr "正常に回復要求を送信しました。"
+
+#: /controllers/users_controller.php:132
+msgid "Invalid or un-registered email address supplied."
+msgstr "無効または非登録メールアドレスが供給されます。"
+
+#: /controllers/users_controller.php:145
+msgid "Successfully reset password."
+msgstr "成功したパスワードをリセットします。"
+
+#: /controllers/users_controller.php:149
+msgid "Error resetting password."
+msgstr "エラーは、パスワードをリセットします。"
+
+#: /controllers/users_controller.php:152
+msgid "Verification key does not match what is on file."
+msgstr "検証キーはファイルにあるものと一致しません。"
+
+#: /views/container_items/add.ctp:1
+#: /views/container_items/add_item.ctp:1
+msgid "Add Container Item"
+msgstr "コンテナのアイテムを追加"
+
+#: /views/container_items/add.ctp:6
+#: /views/container_items/add_item.ctp:8
+#: /views/container_items/index.ctp:12
+#: /views/containers/view.ctp:42
+msgid "Add Item"
+msgstr "アイテムを追加"
+
+#: /views/container_items/add_item.ctp:5
+#: /views/container_items/index.ctp:11
+msgid "Select a container"
+msgstr "コンテナを選択します。"
+
+#: /views/container_items/edit.ctp:1
+msgid "Edit Item"
+msgstr "アイテムの編集"
+
+#: /views/container_items/edit.ctp:6
+msgid "Item Content"
+msgstr "アイテムのコンテンツ"
+
+#: /views/container_items/edit.ctp:10
+msgid "Save Item"
+msgstr "アイテムを保存"
+
+#: /views/container_items/export.ctp:3
+#: /views/containers/add.ctp:4
+#: /views/containers/bulk_print.ctp:6
+#: /views/containers/export.ctp:3
+msgid "Container Name"
+msgstr "コンテナ名"
+
+#: /views/container_items/export.ctp:4
+#: /views/containers/export.ctp:4
+msgid "Container Slug"
+msgstr "コンテナスラッグ"
+
+#: /views/container_items/export.ctp:5
+#: /views/containers/export.ctp:5
+msgid "Item Description"
+msgstr "項目説明"
+
+#: /views/container_items/export.ctp:6
+#: /views/containers/export.ctp:6
+msgid "Quantity"
+msgstr "量"
+
+#: /views/container_items/export.ctp:7
+#: /views/containers/export.ctp:7
+msgid "Created"
+msgstr "作成した"
+
+#: /views/container_items/export.ctp:8
+#: /views/containers/export.ctp:8
+msgid "Modified"
+msgstr "変更された"
+
+#: /views/container_items/index.ctp:19
+msgid "Ascending"
+msgstr "上昇"
+
+#: /views/container_items/index.ctp:19
+msgid "Descending"
+msgstr "下行"
+
+#: /views/container_items/index.ctp:19
+msgid "(Direction)"
+msgstr "（方向）"
+
+#: /views/container_items/index.ctp:20
+msgid "Sort"
+msgstr "ソート"
+
+#: /views/containers/add.ctp:1
+msgid "Add New Container"
+msgstr "新規コンテナを追加します。"
+
+#: /views/containers/add.ctp:6
+msgid "Add"
+msgstr "加える"
+
+#: /views/containers/ajax_add.ctp:11
+#: /views/containers/view.ctp:63
+msgid "Are you sure you want to delete this item?"
+msgstr "あなたは、この項目を削除してもよろしいですか？"
+
+#: /views/containers/bulk_print.ctp:2
+msgid "Select Containers to Print Labels"
+msgstr "ラベルを印刷するためのコンテナを選択します。"
+
+#: /views/containers/bulk_print.ctp:7
+msgid "Item Count"
+msgstr "アイテム数"
+
+#: /views/containers/bulk_print.ctp:24
+msgid "Print Selected Labels"
+msgstr "選択したラベルを印刷する"
+
+#: /views/containers/dashboard.ctp:2
+msgid "Locations"
+msgstr "場所"
+
+#: /views/containers/dashboard.ctp:4
+msgid "View Your Locations"
+msgstr "あなたの場所を見る"
+
+#: /views/containers/dashboard.ctp:9
+msgid "View Your Containers"
+msgstr "あなたのコンテナを見る"
+
+#: /views/containers/dashboard.ctp:14
+msgid "View Your Items"
+msgstr "あなたの商品を見る"
+
+#: /views/containers/dashboard.ctp:22
+msgid "Recent Items"
+msgstr "最近使った項目"
+
+#: /views/containers/edit.ctp:1
+msgid "Edit Container"
+msgstr "コンテナを編集"
+
+#: /views/containers/edit.ctp:6
+#: /views/locations/add.ctp:8
+#: /views/locations/edit.ctp:9
+msgid "Name"
+msgstr "名"
+
+#: /views/containers/edit.ctp:10
+msgid "Update Container"
+msgstr "アップデートコンテナ"
+
+#: /views/containers/index.ctp:9
+msgid "All Locations"
+msgstr "すべての場所"
+
+#: /views/containers/index.ctp:15
+#: /views/containers/index.table.ctp:15
+msgid "No containers for this location."
+msgstr "この場所のないコンテナはありません。"
+
+#: /views/containers/index.ctp:22
+msgid "Items: "
+msgstr "アイテム： "
+
+#: /views/containers/index.table.ctp:33
+msgid "Are you sure you want to delete this container?"
+msgstr "あなたは、このコンテナを削除してもよろしいですか？"
+
+#: /views/containers/view.ctp:17
+msgid "Edit Name or Location"
+msgstr "名前または場所を編集します。"
+
+#: /views/containers/view.ctp:49
+#: /views/themed/mobile/containers/view.ctp:20
+msgid "No items yet."
+msgstr "まだアイテムはありません。"
+
+#: /views/elements/account.ctp:5
+#: /views/elements/app/account.ctp:5
+#: /views/users/account.ctp:3
+msgid "My Account"
+msgstr "マイアカウント"
+
+#: /views/elements/account.ctp:6
+#: /views/elements/app/account.ctp:6
+msgid "Sign Out"
+msgstr "サインアウト"
+
+#: /views/elements/account.ctp:8
+#: /views/elements/app/account.ctp:8
+#: /views/users/signup.ctp:15
+msgid "Sign Up"
+msgstr "サインアップ"
+
+#: /views/elements/account.ctp:9
+#: /views/elements/app/account.ctp:9
+#: /views/users/login.ctp:2;8
+#: /views/users/signup.ctp:22
+msgid "Login"
+msgstr "ログイン"
+
+#: /views/elements/footer.ctp:3
+#: /views/elements/navigation.ctp:4
+#: /views/pages/features.ctp:1
+msgid "Features"
+msgstr "機能"
+
+#: /views/elements/footer.ctp:4
+#: /views/elements/navigation.ctp:5
+msgid "About"
+msgstr "約"
+
+#: /views/elements/footer.ctp:5
+#: /views/elements/app/footer.ctp:5
+#: /views/users/account.ctp:14
+msgid "Status"
+msgstr "ステータス"
+
+#: /views/elements/footer.ctp:6
+msgid "API"
+msgstr "API"
+
+#: /views/elements/footer.ctp:7
+#: /views/elements/navigation.ctp:6
+msgid "Blog"
+msgstr "ブログ"
+
+#: /views/elements/footer.ctp:8
+#: /views/elements/app/footer.ctp:3
+msgid "Terms of Service"
+msgstr "利用規約"
+
+#: /views/elements/footer.ctp:9
+#: /views/elements/app/footer.ctp:4
+msgid "Privacy Policy"
+msgstr "個人情報保護方針"
+
+#: /views/elements/footer.ctp:20
+msgid "Copyright"
+msgstr "著作権"
+
+#: /views/elements/footer.ctp:20
+msgid "All rights reserved."
+msgstr "すべての権利を保有。"
+
+#: /views/elements/navigation.ctp:3
+msgid "Home"
+msgstr "ホーム"
+
+#: /views/elements/app/control.ctp:5
+msgid "Dismiss Message"
+msgstr "メッセージを閉じる"
+
+#: /views/elements/app/navigation.ctp:6
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#: /views/elements/app/navigation.ctp:10
+msgid "My Containers"
+msgstr "私のコンテナ"
+
+#: /views/elements/app/navigation.ctp:14
+msgid "My Items"
+msgstr "私のアイテム"
+
+#: /views/elements/app/navigation.ctp:18
+msgid "My Locations"
+msgstr "私の場所"
+
+#: /views/elements/app/submenus/ContainerItems.index.ctp:2
+msgid "Export Items"
+msgstr "輸出品目"
+
+#: /views/elements/app/submenus/Containers.add.ctp:2
+#: /views/elements/app/submenus/Containers.bulk_print.ctp:2
+#: /views/elements/app/submenus/Containers.view.ctp:2
+msgid "List Containers"
+msgstr "リストコンテナ"
+
+#: /views/elements/app/submenus/Containers.dashboard.ctp:2
+#: /views/users/qr_login.ctp:2
+msgid "Login Your Phone"
+msgstr "電話機にログイン"
+
+#: /views/elements/app/submenus/Containers.dashboard_graph.ctp:2
+msgid "View Recent Items"
+msgstr "最近使った項目を表示"
+
+#: /views/elements/app/submenus/Containers.index.ctp:2
+msgid "Add Container"
+msgstr "コンテナを追加します。"
+
+#: /views/elements/app/submenus/Containers.index.ctp:3
+msgid "Bulk Print"
+msgstr "一括印刷"
+
+#: /views/elements/app/submenus/Containers.index.ctp:5
+msgid "Change View"
+msgstr "表示を変更します。"
+
+#: /views/elements/app/submenus/Containers.index.ctp:7
+msgid "Change to grid view"
+msgstr "グリッドビューに変更します。"
+
+#: /views/elements/app/submenus/Containers.index.ctp:7
+msgid "Change to list view"
+msgstr "リストビューに変更する"
+
+#: /views/elements/app/submenus/Containers.view.ctp:3
+msgid "Delete Container"
+msgstr "コンテナを削除する"
+
+#: /views/elements/app/submenus/Containers.view.ctp:4
+msgid "Print Label"
+msgstr "ラベル印刷"
+
+#: /views/elements/app/submenus/Containers.view.ctp:5
+msgid "Export List"
+msgstr "リストをエクスポートします。"
+
+#: /views/elements/app/submenus/Locations.add.ctp:2
+#: /views/elements/app/submenus/Locations.edit.ctp:2
+msgid "List Locations"
+msgstr "リストの場所"
+
+#: /views/elements/app/submenus/Locations.index.ctp:2
+#: /views/locations/add.ctp:4
+msgid "Add Location"
+msgstr "場所を追加します。"
+
+#: /views/elements/app/submenus/Searches.find.ctp:2
+msgid "List All Items"
+msgstr "の全在庫商品を見る"
+
+#: /views/elements/email/text/forgot_password.ctp:1
+msgid "Greetings from Boxmeup!"
+msgstr "Boxmeupからの挨拶！"
+
+#: /views/elements/email/text/forgot_password.ctp:4
+msgid "You have made a password recovery request, and we are happy to oblige."
+msgstr "パスワードの回復要求を行っており、我々は義務付けに満足している。"
+
+#: /views/elements/email/text/forgot_password.ctp:7
+msgid "Your recovery key is: "
+msgstr "あなたの回復キーは、次のとおりです。"
+
+#: /views/elements/email/text/forgot_password.ctp:10
+msgid "Follow this link to sign in and reset your password:"
+msgstr "サインインしてパスワードをリセットするには、このリンクに従ってください。"
+
+#: /views/elements/email/text/forgot_password.ctp:16
+msgid "Please note: this login is only valid for 15 minutes."
+msgstr "ご注意：このログインは、15分間のみ有効です。"
+
+#: /views/elements/email/text/forgot_password.ctp:19
+msgid "Thanks,"
+msgstr "おかげで、"
+
+#: /views/elements/email/text/forgot_password.ctp:22
+msgid "Boxmeup Team"
+msgstr "Boxmeupチーム"
+
+#: /views/elements/notification/error.ctp:2
+msgid "Error"
+msgstr "エラー"
+
+#: /views/errors/error404.ctp:2
+msgid "Not found"
+msgstr "見つかりませんでした"
+
+#: /views/errors/error404.ctp:6
+msgid "It probably won't be long before you see "
+msgstr "あなたが見る前に、それはおそらく長くはありません"
+
+#: /views/errors/error404.ctp:6
+msgid "on a milk carton."
+msgstr "牛乳パックで。"
+
+#: /views/errors/error404.ctp:7
+msgid "It'd be very meta if a boxmeup page shows up in a lost-and-found box."
+msgstr "boxmeupページには、遺失物のボックスに表示された場合、それは非常にメタになると思います。"
+
+#: /views/layouts/admin.ctp:7
+msgid "Boxmeup Admin"
+msgstr "Boxmeup管理s"
+
+#: /views/layouts/app.ctp:7
+msgid "Boxmeup"
+msgstr "Boxmeup"
+
+#: /views/locations/add.ctp:10
+#: /views/locations/edit.ctp:11
+msgid "Attach a Map"
+msgstr "地図を添付s"
+
+#: /views/locations/add.ctp:11;18
+#: /views/locations/edit.ctp:12;19
+msgid "Save"
+msgstr "保存"
+
+#: /views/locations/add.ctp:15
+#: /views/locations/edit.ctp:16
+msgid "Address"
+msgstr "アドレス"
+
+#: /views/locations/add.ctp:17
+#: /views/locations/edit.ctp:18
+msgid "Preview"
+msgstr "プレビュー"
+
+#: /views/locations/edit.ctp:4
+msgid "Edit Location"
+msgstr "場所を編集します。"
+
+#: /views/locations/index.ctp:10
+msgid "No locations yet."
+msgstr "まだ場所はありません。"
+
+#: /views/locations/index.ctp:36
+msgid "Are you sure you want to delete this location?"
+msgstr "あなたがこの場所を削除してもよろしいですか？"
+
+#: /views/pages/about.ctp:1
+msgid "About Boxmeup"
+msgstr "Boxmeupについて"
+
+#: /views/pages/about.ctp:2
+msgid "Boxmeup is a web application designed to organize your containers, boxes, and other bulk storage items. Simply create a \"container\", label it, input items into the container, and Boxmeup takes care of the rest."
+msgstr "Boxmeupは、コンテナ、ボックス、およびその他のバルク·ストレージ·アイテムを整理するように設計されたWebアプリケーションです。単に、\"コンテナ\"を作成し、それをラベル、コンテナへの入力項目、およびBoxmeupは残りの世話をする。"
+
+#: /views/pages/about.ctp:4
+msgid "You'll be able to print QR code labels to put onto your containers, which allow you to scan and pull up a list of items in the container on your phone. It also allows you to search all of your containers to find a specific item and Boxmeup tells you where it is!"
+msgstr "あなたがスキャンしてお使いの携帯電話上のコンテナ内のアイテムの一覧をプルアップすることができますあなたの容器に入れてQRコードラベルを印刷できるようになります。また、それがどこにある特定のアイテムとBoxmeupがあなたに伝え見つけるために、すべてのコンテナを検索することができます！"
+
+#: /views/pages/about.ctp:7
+#: /views/pages/features.ctp:31
+msgid "Sign Up Today"
+msgstr "今すぐサインアップ"
+
+#: /views/pages/features.ctp:4
+msgid "Create containers"
+msgstr "コンテナを作成します。"
+
+#: /views/pages/features.ctp:4
+msgid "and add items to those containers through the web interface."
+msgstr "およびWebインターフェースを介してそれらのコンテナにアイテムを追加します。"
+
+#: /views/pages/features.ctp:5
+msgid "You will be able to track what's in your containers, and the quantity of each item.  This allows for easy inventory management."
+msgstr "あなたは何してコンテナであり、各項目の数量を追跡することができます。これは簡単な在庫管理が可能になります。"
+
+#: /views/pages/features.ctp:9
+msgid "Create and print QR labels"
+msgstr "QRラベルを作成し、印刷"
+
+#: /views/pages/features.ctp:9
+msgid "to attach to containers."
+msgstr "コンテナにアタッチします。"
+
+#: /views/pages/features.ctp:10
+msgid "Scan with your smart phone and instantly have access to the manifest of the contents within the labeled container."
+msgstr "スマート携帯電話でスキャンし、瞬時に標識された容器内の内容のマニフェストにアクセスすることができます。"
+
+#: /views/pages/features.ctp:17
+msgid "Find items instantly"
+msgstr "即座にアイテムを見つける"
+
+#: /views/pages/features.ctp:18
+msgid "Search the contents of all containers and find the container of the item searched."
+msgstr "すべてのコンテナの内容を検索し、検索項目のコンテナを見つけます。"
+
+#: /views/pages/features.ctp:25
+msgid "Boxmeup is mobile ready"
+msgstr "Boxmeupの準備ができて携帯電話です。"
+
+#: /views/pages/features.ctp:26
+msgid "The web application is specially designed for smart phones, and in addition has a dedicated Android app on the Android Market."
+msgstr "Webアプリケーションは、特別にスマートフォン用に設計されており、加えて、Androidマーケット上に専用のアンドロイドを持っています。"
+
+#: /views/pages/home.ctp:6
+msgid "Organize your life."
+msgstr "あなたの人生を整理します。"
+
+#: /views/pages/home.ctp:7
+msgid "As the amount of stuff we collect grows, the need to organize all of that stuff also grows.  Sign up with us and start organizing!"
+msgstr "当社が収集するものの量が大きくなるにつれて、その原料のすべてを整理する必要性も増大します。私達にサインアップして整理開始！"
+
+#: /views/pages/home.ctp:9
+msgid "Sign Up Now"
+msgstr "今すぐサインアップ"
+
+#: /views/pages/home.ctp:14
+msgid "Moving"
+msgstr "移動する"
+
+#: /views/pages/home.ctp:15
+msgid "Can't remember where you packed your toothbrush?  Use our search feature to find it!"
+msgstr "あなたの歯ブラシを詰め場所を覚えませんか？それを見つけるためにGoogleの検索機能を使用してください！"
+
+#: /views/pages/home.ctp:18
+msgid "Collectors"
+msgstr "コレクター"
+
+#: /views/pages/home.ctp:19
+msgid "Collect baseball cards, comic books, or stamps?  Use this app to organize your collection."
+msgstr "野球カード、漫画本、またはスタンプを集める？あなたのコレクションを整理するために、このアプリを使用しています。"
+
+#: /views/pages/home.ctp:22
+msgid "Mobile"
+msgstr "携帯電話"
+
+#: /views/pages/home.ctp:23
+msgid "Use your smartphone to scan labels to pull up a manifest anywhere."
+msgstr "どこでもマニフェストをプルアップするためにラベルをスキャンするには、スマートフォンを使用しています。"
+
+#: /views/searches/find.ctp:3
+#: /views/themed/mobile/searches/find.ctp:3
+msgid "No results found for "
+msgstr "の結果は見つかりませんでした"
+
+#: /views/searches/find.ctp:22
+msgid "I created an item, but it doesn't show it when I search!"
+msgstr "私はアイテムを作成したが、私は検索するとそれが表示されません！"
+
+#: /views/searches/find.ctp:23
+msgid "Please allow up to 1 minute for your item to become searchable."
+msgstr "あなたの商品が検索可能になるため、約1分かかります。"
+
+#: /views/users/account.ctp:6
+msgid "Update Email"
+msgstr "メールを更新"
+
+#: /views/users/account.ctp:7
+msgid "Update Password (Leave blank if you do not wish to change.)"
+msgstr "更新パスワード（あなたが変更したくない場合は空白のままにします。）"
+
+#: /views/users/account.ctp:9
+msgid "Update Account Settings"
+msgstr "アカウントの設定を更新"
+
+#: /views/users/account.ctp:13
+msgid "API Access"
+msgstr "APIアクセス"
+
+#: /views/users/account.ctp:14
+msgid "Enabled"
+msgstr "使用可能"
+
+#: /views/users/account.ctp:14
+msgid "Disabled"
+msgstr "無効にする"
+
+#: /views/users/account.ctp:17
+msgid "Api Key"
+msgstr "APIキー"
+
+#: /views/users/account.ctp:18
+msgid "Secret Key"
+msgstr "秘密鍵"
+
+#: /views/users/account.ctp:22
+msgid "Developer API Documentation"
+msgstr "開発者向けAPIドキュメント"
+
+#: /views/users/account.ctp:26
+msgid "For security purposes of your account, do not share your secret key with anyone."
+msgstr "アカウントのセキュリティを確保するために、誰と秘密鍵を共有することはありません。"
+
+#: /views/users/forgot_password.ctp:2
+msgid "Password Recovery"
+msgstr "パスワードの復元"
+
+#: /views/users/forgot_password.ctp:6
+#: /views/users/login.ctp:5
+#: /views/users/signup.ctp:8
+msgid "Email Address"
+msgstr "メールアドレス"
+
+#: /views/users/forgot_password.ctp:7
+#: /views/users/reset_password.ctp:5;11
+msgid "Reset Password"
+msgstr "パスワードをリセットする"
+
+#: /views/users/forgot_password.ctp:12
+msgid "Entering your registered email address will reset your password and send a new password to the registered email address."
+msgstr "ご登録のメールアドレスを入力すると、パスワードをリセットし、登録したメールアドレスに新しいパスワードを送信します。"
+
+#: /views/users/forgot_password.ctp:14
+msgid "Forgot password feature is temporarily unavailable."
+msgstr "パスワードを忘れた機能は一時的に使用できません。"
+
+#: /views/users/login.ctp:6
+#: /views/users/signup.ctp:9
+msgid "Password"
+msgstr "パスワード"
+
+#: /views/users/login.ctp:7
+msgid "Forgot password?"
+msgstr "パスワードをお忘れですか？"
+
+#: /views/users/login.ctp:12
+msgid "Don't have an account?"
+msgstr "アカウントをお持ちでいないのですか？"
+
+#: /views/users/login.ctp:12
+msgid "Create one!"
+msgstr "1を作成しよう！"
+
+#: /views/users/reset_password.ctp:8
+msgid "Enter the recovery key provided by email"
+msgstr "電子メールによって提供された回復キーを入力してください"
+
+#: /views/users/reset_password.ctp:9
+msgid "Enter a new password for your account"
+msgstr "アカウントの新しいパスワードを入力します"
+
+#: /views/users/signup.ctp:2
+msgid "Join Boxmeup"
+msgstr "Boxmeupに参加する"
+
+#: /views/users/signup.ctp:19
+msgid "User registration is temporarily unavailable."
+msgstr "ユーザー登録は一時的に利用できません。"
+
+#: /views/users/signup.ctp:22
+msgid "Already have an account?"
+msgstr "すでにアカウントをお持ちですか？"
+
+#: /webroot/test.php:88
+msgid "Debug setting does not allow access to this url."
+msgstr "デバッグ設定は、このURLへのアクセスを許可されていません。"
+
