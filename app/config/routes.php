@@ -23,10 +23,6 @@
 	Router::connect('/signup', array('controller' => 'users', 'action' => 'signup'));
 	Router::connect('/account', array('controller' => 'users', 'action' => 'account'));
 
-	// Admin
-	Router::connect('/admin', array('controller' => 'manager', 'action' => 'index', 'admin' => true));
-	Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
-
 	// Application
 	Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
 	Router::connect('/forgot_login/*', array('controller' => 'users', 'action' => 'qr_login'));
