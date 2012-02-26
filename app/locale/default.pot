@@ -1,0 +1,725 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-02-26 02:08-0500\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: /app_controller.php:106
+msgid "Not authorized to perform actions on this container"
+msgstr ""
+
+#: /app_controller.php:122
+msgid "Not authorized to perform actions on this object."
+msgstr ""
+
+#: /controllers/container_items_controller.php:63;88
+msgid "Successfully added new container item."
+msgstr ""
+
+#: /controllers/container_items_controller.php:73;98
+msgid "Error adding new container item."
+msgstr ""
+
+#: /controllers/container_items_controller.php:131
+msgid "Container item successfully saved."
+msgstr ""
+
+#: /controllers/container_items_controller.php:150
+msgid "Successfully deleted item."
+msgstr ""
+
+#: /controllers/container_items_controller.php:152
+msgid "Error deleting item."
+msgstr ""
+
+#: /controllers/containers_controller.php:150
+msgid "Successfully updated the container."
+msgstr ""
+
+#: /controllers/containers_controller.php:153
+msgid "Unable to update the container."
+msgstr ""
+
+#: /controllers/containers_controller.php:169
+msgid "Invalid container ID."
+msgstr ""
+
+#: /controllers/containers_controller.php:174
+msgid "Successfully deleted container and all contained items."
+msgstr ""
+
+#: /controllers/containers_controller.php:176
+msgid "Error deleting container."
+msgstr ""
+
+#: /controllers/containers_controller.php:214
+msgid "Please select containers to print labels."
+msgstr ""
+
+#: /controllers/users_controller.php:31
+msgid "There was a problem signing you up."
+msgstr ""
+
+#: /controllers/users_controller.php:93
+msgid "Successfully updated account settings."
+msgstr ""
+
+#: /controllers/users_controller.php:96
+msgid "Error updating account settings."
+msgstr ""
+
+#: /controllers/users_controller.php:129
+msgid "Successfully sent recovery request."
+msgstr ""
+
+#: /controllers/users_controller.php:132
+msgid "Invalid or un-registered email address supplied."
+msgstr ""
+
+#: /controllers/users_controller.php:145
+msgid "Successfully reset password."
+msgstr ""
+
+#: /controllers/users_controller.php:149
+msgid "Error resetting password."
+msgstr ""
+
+#: /controllers/users_controller.php:152
+msgid "Verification key does not match what is on file."
+msgstr ""
+
+#: /views/container_items/add.ctp:1
+#: /views/container_items/add_item.ctp:1
+msgid "Add Container Item"
+msgstr ""
+
+#: /views/container_items/add.ctp:6
+#: /views/container_items/add_item.ctp:8
+#: /views/container_items/index.ctp:12
+#: /views/containers/view.ctp:42
+msgid "Add Item"
+msgstr ""
+
+#: /views/container_items/add_item.ctp:5
+#: /views/container_items/index.ctp:11
+msgid "Select a container"
+msgstr ""
+
+#: /views/container_items/edit.ctp:1
+msgid "Edit Item"
+msgstr ""
+
+#: /views/container_items/edit.ctp:6
+msgid "Item Content"
+msgstr ""
+
+#: /views/container_items/edit.ctp:10
+msgid "Save Item"
+msgstr ""
+
+#: /views/container_items/export.ctp:3
+#: /views/containers/add.ctp:4
+#: /views/containers/bulk_print.ctp:6
+#: /views/containers/export.ctp:3
+msgid "Container Name"
+msgstr ""
+
+#: /views/container_items/export.ctp:4
+#: /views/containers/export.ctp:4
+msgid "Container Slug"
+msgstr ""
+
+#: /views/container_items/export.ctp:5
+#: /views/containers/export.ctp:5
+msgid "Item Description"
+msgstr ""
+
+#: /views/container_items/export.ctp:6
+#: /views/containers/export.ctp:6
+msgid "Quantity"
+msgstr ""
+
+#: /views/container_items/export.ctp:7
+#: /views/containers/export.ctp:7
+msgid "Created"
+msgstr ""
+
+#: /views/container_items/export.ctp:8
+#: /views/containers/export.ctp:8
+msgid "Modified"
+msgstr ""
+
+#: /views/container_items/index.ctp:19
+msgid "Ascending"
+msgstr ""
+
+#: /views/container_items/index.ctp:19
+msgid "Descending"
+msgstr ""
+
+#: /views/container_items/index.ctp:19
+msgid "(Direction)"
+msgstr ""
+
+#: /views/container_items/index.ctp:20
+msgid "Sort"
+msgstr ""
+
+#: /views/containers/add.ctp:1
+msgid "Add New Container"
+msgstr ""
+
+#: /views/containers/add.ctp:6
+msgid "Add"
+msgstr ""
+
+#: /views/containers/ajax_add.ctp:11
+#: /views/containers/view.ctp:63
+msgid "Are you sure you want to delete this item?"
+msgstr ""
+
+#: /views/containers/bulk_print.ctp:2
+msgid "Select Containers to Print Labels"
+msgstr ""
+
+#: /views/containers/bulk_print.ctp:7
+msgid "Item Count"
+msgstr ""
+
+#: /views/containers/bulk_print.ctp:24
+msgid "Print Selected Labels"
+msgstr ""
+
+#: /views/containers/dashboard.ctp:2
+msgid "Locations"
+msgstr ""
+
+#: /views/containers/dashboard.ctp:4
+msgid "View Your Locations"
+msgstr ""
+
+#: /views/containers/dashboard.ctp:7
+msgid "Containers"
+msgstr ""
+
+#: /views/containers/dashboard.ctp:9
+msgid "View Your Containers"
+msgstr ""
+
+#: /views/containers/dashboard.ctp:12
+msgid "Items"
+msgstr ""
+
+#: /views/containers/dashboard.ctp:14
+msgid "View Your Items"
+msgstr ""
+
+#: /views/containers/dashboard.ctp:22
+msgid "Recent Items"
+msgstr ""
+
+#: /views/containers/edit.ctp:1
+msgid "Edit Container"
+msgstr ""
+
+#: /views/containers/edit.ctp:6
+#: /views/locations/add.ctp:8
+#: /views/locations/edit.ctp:9
+msgid "Name"
+msgstr ""
+
+#: /views/containers/edit.ctp:10
+msgid "Update Container"
+msgstr ""
+
+#: /views/containers/index.ctp:9
+msgid "All Locations"
+msgstr ""
+
+#: /views/containers/index.ctp:15
+#: /views/containers/index.table.ctp:15
+msgid "No containers for this location."
+msgstr ""
+
+#: /views/containers/index.ctp:22
+msgid "Items: "
+msgstr ""
+
+#: /views/containers/index.table.ctp:33
+msgid "Are you sure you want to delete this container?"
+msgstr ""
+
+#: /views/containers/view.ctp:17
+msgid "Edit Name or Location"
+msgstr ""
+
+#: /views/containers/view.ctp:49
+#: /views/themed/mobile/containers/view.ctp:20
+msgid "No items yet."
+msgstr ""
+
+#: /views/elements/account.ctp:5
+#: /views/elements/app/account.ctp:5
+#: /views/users/account.ctp:3
+msgid "My Account"
+msgstr ""
+
+#: /views/elements/account.ctp:6
+#: /views/elements/app/account.ctp:6
+msgid "Sign Out"
+msgstr ""
+
+#: /views/elements/account.ctp:8
+#: /views/elements/app/account.ctp:8
+#: /views/users/signup.ctp:15
+msgid "Sign Up"
+msgstr ""
+
+#: /views/elements/account.ctp:9
+#: /views/elements/app/account.ctp:9
+#: /views/users/login.ctp:2;8
+#: /views/users/signup.ctp:22
+msgid "Login"
+msgstr ""
+
+#: /views/elements/footer.ctp:3
+#: /views/elements/navigation.ctp:4
+#: /views/pages/features.ctp:1
+msgid "Features"
+msgstr ""
+
+#: /views/elements/footer.ctp:4
+#: /views/elements/navigation.ctp:5
+msgid "About"
+msgstr ""
+
+#: /views/elements/footer.ctp:5
+#: /views/elements/app/footer.ctp:5
+#: /views/users/account.ctp:14
+msgid "Status"
+msgstr ""
+
+#: /views/elements/footer.ctp:6
+msgid "API"
+msgstr ""
+
+#: /views/elements/footer.ctp:7
+#: /views/elements/navigation.ctp:6
+msgid "Blog"
+msgstr ""
+
+#: /views/elements/footer.ctp:8
+#: /views/elements/app/footer.ctp:3
+msgid "Terms of Service"
+msgstr ""
+
+#: /views/elements/footer.ctp:9
+#: /views/elements/app/footer.ctp:4
+msgid "Privacy Policy"
+msgstr ""
+
+#: /views/elements/footer.ctp:20
+msgid "Copyright"
+msgstr ""
+
+#: /views/elements/footer.ctp:20
+msgid "All rights reserved."
+msgstr ""
+
+#: /views/elements/navigation.ctp:3
+msgid "Home"
+msgstr ""
+
+#: /views/elements/paginate.ctp:7;9
+msgid ""
+msgstr ""
+
+#: /views/elements/app/control.ctp:5
+msgid "Dismiss Message"
+msgstr ""
+
+#: /views/elements/app/navigation.ctp:6
+msgid "Dashboard"
+msgstr ""
+
+#: /views/elements/app/navigation.ctp:10
+msgid "My Containers"
+msgstr ""
+
+#: /views/elements/app/navigation.ctp:14
+msgid "My Items"
+msgstr ""
+
+#: /views/elements/app/navigation.ctp:18
+msgid "My Locations"
+msgstr ""
+
+#: /views/elements/app/submenus/ContainerItems.index.ctp:2
+msgid "Export Items"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.add.ctp:2
+#: /views/elements/app/submenus/Containers.bulk_print.ctp:2
+#: /views/elements/app/submenus/Containers.view.ctp:2
+msgid "List Containers"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.dashboard.ctp:2
+#: /views/users/qr_login.ctp:2
+msgid "Login Your Phone"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.dashboard_graph.ctp:2
+msgid "View Recent Items"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.index.ctp:2
+msgid "Add Container"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.index.ctp:3
+msgid "Bulk Print"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.index.ctp:5
+msgid "Change View"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.index.ctp:7
+msgid "Change to grid view"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.index.ctp:7
+msgid "Change to list view"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.view.ctp:3
+msgid "Delete Container"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.view.ctp:4
+msgid "Print Label"
+msgstr ""
+
+#: /views/elements/app/submenus/Containers.view.ctp:5
+msgid "Export List"
+msgstr ""
+
+#: /views/elements/app/submenus/Locations.add.ctp:2
+#: /views/elements/app/submenus/Locations.edit.ctp:2
+msgid "List Locations"
+msgstr ""
+
+#: /views/elements/app/submenus/Locations.index.ctp:2
+#: /views/locations/add.ctp:4
+msgid "Add Location"
+msgstr ""
+
+#: /views/elements/app/submenus/Searches.find.ctp:2
+msgid "List All Items"
+msgstr ""
+
+#: /views/elements/email/text/forgot_password.ctp:1
+msgid "Greetings from Boxmeup!"
+msgstr ""
+
+#: /views/elements/email/text/forgot_password.ctp:4
+msgid "You have made a password recovery request, and we are happy to oblige."
+msgstr ""
+
+#: /views/elements/email/text/forgot_password.ctp:7
+msgid "Your recovery key is: "
+msgstr ""
+
+#: /views/elements/email/text/forgot_password.ctp:10
+msgid "Follow this link to sign in and reset your password:"
+msgstr ""
+
+#: /views/elements/email/text/forgot_password.ctp:16
+msgid "Please note: this login is only valid for 15 minutes."
+msgstr ""
+
+#: /views/elements/email/text/forgot_password.ctp:19
+msgid "Thanks,"
+msgstr ""
+
+#: /views/elements/email/text/forgot_password.ctp:22
+msgid "Boxmeup Team"
+msgstr ""
+
+#: /views/elements/notification/error.ctp:2
+msgid "Error"
+msgstr ""
+
+#: /views/errors/error404.ctp:2
+msgid "Not found"
+msgstr ""
+
+#: /views/errors/error404.ctp:6
+msgid "It probably won't be long before you see "
+msgstr ""
+
+#: /views/errors/error404.ctp:6
+msgid "on a milk carton."
+msgstr ""
+
+#: /views/errors/error404.ctp:7
+msgid "It'd be very meta if a boxmeup page shows up in a lost-and-found box."
+msgstr ""
+
+#: /views/layouts/admin.ctp:7
+msgid "Boxmeup Admin"
+msgstr ""
+
+#: /views/layouts/app.ctp:7
+msgid "Boxmeup"
+msgstr ""
+
+#: /views/locations/add.ctp:10
+#: /views/locations/edit.ctp:11
+msgid "Attach a Map"
+msgstr ""
+
+#: /views/locations/add.ctp:11;18
+#: /views/locations/edit.ctp:12;19
+msgid "Save"
+msgstr ""
+
+#: /views/locations/add.ctp:15
+#: /views/locations/edit.ctp:16
+msgid "Address"
+msgstr ""
+
+#: /views/locations/add.ctp:17
+#: /views/locations/edit.ctp:18
+msgid "Preview"
+msgstr ""
+
+#: /views/locations/edit.ctp:4
+msgid "Edit Location"
+msgstr ""
+
+#: /views/locations/index.ctp:10
+msgid "No locations yet."
+msgstr ""
+
+#: /views/locations/index.ctp:36
+msgid "Are you sure you want to delete this location?"
+msgstr ""
+
+#: /views/pages/about.ctp:1
+msgid "About Boxmeup"
+msgstr ""
+
+#: /views/pages/about.ctp:2
+msgid "Boxmeup is a web application designed to organize your containers, boxes, and other bulk storage items. Simply create a \"container\", label it, input items into the container, and Boxmeup takes care of the rest."
+msgstr ""
+
+#: /views/pages/about.ctp:4
+msgid "You'll be able to print QR code labels to put onto your containers, which allow you to scan and pull up a list of items in the container on your phone. It also allows you to search all of your containers to find a specific item and Boxmeup tells you where it is!"
+msgstr ""
+
+#: /views/pages/about.ctp:7
+#: /views/pages/features.ctp:31
+msgid "Sign Up Today"
+msgstr ""
+
+#: /views/pages/features.ctp:4
+msgid "Create containers"
+msgstr ""
+
+#: /views/pages/features.ctp:4
+msgid "and add items to those containers through the web interface."
+msgstr ""
+
+#: /views/pages/features.ctp:5
+msgid "You will be able to track what's in your containers, and the quantity of each item.  This allows for easy inventory management."
+msgstr ""
+
+#: /views/pages/features.ctp:9
+msgid "Create and print QR labels"
+msgstr ""
+
+#: /views/pages/features.ctp:9
+msgid "to attach to containers."
+msgstr ""
+
+#: /views/pages/features.ctp:10
+msgid "Scan with your smart phone and instantly have access to the manifest of the contents within the labeled container."
+msgstr ""
+
+#: /views/pages/features.ctp:17
+msgid "Find items instantly"
+msgstr ""
+
+#: /views/pages/features.ctp:18
+msgid "Search the contents of all containers and find the container of the item searched."
+msgstr ""
+
+#: /views/pages/features.ctp:25
+msgid "Boxmeup is mobile ready"
+msgstr ""
+
+#: /views/pages/features.ctp:26
+msgid "The web application is specially designed for smart phones, and in addition has a dedicated Android app on the Android Market."
+msgstr ""
+
+#: /views/pages/home.ctp:6
+msgid "Organize your life."
+msgstr ""
+
+#: /views/pages/home.ctp:7
+msgid "As the amount of stuff we collect grows, the need to organize all of that stuff also grows.  Sign up with us and start organizing!"
+msgstr ""
+
+#: /views/pages/home.ctp:9
+msgid "Sign Up Now"
+msgstr ""
+
+#: /views/pages/home.ctp:14
+msgid "Moving"
+msgstr ""
+
+#: /views/pages/home.ctp:18
+msgid "Collectors"
+msgstr ""
+
+#: /views/pages/home.ctp:19
+msgid "Collect baseball cards, comic books, or stamps?  Use this app to organize your collection."
+msgstr ""
+
+#: /views/pages/home.ctp:22
+msgid "Mobile"
+msgstr ""
+
+#: /views/pages/home.ctp:23
+msgid "Use your smartphone to scan labels to pull up a manifest anywhere."
+msgstr ""
+
+#: /views/searches/find.ctp:3
+#: /views/themed/mobile/searches/find.ctp:3
+msgid "No results found for "
+msgstr ""
+
+#: /views/searches/find.ctp:22
+msgid "I created an item, but it doesn't show it when I search!"
+msgstr ""
+
+#: /views/searches/find.ctp:23
+msgid "Please allow up to 1 minute for your item to become searchable."
+msgstr ""
+
+#: /views/users/account.ctp:6
+msgid "Update Email"
+msgstr ""
+
+#: /views/users/account.ctp:7
+msgid "Update Password (Leave blank if you do not wish to change.)"
+msgstr ""
+
+#: /views/users/account.ctp:9
+msgid "Update Account Settings"
+msgstr ""
+
+#: /views/users/account.ctp:13
+msgid "API Access"
+msgstr ""
+
+#: /views/users/account.ctp:14
+msgid "Enabled"
+msgstr ""
+
+#: /views/users/account.ctp:14
+msgid "Disabled"
+msgstr ""
+
+#: /views/users/account.ctp:17
+msgid "Api Key"
+msgstr ""
+
+#: /views/users/account.ctp:18
+msgid "Secret Key"
+msgstr ""
+
+#: /views/users/account.ctp:22
+msgid "Developer API Documentation"
+msgstr ""
+
+#: /views/users/account.ctp:26
+msgid "For security purposes of your account, do not share your secret key with anyone."
+msgstr ""
+
+#: /views/users/forgot_password.ctp:2
+msgid "Password Recovery"
+msgstr ""
+
+#: /views/users/forgot_password.ctp:6
+#: /views/users/login.ctp:5
+#: /views/users/signup.ctp:8
+msgid "Email Address"
+msgstr ""
+
+#: /views/users/forgot_password.ctp:7
+#: /views/users/reset_password.ctp:5;11
+msgid "Reset Password"
+msgstr ""
+
+#: /views/users/forgot_password.ctp:12
+msgid "Entering your registered email address will reset your password and send a new password to the registered email address."
+msgstr ""
+
+#: /views/users/forgot_password.ctp:14
+msgid "Forgot password feature is temporarily unavailable."
+msgstr ""
+
+#: /views/users/login.ctp:6
+#: /views/users/signup.ctp:9
+msgid "Password"
+msgstr ""
+
+#: /views/users/login.ctp:7
+msgid "Forgot password?"
+msgstr ""
+
+#: /views/users/login.ctp:12
+msgid "Don't have an account?"
+msgstr ""
+
+#: /views/users/login.ctp:12
+msgid "Create one!"
+msgstr ""
+
+#: /views/users/reset_password.ctp:8
+msgid "Enter the recovery key provided by email"
+msgstr ""
+
+#: /views/users/reset_password.ctp:9
+msgid "Enter a new password for your account"
+msgstr ""
+
+#: /views/users/signup.ctp:2
+msgid "Join Boxmeup"
+msgstr ""
+
+#: /views/users/signup.ctp:19
+msgid "User registration is temporarily unavailable."
+msgstr ""
+
+#: /views/users/signup.ctp:22
+msgid "Already have an account?"
+msgstr ""
+
+#: /webroot/test.php:88
+msgid "Debug setting does not allow access to this url."
+msgstr ""
+
