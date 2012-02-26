@@ -13,6 +13,7 @@ class AppController extends Controller {
 	public $availableLanguages = array(
 		'eng' => 'English',
 		'spa' => 'Spanish',
+		'deu' => 'German',
 		'jpn' => 'Japanese'
 	);
 
