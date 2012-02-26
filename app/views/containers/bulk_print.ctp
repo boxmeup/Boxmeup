@@ -1,10 +1,10 @@
 <?php echo $this->Html->script('views/containers/bulk_print', array('inline' => false)); ?>
-<h2>Select Containers to Print Labels</h2><br/>
+<h2><?php __('Select Containers to Print Labels'); ?></h2><br/>
 <table>
 	<tr style="background-color: #333; color: #eee;">
 		<td class="tip-s table-checkbox" title="Select All"><?php echo $this->Form->checkbox('selectall', array('label' => false, 'id' => 'container-selectall')); ?></td>
-		<td>Container Name</td>
-		<td>Item Count</td>
+		<td><?php __('Container Name'); ?></td>
+		<td><?php __('Item Count'); ?></td>
 	</tr>
 <?php
 	echo $this->Form->create('Container', array('url' => array('controller' => 'containers', 'action' => 'bulk_print'), 'target' => empty($this->params['named']['active']) ? '_blank' : ''));
@@ -21,6 +21,6 @@
 ?>
 </table><br/>
 <?php
-	echo $this->Form->submit('Print Selected Labels', array('class' => 'btn primary'));
+	echo $this->Form->submit(__('Print Selected Labels', true), array('class' => 'btn primary'));
 	echo $this->Form->end();
 ?>

@@ -1,8 +1,8 @@
 <?php
 	$footer_links = array(
-		'Terms of Service' => '/terms',
-		'Privacy Policy' => '/privacy',
-		'Status' => 'http://status.boxmeupapp.com'
+		__('Terms of Service', true) => '/terms',
+		__('Privacy Policy', true) => '/privacy',
+		__('Status', true) => 'http://status.boxmeupapp.com'
 	);
 ?>
 <div style="clear: both"></div>

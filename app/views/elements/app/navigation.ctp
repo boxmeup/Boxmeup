@@ -3,19 +3,19 @@
 		$active = '';
 	$menu = array(
 		'containers.dashboard' => array(
-			'label' => 'Dashboard',
+			'label' => __('Dashboard', true),
 			'link' => '/dashboard',
 		),
 		'containers.index' => array(
-			'label' => 'My Containers',
+			'label' => __('My Containers', true),
 			'link' => array('controller' => 'containers', 'action' => 'index')
 		),
 		'container_items.index' => array(
-			'label' => 'My Items',
+			'label' => __('My Items', true),
 			'link' => array('controller' => 'container_items', 'action' => 'index')
 		),
 		'locations.index' => array(
-			'label' => 'My Locations',
+			'label' => __('My Locations', true),
 			'link' => array('controller' => 'locations', 'action' => 'index')
 		)
 	);

@@ -19,5 +19,5 @@
 <?php
 	}
 ?>
-<h4 style="margin-top: 20px;">I created an item, but it doesn't show it when I search!</h4>
-<p>Please allow up to 1 minute for your item to become searchable.</p>
+<h4 style="margin-top: 20px;"><?php __("I created an item, but it doesn't show it when I search!"); ?></h4>
+<p><?php __('Please allow up to 1 minute for your item to become searchable.'); ?></p>

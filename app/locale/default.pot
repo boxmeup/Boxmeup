@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2012-02-26 02:08-0500\n"
+"POT-Creation-Date: 2012-02-26 02:30-0500\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -40,6 +40,24 @@ msgstr ""
 
 #: /controllers/container_items_controller.php:152
 msgid "Error deleting item."
+msgstr ""
+
+#: /controllers/containers_controller.php:61
+msgid "Date"
+msgstr ""
+
+#: /controllers/containers_controller.php:62
+#: /views/containers/dashboard.ctp:7
+msgid "Containers"
+msgstr ""
+
+#: /controllers/containers_controller.php:63
+#: /views/containers/dashboard.ctp:12
+msgid "Items"
+msgstr ""
+
+#: /controllers/containers_controller.php:66
+msgid "Container activity for last 7 days"
 msgstr ""
 
 #: /controllers/containers_controller.php:150
@@ -208,16 +226,8 @@ msgstr ""
 msgid "View Your Locations"
 msgstr ""
 
-#: /views/containers/dashboard.ctp:7
-msgid "Containers"
-msgstr ""
-
 #: /views/containers/dashboard.ctp:9
 msgid "View Your Containers"
-msgstr ""
-
-#: /views/containers/dashboard.ctp:12
-msgid "Items"
 msgstr ""
 
 #: /views/containers/dashboard.ctp:14
@@ -588,6 +598,10 @@ msgstr ""
 
 #: /views/pages/home.ctp:14
 msgid "Moving"
+msgstr ""
+
+#: /views/pages/home.ctp:15
+msgid "Can't remember where you packed your toothbrush?  Use our search feature to find it!"
 msgstr ""
 
 #: /views/pages/home.ctp:18

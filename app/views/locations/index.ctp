@@ -7,7 +7,7 @@
 	");
 	if(empty($locations)) {
 ?>
-<p>No locations yet.</p>
+<p><?php __('No locations yet.'); ?></p>
 <?php } else { ?>
 		<?php
 			foreach($locations as $key => $item) {
@@ -33,7 +33,7 @@
 					</p>
 					<div class="container-item-list-options">
 						<?php echo $html->link($html->image('icons/edit.png'), array('controller' => 'locations', 'action' => 'edit', $item['Location']['uuid']), array('escape' => false)); ?>
-						<?php echo $html->link($html->image('icons/delete.png'), array('controller' => 'locations', 'action' => 'delete', $item['Location']['uuid']), array('escape' => false), 'Are you sure you want to delete this location?'); ?>
+						<?php echo $html->link($html->image('icons/delete.png'), array('controller' => 'locations', 'action' => 'delete', $item['Location']['uuid']), array('escape' => false), __('Are you sure you want to delete this location?', true)); ?>
 					</div>
 					<div style="clear: both"></div>
 				</div>

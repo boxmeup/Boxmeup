@@ -1,5 +1,5 @@
 <div class="alert-message error">
-	<strong>Error: </strong><?php echo $message; ?>
+	<strong><?php __('Error'); ?>: </strong><?php echo $message; ?>
 	<a class="close" href="#">x</a>
 </div>
 <!--

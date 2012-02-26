@@ -58,12 +58,12 @@ class ContainersController extends AppController {
 
 		$container_graph = array(
 			'labels' => array(
-				array('string' => 'Date'),
-				array('number' => 'Containers'),
-				array('number' => 'Items')
+				array('string' => __('Date', true)),
+				array('number' => __('Containers', true)),
+				array('number' => __('Items', true))
 			),
 			'data' => $graph_data,
-			'title' => 'Container activity for last 7 days',
+			'title' => __('Container activity for last 7 days', true),
 			'type' => 'line',
 			'width' => 650,
 		);
