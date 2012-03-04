@@ -1,6 +1,8 @@
 <?php
 class UsersController extends AppController {
 
+	const KEY_LOGIN_TIME = '-1 hours';
+
 	public $name = 'Users';
 	
 	public $components = array('Email');
@@ -46,7 +48,7 @@ class UsersController extends AppController {
 	
 	public function qr_login($api_key = null, $dyn_key = null, $hmac = null) {
 		if(!empty($api_key)) {
-			if(strtotime(base64_decode($dyn_key)) > strtotime('-15 minutes')) {
+			if(strtotime(base64_decode($dyn_key)) > strtotime(static::KEY_LOGIN_TIME)) {
 				try {
 					if(ClassRegistry::init('Api.ApiUser')->isValidRequest(compact('api_key', 'dyn_key', 'hmac'))) {
 						$login_data = $this->User->find('first', array(
