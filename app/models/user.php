@@ -70,6 +70,16 @@ class User extends AppModel {
 			)
 		)) > 0;
 	}
+
+	public function verifyLogin($email, $password) {
+		return $this->find('count', array(
+			'conditions' => array(
+				'email' => $email,
+				'password' => $this->hashPassword($password)
+			),
+			'contains' => array()
+		)) > 0;
+	}
 	
 	public function resetPassword($email) {
 		$user_id = $this->getUserIdByEmail($email);
