@@ -17,10 +17,14 @@ class AppController extends Controller {
 		'jpn' => 'Japanese'
 	);
 
+	protected $ssl = array();
+
 	public $_secure = false;
 
 	public function beforeFilter() {
 		$this->setupAuth();
+
+		$this->checkSsl();
 
 		$user_id = $this->Auth->user('id');
 		if(!empty($user_id)) {
@@ -89,6 +93,25 @@ class AppController extends Controller {
 			$this->Auth->deny();
 		else
 			$this->Auth->allow();
+	}
+
+	protected function checkSsl() {
+		$redirect = false;
+		if ($this->action == 'logout' || !$this->RequestHandler->isGet()) {
+			return;
+		}
+		if (in_array($this->action, $this->ssl)) {
+			if (env('https') !== 'on') {
+				$redirect = 'https://' . env('SERVER_NAME') . $this->here;
+				CakeLog::write('debug', 'SSL redirecting to: ' . $redirect);
+			}
+		} elseif (env('https') === 'on') {
+			$redirect = 'http://' . env('SERVER_NAME') . $this->here;
+			CakeLog::write('debug', 'NON-SSL redirecting to: ' . $redirect);
+		}
+		if (!empty($redirect)) {
+			$this->redirect($redirect);
+		}
 	}
 
 	protected function setupMobile() {
