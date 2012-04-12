@@ -6,6 +6,10 @@ class UsersController extends AppController {
 	public $name = 'Users';
 	
 	public $components = array('Email');
+
+	protected $ssl = array(
+		'login', 'signup', 'account', 'reset_password'
+	);
 	
 	public function beforeFilter() {
 		$requires_auth = array(
