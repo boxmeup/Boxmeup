@@ -7,8 +7,8 @@
 ?>
 <div style="clear: both"></div>
 <div class="social">
-	<a href="http://market.android.com/details?id=com.boxmeup.app">
-		<img src="http://www.android.com/images/brand/45_avail_market_logo1.png" alt="Available in Android Market" />
+	<a href="http://play.google.com/store/apps/details?id=com.boxmeup.app">
+		<?php echo $html->image('get_it_on_play_logo_small.png', array('alt' => 'Get it on Google Play')); ?>
 	</a>
 </div>
 <div id="footer">
