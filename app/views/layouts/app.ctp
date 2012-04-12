@@ -8,8 +8,7 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		//echo $this->Html->css('http://fonts.googleapis.com/css?family=PT+Sans');
-		echo $this->Html->css('http://fonts.googleapis.com/css?family=Nobile');
+		echo $this->Html->css('https://fonts.googleapis.com/css?family=Nobile');
 		echo $this->Html->css('main');
 		echo $this->Html->css('app');
 		echo $this->Html->css('util');
