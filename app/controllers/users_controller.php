@@ -89,6 +89,7 @@ class UsersController extends AppController {
 	}
 
 	public function account() {
+		Configure::write('Feature.adsense', false);
 		$this->layout = 'app';
 		if(!empty($this->data)) {
 			$this->data['User']['id'] = $this->Auth->user('id');
