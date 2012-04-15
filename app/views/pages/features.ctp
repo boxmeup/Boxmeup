@@ -28,4 +28,4 @@
 	<div style="clear: both;">&nbsp;</div>
 </div>
 <br/>
-<?php echo $html->link(__('Sign Up Today', true), '/signup', array('class' => 'super button green ui-modal', 'style' => 'float: right; margin-right: 75px;')); ?>
+<?php echo $html->link(__('Sign Up Today', true), '/signup', array('class' => 'super button green', 'style' => 'float: right; margin-right: 75px;')); ?>
