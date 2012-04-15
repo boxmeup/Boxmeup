@@ -11,10 +11,10 @@
 		echo $this->Html->css('http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css');
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.6.4');");
-		echo $this->Html->script('http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js');
 		echo $this->Html->script('app.mobile');
 		echo $this->element('analytics');
 		echo $scripts_for_layout;
+		echo $this->Html->script('http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js');
 	?>
 
 </head>

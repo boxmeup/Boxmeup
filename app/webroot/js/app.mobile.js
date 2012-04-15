@@ -12,7 +12,7 @@ var mobileApp = {
 		return typeof BoxmeupAndroid != 'undefined';
 	}
 }
-$(document).bind('mobile-init', function() {
+$(document).bind('mobileinit', function() {
 	$.extend($.mobile, {
 		touchOverflowEnabled: true,
 		addBackBtn: true
