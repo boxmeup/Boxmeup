@@ -6,7 +6,7 @@
 	<h2><?php __('Organize your life.'); ?></h2><br/>
 	<p><?php __('As the amount of stuff we collect grows, the need to organize all of that stuff also grows.  Sign up with us and start organizing!'); ?></p>
 	<br/>
-	<?php echo $html->link(__('Sign Up Now', true), '/signup', array('class' => 'super button green ui-modal')); ?>
+	<?php echo $html->link(__('Sign Up Now', true), '/signup', array('class' => 'super button green')); ?>
 </div>
 <div style="clear: both;  border-bottom: 1px solid #ccc; margin: 0 50px 20px 50px;">&nbsp;</div>
 <div style="width: 900px; margin: 0 auto;">
