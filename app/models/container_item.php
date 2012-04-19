@@ -94,7 +94,8 @@ class ContainerItem extends AppModel {
 				'sortMode' => array(SPH_SORT_TIME_SEGMENTS => 'created'),
 				'filter' => array(array('user_id', $user_id))
 			),
-			'contain' => array('Container')
+			'contain' => array('Container'),
+			'limit' => $this->pagination_limit
 		);
 
 		return $controller->paginate($this);

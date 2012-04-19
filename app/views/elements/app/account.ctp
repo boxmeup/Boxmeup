@@ -19,8 +19,8 @@
 	</div>
 	<div id="search">
 	<?php
-		echo $form->create('Search', array('url' => array('controller' => 'searches', 'action' => 'find')));
-		echo $form->input('query', array('label' => false, 'type' => 'text', 'div' => false));
+		echo $form->create('Search', array('url' => array('controller' => 'searches', 'action' => 'find'), 'autocomplete' => 'off'));
+		echo $form->input('query', array('label' => false, 'type' => 'text', 'div' => false, 'autocomplete' => 'off'));
 		echo $form->end();
 	?>
 	</div>
