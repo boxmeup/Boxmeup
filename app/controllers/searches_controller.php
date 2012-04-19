@@ -38,4 +38,15 @@ class SearchesController extends AppController {
 		
 		$this->set('active', 'container_items.index');
 	}
+
+	public function auto_find() {
+		$this->view = 'Json';
+		$output = array('No results.');
+		if (!empty($this->params['url']['term'])) {
+			$this->ContainerItem->pagination_limit = 10;
+			$items = $this->ContainerItem->searchContainers($this, $this->Auth->user('id'), urldecode($this->params['url']['term']));
+			$output = Set::extract('/ContainerItem/body', $items);
+		}
+		$this->set('output', $output);
+	}
 }
