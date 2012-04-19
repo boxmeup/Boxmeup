@@ -22,6 +22,15 @@
 			var WEBROOT = '$Webroot'; \n"
 			. "var search_default = '" . __('Find an item...', true) . "';"
 		);
+	?>
+	<script type="text/javascript">
+		var BMU_CLIENT = {
+			features: {
+				autocomplete: <?php echo Configure::read('Feature.autocomplete') ? 'true' : 'false'; ?>
+			}
+		};
+	</script>
+	<?php
 		echo $this->Html->script('jquery.fancybox-1.3.4.pack');
 		echo $this->Html->script('jquery.tipsy.min');
 		echo $this->Html->script('app');

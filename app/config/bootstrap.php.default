@@ -29,3 +29,4 @@
     Configure::write('Feature.user_registration', true);
     Configure::write('Feature.bulk_export', true);
     Configure::write('Feature.forgot_password', true);
+	Configure::write('Feature.autocomplete', true);
