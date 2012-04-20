@@ -104,7 +104,16 @@ $(document).ready(function() {
 	if (BMU_CLIENT.features.autocomplete) {
 		$searchInput.autocomplete({
 			source: '/searches/auto_find',
-			minLength: 2
+			minLength: 2,
+			focus: function (event, ui) {
+				$searchInput.val(ui.item.label);
+				return false;
+			},
+			select: function (event, ui) {
+				$searchInput.val(ui.item.label);
+				$('#SearchDashboardForm').submit();
+				return false;
+			}
 		});
 	}
 
