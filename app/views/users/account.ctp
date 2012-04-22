@@ -19,7 +19,7 @@
 	}
 ?>
 <br/>
-<a href="https://github.com/cjsaylor/Boxmeup/wiki/API-Documentation" class="btn info" target="_NEW"><?php __('Developer API Documentation'); ?></a>
+<a href="https://github.com/boxmeup/Boxmeup/wiki/API-Documentation" class="btn info" target="_NEW"><?php __('Developer API Documentation'); ?></a>
 <br/>
 <br/>
 <small>
