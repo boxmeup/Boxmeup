@@ -1,5 +1,6 @@
 ._*
 .htaccess
+.project
 app/.htaccess
 app/webroot/.htaccess
 
