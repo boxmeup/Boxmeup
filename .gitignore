@@ -1,13 +1,10 @@
 ._*
-.htaccess
 .project
-app/.htaccess
-app/webroot/.htaccess
 
 # config
-app/config/bootstrap.php
-app/config/core.php
-app/config/database.php
+app/Config/bootstrap.php
+app/Config/core.php
+app/Config/database.php
 
 # cache
 app/tmp/**/*
