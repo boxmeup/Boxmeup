@@ -1,0 +1,53 @@
+<?php
+
+Cache::config('default', array('engine' => 'File'));
+Configure::write('Dispatcher.filters', array(
+	'AssetDispatcher',
+	'CacheDispatcher'
+));
+
+App::uses('CakeLog', 'Log');
+CakeLog::config('debug', array(
+	'engine' => 'FileLog',
+	'types' => array('notice', 'info', 'debug'),
+	'file' => 'debug',
+));
+CakeLog::config('error', array(
+	'engine' => 'FileLog',
+	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
+	'file' => 'error',
+));
+
+// Load Plugins
+CakePlugin::load('Api');
+CakePlugin::load('DebugKit');
+CakePlugin::load('Utility');
+
+// Features
+// Site Theme
+// Configure::write('Site.theme', 'default');
+
+// Mobile themes
+Configure::write('Site.mobile_theme', 'mobile');
+Configure::write('Site.jquery_mobile_theme', 'b');
+
+// Analytics
+Configure::write('Analytics.tracking_code', '');
+
+// AdSense
+Configure::write('Adsense.adunit', '');
+
+// Message
+Configure::write('Message.message', 'Some message.');
+Configure::write('Message.cookie_suffix', '002');
+
+// Feature activation
+Configure::write('Feature.api', true);
+Configure::write('Feature.mobile', true);
+Configure::write('Feature.analytics', false);
+Configure::write('Feature.adsense', false);
+Configure::write('Feature.feedback', false);
+Configure::write('Feature.user_registration', true);
+Configure::write('Feature.bulk_export', true);
+Configure::write('Feature.forgot_password', true);
+Configure::write('Feature.autocomplete', true);
