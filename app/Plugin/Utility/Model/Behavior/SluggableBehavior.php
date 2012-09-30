@@ -9,7 +9,8 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-App::import('Core', 'Multibyte');
+
+App::uses('Multibyte', 'I18n');
 
 /**
  * Utils Plugin
@@ -45,10 +46,10 @@ class SluggableBehavior extends ModelBehavior {
  * @var array
  */
 	protected $_defaults = array(
-		'label' => 'name',
+		'label' => 'title',
 		'slug' => 'slug',
 		'scope' => array(),
-		'separator' => '-',
+		'separator' => '_',
 		'length' => 255,
 		'unique' => true,
 		'update' => false,
@@ -73,25 +74,29 @@ class SluggableBehavior extends ModelBehavior {
 		$settings = $this->settings[$Model->alias];
 		if (is_string($this->settings[$Model->alias]['trigger'])) {
 			if ($Model->{$this->settings[$Model->alias]['trigger']} != true) {
-				return;
+				return true;
 			}
 		}
 
 		if (empty($Model->data[$Model->alias])) {
-			return;
+			return true;
 		} else if (empty($Model->data[$Model->alias][$this->settings[$Model->alias]['label']])) {
-			return;
+			return true;
 		} else if (!$this->settings[$Model->alias]['update'] && !empty($Model->id) && !is_string($this->settings[$Model->alias]['trigger'])) {
-			return;
+			return true;
 		}
 
 		$slug = $Model->data[$Model->alias][$settings['label']];
-		if (method_Exists($Model, 'beforeSlugGeneration')) {
+		if (method_exists($Model, 'beforeSlugGeneration')) {
 			$slug = $Model->beforeSlugGeneration($slug, $settings['separator']);
 		}
 
 		$settings = $this->settings[$Model->alias];
-		$slug = $this->multibyteSlug($Model, $slug, $settings['separator']);
+		if (method_exists($Model, 'multibyteSlug')) {
+			$slug = $Model->multibyteSlug($slug, $settings['separator']);
+		} else {
+			$slug = $this->multibyteSlug($Model, $slug);
+		}
 
 		if ($settings['unique'] === true || is_array($settings['unique'])) {
 			$slug = $this->makeUniqueSlug($Model, $slug);
@@ -101,6 +106,7 @@ class SluggableBehavior extends ModelBehavior {
 			$Model->whitelist[] = $settings['slug'];
 		}
 		$Model->data[$Model->alias][$settings['slug']] = $slug;
+		return true;
 	}
 
 /**
