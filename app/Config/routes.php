@@ -28,7 +28,7 @@ Router::connect('/account', array('controller' => 'users', 'action' => 'account'
 Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
 Router::connect('/forgot_login/*', array('controller' => 'users', 'action' => 'qr_login'));
 
-require CAKE . 'Config' . DS . 'routes.php';
-
 // Fallback
 Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+
+require CAKE . 'Config' . DS . 'routes.php';

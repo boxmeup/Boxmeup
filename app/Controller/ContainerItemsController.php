@@ -1,5 +1,5 @@
 <?php
-App::import('lib', array('Sanitize'));
+App::uses('Sanitize', 'Utility');
 class ContainerItemsController extends AppController {
 
 	public $name = 'ContainerItems';

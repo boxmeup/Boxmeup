@@ -1,5 +1,5 @@
 <?php
-App::import('lib', array('Sanitize'));
+App::uses('Sanitize', 'Utility');
 class ContainersController extends AppController {
 
 	public $name = 'Containers';
@@ -94,8 +94,9 @@ class ContainersController extends AppController {
 	}
 	
 	public function change_view($view) {
-		if($this->RequestHandler->isAjax())
-			Configure::write('debug', 0);
+		//if($this->RequestHandler->isAjax()) {
+		//	Configure::write('debug', 0);
+		//}
 		$this->Session->write('Feature.change_view', $view == 'list' ? 'list' : 'grid');
 		$this->redirect($this->referer());
 	}

@@ -6,7 +6,7 @@
 ?>
 <div style="float: right">
 	<?php
-		echo $this->Form->select('Location.uuid', $location_list, null, array('empty' => 'All Locations'));
+		echo $this->Form->select('Location.uuid', $location_list, array('empty' => 'All Locations'));
 	?>
 </div>
 <div style="clear: both">&nbsp;</div>
