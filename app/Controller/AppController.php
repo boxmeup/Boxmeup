@@ -85,8 +85,9 @@ class AppController extends Controller {
 			'password' => 'password'
 		);
 
-		if($this->isMobile())
+		if($this->isMobile()) {
 			$this->Auth->loginRedirect = '/containers';
+		}
 
 		if($this->_secure)
 			$this->Auth->deny();
@@ -115,7 +116,6 @@ class AppController extends Controller {
 
 	protected function setupMobile() {
 		if($this->isMobile()) {
-			$this->view = 'Theme';
 			$this->theme = Configure::read('Site.mobile_theme') ?
 				Configure::read('Site.mobile_theme') :
 				'mobile';
