@@ -1,11 +1,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine on
-        # SEO redirect
-        RewriteCond %{HTTP_HOST} ^www.boxmeupapp.com$ [NC]
-        RewriteRule ^(.*)$ http://boxmeupapp.com/$1 [R=301,L]
-
-        RewriteCond %{HTTP_HOST} ^beta.boxmeupapp.com$ [NC]
-        RewriteRule ^(.*)$ http://boxmeupapp.com/$1 [R=301,L]
+    # SEO redirect
+    RewriteCond %{HTTP_HOST} ^www.boxmeupapp.com$ [NC]
+    RewriteRule ^(.*)$ http://boxmeupapp.com/$1 [R=301,L]
 
     RewriteRule    ^$    app/webroot/    [L]
     RewriteRule    (.*) app/webroot/$1    [L]
