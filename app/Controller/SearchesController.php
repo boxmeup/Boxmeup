@@ -1,5 +1,5 @@
 <?php
-App::import('lib', array('Sanitize'));
+App::uses('Sanitize', 'Utility');
 class SearchesController extends AppController {
 
 	public $name = 'Searches';
@@ -42,9 +42,9 @@ class SearchesController extends AppController {
 	public function auto_find() {
 		$this->view = 'Json';
 		$output = array('No results.');
-		if (!empty($this->request->params['url']['term'])) {
+		if (!empty($this->request->query['term'])) {
 			$this->ContainerItem->pagination_limit = 10;
-			$items = $this->ContainerItem->searchContainers($this, $this->Auth->user('id'), urldecode($this->request->params['url']['term']));
+			$items = $this->ContainerItem->searchContainers($this, $this->Auth->user('id'), urldecode($this->request->query['term']));
 			$output = Set::extract('/ContainerItem/body', $items);
 		}
 		$this->set('output', $output);
