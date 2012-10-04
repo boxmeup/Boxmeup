@@ -103,7 +103,7 @@ $(document).ready(function() {
 	// Search autocomplete
 	if (BMU_CLIENT.features.autocomplete) {
 		$searchInput.autocomplete({
-			source: '/searches/auto_find',
+			source: '/searches/auto_find.json',
 			minLength: 2,
 			focus: function (event, ui) {
 				$searchInput.val(ui.item.label);
