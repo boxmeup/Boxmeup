@@ -101,7 +101,7 @@ class UsersController extends AppController {
 		$this->layout = 'app';
 		if(!empty($this->request->data)) {
 			$this->request->data['User']['id'] = $this->Auth->user('id');
-			if($this->request->data['User']['password'] === Security::hash('', null, true)) {
+			if(empty($this->request->data['User']['password'])) {
 				unset($this->request->data['User']['password']);
 			}
 			if($this->User->save($this->request->data)) {
