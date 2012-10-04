@@ -1,0 +1,144 @@
+<?php
+
+	Configure::write('debug', 2);
+	Configure::write('Error', array(
+		'handler' => 'ErrorHandler::handleError',
+		'level' => E_ALL & ~E_DEPRECATED,
+		'trace' => true
+	));
+
+	Configure::write('Exception', array(
+		'handler' => 'ErrorHandler::handleException',
+		'renderer' => 'ExceptionRenderer',
+		'log' => true
+	));
+	Configure::write('App.encoding', 'UTF-8');
+	//Configure::write('Cache.disable', true);
+
+/**
+ * Enable cache checking.
+ *
+ * If set to true, for view caching you must still use the controller
+ * public $cacheAction inside your controllers to define caching settings.
+ * You can either set it controller-wide by setting public $cacheAction = true,
+ * or in each action using $this->cacheAction = true.
+ *
+ */
+	//Configure::write('Cache.check', true);
+
+/**
+ * Defines the default error type when using the log() function. Used for
+ * differentiating error logging and debugging. Currently PHP supports LOG_DEBUG.
+ */
+	define('LOG_ERROR', LOG_ERR);
+
+/**
+ * Session configuration.
+ *
+ * Contains an array of settings to use for session configuration. The defaults key is
+ * used to define a default preset to use for sessions, any settings declared here will override
+ * the settings of the default config.
+ *
+ * ## Options
+ *
+ * - `Session.cookie` - The name of the cookie to use. Defaults to 'CAKEPHP'
+ * - `Session.timeout` - The number of minutes you want sessions to live for. This timeout is handled by CakePHP
+ * - `Session.cookieTimeout` - The number of minutes you want session cookies to live for.
+ * - `Session.checkAgent` - Do you want the user agent to be checked when starting sessions? You might want to set the
+ *    value to false, when dealing with older versions of IE, Chrome Frame or certain web-browsing devices and AJAX
+ * - `Session.defaults` - The default configuration set to use as a basis for your session.
+ *    There are four builtins: php, cake, cache, database.
+ * - `Session.handler` - Can be used to enable a custom session handler.  Expects an array of of callables,
+ *    that can be used with `session_save_handler`.  Using this option will automatically add `session.save_handler`
+ *    to the ini array.
+ * - `Session.autoRegenerate` - Enabling this setting, turns on automatic renewal of sessions, and
+ *    sessionids that change frequently. See CakeSession::$requestCountdown.
+ * - `Session.ini` - An associative array of additional ini values to set.
+ *
+ * The built in defaults are:
+ *
+ * - 'php' - Uses settings defined in your php.ini.
+ * - 'cake' - Saves session files in CakePHP's /tmp directory.
+ * - 'database' - Uses CakePHP's database sessions.
+ * - 'cache' - Use the Cache class to save sessions.
+ *
+ * To define a custom session handler, save it at /app/Model/Datasource/Session/<name>.php.
+ * Make sure the class implements `CakeSessionHandlerInterface` and set Session.handler to <name>
+ *
+ * To use database sessions, run the app/Config/Schema/sessions.php schema using
+ * the cake shell command: cake schema create Sessions
+ *
+ */
+	Configure::write('Session', array(
+		'defaults' => 'php'
+	));
+	Configure::write('Session.cookie', 'BOXMEUP');
+
+/**
+ * The level of CakePHP security.
+ */
+	Configure::write('Security.level', 'medium');
+
+/**
+ * A random string used in security hashing methods.
+ */
+	Configure::write('Security.salt', 'd5bbd4dedd2cd66d3615b389edfb5520a09dc4f3');
+
+/**
+ * A random numeric string (digits only) used to encrypt/decrypt strings.
+ */
+	Configure::write('Security.cipherSeed', '376236363033613336663666663838');
+
+	Configure::write('Asset.timestamp', 'force');
+
+/**
+ * Uncomment this line and correct your server timezone to fix 
+ * any date & time related errors.
+ */
+	//date_default_timezone_set('UTC');
+
+/**
+ * Pick the caching engine to use.  If APC is enabled use it.
+ * If running via cli - apc is disabled by default. ensure it's available and enabled in this case
+ *
+ * Note: 'default' and other application caches should be configured in app/Config/bootstrap.php.
+ *       Please check the comments in boostrap.php for more info on the cache engines available 
+ *       and their setttings.
+ */
+$engine = 'File';
+if (extension_loaded('apc') && function_exists('apc_dec') && (php_sapi_name() !== 'cli' || ini_get('apc.enable_cli'))) {
+	$engine = 'Apc';
+}
+
+// In development mode, caches should expire quickly.
+$duration = '+999 days';
+if (Configure::read('debug') >= 1) {
+	$duration = '+10 seconds';
+}
+
+// Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
+$prefix = 'boxmeup_';
+
+/**
+ * Configure the cache used for general framework caching.  Path information,
+ * object listings, and translation cache files are stored with this configuration.
+ */
+Cache::config('_cake_core_', array(
+	'engine' => $engine,
+	'prefix' => $prefix . 'cake_core_',
+	'path' => CACHE . 'persistent' . DS,
+	'serialize' => ($engine === 'File'),
+	'duration' => $duration
+));
+
+/**
+ * Configure the cache for model and datasource caches.  This cache configuration
+ * is used to store schema descriptions, and table listings in connections.
+ */
+Cache::config('_cake_model_', array(
+	'engine' => $engine,
+	'prefix' => $prefix . 'cake_model_',
+	'path' => CACHE . 'models' . DS,
+	'serialize' => ($engine === 'File'),
+	'duration' => $duration
+));
