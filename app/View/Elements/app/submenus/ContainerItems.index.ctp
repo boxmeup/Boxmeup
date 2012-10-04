@@ -1,0 +1,2 @@
+<?php
+	echo $this->Html->link($this->Html->image('icons/csv.png').'&nbsp;'.__('Export Items'), array('controller' => 'container_items', 'action' => 'export'), array('class' => 'btn primary tip-s', 'escape' => false, 'title' => 'Export the list of all items to CSV'));

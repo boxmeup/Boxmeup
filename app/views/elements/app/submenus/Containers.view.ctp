@@ -1,5 +1,0 @@
-<?php
-	echo $html->link(__('List Containers', true), array('controller' => 'containers', 'action' => 'index'), array('class' => 'btn primary'));
-	echo $html->link(__('Delete Container', true), array('controller' => 'containers', 'action' => 'delete', $container['Container']['uuid']), array('class' => 'btn danger'), 'Are you sure you want to delete this container?');
-	echo $html->link($html->image('icons/print.png').'&nbsp;'.__('Print Label', true), array('controller' => 'containers', 'action' => 'print_label', $container['Container']['uuid']), array('class' => 'btn primary tip-s print', 'escape' => false, 'title' => 'Print a label containing a QR code to this container.'));
-	echo $html->link($html->image('icons/csv.png').'&nbsp;'.__('Export List', true), array('controller' => 'containers', 'action' => 'export', $container['Container']['uuid']), array('class' => 'btn primary tip-s', 'escape' => false, 'title' => 'Export the list of items in this container to CSV'));
