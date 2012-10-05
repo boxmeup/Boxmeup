@@ -79,13 +79,12 @@ class User extends AppModel {
 	public function resetPassword($email) {
 		$user_id = $this->getUserIdByEmail($email);
 		$rand_password = $this->genRandomString();
-		$new_password = $this->hashPassword($rand_password);
 		$result = $this->save(array('User' => array(
 			'id' => $user_id,
-			'password' => $new_password,
+			'password' => $rand_password,
 			'reset_password' => '1'
 		)));
-		
+
 		return $result ? $rand_password : false;
 	}
 	
@@ -96,7 +95,7 @@ class User extends AppModel {
 	}
 	
 	public function hashPassword($password) {
-		return Security::hash($password, Configure::read('Security.hash'), true);
+		return AuthComponent::password($password);
 	}
 	
 	private function genRandomString($length = 8) {
