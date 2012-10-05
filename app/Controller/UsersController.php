@@ -63,23 +63,26 @@ class UsersController extends AppController {
 			if(strtotime(base64_decode($dyn_key)) > strtotime(static::KEY_LOGIN_TIME)) {
 				try {
 					if(ClassRegistry::init('Api.ApiUser')->isValidRequest(compact('api_key', 'dyn_key', 'hmac'))) {
-						$login_data = $this->User->find('first', array(
-							'fields' => array('User.email', 'User.password'),
+						$user = $this->User->find('first', array(
 							'conditions' => array(
 								'User.id' => ClassRegistry::init('Api.ApiUser')->getUserId($api_key)
 							),
 							'contain' => array()
 						));
-						$this->redirect($this->Auth->login($login_data) ? '/' : '/login');
+						if (!empty($user)) {
+							$this->Auth->login($user['User']);
+							return $this->redirect($this->Auth->redirect());
+						}
+						throw new Exception(__('Unable to authenticate.'));
 					} else {
-						throw new Exception("QR Code login key is invalid.");
+						throw new Exception(__('Auth Code login key is invalid.'));
 					}
 				} catch (Exception $e) {
-					$this->Session->setFlash($e->getMessage(), 'notification/error');
+					$this->Session->setFlash($e->getMessage(), 'notification/error', array(), 'auth');
 					$this->redirect('/login');
 				}
 			} else {
-				$this->Session->setFlash('QR Code authentication expired.', 'notification/error');
+				$this->Session->setFlash(__('Authentication code expired.'), 'notification/error', array(), 'auth');
 				$this->redirect('/login');
 			}
 		}
@@ -130,7 +133,7 @@ class UsersController extends AppController {
 					$this->Email->to = $this->request->data['User']['email'];
 					$this->Email->subject = 'Boxmeup Password Recovery';
 					$this->Email->replyTo = 'no-reply@boxmeupapp.com';
-					$this->Email->from = 'Boxmeup App <no-reply@boxmeupapp.com';
+					$this->Email->from = 'Boxmeup App <no-reply@boxmeupapp.com>';
 					$this->Email->template = 'forgot_password';
 					$this->Email->sendAs = 'text';
 					$this->set(array(
@@ -158,7 +161,8 @@ class UsersController extends AppController {
 				$result = $this->User->save($this->request->data);
 				if($result) {
 					$this->Session->setFlash(__('Successfully reset password.'), 'notification/success');
-					$this->Auth->login($this->User->read(null, $this->Auth->user('id')));
+					$user = $this->User->read(null, $this->Auth->user('id'));
+					$this->Auth->login($user['User']);
 					$this->redirect('/');
 				} else {
 					$this->Session->setFlash(__('Error resetting password.'), 'notification/error');
