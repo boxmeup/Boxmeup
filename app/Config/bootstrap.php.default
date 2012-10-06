@@ -20,8 +20,9 @@ CakeLog::config('error', array(
 
 // Load Plugins
 CakePlugin::load('Api');
-CakePlugin::load('DebugKit');
 CakePlugin::load('Utility');
+CakePlugin::load('Feedback');
+CakePlugin::load('DebugKit');
 
 // Features
 // Site Theme
@@ -46,7 +47,7 @@ Configure::write('Feature.api', true);
 Configure::write('Feature.mobile', true);
 Configure::write('Feature.analytics', false);
 Configure::write('Feature.adsense', false);
-Configure::write('Feature.feedback', false);
+Configure::write('Feature.feedback', true);
 Configure::write('Feature.user_registration', true);
 Configure::write('Feature.bulk_export', true);
 Configure::write('Feature.forgot_password', true);
