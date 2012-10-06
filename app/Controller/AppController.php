@@ -49,7 +49,7 @@ class AppController extends Controller {
 		$this->set(array(
 			'User' => $this->Auth->user(),
 			'Webroot' => $this->request->webroot,
-			'Fullwebroot' => 'http://' . env('SERVER_NAME') . $this->request->webroot,
+			'Fullwebroot' => FULL_BASE_URL,
 			'Here' => $this->request->here,
 			'ajaxRequest' => $this->RequestHandler->isAjax()? '1' : '0',
 			'message_dismissed' => $this->Cookie->read('message_dismissed' . Configure::read('Message.cookie_suffix')) == 'hide',
