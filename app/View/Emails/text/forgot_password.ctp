@@ -10,7 +10,7 @@
 <?php echo __('Follow this link to sign in and reset your password:'); ?>
 
 
-<?php echo 'http://boxmeupapp.com/forgot_login/' . $api_key . '/' . $dynamic_key . '/' . $hash; ?>
+<?php echo FULL_BASE_URL . '/forgot_login/' . $api_key . '/' . $dynamic_key . '/' . $hash; ?>
 
 
 <?php echo __('Please note: this login is only valid for 1 hour.'); ?>
