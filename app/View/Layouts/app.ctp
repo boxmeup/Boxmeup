@@ -14,6 +14,9 @@
 		echo $this->Html->css('util');
 		echo $this->Html->css('jquery-ui-1.8.10.custom');
 		echo $this->Html->css('jquery.fancybox-1.3.4');
+		if (Configure::read('Feature.feedback')) {
+			echo $this->Html->css('/feedback/css/feedback.css');
+		}
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.7.1');");
 		echo $this->Html->scriptBlock("google.load('jqueryui', '1.8.15');");
@@ -85,5 +88,10 @@
 			<div style="clear: both"></div>
 		</div>
 	</div>
+	<?php
+		if (Configure::read('Feature.feedback')) {
+			echo $this->element('Feedback.feedback');
+		}
+	?>
 </body>
 </html>
