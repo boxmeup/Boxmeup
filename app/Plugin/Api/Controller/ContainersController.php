@@ -1,33 +1,38 @@
 <?php
-App::import('lib', array('Sanitize'));
+App::import('Sanitize', 'Utility');
 class ContainersController extends ApiAppController {
 
 	public $name = 'Containers';
 
-	public $xml_set = 'containers';
-
 	public $uses = array('Container');
 
 	public function index() {
-		$conditions = !empty($this->params['url']['slug']) ? array('slug' => $this->params['url']['slug']) : array();
-		$this->output = $this->Container->getApiContainers($this->user_id, $conditions);
-		if(empty($this->output)) {
-			$this->setError(404, 'Resource method supports POST only.');
-			$this->apiError = 'No containers available.';
-			$this->apiErrorCode = '404';
+		$conditions = !empty($this->request->query['slug']) ? array('slug' => $this->request->query['slug']) : array();
+		$containers = $this->Container->getApiContainers($this->ApiUser->getUserId($this->request->data['ApiUser']['api_key']), $conditions);
+		if (empty($containers)) {
+			throw new NotFoundException('No containers found.');
 		}
+		$this->jsonOutput($containers);
 	}
 
 	public function add() {
 		if(!$this->RequestHandler->isPost()) {
-			$this->setError(405, 'Resource method supports POST only.');
-			return false;
+			throw new MethodNotAllowedException();
 		}
-		$data['Container']['user_id'] = $this->user_id;
-		$data['Container']['name'] = $this->params['form']['name'];
-		if(!$this->output = $this->Container->save($data)) {
-			$this->setError(406, $this->Container->validationErrors);
+		$this->Container->data = array(
+			'user_id' => $this->ApiUser->getUserId($this->request->data['ApiUser']['api_key']),
+			'name' => $this->request->data['name']
+		);
+		$data['Container']['user_id'] = $this->ApiUser->getUserId($this->request->data['ApiUser']['api_key']);
+		$data['Container']['name'] = $this->request->data['name'];
+		$result = $this->Container->save($data);
+		if(!$result) {
+			throw new BadRequestException(json_encode($this->Containter->validationErrors));
 		}
+		$this->jsonOutput(array(
+			'uuid' => $result['Container']['uuid'],
+			'slug' => $result['Container']['slug']
+		));
 	}
 
 	public function edit($slug = null) {

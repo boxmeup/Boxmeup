@@ -1,7 +1,11 @@
 <?php
 
+Router::mapResources(array(
+	'Api.Containers',
+	'Api.ContainerItems',
+	'Api.Users'
+));
 Router::parseExtensions();
-Router::mapResources('api');
 
 /**
  * Static pages:
@@ -30,5 +34,8 @@ Router::connect('/forgot_login/*', array('controller' => 'users', 'action' => 'q
 
 // Fallback
 Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+
+// Route /api to documentation
+Router::redirect('/api', 'https://github.com/boxmeup/Boxmeup/wiki/API-Documentation', array('status' => '302'));
 
 require CAKE . 'Config' . DS . 'routes.php';
