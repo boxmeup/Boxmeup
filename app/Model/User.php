@@ -53,6 +53,15 @@ class User extends AppModel {
 			)));
 		}
 	}
+
+	public function getUserByEmail($email) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'email' => $email
+			),
+			'contain' => array()
+		));
+	}
 	
 	public function getUserIdByEmail($email) {
 		return $this->field('id', array('email' => $email));

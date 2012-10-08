@@ -4,26 +4,29 @@ class UsersController extends ApiAppController {
 
 	public $name = 'Users';
 
-	public $xml_set = 'users';
-
 	public $uses = array('User');
+
+	public function beforeFilter() {
+		$this->ApiAuth->allow('login');
+		return parent::beforeFilter();
+	}
 
 	public function login() {
 		$required = array('email' => true, 'password' => true);
 		if(!$this->RequestHandler->isPost()) {
-			$this->setError(405, 'Resource method supports only POST method.');
-			return false;
+			throw new MethodNotAllowedException();
 		}
-		if(array_intersect_key($required, $this->params['form']) != $required) {
-			$this->setError(400, 'Missing required fields.');
+		if(array_intersect_key($required, $this->request->data) != $required) {
+			throw new BadRequestException('Missing required fields.');
 		}
-		if(!$this->User->verifyLogin($this->params['form']['email'], $this->params['form']['password'])) {
-			$this->setError(403, 'Invalid email or password.');
-			return false;
+		if(!$this->User->verifyLogin($this->request->data['email'], $this->request->data['password'])) {
+			throw new ForbiddenException();
 		}
-		$api_key = $this->ApiUser->getApiKey($this->User->getUserIdByEmail($this->params['form']['email']));
-		$secret_key = $this->ApiUser->getSecretKey($api_key);
-		$this->output = compact('api_key', 'secret_key');
+		$user = $this->User->getUserByEmail($this->request->data['email']);
+		$user = array_intersect_key($user['User'], array('id' => true, 'email' => true, 'uuid' => true));
+		$user['api_key'] = $this->ApiUser->getApiKey($user['id']);
+		$user['secret_key'] = $this->ApiUser->getSecretKey($user['api_key']);
+		$this->jsonOutput($user);
 	}
 
 }
