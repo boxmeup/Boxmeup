@@ -6,29 +6,14 @@ class ApiUser extends ApiAppModel {
 		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'api_key' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
@@ -65,41 +50,5 @@ class ApiUser extends ApiAppModel {
 	public function generateSigniture($api_key, $dyn_key) {
 		$secret_key = $this->getSecretKey($api_key);
 		return sha1($dyn_key . $secret_key);
-	}
-
-	/**
-	 * Checks if the request params match a valid HMAC key.
-	 * 
-	 * @param array $params
-	 * @throws Exception
-	 * @return boolean
-	 */
-	public function isValidRequest($params) {
-		if(empty($params['api_key'])) {
-			throw new Exception('Api key required.', 401);
-		} else {
-			$apiKey = $params['api_key'];
-		}
-		$secretKey = $this->getSecretKey($apiKey);
-		if(empty($secretKey)) {
-			throw new Exception('Api key not valid', 401);
-		}
-		if(empty($params['dyn_key'])) {
-			throw new Exception('Dynamic key required.', 401);
-		} else {
-			$dynKey = $params['dyn_key'];
-		}
-		if(empty($params['hmac'])) {
-			throw new Exception('HMAC encrypted key required.', 401);
-		} else {
-			$hmac = $params['hmac'];
-		}
-		unset($params['api_key'], $params['dyn_key'], $params['hmac']);
-
-		// Calculate hmac
-		ksort($params);
-		$calcHmac = sha1(implode('', $params) . $dynKey . $secretKey);
-
-		return $calcHmac === $hmac;
 	}
 }
