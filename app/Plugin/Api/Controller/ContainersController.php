@@ -1,5 +1,5 @@
 <?php
-App::import('Sanitize', 'Utility');
+App::uses('Sanitize', 'Utility');
 class ContainersController extends ApiAppController {
 
 	public $name = 'Containers';
@@ -8,11 +8,14 @@ class ContainersController extends ApiAppController {
 
 	public function index() {
 		$conditions = !empty($this->request->query['slug']) ? array('slug' => $this->request->query['slug']) : array();
-		$containers = $this->Container->getApiContainers($this->ApiUser->getUserId($this->request->data['ApiUser']['api_key']), $conditions);
+		$containers = $this->Container->getApiContainers($this->getUserId(), $conditions);
 		if (empty($containers)) {
 			throw new NotFoundException('No containers found.');
 		}
-		$this->jsonOutput($containers);
+		array_walk($containers, function(&$container) {
+			$container['Container']['container_item_count'] = (int)$container['Container']['container_item_count'];
+		});
+		$this->jsonOutput(!empty($this->request->query['slug']) ? $containers[0] : $containers);
 	}
 
 	public function add() {
@@ -20,10 +23,10 @@ class ContainersController extends ApiAppController {
 			throw new MethodNotAllowedException();
 		}
 		$this->Container->data = array(
-			'user_id' => $this->ApiUser->getUserId($this->request->data['ApiUser']['api_key']),
+			'user_id' => $this->getUserId(),
 			'name' => $this->request->data['name']
 		);
-		$data['Container']['user_id'] = $this->ApiUser->getUserId($this->request->data['ApiUser']['api_key']);
+		$data['Container']['user_id'] = $this->getUserId();
 		$data['Container']['name'] = $this->request->data['name'];
 		$result = $this->Container->save($data);
 		if(!$result) {
@@ -59,22 +62,19 @@ class ContainersController extends ApiAppController {
 
 	public function delete($slug = null) {
 		if(!$this->RequestHandler->isDelete()) {
-			$this->setError(405, 'Resource method supports DELETE only.');
-			return false;
+			throw new MethodNotAllowedException();
 		}
-		$data = $this->Container->getContainerBySlug($slug, $this->user_id);
+		$data = $this->Container->getContainerBySlug($slug, $this->getUserId());
 		if(empty($data)) {
-			$this->setError(404, 'Container not found.');
-			return false;
+			throw new NotFoundException('Container not found.');
 		}
-		if(!$this->Container->verifyUser($data['Container']['id'], $this->user_id)) {
-			$this->setError(401, 'Not authorized to modify this container.');
-			return false;
+		if(!$this->Container->verifyUser($data['Container']['id'], $this->getUserId())) {
+			throw new ForbiddenException('Not authorized to modify this container.');
 		}
 		if(!$this->output = $this->Container->delete($data['Container']['id'])) {
-			$this->setError(400, 'Error deleting container.');
-			return false;
+			throw new BadRequestException('Error deleting container.');
 		}
+		$this->jsonOutput(array('success' => true));
 	}
 
 	public function search() {

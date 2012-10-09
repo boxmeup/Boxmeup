@@ -1,9 +1,10 @@
 <?php
 
 Router::mapResources(array(
-	'Api.Containers',
-	'Api.ContainerItems',
-	'Api.Users'
+	'Api.containers',
+	'Api.conainer_items'
+), array(
+	'id' => '[a-z0-9-]+'
 ));
 Router::parseExtensions();
 
