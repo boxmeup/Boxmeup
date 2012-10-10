@@ -41,10 +41,6 @@ class ContainerItemsController extends AppController {
 
 	public function add($container_uuid) {
 		$this->verifyUser($container_uuid);
-		if($this->RequestHandler->isAjax() && !$this->isMobile()) {
-			$this->layout = false;
-			$this->view = 'Json';
-		}
 		$container = $this->Container->find('first', array(
 			'conditions' => array(
 				'uuid' => $container_uuid
@@ -78,6 +74,11 @@ class ContainerItemsController extends AppController {
 		}
 		$this->set('container', array('Container' => array('uuid' => $container_uuid)));
 		$this->set(compact('output'));
+		if($this->RequestHandler->isAjax() && !$this->isMobile()) {
+			$this->layout = false;
+			$this->viewClass = 'Json';
+			$this->set(array('_serialize' => 'output'));
+		}
 	}
 
 	public function add_item() {
