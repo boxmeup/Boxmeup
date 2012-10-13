@@ -77,18 +77,15 @@ class ContainersController extends ApiAppController {
 
 	public function search() {
 		if(!$this->RequestHandler->isGet()) {
-			$this->setError(405, 'Resource method supports GET only.');
-			return false;
+			throw new MethodNotAllowedException();
 		}
 		if(empty($this->params['url']['query'])) {
-			$this->setError(406, "You must specify a search query.");
-			return false;
+			throw new BadRequestException('You must specify a search query.');
 		}
-		$this->params['named']['page'] = !empty($this->params['url']['page']) ? $this->params['url']['page'] : 1;
-		$results = $this->Container->ContainerItem->searchContainers($this, $this->user_id, $this->params['url']['query']);
+		$this->request->params['paging']['page'] = !empty($this->request->query['page']) ? $this->request->query['page'] : 1;
+		$results = $this->Container->ContainerItem->searchContainers($this, $this->user_id, $this->request->query['query']);
 		if(empty($results)) {
-			$this->setError(404, 'No results found.');
-			return false;
+			throw new NotFoundException('No results.');
 		}
 		// Format results
 		foreach($results as $key => $result) {
@@ -102,8 +99,8 @@ class ContainersController extends ApiAppController {
 		}
 		$this->output = array(
 			'search' => $results,
-			'pages' => $this->params['paging']['ContainerItem']['pageCount'],
-			'total' => $this->params['paging']['ContainerItem']['count']
+			'pages' => $this->request->params['paging']['ContainerItem']['pageCount'],
+			'total' => $this->request->params['paging']['ContainerItem']['count']
 		);
 	}
 }
