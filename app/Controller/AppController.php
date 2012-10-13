@@ -5,7 +5,6 @@ class AppController extends Controller {
 		'RequestHandler',
 		'Session',
 		'Cookie',
-		//'Security',
 		'DebugKit.Toolbar'
 	);
 	public $helpers = array('Html', 'Form', 'Session', 'Paginator');
@@ -22,10 +21,10 @@ class AppController extends Controller {
 	public $_secure = false;
 
 	public function beforeFilter() {
+		parent::beforeFilter();
+
 		$this->setupAuth();
-
 		$this->checkSsl();
-
 		$user_id = $this->Auth->user('id');
 		if(!empty($user_id)) {
 			// If a password reset is required, force redirect to reset_password
@@ -96,11 +95,9 @@ class AppController extends Controller {
 	}
 
 	protected function checkSsl() {
-		return;
 		if ($this->request->action == 'logout' || !$this->RequestHandler->isGet()) {
 			return;
 		}
-		CakeLog::debug($this->request->action);
 		if (in_array($this->request->action, $this->ssl)) {
 			if (env('https') !== 'on') {
 				$redirect = 'https://' . env('SERVER_NAME') . $this->request->here;
