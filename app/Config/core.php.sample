@@ -70,9 +70,12 @@
  *
  */
 	Configure::write('Session', array(
-		'defaults' => 'php'
+		'defaults' => 'php',
+		'cookie' => 'BOXMEUP',
+		'ini' => array(
+			'session.cookie_secure' => false
+		)
 	));
-	Configure::write('Session.cookie', 'BOXMEUP');
 
 /**
  * The level of CakePHP security.
