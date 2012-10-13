@@ -10,6 +10,15 @@ class ApiAppController extends AppController {
 
 	protected $userId;
 
+	public function beforeFilter() {
+		// Turn off application redirects for https
+		Configure::write('Feature.https_redirect', false);
+		parent::beforeFilter();
+		if (!Configure::read('Feature.api')) {
+			throw new NotImplementedException('API is currently unavailable.', 503);
+		}
+	}
+
 	public function jsonOutput($data) {
 		$this->set(array('data' => $data, '_serialize' => 'data'));
 	}
