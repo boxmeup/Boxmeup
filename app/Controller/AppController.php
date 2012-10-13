@@ -95,6 +95,9 @@ class AppController extends Controller {
 	}
 
 	protected function checkSsl() {
+		if (!Configure::read('Feature.https_redirect')) {
+			return;
+		}
 		if ($this->request->action == 'logout' || !$this->RequestHandler->isGet()) {
 			return;
 		}
