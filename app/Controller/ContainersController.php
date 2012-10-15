@@ -180,6 +180,7 @@ class ContainersController extends AppController {
 	}
 
 	public function print_label($container_uuid) {
+		$this->helpers[] = 'GChart.QR';
 		$this->layout = 'print';
 		$this->verifyUser($container_uuid);
 		$this->set('container', $this->Container->find('first', array(
@@ -208,6 +209,7 @@ class ContainersController extends AppController {
 	
 	public function bulk_print() {
 		if(!empty($this->request->data)) {
+			$this->helpers[] = 'GChart.QR';
 			// Determine if any are checked
 			$checked = array_flip($this->request->data['Container']['slug']);
 			$unchecked = (boolean) count($checked) == 1 && !isset($checked['1']);
