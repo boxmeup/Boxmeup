@@ -4,3 +4,6 @@
 [submodule "app/Plugin/DebugKit"]
 	path = app/Plugin/DebugKit
 	url = git://github.com/cakephp/debug_kit.git
+[submodule "app/Plugin/GChart"]
+	path = app/Plugin/GChart
+	url = git@github.com:cjsaylor/Google-visualization-api-cakephp.git
