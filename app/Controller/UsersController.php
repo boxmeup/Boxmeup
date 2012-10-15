@@ -59,6 +59,7 @@ class UsersController extends AppController {
 	}
 	
 	public function qr_login($api_key = null, $dyn_key = null, $hmac = null) {
+		$this->helpers[] = 'GChart.QR';
 		if(!empty($api_key)) {
 			if(strtotime(base64_decode($dyn_key)) > strtotime(static::KEY_LOGIN_TIME)) {
 				try {
