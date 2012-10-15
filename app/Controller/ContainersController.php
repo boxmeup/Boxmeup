@@ -15,7 +15,7 @@ class ContainersController extends AppController {
 
 	public function dashboard() {
 		$this->helpers[] = 'Time';
-		$this->helpers[] = 'GChart';
+		$this->helpers[] = 'GChart.GChart';
 		$total_containers = $this->Container->getTotalContainersPerUser($this->Auth->user('id'));
 		$total_container_items = $this->Container->getTotalContainerItemsPerUser($this->Auth->user('id'));
 		$total_locations = ClassRegistry::init('Location')->getTotalLocationsPerUser($this->Auth->user('id'));
