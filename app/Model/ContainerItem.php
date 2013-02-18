@@ -71,7 +71,7 @@ class ContainerItem extends AppModel {
 		return $this->find('all', array(
 			'fields' => array('container_id', 'body', 'quantity', 'created', 'modified'),
 			'order' => 'ContainerItem.created ASC',
-			'contain' => array('Container.name', 'Container.slug'),
+			'contain' => array('Container.name', 'Container.slug', 'Container.Location'),
 			'conditions' => array('Container.user_id' => $user_id)
 		));
 	}

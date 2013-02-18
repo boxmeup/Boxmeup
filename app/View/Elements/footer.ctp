@@ -3,11 +3,13 @@
 		__('Features') => '/features',
 		__('About') => '/about',
 		__('Status') => 'http://status.boxmeupapp.com',
-		__('API') => 'https://github.com/boxmeup/Boxmeup/wiki/API-Documentation',
 		__('Blog') => 'http://blog.boxmeupapp.com',
 		__('Terms of Service') => '/terms',
 		__('Privacy Policy') => '/privacy'
 	);
+	if (Configure::read('Feature.api')) {
+		$footer_links[__('API')] = 'https://github.com/boxmeup/Boxmeup/wiki/API-Documentation';
+	}
 ?>
 <div class="social">
 	<?php echo $this->Html->link($this->Html->image('icons/facebook48.png'), 'https://www.facebook.com/boxmeup', array('escape' => false)); ?>
