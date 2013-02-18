@@ -4,6 +4,8 @@
 		__('Container Slug'),
 		__('Item Description'),
 		__('Quantity'),
+		__('Location Name'),
+		__('Location Address'),
 		__('Created'),
 		__('Modified')
 	); 
@@ -14,6 +16,8 @@
 			$item['Container']['slug'],
 			$item['ContainerItem']['body'],
 			$item['ContainerItem']['quantity'],
+			$item['Container']['Location']['name'],
+			$item['Container']['Location']['address'],
 			$item['ContainerItem']['created'],
 			$item['ContainerItem']['modified']
 		));
