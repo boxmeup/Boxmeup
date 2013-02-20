@@ -54,6 +54,9 @@
 		if (Configure::read('Feature.feedback')) {
 			echo $this->element('Feedback.feedback');
 		}
+		if(Configure::read('Feature.beta')) {
+			echo $this->Html->tag('div', '', array('class' => 'beta'));
+		}
 	?>
 </body>
 </html>

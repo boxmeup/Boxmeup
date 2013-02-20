@@ -56,3 +56,4 @@ Configure::write('Feature.bulk_export', true);
 Configure::write('Feature.forgot_password', true);
 Configure::write('Feature.autocomplete', true);
 Configure::write('Feature.https_redirect', true);
+Configure::write('Feature.beta', false);
