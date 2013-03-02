@@ -3,5 +3,3 @@
 class FeedbackAppController extends AppController {
 
 }
-
-?>
