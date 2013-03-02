@@ -41,6 +41,11 @@ Configure::write('Analytics.tracking_code', '');
 // AdSense
 Configure::write('Adsense.adunit', '');
 
+// Feedback plugin
+Configure::write('Feedback.github.project', 'cjsaylor/Boxmeup');
+Configure::write('Feedback.github.auth_token', '');
+Configure::write('Feedback.github.labels', array('Feedback'));
+
 // Message
 Configure::write('Message.message', 'Some message.');
 Configure::write('Message.cookie_suffix', '002');
