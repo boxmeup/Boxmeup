@@ -40,6 +40,8 @@ class ContainerItemsController extends AppController {
 	}
 
 	public function add($container_uuid) {
+		$this->isMobileDialog = true;
+		$this->set('title_for_layout', 'Add New Item');
 		$this->verifyUser($container_uuid);
 		$container = $this->Container->find('first', array(
 			'conditions' => array(

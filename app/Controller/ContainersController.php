@@ -89,14 +89,12 @@ class ContainersController extends AppController {
 		$location_list = ClassRegistry::init('Location')->getLocationList($this->Auth->user('id'), true);
 		$this->set(compact('containers', 'control', 'container_view', 'location_list'));
 		$this->request->data['Location']['uuid'] = !empty($this->request->params['named']['location']) ? $this->request->params['named']['location'] : null;
-		if($container_view === 'list')
+		if($container_view === 'list' && !$this->isMobile()) {
 			$this->render('index.table');
+		}
 	}
 	
 	public function change_view($view) {
-		//if($this->RequestHandler->isAjax()) {
-		//	Configure::write('debug', 0);
-		//}
 		$this->Session->write('Feature.change_view', $view == 'list' ? 'list' : 'grid');
 		$this->redirect($this->referer());
 	}
@@ -116,6 +114,8 @@ class ContainersController extends AppController {
 	}
 
 	public function add() {
+		$this->isMobileDialog = true;
+		$this->set('title_for_layout', __('Add New Container'));
 		if(!empty($this->request->data)) {
 			$this->request->data['Container']['user_id'] = $this->Auth->user('id');
 			$results = $this->Container->save($this->request->data);
@@ -141,9 +141,11 @@ class ContainersController extends AppController {
 	}
 
 	public function edit($container_uuid='') {
+		$this->isMobileDialog = true;
 		if(!empty($container_uuid))
 			$this->verifyUser($container_uuid);
 		$name = $this->Container->field('name', array('uuid' => $container_uuid));
+		$this->set('title_for_layout', "Edit $name");
 		if(!empty($this->request->data)) {
 			$this->verifyUser($this->request->data['Container']['uuid']);
 			$this->request->data['Container']['id'] = $this->Container->getIdByUUID($this->request->data['Container']['uuid']);

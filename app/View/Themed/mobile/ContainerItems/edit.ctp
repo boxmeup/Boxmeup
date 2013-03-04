@@ -1,6 +1,6 @@
 <h2>Edit Item</h2><br/>
 <?php
-	echo $this->Form->create('ContainerItem', array('url' => array('controller' => 'container_items', 'action' => 'edit')));
+	echo $this->Form->create('ContainerItem', array('url' => array('controller' => 'container_items', 'action' => 'edit'), 'data-ajax' => 'false'));
 	echo $this->Form->input('ContainerItem.uuid', array('type' => 'hidden'));
 	echo $this->Form->input('Container.slug', array('type' => 'hidden'));
 	echo $this->Form->input('body', array('label' => 'Item Content', 'class' => 'focus'));
