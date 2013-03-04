@@ -24,6 +24,8 @@ class LocationsController extends AppController {
 	}
 	
 	public function add() {
+		$this->isMobileDialog = true;
+		$this->set('title_for_layout', __('Add Location'));
 		if(!empty($this->request->data)) {
 			$this->request->data['Location']['user_id'] = $this->Auth->user('id');
 			$this->request->data['Location']['is_mappable'] = !empty($this->request->data['Location']['address']);
