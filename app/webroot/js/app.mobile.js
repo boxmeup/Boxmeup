@@ -15,11 +15,12 @@ var mobileApp = {
 $(document).bind('mobileinit', function() {
 	$.extend($.mobile, {
 		touchOverflowEnabled: true,
-		addBackBtn: true
+		addBackBtn: true,
+		defaultPageTransition: 'slide'
 	});
 });
 // Extend pageload event to load any android specific methods
-$(document).bind('pageload', function() {
+$(document).on('pageload', function() {
 	mobileApp.initAndroid();
 });
 

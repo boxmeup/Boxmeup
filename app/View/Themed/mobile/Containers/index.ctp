@@ -11,7 +11,6 @@
 	<?php
 		echo '<li>'.$this->Html->link('Container', array('action' => 'add'), array('data-icon' => 'plus', 'data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown')).'</li>';
 		echo '<li>'.$this->Html->link('Location', array('controller' => 'locations', 'action' => 'add'), array('data-icon' => 'plus', 'data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown')).'</li>';
-		echo '<li>'.$this->Html->link('Search', array('controller' => 'searches', 'action' => 'find'), array('data-icon' => 'search', 'data-role' => 'button')).'</li>';
 	?>
 		</ul>
 	</div>

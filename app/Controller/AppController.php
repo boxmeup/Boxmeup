@@ -20,6 +20,13 @@ class AppController extends Controller {
 
 	public $_secure = false;
 
+	/**
+	 * Should the dialog theme load in mobile operations.
+	 *
+	 * @var boolean
+	 */
+	protected $isMobileDialog = false;
+
 	public function beforeFilter() {
 		parent::beforeFilter();
 
@@ -119,7 +126,7 @@ class AppController extends Controller {
 			$this->theme = Configure::read('Site.mobile_theme') ?
 				Configure::read('Site.mobile_theme') :
 				'mobile';
-			$this->layout = 'mobile';
+			$this->layout = !$this->isMobileDialog ? 'mobile' : 'dialog';
 			$this->autoLayout = true;
 			$this->autoRender = true;
 			$this->set('mobile_page_id', $this->name.$this->request->action);

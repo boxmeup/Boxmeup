@@ -6,7 +6,7 @@
 	');
 ?>
 <h2 style="text-align: center">
-Welcome to Boxmeup
+<p>Welcome to Boxmeup</p>
 <?php echo $this->Html->image('generic-box.png', array('style' => 'padding-top: 20px;', 'width' => '64', 'height' => '64')); ?>
 </h2>
 <?php
