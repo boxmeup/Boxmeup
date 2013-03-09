@@ -121,6 +121,7 @@ class ContainerItemsController extends AppController {
 	}
 
 	public function edit($item_uuid) {
+		$this->set('title_for_layout', 'Edit Item');
 		if(!empty($this->request->data)) {
 			$this->request->data['Container'] =  array_pop(Set::extract('/Container/.[:first]', $this->Container->find('first', array(
 				'fields' => array('id', 'uuid', 'slug'),
