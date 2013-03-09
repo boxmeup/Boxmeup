@@ -111,8 +111,7 @@ $(document).ready(function() {
 			},
 			select: function (event, ui) {
 				$searchInput.val(ui.item.label);
-				$('#SearchDashboardForm').submit();
-				return false;
+				$('#SearchFindForm').submit();
 			}
 		});
 	}
