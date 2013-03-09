@@ -22,10 +22,6 @@
 	<div data-role="page" data-theme="<?php echo Configure::read('Site.jquery_mobile_theme'); ?>" id="<?php echo $mobile_page_id; ?>">
 		<div data-role="header" data-position="inline" data-add-back-btn="true">
 			<a href="#left-panel" data-icon="arrow-l" data-iconshadow="false"><?=$this->Html->image('logo-tiny-icon.png')?></a>
-			<?php
-				if(!empty($User))
-					echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('data-ajax' => 'false', 'data-icon' => 'delete', 'class' => 'ui-btn-right'));
-			?>
 			<h1><?php echo $title_for_layout; ?></h1>
 		</div>
 		<div data-role="content">
@@ -39,6 +35,7 @@
 					<li data-icon="grid" data-iconpos="left"><?=$this->Html->link('Containers', '/', array('data-ajax' => 'false')); ?></li>
 					<li data-icon="search"><?=$this->Html->link('Search', '/searches/find', array('data-ajax' => 'false')); ?></li>
 					<li data-icon="gear"><?=$this->Html->link('My Account', '/account', array('data-ajax' => 'false')); ?></li>
+					<li data-icon="delete"><?=$this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('data-ajax' => 'false'));?></li>
 				<?php else : ?>
 					<li data-icon="home"><?=$this->Html->link('Home', '/', array('data-ajax' => 'false')); ?></li>
 					<li data-icon="check"><?=$this->Html->link('Log In', '/login', array('data-ajax' => 'false')); ?></li>
