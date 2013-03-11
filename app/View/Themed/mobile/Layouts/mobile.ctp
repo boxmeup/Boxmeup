@@ -6,9 +6,13 @@
 	<title>
 		<?php echo $title_for_layout; ?>
 	</title>
+	<style>
+		.close.ui-link { display: none; }
+	</style>
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('//ajax.aspnetcdn.com/ajax/jquery.mobile/1.3.0/jquery.mobile-1.3.0.min.css');
+		echo $this->Html->css('util.css');
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.7.1');");
 		echo $this->Html->script('//ajax.aspnetcdn.com/ajax/jquery.mobile/1.3.0/jquery.mobile-1.3.0.min.js');
@@ -20,11 +24,13 @@
 </head>
 <body>
 	<div data-role="page" data-theme="<?php echo Configure::read('Site.jquery_mobile_theme'); ?>" id="<?php echo $mobile_page_id; ?>">
-		<div data-role="header" data-position="inline" data-add-back-btn="true">
+		<div data-role="header" data-position="inline">
 			<a href="#left-panel" data-icon="arrow-l" data-iconshadow="false"><?=$this->Html->image('logo-tiny-icon.png')?></a>
 			<h1><?php echo $title_for_layout; ?></h1>
 		</div>
 		<div data-role="content">
+			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash('auth'); ?>
 			<?php echo $content_for_layout; ?>
 			<br/>
 			<?php echo $this->element('paginate'); ?>
