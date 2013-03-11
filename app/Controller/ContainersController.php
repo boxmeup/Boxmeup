@@ -114,7 +114,6 @@ class ContainersController extends AppController {
 	}
 
 	public function add() {
-		$this->isMobileDialog = true;
 		$this->set('title_for_layout', __('Add New Container'));
 		if(!empty($this->request->data)) {
 			$this->request->data['Container']['user_id'] = $this->Auth->user('id');
