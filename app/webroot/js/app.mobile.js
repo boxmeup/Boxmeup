@@ -15,8 +15,8 @@ var mobileApp = {
 $(document).bind('mobileinit', function() {
 	$.extend($.mobile, {
 		touchOverflowEnabled: true,
-		addBackBtn: true,
-		defaultPageTransition: 'slide'
+		defaultPageTransition: 'slide',
+		ajaxEnabled: false
 	});
 });
 // Extend pageload event to load any android specific methods
@@ -27,4 +27,7 @@ $(document).on('pageload', function() {
 $(document).ready(function(){
 	// If we are contained within the android app, attach the QR scanning
 	mobileApp.initAndroid();
+	$('.alert-message').on('click', function() {
+		$(this).slideUp();
+	})
 });

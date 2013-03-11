@@ -126,7 +126,7 @@ class AppController extends Controller {
 			$this->theme = Configure::read('Site.mobile_theme') ?
 				Configure::read('Site.mobile_theme') :
 				'mobile';
-			$this->layout = !$this->isMobileDialog ? 'mobile' : 'dialog';
+			$this->layout = $this->RequestHandler->isAjax() && $this->isMobileDialog ? 'dialog' : 'mobile';
 			$this->autoLayout = true;
 			$this->autoRender = true;
 			$this->set('mobile_page_id', $this->name.$this->request->action);
