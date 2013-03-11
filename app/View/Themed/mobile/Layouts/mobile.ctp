@@ -8,13 +8,13 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css');
+		echo $this->Html->css('//ajax.aspnetcdn.com/ajax/jquery.mobile/1.3.0/jquery.mobile-1.3.0.min.css');
 		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->scriptBlock("google.load('jquery', '1.7.1');");
+		echo $this->Html->script('//ajax.aspnetcdn.com/ajax/jquery.mobile/1.3.0/jquery.mobile-1.3.0.min.js');
 		echo $this->Html->script('app.mobile');
 		echo $this->element('analytics');
 		echo $scripts_for_layout;
-		echo $this->Html->script('http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js');
 	?>
 
 </head>
