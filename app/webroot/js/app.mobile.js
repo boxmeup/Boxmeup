@@ -15,8 +15,8 @@ var mobileApp = {
 $(document).bind('mobileinit', function() {
 	$.extend($.mobile, {
 		touchOverflowEnabled: true,
-		addBackBtn: true,
-		defaultPageTransition: 'slide'
+		defaultPageTransition: 'slide',
+		ajaxEnabled: false
 	});
 });
 // Extend pageload event to load any android specific methods
