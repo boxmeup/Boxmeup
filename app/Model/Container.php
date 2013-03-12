@@ -68,7 +68,14 @@ class Container extends AppModel {
 	public function getPaginatedContainers($controller, $user_id) {
 		$conditions = array('Container.user_id' => $user_id);
 		if(!empty($controller->params['named']['location'])) {
-			$conditions['Location.uuid'] = $controller->params['named']['location'];
+			if ($controller->params['named']['location'] === '__UNASSIGNED__') {
+				$conditions['OR'] = array(
+					array('Container.location_id' => 0),
+					array('Container.location_id' => null)
+				);
+			} else {
+				$conditions['Location.uuid'] = $controller->params['named']['location'];
+			}
 		}
 		$controller->paginate = array(
             'conditions' => $conditions,
