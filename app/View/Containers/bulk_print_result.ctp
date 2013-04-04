@@ -9,7 +9,7 @@
 ?>
 			<td style="text-align: center;">
 				<h4><?php echo $containers[$count]['Container']['name']; ?></h4>
-				<?php echo $this->QR->image($Fullwebroot.'containers/view/'.$slug, array('chs' => '175x175')); ?>
+				<?php echo $this->QR->image($Fullwebroot.'/containers/view/'.$slug, array('chs' => '175x175')); ?>
 			</td>
 <?php
 			$row_count++;
