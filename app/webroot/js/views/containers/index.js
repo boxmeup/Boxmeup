@@ -12,9 +12,15 @@ $(document).ready(function() {
 		});
 		return false;
 	});
-	
-	$('body').delegate('#LocationUuid', 'change', function() {
-		var location = $(this).val();
-		window.location = WEBROOT + 'containers' + (location.length > 0 ? ('/index/location:' + location) : '');
+
+	$('#sort-button').bind('click', function() {
+		var $order = $('#order'),
+			$direction = $('#direction'),
+			$location = $('#LocationUuid');
+		window.location.href = WEBROOT + 
+			'containers/index/page:' + _PAGE + 
+			'/sort:' + $order.find('option:selected').val() + 
+			'/direction:' + $direction.find('option:selected').val() +
+			'/location:' + $location.find('option:selected').val();
 	});
 });
