@@ -18,6 +18,7 @@ $('document').ready(function() {
 <?php
 	echo '<li>'.$this->Html->link('Edit', array('controller' => 'containers', 'action' => 'edit', $container['Container']['uuid']), array('data-rel' => 'dialog', 'data-role' => 'button', 'data-transition' => 'slidedown', 'data-icon' => 'edit')).'</li>';
 	echo '<li>'.$this->Html->link('Delete', array('controller' => 'containers', 'action' => 'delete', $container['Container']['uuid']), array('id' => 'container-delete', 'data-role' => 'button', 'data-theme' => 'a', 'data-icon' => 'delete')).'</li>';
+	echo '<li>'.$this->Html->link('Container', array('controller' => 'containers', 'action' => 'add'), array('data-icon' => 'plus', 'data-role' => 'button', 'data-transition' => 'slidedown', 'data-theme' => 'd')).'</li>';
 ?>
 	</ul>
 </div>
