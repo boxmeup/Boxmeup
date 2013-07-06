@@ -3,11 +3,15 @@
 		var container_view = '$container_view'
 	");
 	echo $this->Html->script('views/containers/index', array('inline' => false));
+	echo $this->Html->scriptBlock("var _PAGE = '{$this->Paginator->params['paging']['Container']['page']}'", array('inline' => false));
 ?>
 <div style="float: right">
 	<?php
-		echo $this->Form->select('Location.uuid', $location_list, array('empty' => 'All Locations'));
+		echo $this->Form->select('Location.uuid', $location_list, array('empty' => __('All Locations')));
 	?>
+	<?php echo $this->Form->input('order', array('options' => array('Container.name' => 'Container Name', 'Container.modified' => 'Modified Date'), 'label' => false, 'empty' => '(Order By)', 'div' => false)); ?>
+	<?php echo $this->Form->input('direction', array('options' => array('asc' => __('Ascending'), 'desc' => __('Descending')), 'label' => false, 'empty' => __('(Direction)'), 'div' => false)); ?>
+	<?php echo $this->Form->submit(__('Sort'), array('div' => false, 'class' => 'btn primary small', 'id' => 'sort-button')); ?>
 </div>
 <div style="clear: both">&nbsp;</div>
 <?php
