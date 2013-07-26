@@ -5,7 +5,6 @@
 			echo $this->Html->tag('li', $this->Html->link(__('My Account'), '/account', array('class' => 'large blue button')));
 			echo $this->Html->tag('li', $this->Html->link(__('Sign Out'), '/logout', array('class' => 'large orange button')));
 		} else {
-			echo $this->Html->tag('li', $this->Html->link(__('Sign Up'), '/signup', array('class' => 'large green button')));
 			echo $this->Html->tag('li', $this->Html->link(__('Login'), '/login', array('class' => 'large blue button')));
 		}
 	?>
@@ -17,4 +16,7 @@
 		echo $this->Form->end();
 	?>
 	</div>
+	<ul style="margin-right: 10px;">
+		<?php echo $this->Html->tag('li', $this->Html->link(__('Blog'), 'http://blog.boxmeupapp.com'), array('class' => 'header-link')); ?>
+	</ul>
 </div>

@@ -1,6 +1,5 @@
 <?php
 	$footer_links = array(
-		__('Features') => '/features',
 		__('About') => '/about',
 		__('Status') => 'http://status.boxmeupapp.com',
 		__('Blog') => 'http://blog.boxmeupapp.com',
