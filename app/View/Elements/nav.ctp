@@ -7,5 +7,6 @@
 	echo $this->Form->end();
 ?>
 <ul class="nav navbar-nav pull-right">
+	<li style="border-right: 1px">&nbsp;</li>
 	<li><?php echo $this->Html->link(__('Blog'), 'http://blog.boxmeupapp.com'); ?></li>
 </ul>

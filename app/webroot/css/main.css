@@ -10,3 +10,12 @@
 .footer {
 	padding: 20px 0;
 }
+
+.navbar {
+	padding: 20px 0;
+}
+
+.navbar-brand {
+	background: url(../img/logo-icon.png) left center no-repeat;
+	padding-left: 36px;
+}
