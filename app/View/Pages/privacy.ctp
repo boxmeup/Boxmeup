@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Privacy Policy</h1>
 <br/>
 <h2>General Information</h2>
@@ -32,3 +33,4 @@
 <h2>Changes</h2>
 <br/>
 <p>Boxmeup may periodically update this policy. We will notify you about significant changes in the way we treat personal information by sending a notice to the primary email address specified in your Boxmeup primary account holder account or by placing a prominent notice on our site.</p>
+</div>

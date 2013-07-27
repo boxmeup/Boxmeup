@@ -14,8 +14,6 @@ Router::parseExtensions();
  */
 $static_pages = array(
 	'' => 'home',
-	'about' => 'about',
-	'features' => 'features',
 	'terms' => 'terms',
 	'privacy' => 'privacy'
 );
