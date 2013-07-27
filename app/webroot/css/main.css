@@ -13,9 +13,15 @@
 
 .navbar {
 	padding: 20px 0;
+	background-color: white;
 }
 
 .navbar-brand {
 	background: url(../img/logo-icon.png) left center no-repeat;
 	padding-left: 36px;
+}
+
+.footer {
+	margin-top: 50px;
+	border-top: 1px solid #ddd;
 }
