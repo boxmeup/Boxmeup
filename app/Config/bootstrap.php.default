@@ -22,6 +22,7 @@ CakeLog::config('error', array(
 
 // Load Plugins
 CakePlugin::load('Api');
+CakePlugin::load('GChart');
 CakePlugin::load('Utility');
 CakePlugin::load('Feedback');
 CakePlugin::load('DebugKit');
