@@ -1,38 +1,33 @@
-<div class="stat stat-first">
-	<h4><?php echo __('Locations'); ?></h4>
-	<span class="stat-value"><?php echo number_format($total_locations); ?></span>
-	<?php echo $this->Html->link(__('View Your Locations'), array('controller' => 'locations', 'action' => 'index'), array('class' => 'stat-view')); ?>
+<div class="row">
+	<div class="col-lg-3 panel panel-primary">
+		<div class="panel-heading"><?php echo __('Locations'); ?></div>
+		<h2 style="text-align: center"><?php echo number_format($total_locations); ?></h2>
+	</div>
+	<div class="col-lg-3 col-offset-1 panel panel-primary">
+		<div class="panel-heading"><?php echo __('Containers'); ?></div>
+		<h2 style="text-align: center"><?php echo number_format($total_containers); ?></h2>
+	</div>
+	<div class="col-lg-3 col-offset-1 panel panel-primary">
+		<div class="panel-heading"><?php echo __('Items'); ?></div>
+		<h2 style="text-align: center"><span class="stat-value"><?php echo number_format($total_container_items); ?></h2>
+	</div>
 </div>
-<div class="stat">
-	<h4><?php echo __('Containers'); ?></h4>
-	<span class="stat-value"><?php echo number_format($total_containers); ?></span>
-	<?php echo $this->Html->link(__('View Your Containers'), array('controller' => 'containers', 'action' => 'index'), array('class' => 'stat-view')); ?>
-</div>
-<div class="stat">
-	<h4><?php echo __('Items'); ?></h4>
-	<span class="stat-value"><?php echo number_format($total_container_items); ?></span>
-	<?php echo $this->Html->link(__('View Your Items'), array('controller' => 'container_items', 'action' => 'index'), array('class' => 'stat-view')); ?>
-</div>
-<div style="clear: both">&nbsp;</div>
-<?php
-	echo $this->GChart->start('containers_trend');
-	echo $this->GChart->visualize('containers_trend', $container_graph);
-?>
-<?php if(!empty($recent_items)) {
-	echo $this->Html->tag('h2', __('Recent Items')).$this->Html->tag('br');
-	foreach($recent_items as $item) {
-?>
-<div class="container-item-list" >
-	<span class="container-item-list-quantity">
-		<?php echo $item['ContainerItem']['quantity']; ?>
-	</span>
-	<p class="container-item-list-content">
-		<?php echo Sanitize::html($item['ContainerItem']['body'], array('remove' => true)); ?><br/>
-		<?php echo $this->Html->link($item['Container']['name'], array('controller' => 'containers', 'action' => 'view', $item['Container']['slug'])); ?><br/>
-		<small><?php echo $this->Time->timeAgoInWords($item['ContainerItem']['modified']); ?></small>
-	</p>
-	<div style="clear: both"></div>
-</div>
-<?php
-	}
-}
+
+<h4><?php echo __('Recent Items') ?></h4>
+<?php if(!empty($recent_items)): ?>
+	
+	<table class="table table-striped">
+		<tbody>
+	<?php foreach($recent_items as $item): ?>
+		<tr>
+			<td><?php echo $item['ContainerItem']['quantity']; ?></td>
+			<td><?php echo Sanitize::html($item['ContainerItem']['body'], array('remove' => true)); ?></td>
+			<td><?php echo $this->Html->link($item['Container']['name'], array('controller' => 'containers', 'action' => 'view', $item['Container']['slug'])); ?></td>
+			<td><?php echo $this->Time->timeAgoInWords($item['ContainerItem']['modified']); ?></td>
+		</tr>
+	<?php endforeach; ?>
+		</tbody>
+	</table>
+<?php else: ?>
+	<div class="alert alert-info"><?php echo __('No recent items.') ?></div>
+<?php endif;
