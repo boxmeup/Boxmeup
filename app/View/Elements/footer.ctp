@@ -19,12 +19,14 @@
 			</a>
 		</div>
 		<div class="col-lg-8">
-			<?php echo __('Copyright'); ?> &copy; 2010-<?php echo date('Y').' ' . $this->Html->link('Boxmeup', '/'); ?>.  <?php echo __('All rights reserved.'); ?> -
-			<?php
-				foreach($footer_links as $name => $link) {
-					echo $this->Html->link($name, $link).'&nbsp;&nbsp;&nbsp;';
-				}
-			?>
+			<div class="pull-right">
+				<?php echo __('Copyright'); ?> &copy; 2010-<?php echo date('Y').' ' . $this->Html->link('Boxmeup', '/'); ?>.  <?php echo __('All rights reserved.'); ?> -
+				<?php
+					foreach($footer_links as $name => $link) {
+						echo $this->Html->link($name, $link).'&nbsp;&nbsp;&nbsp;';
+					}
+				?>
+			</div>
 		</div>
 	</div>
 </div>
