@@ -34,7 +34,6 @@
 	<?php echo $content_for_layout; ?>
 	<?php echo $this->element('footer'); ?>
 	<?php
-		echo $this->Html->script('https://www.google.com/jsapi');
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
 		echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js');
 		echo $this->Html->scriptBlock("
