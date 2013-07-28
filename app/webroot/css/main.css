@@ -19,6 +19,7 @@
 .navbar-brand {
 	background: url(../img/logo-icon.png) left center no-repeat;
 	padding-left: 36px;
+	color: black;
 }
 
 .footer {
