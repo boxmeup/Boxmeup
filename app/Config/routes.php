@@ -29,7 +29,6 @@ Router::connect('/account', array('controller' => 'users', 'action' => 'account'
 
 // Application
 Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
-Router::connect('/forgot_login/*', array('controller' => 'users', 'action' => 'qr_login'));
 
 // Fallback
 Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
