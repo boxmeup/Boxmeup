@@ -29,7 +29,8 @@
 	?>
 		<li style="border-top:1px solid #ddd"></li>
 		<li>
-		<?php echo $this->Html->link($this->Html->image('icons/phone.png') . ' ' . __('Login Your Phone'), array('controller' => 'users', 'action' => 'qr_login'), array('escape' => false, 'title' => 'Login on your phone by scanning a QR Code')); ?>
+			<?php $phoneLoginUrl = Router::url(array('controller' => 'users', 'action' => 'qr_login')); ?>
+			<a data-toggle="modal" data-target="#layout-modal" href="<?php echo $phoneLoginUrl; ?>"><?php echo $this->Html->image('icons/phone.png') . ' ' . __('Login Your Phone'); ?></a>
 		</li>
 	</ul>
 </div>

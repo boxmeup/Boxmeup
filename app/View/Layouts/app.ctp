@@ -50,13 +50,28 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="layout-modal">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+	      		<div class="modal-body">
+	        		<p>Loading content...</p>
+	      		</div>
+      			<div class="modal-footer">
+        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      			</div>
+    		</div><!-- /.modal-content -->
+  		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 	<?php
 		if(Configure::read('Feature.beta')) {
 			echo $this->Html->tag('div', '', array('class' => 'beta'));
 		}
 		echo $this->element('app/footer'); 
-		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');
+		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
 		echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js');
+		echo $this->Html->script('main');
+		echo $this->Html->script('app');
 		echo $this->element('analytics');
 		echo $scripts_for_layout;
 		if (Configure::read('Feature.feedback')) {
