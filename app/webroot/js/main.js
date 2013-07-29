@@ -18,15 +18,6 @@ $(document).ready(function() {
 		return false;
 	});
 
-    $('body').delegate('.alert-message .close', 'click', function() {
-        $(this).parent().slideUp();
-		return false;
-    });
-
-	$('body').delegate('.ui-notification', 'click', function() {
-		$(this).slideUp();
-	});
-
 	// Language
 	$('body').delegate('#change-language', 'change', function() {
 		url = $(this).attr('action');
