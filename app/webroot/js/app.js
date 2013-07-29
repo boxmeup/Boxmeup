@@ -16,6 +16,9 @@ $(function() {
 		boxmeup.dismissMessage();
 		return false;
 	});
+	$('body').on('hidden.bs.modal', function (e) {
+		$(e.target).removeData('bs.modal')
+	});
 
 	// Search autocomplete
 	if (BMU_CLIENT.features.autocomplete) {
