@@ -21,3 +21,7 @@ body { margin-top: 90px; margin-bottom: 90px;}
 	color: #eee;
 	background-color: rgb(39, 39, 39);
 }
+
+.spacer {
+	margin-bottom: 20px;
+}

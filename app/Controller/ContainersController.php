@@ -33,8 +33,8 @@ class ContainersController extends AppController {
 	public function index() {
 		$this->helpers[] = 'Time';
 		$control = 'containers.index';
-		$this->request->data['order'] = !empty($this->request->params['named']['sort']) ? $this->request->params['named']['sort'] : '';
-		$this->request->data['direction'] = !empty($this->request->params['named']['direction']) ? $this->request->params['named']['direction'] : '';
+		$this->request->data['Container']['order'] = !empty($this->request->params['named']['sort']) ? $this->request->params['named']['sort'] : '';
+		$this->request->data['Container']['direction'] = !empty($this->request->params['named']['direction']) ? $this->request->params['named']['direction'] : '';
 		$containers = $this->Container->getPaginatedContainers($this, $this->Auth->user('id'));
 		if(empty($containers) && empty($this->request->params['named']['location'])) {
 			$this->Session->setFlash('Start by creating a container.', 'notification/notice');
