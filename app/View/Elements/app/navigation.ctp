@@ -20,7 +20,7 @@
 		)
 	);
 ?>
-<div class="well well-small col-lg-2" style="width: 200px; position: fixed">
+<div class="well well-small main-navigation">
 	<ul class="nav nav-pills nav-stacked">
 	<?php
 		foreach($menu as $path => $link) {

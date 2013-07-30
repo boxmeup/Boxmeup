@@ -34,3 +34,25 @@ body { margin-top: 90px; margin-bottom: 90px;}
 	display: none;
 }
 
+.main-navigation {
+	position: fixed;
+}
+
+@media (min-width: 1200px) {
+	.main-navigation {
+		width: 240px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	.main-navigation {
+		width: 200px;
+	}
+}
+
+@media (min-width: 0) and (max-width: 991px) {
+	.main-navigation {
+		width: 100%;
+		position: relative;
+	}
+}
