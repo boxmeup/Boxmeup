@@ -25,3 +25,12 @@ body { margin-top: 90px; margin-bottom: 90px;}
 .spacer {
 	margin-bottom: 20px;
 }
+
+.submenu {
+	z-index: 10;
+}
+
+.affix .affix-hidden {
+	display: none;
+}
+

@@ -42,11 +42,14 @@
 				<?php echo $this->element('app/navigation'); ?>
 			</div>
 			<div class="col-lg-9">
-				<?php echo $this->element('app/submenu'); ?>
-				<?php echo $this->element('paginate'); ?>
+				<div class="submenu" data-spy="affix" data-offset-top="50">
+					<?php echo $this->element('app/submenu'); ?>
+					<div class="spacer"></div>
+				</div>
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->Session->flash('auth'); ?>
 				<?php echo $content_for_layout; ?>
+				<?php echo $this->element('paginate'); ?>
 			</div>
 		</div>
 	</div>
