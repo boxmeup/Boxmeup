@@ -1,7 +1,7 @@
 <?php
 	echo $this->Html->script('jquery.popupWindow', array('inline' => false));
 	echo $this->Html->scriptBlock("
-		$(document).ready(function() {
+		$(function() {
 			$('.print').popupWindow({
 				height:350,
 				width:400,
@@ -9,7 +9,7 @@
 				left:100
 			});
 		});
-	");
+	", array('inline' => false));
 	echo $this->Html->script('views/containers/view', array('inline' => false));
 ?>
 <h2 style="float: left;"><?php echo $container['Container']['name']; ?></h2>
