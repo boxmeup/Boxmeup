@@ -30,6 +30,8 @@
     							<li><?php echo $this->Html->link('View', array('controller' => 'containers', 'action' => 'view', $container['Container']['slug'])) ?></li>
     							<li><?php echo $this->Html->link('Edit', array('controller' => 'containers', 'action' => 'edit', $container['Container']['uuid']), array('data-toggle' => 'modal', 'data-target' => '#layout-modal')) ?></li>
     							<li class="divider"></li>
+    							<li><?php echo $this->Html->link('Export to CSV', array('controller' => 'containers', 'action' => 'export', $container['Container']['uuid'])) ?></li> 
+    							<li class="divider"></li>
     							<li><?php echo $this->Html->link('Delete', array('controller' => 'containers', 'action' => 'delete', $container['Container']['uuid'])) ?></li>
   							</ul>
 					</div>
