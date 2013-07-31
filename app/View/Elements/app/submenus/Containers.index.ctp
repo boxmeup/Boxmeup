@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="btn-group">
 		<?php echo $this->Html->link(__('Add Container'), array('controller' => 'containers', 'action' => 'add'), array('class' => 'btn btn-success', 'data-toggle' => 'modal', 'data-target' => '#layout-modal')); ?>
-		<?php echo $this->Html->link($this->Html->image('icons/print.png').'&nbsp; ' . __('Bulk Print'), array('controller' => 'containers', 'action' => 'bulk_print'), array('class' => 'btn btn-info', 'escape' => false, 'title' => 'Print multiple labels at once'));
+		<?php echo $this->Html->link($this->Html->image('icons/print.png').'&nbsp; ' . __('Bulk Print'), array('controller' => 'containers', 'action' => 'bulk_print'), array('class' => 'btn btn-primary', 'escape' => false, 'title' => 'Print multiple labels at once'));
 		?>
 	</div>
 	<div class="affix-hidden pull-right">
