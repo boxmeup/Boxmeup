@@ -6,6 +6,7 @@
 	margin-top: -90px;
 	margin-bottom: 30px;
 	background-color: #3A3A44;
+	background-image: url(../img/hero-bg.jpg);
 }
 .footer {
 	padding: 20px 0;
@@ -19,6 +20,7 @@
 .navbar-brand {
 	background: url(../img/logo-icon.png) left center no-repeat;
 	padding-left: 36px;
+	font-size: 24px;
 	color: black;
 }
 
