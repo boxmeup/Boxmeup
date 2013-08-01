@@ -48,6 +48,7 @@
 				</div>
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->Session->flash('auth'); ?>
+				<div id="ajax-error" class="alert alert-danger" style="display:none"></div>
 				<?php echo $content_for_layout; ?>
 				<?php echo $this->element('paginate'); ?>
 			</div>

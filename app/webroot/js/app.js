@@ -9,15 +9,26 @@ var boxmeup = {
 	},
 	isiPad: function() {
 		return navigator.userAgent.match(/iPad/i) != null
+	},
+	clearForm: function(formId) {
+		$(':input','#' + formId)
+			.not(':button, :submit, :reset, :hidden')
+			.val('')
+			.removeAttr('checked')
+			.removeAttr('selected');
 	}
-}
+};
+
 $(function() {
 	$('body').on('click', '.dismiss', function() {
 		boxmeup.dismissMessage();
 		return false;
 	});
 	$('body').on('hidden.bs.modal', function (e) {
-		$(e.target).removeData('bs.modal')
+		$(e.target)
+			.removeData('bs.modal')
+			.find('.modal-body')
+				.html('Content loading...');
 	});
 
 	// Search autocomplete

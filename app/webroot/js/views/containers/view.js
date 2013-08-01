@@ -1,16 +1,6 @@
-$(document).ready(function() {
-	var isiPad = navigator.userAgent.match(/iPad/i) != null;
-	if(!isiPad) {
-		$('.container-item-list-options').hide();
-		$('body').delegate('.container-item-list', 'mouseover', function() {
-			$(this).find('.container-item-list-options').show();
-		});
-		$('body').delegate('.container-item-list', 'mouseout', function() {
-			$(this).find('.container-item-list-options').hide();
-		});
-	}
-	
-	$('#ContainerItemViewForm').bind('submit', function(event) {
+$(function() {
+	$('#ContainerItemViewForm').on('submit', function(e) {
+		e.preventDefault();
 		var $this = $(this),
 			container_uuid = $('#ContainerUuid').attr('value'),
 			$quantity = $('#ContainerItemQuantity');
@@ -20,18 +10,16 @@ $(document).ready(function() {
 			type: 'POST',
 			url: '/container_items/add/' + container_uuid + '.json',
 			data: $this.serialize(),
-			beforeSend: function() {
-				boxmeup.hideError('ajax-error');
-				$.fancybox.showActivity();
-			},
 			success: function(rdata) {
-				$('.no-items').fadeOut();
+				if ($('.no-items').length > 0) {
+					window.location.reload();
+				}
 				if(rdata.success) {
 					boxmeup.clearForm('ContainerItemViewForm');
-					$quantity.attr('value', '1');
+					$quantity.val('1');
 					$.get('/containers/ajax_add/' + rdata.message.id, function(data) {
-						$('#item-container').prepend(data);
-						$('.new-item').removeClass('new-item').slideDown();
+						$('.item-container').prepend(data);
+						$('.new-item').removeClass('new-item').show();
 					 });
 				} else {
 					var errors = rdata.message,
@@ -39,14 +27,14 @@ $(document).ready(function() {
 					$.each(errors, function(key, value) {
 						message += key + ': ' + value + '<br/>'
 					});
-					boxmeup.displayError(message, 'ajax-error');
+					$('#ajax-error')
+						.html(message)
+						.show();
 				}
 			},
 			complete: function() {
 				$('#ContainerItemBody').focus();
-				$.fancybox.hideActivity();
 			}
 		});
-		return false;
 	});
 });
