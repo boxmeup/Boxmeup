@@ -55,6 +55,17 @@
 			echo $this->Html->tag('div', '', array('class' => 'beta'));
 		}
 	?>
-
+	<div class="modal fade" id="layout-modal">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+	      		<div class="modal-body">
+	        		<p>Loading content...</p>
+	      		</div>
+      			<div class="modal-footer">
+        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      			</div>
+    		</div><!-- /.modal-content -->
+  		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 </body>
 </html>
