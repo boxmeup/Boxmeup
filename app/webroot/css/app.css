@@ -1,6 +1,6 @@
 body { margin-top: 90px; margin-bottom: 90px;}
 
-.beta { background: url(../img/beta_ribbon.png) no-repeat left top; position: absolute; left: 0; top: 0; width: 78px; height: 75px; z-index: 2; }
+.beta { background: url(/img/beta_ribbon.png) no-repeat left top; position: fixed; left: 0; top: 0; width: 78px; height: 75px; z-index: 1040; }
 
 .footer {
 	padding: 20px 0;
