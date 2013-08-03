@@ -23,6 +23,20 @@
 			'link' => array('controller' => 'locations', 'action' => 'index')
 		)
 	);
+	$quick = array(
+		array(
+			'url' => Router::url(array('controller' => 'users', 'action' => 'qr_login')),
+			'icon' => 'icon-qrcode',
+			'color' => 'black',
+			'label' => __('Login Your Phone')
+		),
+		array(
+			'url' => Router::url(array('controller' => 'containers', 'action' => 'add')),
+			'icon' => 'icon-plus-sign',
+			'color' => 'green',
+			'label' => __('Add Container')
+		)
+	);
 ?>
 <div class="well well-small main-navigation">
 	<ul class="nav nav-pills nav-stacked">
@@ -33,12 +47,12 @@
 	<?php endforeach ?>
 		<li style="border-top:1px solid #ddd"></li>
 		<li class="dropdown-header"><?php echo __('Quick Actions') ?></li>
+	<?php foreach ($quick as $link): ?>
 		<li>
-			<?php $phoneLoginUrl = Router::url(array('controller' => 'users', 'action' => 'qr_login')); ?>
-			<a data-toggle="modal" data-target="#layout-modal" href="<?php echo $phoneLoginUrl; ?>"><i class="icon-qrcode" style="color: black; margin-right: 15px"></i><?php echo __('Login Your Phone'); ?></a>
+			<a data-toggle="modal" data-target="#layout-modal" href="<?php echo $link['url'] ?>">
+				<i class="<?php echo $link['icon'] ?>" style="color: <?php echo $link['color'] ?>; margin-right: 15px"></i><?php echo $link['label'] ?>
+			</a>
 		</li>
-		<li>
-			<a data-toggle="modal" data-target="#layout-modal" href="<?php echo Router::url(array('controller' => 'containers', 'action' => 'add')) ?>"><i class="icon-plus-sign" style="color: green; margin-right: 15px"></i><?php echo __('Add Container') ?></a>
-		</li>
+	<?php endforeach ?>
 	</ul>
 </div>
