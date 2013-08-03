@@ -31,12 +31,13 @@
 	    		<?php echo $this->element('nav'); ?>
 	    	</div>
 	    </div>
+	    <div class="container">
+		<?php echo $this->Session->flash(); ?>
+		<?php echo $this->Session->flash('auth'); ?>
+		</div>
     </div>
 
-    <div class="container">
-	<?php echo $this->Session->flash(); ?>
-	<?php echo $this->Session->flash('auth'); ?>
-	</div>
+    
 	<?php echo $content_for_layout; ?>
 	<?php echo $this->element('footer'); ?>
 	<?php
