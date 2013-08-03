@@ -50,6 +50,10 @@
 		</div>
 	</div>
 </div>
+<br>
+<div class="container text-center hidden-sm" style="margin-bottom: 40px;">
+	<img src="/img/demo1.png"/>
+</div>
 <div class="container text-center" style="margin-bottom: 40px;">
-	<img src="http://placehold.it/900x400"/>
+	<img src="/img/demo-mobile1.png"/>
 </div>
