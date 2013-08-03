@@ -21,7 +21,7 @@ CakeLog::config('error', array(
 ));
 
 // Load Plugins
-CakePlugin::load('Api');
+CakePlugin::load('Api', array('bootstrap' => true));
 CakePlugin::load('GChart');
 CakePlugin::load('Utility');
 CakePlugin::load('Feedback');
@@ -54,7 +54,6 @@ Configure::write('Message.cookie_suffix', '002');
 Configure::write('Feature.api', true);
 Configure::write('Feature.mobile', true);
 Configure::write('Feature.analytics', false);
-Configure::write('Feature.adsense', false);
 Configure::write('Feature.feedback', true);
 Configure::write('Feature.user_registration', true);
 Configure::write('Feature.bulk_export', true);
