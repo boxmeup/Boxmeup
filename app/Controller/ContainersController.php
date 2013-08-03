@@ -42,14 +42,10 @@ class ContainersController extends AppController {
 		}
 		
 		// Check the cookie and render the view depending on what was selected
-		$container_view = $this->Session->read('Feature.change_view');
 		$location_list = ClassRegistry::init('Location')->getLocationList($this->Auth->user('id'), true);
 		array_unshift($location_list, array('__UNASSIGNED__' => '-- Unassigned --'));
-		$this->set(compact('containers', 'control', 'container_view', 'location_list'));
+		$this->set(compact('containers', 'control', 'location_list'));
 		$this->request->data['Location']['uuid'] = !empty($this->request->params['named']['location']) ? $this->request->params['named']['location'] : null;
-		if($container_view === 'list' && !$this->isMobile()) {
-			$this->render('index.table');
-		}
 	}
 	
 	public function change_view($view) {

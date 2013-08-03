@@ -1,7 +1,4 @@
 <?php
-	echo $this->Html->scriptBlock("
-		var container_view = '$container_view'
-	");
 	echo $this->Html->script('views/containers/index', array('inline' => false));
 	echo $this->Html->scriptBlock("var _PAGE = '{$this->Paginator->params['paging']['Container']['page']}'", array('inline' => false));
 ?>
@@ -16,6 +13,7 @@
 				<th><?php echo __('Title') ?></th>
 				<th><?php echo __('Last Modified') ?></th>
 				<th>&nbsp;</th>
+			</tr>
 		</thead>
 		<tbody>
 			<?php foreach ($containers as $container): ?>
