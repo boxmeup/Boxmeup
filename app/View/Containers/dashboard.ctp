@@ -1,15 +1,24 @@
 <div class="row">
 	<div class="col-lg-3 panel panel-primary">
 		<div class="panel-heading"><?php echo __('Locations'); ?></div>
-		<h2 style="text-align: center"><?php echo number_format($total_locations); ?></h2>
+		<h2 style="text-align: center"><?php echo number_format($total_locations); ?> / &infin;</h2>
+		<div class="progress">
+			<div class="progress-bar" style="width: 0%;"></div>
+		</div>
 	</div>
 	<div class="col-lg-3 col-offset-1 panel panel-primary">
 		<div class="panel-heading"><?php echo __('Containers'); ?></div>
-		<h2 style="text-align: center"><?php echo number_format($total_containers); ?></h2>
+		<h2 style="text-align: center"><?php echo number_format($total_containers); ?>  / &infin;</h2>
+		<div class="progress">
+			<div class="progress-bar" style="width: 0%;"></div>
+		</div>
 	</div>
 	<div class="col-lg-3 col-offset-1 panel panel-primary">
 		<div class="panel-heading"><?php echo __('Items'); ?></div>
-		<h2 style="text-align: center"><span class="stat-value"><?php echo number_format($total_container_items); ?></h2>
+		<h2 style="text-align: center"><span class="stat-value"><?php echo number_format($total_container_items); ?>  / &infin;</h2>
+		<div class="progress">
+			<div class="progress-bar" style="width: 0%;"></div>
+		</div>
 	</div>
 </div>
 
