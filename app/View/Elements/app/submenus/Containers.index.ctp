@@ -11,7 +11,7 @@
 	?>
 	<?php echo $this->Form->input('order', array('options' => array('Container.name' => 'Container Name', 'Container.modified' => 'Modified Date'), 'label' => false, 'empty' => '(Order By)', 'div' => false, 'class' => 'form-control', 'style' => 'width: 100px')); ?>
 	<?php echo $this->Form->input('direction', array('options' => array('asc' => __('Ascending'), 'desc' => __('Descending')), 'label' => false, 'empty' => __('(Direction)'), 'div' => false, 'class' => 'form-control', 'style' => 'width: 100px')); ?>
-	<button id="sort-button" type="submit" class="btn btn-default"><?php echo __('Sort') ?></button>
+	<button id="sort-button" type="submit" class="btn btn-default"><i class="icon-sort-by-attributes"></i> <?php echo __('Sort') ?></button>
 	<?php echo $this->Form->end(); ?>
 	</div>
 </div>

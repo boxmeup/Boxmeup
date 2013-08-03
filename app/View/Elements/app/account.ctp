@@ -2,12 +2,12 @@
 	<li>
 		<div class="btn-group">
 			<button type="button" class="btn btn-primary dropdown-toggle navbar-btn" data-toggle="dropdown">
-				<?php echo __('Account') ?> <span class="caret"></span>
+				<i class="icon-user" style="margin-right: 5px"></i> <?php echo __('Account') ?> <span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li><?php echo $this->Html->link(__('Settings'), '/account') ?></li>
+				<li><a href="/account"><i class="icon-gears"></i> <?php echo __('Settings') ?></a></li>
 				<li class="divider"></li>
-				<li><?php echo $this->Html->link(__('Sign Out'), '/logout') ?></li>
+				<li><a href="/logout"><i class="icon-off"></i> <?php echo __('Sign Out') ?></a></li>
 			</ul>
 		</div>
 	</li>
