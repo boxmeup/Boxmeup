@@ -9,6 +9,7 @@
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css');
+		echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
 		echo $this->Html->css('main');
 		if (Configure::read('Feature.feedback')) {
 			echo $this->Html->css('/feedback/css/feedback.css');
