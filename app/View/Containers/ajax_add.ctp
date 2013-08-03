@@ -4,11 +4,11 @@
 	<td><?php echo $this->Time->timeAgoInWords($item['ContainerItem']['modified']); ?></td>
 	<td>
 		<div class="btn-group pull-right">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Options <span class="caret"></span></button>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-gear"></i> <span class="caret"></span></button>
 			<ul class="dropdown-menu">
-				<li><?php echo $this->Html->link('Edit', array('controller' => 'container_items', 'action' => 'edit', $item['ContainerItem']['uuid']), array('data-toggle' => 'modal', 'data-target' => '#layout-modal')) ?></li>
+				<li><a data-toggle="modal" data-target="#layout-modal" href="<?php echo Router::url(array('controller' => 'container_items', 'action' => 'edit', $item['ContainerItem']['uuid'])) ?>"><i class="icon-edit"></i> <?php echo __('Edit') ?></a></li>
 				<li class="divider"></li>
-				<li><?php echo $this->Html->link('Delete', array('controller' => 'container_items', 'action' => 'delete', $item['ContainerItem']['uuid'])); ?></li>
+				<li><a href="<?php echo Router::url(array('controller' => 'container_items', 'action' => 'delete', $item['ContainerItem']['uuid'])) ?>"><i class="icon-remove"></i> <?php echo __('Delete') ?></a></li>
 			</ul>
 		</div>
 	</td>
