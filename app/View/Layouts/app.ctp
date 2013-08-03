@@ -31,8 +31,13 @@
 
 	<div class="navbar navbar-fixed-top">
 		<div class="container">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+				<?php echo __('Menu') ?>
+			</button>
 			<a href="/" class="navbar-brand">Boxmeup</a>
-			<?php echo $this->element('app/account'); ?>
+			<div class="nav-collapse collapse navbar-responsive-collapse">
+				<?php echo $this->element('app/account'); ?>
+			</div>
 		</div>
 	</div>
 
