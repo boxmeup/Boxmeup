@@ -38,9 +38,6 @@ Configure::write('Site.jquery_mobile_theme', 'b');
 // Analytics
 Configure::write('Analytics.tracking_code', '');
 
-// AdSense
-Configure::write('Adsense.adunit', '');
-
 // Feedback plugin
 Configure::write('Feedback.github.project', 'cjsaylor/Boxmeup');
 Configure::write('Feedback.github.auth_token', '');
