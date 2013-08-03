@@ -33,7 +33,7 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="container">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-				<?php echo __('Menu') ?>
+				<i class="icon-list"></i>
 			</button>
 			<a href="/" class="navbar-brand">Boxmeup</a>
 			<div class="nav-collapse collapse navbar-responsive-collapse">

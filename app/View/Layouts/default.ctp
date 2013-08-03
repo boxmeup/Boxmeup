@@ -23,7 +23,7 @@
 	<div class="navbar navbar-static-top">
 		<div class="container">
 	  		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-				<?php echo __('Menu') ?>
+				<i class="icon-list"></i>
 			</button>
 			<?php echo $this->Html->link('Boxmeup', '/', array('class' => 'navbar-brand')); ?>
 			<div class="nav-collapse collapse navbar-responsive-collapse">
