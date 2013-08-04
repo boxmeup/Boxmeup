@@ -4,7 +4,10 @@
 <h2><?php echo __('Edit Location'); ?></h2>
 <div class="row">
 	<div class="col-lg-7">
-		<?php echo $this->Form->create('Location', array('url' => array('controller' => 'locations', 'action' => 'add'), 'class' => 'form-horizontal')); ?>
+		<?php 
+			echo $this->Form->create('Location', array('url' => array('controller' => 'locations', 'action' => 'edit', $location_uuid), 'class' => 'form-horizontal')); 
+			echo $this->Form->input('uuid', array('type' => 'hidden'));
+		?>
 		<div class="form-group">
 			<label for="LocationName" class="col-lg-2"><?php echo __('Name') ?></label>
 			<div class="col-lg-10">
