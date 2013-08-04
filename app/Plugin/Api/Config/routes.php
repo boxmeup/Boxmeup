@@ -6,4 +6,3 @@ Router::mapResources(array(
 ), array(
 	'id' => '[a-z0-9-]+'
 ));
-Router::parseExtensions();

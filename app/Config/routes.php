@@ -1,5 +1,6 @@
 <?php
 
+Router::parseExtensions();
 /**
  * Static pages:
  * /slug => template name
