@@ -21,7 +21,10 @@ CakeLog::config('error', array(
 ));
 
 // Load Plugins
-CakePlugin::load('Api', array('bootstrap' => true));
+CakePlugin::load('Api', array(
+	'bootstrap' => true,
+	'routes' => true
+));
 CakePlugin::load('GChart');
 CakePlugin::load('Utility');
 CakePlugin::load('Feedback');
