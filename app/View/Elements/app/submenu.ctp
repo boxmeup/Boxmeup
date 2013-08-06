@@ -7,12 +7,8 @@
 	else {
 		$element_path = APP . 'View' . DS . 'Elements' . DS . $element . $this->ext;
 	}
-	if (file_exists($element_path))
+	if (file_exists($element_path)) {
 		echo $this->element($element);
-	else {
-?>
-		<div style="padding-top: 5px;">&nbsp;</div>
-<?php
 	}
 ?>
 </div>

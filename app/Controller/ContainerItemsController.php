@@ -33,8 +33,8 @@ class ContainerItemsController extends AppController {
 			),
 			'order' => 'ContainerItem.modified DESC'
 		);
-		$this->request->data['order'] = !empty($this->request->params['named']['sort']) ? $this->request->params['named']['sort'] : '';
-		$this->request->data['direction'] = !empty($this->request->params['named']['direction']) ? $this->request->params['named']['direction'] : '';
+		$this->request->data['Container']['order'] = !empty($this->request->params['named']['sort']) ? $this->request->params['named']['sort'] : '';
+		$this->request->data['Container']['direction'] = !empty($this->request->params['named']['direction']) ? $this->request->params['named']['direction'] : '';
 		$container_items = $this->paginate('ContainerItem');
 		$this->set(compact('containers', 'container_items'));
 	}

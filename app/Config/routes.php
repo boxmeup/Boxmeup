@@ -1,21 +1,12 @@
 <?php
 
-Router::mapResources(array(
-	'Api.containers',
-	'Api.conainer_items'
-), array(
-	'id' => '[a-z0-9-]+'
-));
 Router::parseExtensions();
-
 /**
  * Static pages:
  * /slug => template name
  */
 $static_pages = array(
 	'' => 'home',
-	'about' => 'about',
-	'features' => 'features',
 	'terms' => 'terms',
 	'privacy' => 'privacy'
 );
@@ -31,7 +22,6 @@ Router::connect('/account', array('controller' => 'users', 'action' => 'account'
 
 // Application
 Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
-Router::connect('/forgot_login/*', array('controller' => 'users', 'action' => 'qr_login'));
 
 // Fallback
 Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));

@@ -1,14 +1,23 @@
-<?php echo $this->Html->script('jquery.showpassword', array('inline' => false)); ?>
-<?php echo $this->Html->script('views/users/account', array('inline' => false)); ?>
 <h2><?php echo __('My Account'); ?></h2>
+<br>
 <?php
-	echo $this->Form->create('User', array('url' => array('action' => 'account')));
-	echo $this->Form->input('email', array('label' => __('Update Email')));
-	echo $this->Form->input('password', array('label' => __('Update Password (Leave blank if you do not wish to change.)')));
-	echo '<br/>';
-	echo $this->Form->submit(__('Update Account Settings'), array('class' => 'btn success'));
-	echo $this->Form->end();
+	echo $this->Form->create('User', array('url' => array('action' => 'account'), 'class' => 'form-horizontal'));
 ?>
+<div class="form-group">
+	<label for="UserEmail" class="col-lg-3"><?php echo __('Update Email') ?></label>
+	<div class="col-lg-9">
+		<?php echo $this->Form->input('email', array('label' => false, 'class' => 'form-control')); ?>
+	</div>
+</div>
+<div class="form-group">
+	<label for="UserPassword" class="col-lg-3"><?php echo __('Update Password') ?></label>
+	<div class="col-lg-9">
+		<?php echo $this->Form->input('password', array('placeholder' => 'Leave blank if you do not wish to change.', 'label' => false, 'class' => 'form-control', 'required' => false)); ?>
+		<br>
+		<button type="submit" class="btn btn-primary"><?php echo __('Update Account Settings') ?></button>
+	</div>
+</div>
+<?php echo $this->Form->end(); ?>
 <?php if (Configure::read('Feature.api')) : ?>
 	<br/><hr/><br/>
 	<h3><?php echo __('API Access'); ?></h3><br/>
@@ -20,7 +29,7 @@
 		}
 	?>
 	<br/>
-	<a href="https://github.com/boxmeup/Boxmeup/wiki/API-Documentation" class="btn info" target="_NEW"><?php echo __('Developer API Documentation'); ?></a>
+	<a href="https://github.com/boxmeup/Boxmeup/wiki/API-Documentation" class="btn btn-info" target="_NEW"><?php echo __('Developer API Documentation'); ?></a>
 	<br/>
 	<br/>
 	<small>

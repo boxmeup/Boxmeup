@@ -1,18 +1,8 @@
-$(document).ready(function() {
-	var isiPad = navigator.userAgent.match(/iPad/i) != null;
-	if(!isiPad) {
-		$('.container-item-list-options').hide();
-		$('body').delegate('.container-item-list', 'mouseover', function() {
-			$(this).find('.container-item-list-options').show();
-		});
-		$('body').delegate('.container-item-list', 'mouseout', function() {
-			$(this).find('.container-item-list-options').hide();
-		});
-	}
-	
-	$('#sort-button').bind('click', function() {
-		var $order = $('#order'),
-			$direction = $('#direction');
+$(function() {
+	$('#sort-button').on('click', function(e) {
+		e.preventDefault();
+		var $order = $('#ContainerOrder'),
+			$direction = $('#ContainerDirection');
 		window.location.href = WEBROOT + 'container_items/index/page:' + _PAGE + '/sort:' + $order.find('option:selected').val() + '/direction:' + $direction.find('option:selected').val();
 	});
 });
