@@ -55,4 +55,10 @@ body { margin-top: 90px; margin-bottom: 90px;}
 		width: 100%;
 		position: relative;
 	}
+	.submenu.affix {
+		position: relative;
+	}
+	.footer.navbar-fixed-bottom {
+		position: relative;
+	}
 }
