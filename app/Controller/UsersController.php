@@ -101,7 +101,6 @@ class UsersController extends AppController {
 	}
 
 	public function account() {
-		Configure::write('Feature.adsense', false);
 		$this->layout = 'app';
 		if(!empty($this->request->data)) {
 			$this->request->data['User']['id'] = $this->Auth->user('id');
@@ -120,6 +119,23 @@ class UsersController extends AppController {
 		$api_key = ClassRegistry::init('Api.ApiUser')->getApiKey($this->Auth->user('id'));
 		$secret_key = ClassRegistry::init('Api.ApiUser')->getSecretKey($api_key);
 		$this->set(compact('api_key', 'secret_key'));
+	}
+
+	public function auth() {
+		$this->layout = 'app';
+		$userApplication = ClassRegistry::init('Api.ApiUserApplication');
+		$this->set('applications', $userApplication->getAllAuthenticatedApps($this->Auth->user('id')));
+	}
+
+	public function revoke($id) {
+		$this->layout = 'app';
+		$userApplication = ClassRegistry::init('Api.ApiUserApplication');
+		if ($userApplication->revokeTokenById($id)) {
+			$this->Session->setFlash(__('Successfully revoked token.'), 'notification/success');
+		} else {
+			$this->Session->setFlash(__('Error revoking token.'), 'notification/error');
+		}
+		$this->redirect(array('action' => 'auth'));
 	}
 	
 	public function forgot_password() {

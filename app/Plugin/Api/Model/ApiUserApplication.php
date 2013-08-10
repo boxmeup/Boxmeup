@@ -84,4 +84,30 @@ class ApiUserApplication extends ApiAppModel {
 		return $token;
 	}
 
+	/**
+	 * Get all authenticated applications
+	 *
+	 * @param integer $userId
+	 * @return array
+	 */
+	public function getAllAuthenticatedApps($userId) {
+		$results = $this->find('all', array(
+			'conditions' => array(
+				'ApiUserApplication.user_id' => $userId
+			),
+			'contain' => false
+		));
+		return $results;
+	}
+
+	/**
+	 * Removes an auth token by ID.
+	 *
+	 * @param integer $id
+	 * @return boolean
+	 */
+	public function revokeTokenById($id) {
+		return $this->delete($id);
+	}
+
 }
