@@ -4,7 +4,7 @@ class UsersController extends ApiAppController {
 
 	public $name = 'Users';
 
-	public $uses = array('User');
+	public $uses = array('User', 'Api.ApiUserApplication');
 
 	public function beforeFilter() {
 		$this->ApiAuth->allow('login');
@@ -12,7 +12,7 @@ class UsersController extends ApiAppController {
 	}
 
 	public function login() {
-		$required = array('email' => true, 'password' => true);
+		$required = array('email' => true, 'password' => true, 'application' => true);
 		if(!$this->RequestHandler->isPost()) {
 			throw new MethodNotAllowedException();
 		}
@@ -23,10 +23,13 @@ class UsersController extends ApiAppController {
 			throw new ForbiddenException();
 		}
 		$user = $this->User->getUserByEmail($this->request->data['email']);
-		$user = array_intersect_key($user['User'], array('id' => true, 'email' => true, 'uuid' => true));
-		$user['api_key'] = $this->ApiUser->getApiKey($user['id']);
-		$user['secret_key'] = $this->ApiUser->getSecretKey($user['api_key']);
-		$this->jsonOutput($user);
+		try {
+			$token = $this->ApiUserApplication->getTokenByUserId($user['User']['id'], $this->request->data['application']);
+		} catch (NotFoundException $e) {
+			// Token doesn't exist, create one
+			$token = $this->ApiUserApplication->createApplication($this->request->data['application'], $user['User']['id']);
+		}
+		$this->jsonOutput(compact('token'));
 	}
 
 }
