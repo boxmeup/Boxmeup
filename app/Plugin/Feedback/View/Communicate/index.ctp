@@ -1,14 +1,30 @@
-<h2>Feedback</h2>
+<h2><?php echo __('Feedback') ?></h2>
 <br/>
 <?php
-	echo $this->Form->create('Feedback', array('url' => array('plugin' => 'feedback', 'controller' => 'communicate', 'action' => 'index')));
+	echo $this->Form->create('Feedback', array('url' => array('plugin' => 'feedback', 'controller' => 'communicate', 'action' => 'index'), 'class' => 'form-horizontal'));
 	echo $this->Form->input('location_uri', array('type' => 'hidden'));
-	echo $this->Form->input('feedback_type', array('options' => array('Bug' => 'Bug', 'Feature' => 'Feature')));
-	echo $this->Form->input('title');
-	echo $this->Form->input('body', array('type' => 'textarea', 'label' => false));
-	// Simple bot circumvent.
-	echo '<div style="display: none">';
-		echo $this->Form->input('confirm_message');
-	echo '</div>';
-	echo $this->Form->submit('Submit Feedback', array('class' => 'medium green button'));
-	echo $this->Form->end();
+?>
+<div class="form-group">
+	<label for="FeedbackFeedbackType" class="col-lg-2"><?php echo __('Feedback Type') ?></label>
+	<div class="col-lg-10">
+		<?php echo $this->Form->input('feedback_type', array('label' => false, 'div' => false, 'options' => array('Bug' => 'Bug', 'Feature' => 'Feature'), 'class' => 'form-control')) ?>
+	</div>
+</div>
+<div class="form-group">
+	<label for="FeedbackTitle" class="col-lg-2"><?php echo __('Title') ?></label>
+	<div class="col-lg-10">
+		<?php echo $this->Form->input('title', array('label' => false, 'div' => false, 'class' => 'form-control')) ?>
+	</div>
+</div>
+<div class="form-group">
+	<label for="FeedbackTitle" class="col-lg-2">&nbsp;</label>
+	<div class="col-lg-10">
+		<?php echo $this->Form->input('body', array('type' => 'textarea', 'label' => false, 'div' => false, 'class' => 'form-control')) ?>
+		<br>
+		<button type="submit" class="btn btn-success"><?php echo __('Submit Feedback') ?></button>
+	</div>
+</div>
+<div style="display: none">
+	<?php echo $this->Form->input('confirm_message'); ?>
+</div>
+<?php echo $this->Form->end(); ?>

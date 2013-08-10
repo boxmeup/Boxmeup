@@ -15,7 +15,6 @@ class ContainersController extends AppController {
 
 	public function dashboard() {
 		$this->helpers[] = 'Time';
-		$this->helpers[] = 'GChart.GChart';
 		$total_containers = $this->Container->getTotalContainersPerUser($this->Auth->user('id'));
 		$total_container_items = $this->Container->getTotalContainerItemsPerUser($this->Auth->user('id'));
 		$total_locations = ClassRegistry::init('Location')->getTotalLocationsPerUser($this->Auth->user('id'));
@@ -24,50 +23,6 @@ class ContainersController extends AppController {
 		$recent_items = $this->Container->ContainerItem->getRecentItems($this->Auth->user('id'));
 
 		$this->set(compact('total_containers', 'total_container_items', 'total_locations', 'recent_items'));
-		$this->set('active', 'containers.dashboard');
-		
-		// Graph stats
-		$container_stats = Set::combine($this->Container->find('all', array(
-			'fields' => array('COUNT(id) AS containers', 'DATE(modified) AS timestamp'),
-			'conditions' => array(
-				'user_id' => $this->Auth->user('id'),
-				'modified > ' => date('Y-m-d 23:59:59', strtotime('-1 week'))
-			),
-			'group' => 'timestamp',
-			'order' => 'timestamp',
-			'contain' => array()
-		)), '{n}.0.timestamp', '{n}.0');
-		$container_item_stats = Set::combine($this->Container->ContainerItem->find('all', array(
-			'fields' => array('COUNT(ContainerItem.id) as items', 'DATE(ContainerItem.modified) AS timestamp'),
-			'conditions' => array(
-				'Container.user_id' => $this->Auth->user('id'),
-				'ContainerItem.modified > ' => date('Y-m-d 23:59:59', strtotime('-1 week'))
-			),
-			'group' => 'timestamp',
-			'order' => 'timestamp',
-			'contain' => array('Container')
-		)), '{n}.0.timestamp', '{n}.0');
-		for($current = date('Y-m-d', strtotime('-1 week')); $current <= date('Y-m-d'); $current = date('Y-m-d', strtotime("$current +1 day")))
-			$graph_data[$current] = array();
-
-		$container_data = Set::merge($graph_data, $container_stats, $container_item_stats);
-		ksort($container_data);
-		$graph_data = array();
-		foreach($container_data as $date => $data)
-			$graph_data[] = array($date, isset($data['containers'])? $data['containers'] : 0, isset($data['items']) ? $data['items'] : 0);
-
-		$container_graph = array(
-			'labels' => array(
-				array('string' => __('Date')),
-				array('number' => __('Containers')),
-				array('number' => __('Items'))
-			),
-			'data' => $graph_data,
-			'title' => __('Container activity for last 7 days'),
-			'type' => 'line',
-			'width' => 650,
-		);
-		$this->set(compact('container_graph'));
 		$this->set('active', 'containers.dashboard');
 	}
 
@@ -78,8 +33,8 @@ class ContainersController extends AppController {
 	public function index() {
 		$this->helpers[] = 'Time';
 		$control = 'containers.index';
-		$this->request->data['order'] = !empty($this->request->params['named']['sort']) ? $this->request->params['named']['sort'] : '';
-		$this->request->data['direction'] = !empty($this->request->params['named']['direction']) ? $this->request->params['named']['direction'] : '';
+		$this->request->data['Container']['order'] = !empty($this->request->params['named']['sort']) ? $this->request->params['named']['sort'] : '';
+		$this->request->data['Container']['direction'] = !empty($this->request->params['named']['direction']) ? $this->request->params['named']['direction'] : '';
 		$containers = $this->Container->getPaginatedContainers($this, $this->Auth->user('id'));
 		if(empty($containers) && empty($this->request->params['named']['location'])) {
 			$this->Session->setFlash('Start by creating a container.', 'notification/notice');
@@ -87,14 +42,10 @@ class ContainersController extends AppController {
 		}
 		
 		// Check the cookie and render the view depending on what was selected
-		$container_view = $this->Session->read('Feature.change_view');
 		$location_list = ClassRegistry::init('Location')->getLocationList($this->Auth->user('id'), true);
 		array_unshift($location_list, array('__UNASSIGNED__' => '-- Unassigned --'));
-		$this->set(compact('containers', 'control', 'container_view', 'location_list'));
+		$this->set(compact('containers', 'control', 'location_list'));
 		$this->request->data['Location']['uuid'] = !empty($this->request->params['named']['location']) ? $this->request->params['named']['location'] : null;
-		if($container_view === 'list' && !$this->isMobile()) {
-			$this->render('index.table');
-		}
 	}
 	
 	public function change_view($view) {
