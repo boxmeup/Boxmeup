@@ -53,7 +53,8 @@ class ContainersController extends ApiAppController {
 		if(!$result = $this->Container->save($data)) {
 			throw new BadRequestException();
 		}
-		unset($result['Container']['id'], $result['Container']['user_id'], $result['Container']['location_id'], $result['Location']);
+		unset($result['Container']['id'], $result['Container']['user_id'], $result['Container']['location_id']);
+		$result['Location'] = array_intersect_key($result['Location'], array('uuid' => true, 'name' => true));
 		$result['Container']['container_item_count'] = (int)$result['Container']['container_item_count'];
 		$this->jsonOutput($result);
 	}
