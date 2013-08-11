@@ -1,13 +1,6 @@
 <?php
 
-Router::mapResources(array(
-	'Api.containers',
-	'Api.conainer_items'
-), array(
-	'id' => '[a-z0-9-]+'
-));
-Router::parseExtensions();
-
+Router::parseExtensions('json');
 /**
  * Static pages:
  * /slug => template name
@@ -32,8 +25,14 @@ Router::connect('/account', array('controller' => 'users', 'action' => 'account'
 Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
 
 // API
-Router::connect('/api/:controller', array('plugin' => 'api', 'action' => 'index'));
-Router::connect('/api/:controller/:action/*', array('plugin' => 'api'));
+Router::connect('/api/users/:action/*', array('plugin' => 'api', 'controller' => 'users'));
+Router::connect('/api/:controller', array('plugin' => 'api', 'action' => 'index', '[method]' => 'GET'));
+Router::connect('/api/:controller', array('plugin' => 'api', 'action' => 'add', '[method]' => 'POST'));
+Router::connect('/api/:controller/*', array('plugin' => 'api', 'action' => 'edit', '[method]' => 'PUT'));
+Router::connect('/api/:controller/*', array('plugin' => 'api', 'action' => 'delete', '[method]' => 'DELETE'));
+Router::connect('/api/containers/search/*', array('plugin' => 'api', 'controller' => 'containers', 'action' => 'search'));
+// API Catchall
+Router::connect('/api/*', array('plugin' => 'api'));
 
 // Fallback
 Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
