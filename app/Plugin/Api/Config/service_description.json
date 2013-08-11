@@ -57,6 +57,40 @@
 					"required": true
 				}
 			}
+		},
+		"UpdateContainer": {
+			"httpMethod": "PUT",
+			"uri": "/containers/:slug",
+			"summary": "Updates an existing container.",
+			"responseClass": "ContainerLongOutput",
+			"parameters": {
+				"slug": {
+					"location": "uri",
+					"description": "Container slug.",
+					"type": "string",
+					"required": true
+				},
+				"name": {
+					"location": "postField",
+					"description": "Name of the container",
+					"type": "string",
+					"required": true
+				}
+			}
+		},
+		"RemoveContainer": {
+			"httpMethod": "DELETE",
+			"uri": "/containers/:slug",
+			"summary": "Adds a new container.",
+			"responseClass": "SuccessOutput",
+			"parameters": {
+				"slug": {
+					"location": "uri",
+					"description": "Container slug.",
+					"type": "string",
+					"required": true
+				}
+			}
 		}
 	},
 	"models": {
@@ -131,6 +165,64 @@
 				"slug": {
 					"location": "json",
 					"type": "string"
+				}
+			}
+		},
+		"ContainerLongOutput": {
+			"type": "object",
+			"properties": {
+				"Container": {
+					"location": "json",
+					"type": "object",
+					"properties": {
+						"name": {
+							"location": "json",
+							"type": "string"
+						},
+						"uuid": {
+							"location": "json",
+							"type": "string"
+						},
+						"slug": {
+							"location": "json",
+							"type": "string"
+						},
+						"container_item_count": {
+							"location": "json",
+							"type": "integer"
+						},
+						"created": {
+							"location": "json",
+							"type": "string"
+						},
+						"modified": {
+							"location": "json",
+							"type": "string"
+						}
+					}
+				},
+				"Location": {
+					"location": "json",
+					"type": "object",
+					"properties": {
+						"name": {
+							"location": "json",
+							"type": "string"
+						},
+						"uuid": {
+							"location": "json",
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"SuccessOutput": {
+			"type": "object",
+			"properties": {
+				"success": {
+					"location": "json",
+					"type": "boolean"
 				}
 			}
 		}
