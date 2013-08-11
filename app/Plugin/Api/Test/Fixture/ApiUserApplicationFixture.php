@@ -29,6 +29,12 @@ class ApiUserApplicationFixture extends CakeTestFixture {
  * @var array
  */
 	public $records = array(
+		array(
+			'id' => 1,
+			'user_id' => 3,
+			'name' => 'Test Fixture App',
+			'token' => 'testtoken'
+		)
 	);
 
 }

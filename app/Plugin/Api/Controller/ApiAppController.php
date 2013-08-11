@@ -2,7 +2,7 @@
 
 class ApiAppController extends AppController {
 
-	public $uses = array('Api.ApiUser');
+	public $uses = array('Api.ApiUser', 'Api.ApiUserApplication');
 
 	public $viewClass = 'Json';
 
@@ -24,10 +24,7 @@ class ApiAppController extends AppController {
 	}
 
 	public function getUserId() {
-		if (empty($this->userId)) {
-			$this->userId = $this->ApiUser->getUserId($this->request->data['ApiUser']['api_key']);
-		}
-		return $this->userId;
+		return $this->request->data['User']['id'];
 	}
 
 }

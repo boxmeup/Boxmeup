@@ -2,7 +2,6 @@
 
 class ApiAuthComponent extends Component {
 
-	const TIMESTAMP_THRESHOLD = 60;
 	const AUTHENTICATION_HEADER = 'Authentication';
 	const AUTHENTICATION_TYPE = 'BoxmeupAPI';
 
@@ -62,7 +61,7 @@ class ApiAuthComponent extends Component {
 	 * @return void
 	 */
 	protected function authenticate() {
-		$requiredHeaderParams = array('api_key', 'now', 'hash');
+		$requiredHeaderParams = array('token');
 
 		// Parse authentication headers
 		$authHeader = CakeRequest::header(static::AUTHENTICATION_HEADER);
@@ -75,51 +74,18 @@ class ApiAuthComponent extends Component {
 		}
 
 		// Check API key
-		$userSecretKey = $this->controller->ApiUser->getSecretKey($parsedAuthHeader['api_key']);
-		if (empty($userSecretKey)) {
-			throw new NotAuthorizedException('Invalid api key.');
+		try {
+			$user = $this->controller->ApiUserApplication->getUserByToken($parsedAuthHeader['token']);
+		} catch (NotFoundException $e) {
+			throw new NotAuthorizedException($e->getMessage());
 		}
 
-		// Validate time
-		if (!$this->isValidTime($parsedAuthHeader['now'])) {
-			throw new NotAuthorizedException('[now] parameter is not within threshold.');
-		}
-
-		$params = $this->controller->request->isGet() ?
-			$this->controller->request->query :
-			$this->controller->data;
-		ksort($params);
-
-		// Validate hash code
-		$encodedParams = version_compare(PHP_VERSION, '5.4.0', '>=') ?
-			http_build_query($params, null, null, PHP_QUERY_RFC3986) :
-			str_replace('+', '%20', http_build_query($params)); // 5.3 hack
-		$code = sha1(
-			'/' . $this->controller->request->url . '?' .
-			$encodedParams .
-			$parsedAuthHeader['now'] .
-			$userSecretKey
-		);
-		if ($code !== $parsedAuthHeader['hash']) {
-			throw new NotAuthorizedException('HMAC code signature does not match expected signature.');
-		}
-
-		// Store the parner into the request to be reused by the app
-		$this->controller->request->data('ApiUser.api_key', $parsedAuthHeader['api_key']);
+		// Store the user information in the request
+		$this->controller->request->data('User', $user);
 	}
 
 	/**
-	 * Determines if passed timestamp is within threshold.
-	 *
-	 * @param integer $timestamp
-	 * @return boolean
-	 */
-	protected function isValidTime($timestamp) {
-		return abs(time() - $timestamp) <= static::TIMESTAMP_THRESHOLD;
-	}
-
-	/**
-	 * Parse the ZumbaAPI authentication header.
+	 * Parse the BoxmeupAPI authentication header.
 	 *
 	 * @param string $header
 	 * @return array

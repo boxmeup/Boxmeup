@@ -110,4 +110,33 @@ class ApiUserApplication extends ApiAppModel {
 		return $this->delete($id);
 	}
 
+	/**
+	 * Get user information based on auth token.
+	 *
+	 * @param string $token
+	 * @return array
+	 */
+	public function getUserByToken($token) {
+		$key = $token . '_auth_token';
+		if (!$user = Cache::read($key)) {
+				$result = $this->find('first', array(
+				'conditions' => array(
+					'ApiUserApplication.token' => $token
+				),
+				'contain' => array(
+					'User' => array(
+						'id', 'email', 'uuid'
+					)
+				)
+			));
+			if (empty($result['User'])) {
+				throw new NotFoundException('Invalid token.');
+			}
+			$user = $result['User'];
+			Cache::write($key, $user);
+		}
+		
+		return $user;
+	}
+
 }
