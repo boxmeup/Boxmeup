@@ -29,17 +29,80 @@
 					"required": true
 				}
 			}
+		},
+		"GetContainers": {
+			"httpMethod": "GET",
+			"uri": "/containers",
+			"summary": "Get a list of containers.",
+			"responseClass": "ContainerListOutput",
+			"parameters": {
+				"slug": {
+					"location": "query",
+					"description": "Filter by container slug.",
+					"type": "string",
+					"required": false
+				}
+			}
 		}
 	},
 	"models": {
 		"LoginOutput": {
+			"type": "object",
+			"properties": {
+				"token": {
+					"location": "json",
+					"type": "string"
+				}
+			}
+		},
+		"ContainerListOutput": {
 			"type": "array",
 			"items": {
 				"type": "object",
 				"properties": {
-					"token": {
+					"Container": {
 						"location": "json",
-						"type": "string"
+						"type": "object",
+						"properties": {
+							"name": {
+								"location": "json",
+								"type": "string"
+							},
+							"uuid": {
+								"location": "json",
+								"type": "string"
+							},
+							"slug": {
+								"location": "json",
+								"type": "string"
+							},
+							"container_item_count": {
+								"location": "json",
+								"type": "integer"
+							},
+							"created": {
+								"location": "json",
+								"type": "string"
+							},
+							"modified": {
+								"location": "json",
+								"type": "string"
+							}
+						}
+					},
+					"Location": {
+						"location": "json",
+						"type": "object",
+						"properties": {
+							"name": {
+								"location": "json",
+								"type": "string"
+							},
+							"uuid": {
+								"location": "json",
+								"type": "string"
+							}
+						}
 					}
 				}
 			}
