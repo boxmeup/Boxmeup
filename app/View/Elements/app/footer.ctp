@@ -4,6 +4,9 @@
 		__('Privacy Policy') => '/privacy',
 		__('Status') => 'http://status.boxmeupapp.com'
 	);
+	if (Configure::read('Feature.api')) {
+		$footer_links[__('API')] = '/developer';
+	}
 ?>
 <div class="footer navbar-fixed-bottom">
 	<div class="container">

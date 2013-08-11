@@ -19,7 +19,7 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
  	<![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target=".dev-submenu">
 
 	<div class="navbar navbar-static-top">
 		<div class="container">

@@ -15,7 +15,8 @@ Router::parseExtensions();
 $static_pages = array(
 	'' => 'home',
 	'terms' => 'terms',
-	'privacy' => 'privacy'
+	'privacy' => 'privacy',
+	'developer' => 'developer'
 );
 foreach($static_pages as $slug => $page) {
 	Router::connect('/'.$slug, array('controller' => 'pages', 'action' => 'display', $page));
