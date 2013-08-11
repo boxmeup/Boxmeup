@@ -43,6 +43,20 @@
 					"required": false
 				}
 			}
+		},
+		"AddContainer": {
+			"httpMethod": "POST",
+			"uri": "/containers",
+			"summary": "Adds a new container.",
+			"responseClass": "ContainerShortOutput",
+			"parameters": {
+				"name": {
+					"location": "postField",
+					"description": "Name of the container",
+					"type": "string",
+					"required": true
+				}
+			}
 		}
 	},
 	"models": {
@@ -104,6 +118,19 @@
 							}
 						}
 					}
+				}
+			}
+		},
+		"ContainerShortOutput": {
+			"type": "object",
+			"properties": {
+				"uuid": {
+					"location": "json",
+					"type": "string"
+				},
+				"slug": {
+					"location": "json",
+					"type": "string"
 				}
 			}
 		}
