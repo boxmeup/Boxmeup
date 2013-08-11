@@ -31,6 +31,7 @@ Router::connect('/account', array('controller' => 'users', 'action' => 'account'
 Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
 
 // API
+Router::connect('/api/:controller', array('plugin' => 'api', 'action' => 'index'));
 Router::connect('/api/:controller/:action/*', array('plugin' => 'api'));
 
 // Fallback
