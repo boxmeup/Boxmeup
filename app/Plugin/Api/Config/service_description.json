@@ -1,0 +1,48 @@
+{
+	"name": "BoxmeupAPI",
+	"apiVersion": "2013-08-11",
+	"baseUrl": "https://boxmeupapp.com/api",
+	"description": "BoxmeupAPI allows for programatic manipulation of containers, items, and locations",
+	"operations": {
+		"Login": {
+			"httpMethod": "POST",
+			"uri": "/users/login",
+			"summary": "Authenticate a user and retrieve an OAuth access token.",
+			"responseClass": "LoginOutput",
+			"parameters": {
+				"email": {
+					"location": "postField",
+					"description": "Email of the account.",
+					"type": "string",
+					"required": true
+				},
+				"password": {
+					"location": "postField",
+					"description": "Password of the account.",
+					"type": "string",
+					"required": true
+				},
+				"application": {
+					"location": "postField",
+					"description": "Application name to register this OAuth request.",
+					"type": "string",
+					"required": true
+				}
+			}
+		}
+	},
+	"models": {
+		"LoginOutput": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"token": {
+						"location": "json",
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}
