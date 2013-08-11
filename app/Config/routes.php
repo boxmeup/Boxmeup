@@ -1,6 +1,13 @@
 <?php
 
+Router::mapResources(array(
+	'Api.containers',
+	'Api.conainer_items'
+), array(
+	'id' => '[a-z0-9-]+'
+));
 Router::parseExtensions();
+
 /**
  * Static pages:
  * /slug => template name
@@ -22,6 +29,9 @@ Router::connect('/account', array('controller' => 'users', 'action' => 'account'
 
 // Application
 Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
+
+// API
+Router::connect('/api/:controller/:action/*', array('plugin' => 'api'));
 
 // Fallback
 Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
