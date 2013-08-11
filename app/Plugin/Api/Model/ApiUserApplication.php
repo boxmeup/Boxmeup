@@ -107,6 +107,19 @@ class ApiUserApplication extends ApiAppModel {
 	 * @return boolean
 	 */
 	public function revokeTokenById($id) {
+		$application = $this->find('first', array(
+			'conditions' => array(
+				'ApiUserApplication.id' => $id
+			),
+			'contain' => array(
+				'ApiUserApplication'
+			)
+		));
+		if (empty($application)) {
+			return false;
+		}
+		Cache::delete($application['ApiUserApplication']['token'] . '_auth_token');
+		Cache::delete($application['ApiUserApplication']['user_id'] . $application['ApiUserApplication']['name'] . '_auth_token');
 		return $this->delete($id);
 	}
 
