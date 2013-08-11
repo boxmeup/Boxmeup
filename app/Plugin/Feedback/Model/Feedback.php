@@ -8,7 +8,7 @@ class Feedback extends FeedbackAppModel {
 
 	public $name = 'Feedback';
 
-	public $useTable = 'feedback';
+	public $useTable = false;
 
 	public $validate = array(
 		'message' => array(
