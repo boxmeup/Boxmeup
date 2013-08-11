@@ -42,9 +42,9 @@
 					<pre>
 curl -d "email=test@test.com&password=test1234&application=Test Application" https://boxmeupapp.com/api/users/login
 
-&gt; Status: 200 OK
-&gt; Content-Type: application/json; charset=UTF-8
-{"token":"1cd2b6edc30afc5e0e8084c83601506de69f53a3"}
+{
+	"token": "1cd2b6edc30afc5e0e8084c83601506de69f53a3"
+}
 					</pre>
 				</li>
 			</ul>
@@ -145,6 +145,46 @@ curl -X DELETE -H "Authentication: BoxmeupAPI token=testtoken" https://boxmeupap
 					</pre>
 				</li>
 			</ul>
+			<br>
+			<h4>&raquo; <code>GET /api/containers/search</code></h4>
+			<ul>
+				<li>Search containers for an item.</li>
+				<li>Parameters:
+					<ul>
+						<li><code>query</code><span class="label label-warning">Required</span> - Search query.</li>
+					</ul>
+				</li>
+				<li>Example:
+					<pre>
+curl -H "Authentication: BoxmeupAPI token=testtoken" https://boxmeupapp.com/api/containers/search?query=test
+
+{
+    "pages": 1,
+    "search": [
+        {
+            "Container": {
+                "container_item_count": "1",
+                "created": "2013-08-11 01:33:31",
+                "modified": "2013-08-11 04:27:44",
+                "name": "Test",
+                "slug": "test",
+                "uuid": "5206e9eb-8e8c-49b9-bced-087921210046"
+            },
+            "ContainerItem": {
+                "body": "test",
+                "created": "2013-08-11 01:33:33",
+                "modified": "2013-08-11 01:33:33",
+                "quantity": "1",
+                "uuid": "5206e9ed-45b4-46ce-a423-087921210046"
+            }
+        }
+    ],
+    "total": 1
+}
+					</pre>
+				</li>
+			</ul>
+			<br>
 			<h3 id="container-item"><?php echo __('Container Item Resource') ?></h3>
 			<p>Not ready for release.</p>
 			<h3 id="location"><?php echo __('Location Resource') ?></h3>
