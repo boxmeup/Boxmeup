@@ -25,12 +25,15 @@ Router::connect('/account', array('controller' => 'users', 'action' => 'account'
 Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
 
 // API
-Router::connect('/api/users/:action/*', array('plugin' => 'api', 'controller' => 'users'));
-Router::connect('/api/:controller', array('plugin' => 'api', 'action' => 'index', '[method]' => 'GET'));
-Router::connect('/api/:controller', array('plugin' => 'api', 'action' => 'add', '[method]' => 'POST'));
-Router::connect('/api/:controller/*', array('plugin' => 'api', 'action' => 'edit', '[method]' => 'PUT'));
-Router::connect('/api/:controller/*', array('plugin' => 'api', 'action' => 'delete', '[method]' => 'DELETE'));
 Router::connect('/api/containers/search/*', array('plugin' => 'api', 'controller' => 'containers', 'action' => 'search'));
+Router::connect('/api/users/login', array('plugin' => 'api', 'controller' => 'users', 'action' => 'login', '[method]' => 'POST'));
+// API Mapped resources
+Router::mapResources(array(
+	'Api.containers',
+	'Api.container_items'
+), array(
+	'id' => '[a-z0-9-]+'
+));
 // API Catchall
 Router::connect('/api/*', array('plugin' => 'api'));
 
