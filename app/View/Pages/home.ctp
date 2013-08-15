@@ -9,18 +9,18 @@
 				<?php if(Configure::read('Feature.user_registration')) { ?>
 				<?php
 					echo $this->Form->create('User', array('action' => 'signup'));
-					echo $this->Form->input('email', array('label' => false, 'placeholder' => __('Email Address'), 'class' => 'form-control input-large'));
+					echo $this->Form->input('email', array('label' => false, 'placeholder' => __('Email Address'), 'class' => 'form-control input-lg'));
 				?>
 				<br>
 				<?php
-					echo $this->Form->input('password', array('label' => false, 'placeholder' => __('Password'), 'class' => 'form-control input-large'));
+					echo $this->Form->input('password', array('label' => false, 'placeholder' => __('Password'), 'class' => 'form-control input-lg'));
 					// Simple bot circumvent
 					echo '<div style="display: none">';
 						echo $this->Form->input('confirm_password');
 					echo '</div>';
 					echo '<br/>';
 				?>
-				<button type="submit" class="btn btn-success btn-block btn-large"><?php echo __('Sign Up') ?></button>
+				<button type="submit" class="btn btn-success btn-block btn-lg"><?php echo __('Sign Up') ?></button>
 				<?php echo $this->Form->end(); ?>
 				<br>
 				<p><?php echo __('Already have an account?');?> <?php echo $this->Html->link(__('Login') . '!', '/login'); ?></p>
@@ -51,7 +51,7 @@
 	</div>
 </div>
 <br>
-<div class="container text-center hidden-sm" style="margin-bottom: 40px;">
+<div class="container text-center hidden-xs" style="margin-bottom: 40px;">
 	<img src="/img/demo1.png"/>
 </div>
 <div class="container text-center" style="margin-bottom: 40px;">
