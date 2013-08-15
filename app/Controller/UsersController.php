@@ -130,7 +130,7 @@ class UsersController extends AppController {
 	public function revoke($id) {
 		$this->layout = 'app';
 		$userApplication = ClassRegistry::init('Api.ApiUserApplication');
-		if ($userApplication->revokeTokenById($id)) {
+		if ($userApplication->revokeTokenById($id, $this->Auth->user('id'))) {
 			$this->Session->setFlash(__('Successfully revoked token.'), 'notification/success');
 		} else {
 			$this->Session->setFlash(__('Error revoking token.'), 'notification/error');

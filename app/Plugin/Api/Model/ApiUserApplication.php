@@ -106,10 +106,11 @@ class ApiUserApplication extends ApiAppModel {
 	 * @param integer $id
 	 * @return boolean
 	 */
-	public function revokeTokenById($id) {
+	public function revokeTokenById($id, $userId = null) {
 		$application = $this->find('first', array(
 			'conditions' => array(
-				'ApiUserApplication.id' => $id
+				'ApiUserApplication.id' => $id,
+				'ApiUserApplication.user_id' => $userId
 			),
 			'contain' => array()
 		));
