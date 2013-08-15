@@ -7,7 +7,7 @@ class ContainerItemsController extends ApiAppController {
 	public $uses = array('ContainerItem');
 	
 	public function index() {
-		$conditions = !empty($this->request->query['Container_slug']) ? array('Container.slug' => $this->request->query['slug']) : array();
+		$conditions = !empty($this->request->query['slug']) ? array('Container.slug' => $this->request->query['slug']) : array();
 		$output = $this->ContainerItem->getApiContainerItems($this->getUserId(), $conditions);
 		if(empty($output)) {
 			throw new NotFoundException('No container items.');
