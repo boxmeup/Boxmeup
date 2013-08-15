@@ -1,18 +1,18 @@
 <?php
 
 class ContainerItemsController extends ApiAppController {
+
 	public $name = 'ContainerItems';
-	
-	public $xml_set = 'containers_items';
 	
 	public $uses = array('ContainerItem');
 	
 	public function index() {
-		$conditions = !empty($this->params['url']['Container_slug']) ? array('Container.slug' => $this->params['url']['slug']) : array();
-		$this->output = $this->ContainerItem->getApiContainerItems($this->user_id, $conditions);
-		if(empty($this->output)) {
-			$this->setError(404, 'No container items.');
+		$conditions = !empty($this->request->query['Container_slug']) ? array('Container.slug' => $this->request->query['slug']) : array();
+		$output = $this->ContainerItem->getApiContainerItems($this->getUserId(), $conditions);
+		if(empty($output)) {
+			throw new NotFoundException('No container items.');
 		}
+		$this->jsonOutput($output);
 	}
 	
 	public function add($slug = null) {
