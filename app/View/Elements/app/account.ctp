@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav pull-right">
+<ul class="nav navbar-nav navbar-right">
 	<li>
 		<div class="btn-group">
 			<button type="button" class="btn btn-primary dropdown-toggle navbar-btn" data-toggle="dropdown">

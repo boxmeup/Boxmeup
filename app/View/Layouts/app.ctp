@@ -9,7 +9,7 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css');
+		echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap.min.css');
 		echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
 		echo $this->Html->css('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css');
 		echo $this->Html->css('app');
@@ -36,11 +36,13 @@
 
 	<div class="navbar navbar-fixed-top">
 		<div class="container">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-				<i class="icon-list"></i>
-			</button>
-			<a href="/" class="navbar-brand">Boxmeup</a>
-			<div class="nav-collapse collapse navbar-responsive-collapse">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					<i class="icon-list"></i>
+				</button>
+				<a href="/" class="navbar-brand">Boxmeup</a>
+			</div>
+			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<?php echo $this->element('app/account'); ?>
 			</div>
 		</div>
@@ -64,18 +66,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="layout-modal">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-	      		<div class="modal-body">
-	        		<p>Loading content...</p>
-	      		</div>
-      			<div class="modal-footer">
-        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      			</div>
-    		</div><!-- /.modal-content -->
-  		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
+	<div class="modal fade" id="layout-modal" data-role="dialog"></div>
 	<?php
 		if(Configure::read('Feature.beta')) {
 			echo $this->Html->tag('div', '', array('class' => 'beta'));
@@ -83,7 +74,8 @@
 		echo $this->element('app/footer'); 
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
-		echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js');
+		echo $this->Html->script('//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js');
+		echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/js/bootstrap.min.js');
 		echo $this->Html->script('main');
 		echo $this->Html->script('app');
 		echo $this->element('analytics');
