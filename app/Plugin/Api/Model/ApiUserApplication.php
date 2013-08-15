@@ -111,9 +111,7 @@ class ApiUserApplication extends ApiAppModel {
 			'conditions' => array(
 				'ApiUserApplication.id' => $id
 			),
-			'contain' => array(
-				'ApiUserApplication'
-			)
+			'contain' => array()
 		));
 		if (empty($application)) {
 			return false;
