@@ -6,16 +6,17 @@
 ?>
 <h2>Found <?php echo $paging['count']; ?> results for &quot;<?php echo $this->request->data['Search']['query']; ?>&quot;.</h2>
 <br/>
-		<?php foreach ($results as $result) { ?>
-			<div class="container-item-list" >
-				<p class="container-item-list-content">
-					<?php echo Sanitize::html($result['ContainerItem']['body'], array('remove' => true)); ?><br/>
-					<?php echo $this->Html->link($result['Container']['name'], array('controller' => 'containers', 'action' => 'view', $result['Container']['slug'])); ?><br/>
-					<small><?php echo $this->Time->timeAgoInWords($result['ContainerItem']['modified']); ?></small>
-				</p>
-				<div style="clear: both"></div>
-			</div>
-		<?php } ?>
+	<div class="list-group">
+	<?php foreach ($results as $result): ?>
+		<a href="<?php echo Router::url(array('controller' => 'containers', 'action' => 'view', $result['Container']['slug'])) ?>" class="list-group-item">
+			<p><?php echo Sanitize::html($result['ContainerItem']['body'], array('remove' => true)); ?></p>
+			<p>
+				<?php echo $result['Container']['name']; ?>
+				(<small><?php echo $this->Time->timeAgoInWords($result['ContainerItem']['modified']); ?></small>)
+			</p>
+		</a>
+	<?php endforeach ?>
+	</div>
 <?php
 	}
 ?>
