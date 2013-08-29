@@ -6,13 +6,10 @@ body { margin-top: 90px; margin-bottom: 90px;}
 	padding: 20px 0;
 }
 
-.navbar {
-	padding: 10px 0;
-}
-
 .navbar-brand {
 	background: url(../img/logo-icon.png) left center no-repeat;
 	padding-left: 36px;
+	font-size: 24px;
 	color: black;
 }
 
@@ -51,6 +48,9 @@ body { margin-top: 90px; margin-bottom: 90px;}
 }
 
 @media (min-width: 0) and (max-width: 991px) {
+	body {
+		margin-bottom: 0px;
+	}
 	.main-navigation {
 		width: 100%;
 		position: relative;

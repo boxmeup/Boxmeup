@@ -1,6 +1,6 @@
-<form action="/login" class="navbar-form navbar-right" style="margin-left: 20px;">
-	<button type="submit" class="btn btn-primary"><?php echo __('Login') ?></button>
-</form>
+<?php
+	echo $this->Html->link(__('Login'), '/login', array('class' => 'btn btn-primary navbar-btn navbar-right'));
+?>
 <?php 
 	echo $this->Form->create('Language', array('id' => 'change-language', 'url' => array('controller' => 'users', 'action' => 'change_language'), 'class' => 'navbar-form navbar-right'));
 	echo $this->Form->input('locale', array('id' => 'change-language-locale', 'label' => false, 'div' => false, 'class' => 'form-control', 'options' => $availableLanguages, 'empty' => __('Choose Language'), 'style' => 'width: 200px;'));
