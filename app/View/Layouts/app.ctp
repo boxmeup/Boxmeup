@@ -9,8 +9,9 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap.min.css');
+		echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css');
 		echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
+		echo $this->Html->css('//netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab/bootstrap.min.css');
 		echo $this->Html->css('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css');
 		echo $this->Html->css('app');
 		if (Configure::read('Feature.feedback')) {
@@ -38,7 +39,7 @@
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-					<i class="icon-list"></i>
+					<i class="icon-list" style="color: black"></i>
 				</button>
 				<a href="/" class="navbar-brand">Boxmeup</a>
 			</div>
@@ -75,7 +76,7 @@
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
 		echo $this->Html->script('//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js');
-		echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/js/bootstrap.min.js');
+		echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js');
 		echo $this->Html->script('main');
 		echo $this->Html->script('app');
 		echo $this->element('analytics');
