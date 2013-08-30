@@ -8,8 +8,9 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap.min.css');
+		echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css');
 		echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
+		echo $this->Html->css('//netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab/bootstrap.min.css');
 		echo $this->Html->css('main');
 		if (Configure::read('Feature.feedback')) {
 			echo $this->Html->css('/feedback/css/feedback.css');
@@ -44,7 +45,7 @@
 	<?php echo $this->element('footer'); ?>
 	<?php
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
-		echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/js/bootstrap.min.js');
+		echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js');
 		echo $this->Html->script('//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js');
 		echo $this->Html->scriptBlock("
 			var WEBROOT = '$Webroot';

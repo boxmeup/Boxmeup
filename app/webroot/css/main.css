@@ -8,6 +8,11 @@
 	background-color: #3A3A44;
 	background-image: url(../img/hero-bg.jpg);
 }
+
+.hero h1, .hero h2, .hero h3 {
+	color: white;
+}
+
 .footer {
 	padding: 20px 0;
 }
