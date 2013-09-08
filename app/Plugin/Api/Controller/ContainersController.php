@@ -30,7 +30,7 @@ class ContainersController extends ApiAppController {
 		$data['Container']['name'] = $this->request->data['name'];
 		$result = $this->Container->save($data);
 		if(!$result) {
-			throw new BadRequestException(json_encode($this->Containter->validationErrors));
+			throw new BadRequestException(json_encode($this->Container->validationErrors));
 		}
 		$this->jsonOutput(array(
 			'uuid' => $result['Container']['uuid'],
@@ -51,9 +51,10 @@ class ContainersController extends ApiAppController {
 		}
 		$data['Container']['name'] = $this->request->data['name'];
 		if(!$result = $this->Container->save($data)) {
-			throw new BadRequestException();
+			throw new BadRequestException(json_encode($this->Container->validationErrors));
 		}
-		unset($result['Container']['id'], $result['Container']['user_id'], $result['Container']['location_id'], $result['Location']);
+		unset($result['Container']['id'], $result['Container']['user_id'], $result['Container']['location_id']);
+		$result['Location'] = array_intersect_key($result['Location'], array('uuid' => true, 'name' => true));
 		$result['Container']['container_item_count'] = (int)$result['Container']['container_item_count'];
 		$this->jsonOutput($result);
 	}
@@ -97,10 +98,10 @@ class ContainersController extends ApiAppController {
 				$results[$key]['Container']['location_id']
 			);
 		}
-		$this->output = array(
+		$this->jsonOutput(array(
 			'search' => $results,
 			'pages' => $this->request->params['paging']['ContainerItem']['pageCount'],
 			'total' => $this->request->params['paging']['ContainerItem']['count']
-		);
+		));
 	}
 }

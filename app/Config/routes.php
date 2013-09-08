@@ -1,6 +1,6 @@
 <?php
 
-Router::parseExtensions();
+Router::parseExtensions('json');
 /**
  * Static pages:
  * /slug => template name
@@ -8,7 +8,8 @@ Router::parseExtensions();
 $static_pages = array(
 	'' => 'home',
 	'terms' => 'terms',
-	'privacy' => 'privacy'
+	'privacy' => 'privacy',
+	'developer' => 'developer'
 );
 foreach($static_pages as $slug => $page) {
 	Router::connect('/'.$slug, array('controller' => 'pages', 'action' => 'display', $page));
@@ -22,6 +23,19 @@ Router::connect('/account', array('controller' => 'users', 'action' => 'account'
 
 // Application
 Router::connect('/dashboard', array('controller' => 'containers', 'action' => 'dashboard'));
+
+// API
+Router::connect('/api/containers/search/*', array('plugin' => 'api', 'controller' => 'containers', 'action' => 'search'));
+Router::connect('/api/users/login', array('plugin' => 'api', 'controller' => 'users', 'action' => 'login', '[method]' => 'POST'));
+// API Mapped resources
+Router::mapResources(array(
+	'Api.containers',
+	'Api.container_items'
+), array(
+	'id' => '[a-z0-9-]+'
+));
+// API Catchall
+Router::connect('/api/*', array('plugin' => 'api'));
 
 // Fallback
 Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));

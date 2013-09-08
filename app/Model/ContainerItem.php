@@ -104,10 +104,14 @@ class ContainerItem extends AppModel {
 	// API Methods
 	public function getApiContainerItems($user_id, $conditions = array()) {
 		$conditions = array_merge(array('user_id' => $user_id), $conditions);
-		return $this->find('all', array(
+		$data = $this->find('all', array(
 			'fields' => array('uuid', 'body', 'quantity', 'created', 'modified'),
 			'conditions' => $conditions,
 			'limit' => 150
 		));
+		foreach ($data as &$datum) {
+			$datum['ContainerItem']['quantity'] = (int)$datum['ContainerItem']['quantity'];
+		}
+		return $data;
 	}
 }
