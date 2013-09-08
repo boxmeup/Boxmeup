@@ -24,7 +24,7 @@ class SphinxBehavior extends ModelBehavior
      */
     var $sphinx = null;
 
-    function setup(&$model, $config = array())
+    function setup(Model $model, $config = array())
     {
         $settings = array_merge($this->_defaults, (array) $config);
 
@@ -43,7 +43,7 @@ class SphinxBehavior extends ModelBehavior
      * @return array Modified query
      * @access public
      */
-    function beforeFind(&$model, $query)
+    function beforeFind(Model $model, $query)
     {
         if (empty($query['sphinx']) || empty($query['search']))
             return true;
