@@ -6,7 +6,7 @@
 		__('Privacy Policy') => '/privacy'
 	);
 	if (Configure::read('Feature.api')) {
-		$footer_links[__('API')] = 'https://github.com/boxmeup/Boxmeup/wiki/API-Documentation';
+		$footer_links[__('API')] = '/developer';
 	}
 ?>
 <div class="container footer">
