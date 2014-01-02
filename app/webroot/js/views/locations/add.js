@@ -1,5 +1,5 @@
 $(function() {
-	var location_url = 'http://maps.googleapis.com/maps/api/staticmap?size=350x350&maptype=roadmap&sensor=false&markers=size:small|color:red|',
+	var location_url = 'http://maps.googleapis.com/maps/api/staticmap?size=400x350&maptype=roadmap&sensor=false&markers=size:small|color:red|',
 		submit_shown = false;
 	$('.preview-button').on('click', function(e) {
 		e.preventDefault();
