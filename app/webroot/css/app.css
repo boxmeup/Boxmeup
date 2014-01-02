@@ -51,14 +51,17 @@ body { margin-top: 90px; margin-bottom: 90px;}
 	body {
 		margin-bottom: 0px;
 	}
-	.main-navigation {
-		width: 100%;
-		position: relative;
-	}
 	.submenu.affix {
 		position: relative;
 	}
 	.footer.navbar-fixed-bottom {
+		position: relative;
+	}
+}
+
+@media (min-width: 0) and (max-width: 1199px) {
+	.main-navigation {
+		width: 100%;
 		position: relative;
 	}
 }
