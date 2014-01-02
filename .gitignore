@@ -1,6 +1,8 @@
 ._*
 .project
 
+app/Vendor/
+
 # config
 app/Config/bootstrap.php
 app/Config/core.php

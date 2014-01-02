@@ -1,0 +1,38 @@
+{
+    "name": "boxmeup/boxmeup",
+    "type": "library",
+    "description": "Boxmeup application.",
+    "keywords": ["boxmeup"],
+    "homepage": "http://boxmeupapp.com",
+    "license": "GPL3",
+    "authors": [
+        {
+            "name": "Chris Saylor",
+            "email": "cjsaylor@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "pear",
+            "url": "http://pear.cakephp.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.10",
+        "composer/installers": "*",
+        "pear-cakephp/cakephp": "2.3.10",
+        "neutron/sphinxsearch-api": "2.0.8",
+        "cjsaylor/gchart": "2.0.2"
+    },
+    "require-dev": {
+        "cakephp/debug_kit": "2.2.*"
+    },
+    "config": {
+        "vendor-dir": "app/Vendor"
+    },
+    "extra" : {
+        "installer-paths": {
+            "app/Plugin/{$name}/": ["type:cakephp-plugin"]
+        }
+    }
+}

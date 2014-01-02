@@ -1,5 +1,10 @@
 <?php
 
+// Autoloader
+require_once APP . 'Vendor/autoload.php';
+spl_autoload_unregister(array('App', 'load'));
+spl_autoload_register(array('App', 'load'), true, true);
+
 Cache::config('default', array('engine' => 'File'));
 Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
@@ -13,6 +18,14 @@ if (Configure::read('debug') > 0) {
 		'types' => array('notice', 'info', 'debug'),
 		'file' => 'debug',
 	));
+	App::uses('CakeEventManager', 'Event');
+	CakeEventManager::instance()->attach(function(CakeEvent $event) {
+		CakePlugin::load('DebugKit');
+		$controller = $event->subject();
+		$controller->Toolbar = $controller->Components->load('DebugKit.Toolbar', array(
+			'autoRun' => false
+		));
+	}, 'Controller.initialize');
 }
 CakeLog::config('error', array(
 	'engine' => 'FileLog',
