@@ -8,7 +8,7 @@ class UsersController extends AppController {
 	public $components = array('Email');
 
 	protected $ssl = array(
-		'login', 'signup', 'account', 'reset_password'
+		'login', 'signup', 'account', 'reset_password', 'auth'
 	);
 	
 	public function beforeFilter() {
