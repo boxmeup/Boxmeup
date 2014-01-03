@@ -107,6 +107,9 @@ class AppController extends Controller {
 		if ($this->request->action == 'logout' || !$this->RequestHandler->isGet()) {
 			return;
 		}
+		if ($this->request->isAjax()) {
+			return;
+		}
 		if (in_array($this->request->action, $this->ssl)) {
 			if (env('https') !== 'on') {
 				$redirect = 'https://' . env('SERVER_NAME') . $this->request->here;
