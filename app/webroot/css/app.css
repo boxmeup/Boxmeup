@@ -35,6 +35,11 @@ body { margin-top: 90px; margin-bottom: 90px;}
 	position: fixed;
 }
 
+.nav .caret {
+	border-top-color: white !important;
+	border-bottom-color: white;
+}
+
 @media (min-width: 1200px) {
 	.main-navigation {
 		width: 240px;
