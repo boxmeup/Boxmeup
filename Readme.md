@@ -18,7 +18,8 @@ tells you where it is!
 ## Setup
 
 1. Install composer dependences: `composer install --dev`.
-1. Configure sphinx search using `config/sphinx.conf`
+1. Import MySQL tables using `config/boxmeup_2013-08-05.sql`.
+1. Configure sphinx search using `config/sphinx.conf`.
 1. Copy application configuration distribution files:
     * `app/Config/bootstrap.php`
     * `app/Config/core.php`
