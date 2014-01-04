@@ -48,29 +48,20 @@ CakePlugin::load('DebugKit');
 // Configure::write('Site.theme', 'default');
 
 // Mobile themes
-Configure::write('Site.mobile_theme', 'mobile');
-Configure::write('Site.jquery_mobile_theme', 'b');
+Configure::write('Site.mobile_theme', Configure::read('Env.Site.mobile_theme') ?: 'mobile');
+Configure::write('Site.jquery_mobile_theme', Configure::read('Env.Site.jquery_mobile_theme') ?: 'b');
 
 // Analytics
-Configure::write('Analytics.tracking_code', '');
+Configure::write('Analytics.tracking_code', Configure::read('Env.Analytics.tracking_code'));
 
 // Feedback plugin
-Configure::write('Feedback.github.project', 'cjsaylor/Boxmeup');
-Configure::write('Feedback.github.auth_token', '');
+Configure::write('Feedback.github.project', Configure::read('Env.Feedback.github.project') ?: 'cjsaylor/Boxmeup');
+Configure::write('Feedback.github.auth_token', Configure::read('Env.Feedback.github.auth_token'));
 Configure::write('Feedback.github.labels', array('Feedback'));
 
 // Message
-Configure::write('Message.message', 'Some message.');
-Configure::write('Message.cookie_suffix', '002');
+Configure::write('Message.message', Configure::read('Env.Message.message') ?: 'Some user message.');
+Configure::write('Message.cookie_suffix', Configure::read('Env.Message.cookie_suffix') ?: '001');
 
 // Feature activation
-Configure::write('Feature.api', true);
-Configure::write('Feature.mobile', true);
-Configure::write('Feature.analytics', false);
-Configure::write('Feature.feedback', true);
-Configure::write('Feature.user_registration', true);
-Configure::write('Feature.bulk_export', true);
-Configure::write('Feature.forgot_password', true);
-Configure::write('Feature.autocomplete', true);
-Configure::write('Feature.https_redirect', true);
-Configure::write('Feature.beta', false);
+Configure::write('Feature', Configure::read('Env.Feature'));

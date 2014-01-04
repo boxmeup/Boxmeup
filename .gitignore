@@ -4,22 +4,11 @@
 app/Vendor/
 
 # config
-app/Config/bootstrap.php
-app/Config/core.php
-app/Config/database.php
-
-# Build config
-config/bootstrap.php
-config/core.php
-config/database.php
+app/Config/environment.php
 
 # cache
 app/tmp/**/*
 app/webroot/tmp/*
-
-# misc
-cakephp/
-cakephp/*/**
 
 !empty
 
