@@ -3,8 +3,6 @@
 		<div class="col-lg-4 col-md-offset-4">
 			<h2><?php echo __('Join Boxmeup'); ?></h2>
 			<?php if(Configure::read('Feature.user_registration')) { ?>
-				<?php echo $this->Html->script('jquery.showpassword', array('inline' => true)); ?>
-				<?php echo $this->Html->script('views/users/signup', array('inline' => true)); ?>
 				<?php
 					echo $this->Form->create('User');
 					echo $this->Form->input('email', array('label' => false, 'placeholder' => __('Email Address'), 'class' => 'form-control input-lg')) . '<br>';

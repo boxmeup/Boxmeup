@@ -87,7 +87,7 @@ class ContainerItem extends AppModel {
 
 	public function searchContainers(&$controller, $user_id, $query) {
 		$controller->paginate = array(
-			'search' => $query,
+			'search' => rtrim($query, '*') . '*',
 			'sphinx' => array(
 				'matchMode' => SPH_MATCH_ALL,
 				'index' => array('container_items', 'container_items_delta'),

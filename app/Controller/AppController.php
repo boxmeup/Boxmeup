@@ -4,8 +4,7 @@ class AppController extends Controller {
 		'Auth',
 		'RequestHandler',
 		'Session',
-		'Cookie',
-		'DebugKit.Toolbar'
+		'Cookie'
 	);
 	public $helpers = array('Html', 'Form', 'Session', 'Paginator');
 
@@ -106,6 +105,9 @@ class AppController extends Controller {
 			return;
 		}
 		if ($this->request->action == 'logout' || !$this->RequestHandler->isGet()) {
+			return;
+		}
+		if ($this->request->isAjax()) {
 			return;
 		}
 		if (in_array($this->request->action, $this->ssl)) {

@@ -1,6 +1,9 @@
 <?php
 
-	Configure::write('debug', 0);
+	// Load in environment configurations.
+	Configure::load('environment');
+
+	Configure::write('debug', Configure::read('Env.debug'));
 	Configure::write('Error', array(
 		'handler' => 'ErrorHandler::handleError',
 		'level' => E_ALL & ~E_DEPRECATED,
@@ -31,8 +34,8 @@
 	));
 
 	Configure::write('Security.level', 'medium');
-	Configure::write('Security.salt', '');
-	Configure::write('Security.cipherSeed', '');
+	Configure::write('Security.salt', Configure::read('Env.salt'));
+	Configure::write('Security.cipherSeed', Configure::read('Env.cipher'));
 
 	Configure::write('Asset.timestamp', 'force');
 

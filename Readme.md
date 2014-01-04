@@ -13,18 +13,11 @@ tells you where it is!
 ## Requirements
 
 * PHP 5.3+
-* Sphinxsearch 0.99+
+* Sphinxsearch 2.0.4+
 
 ## Setup
 
-1. Configure sphinx search using `app/config/sphinx.conf`
-1. Copy application configuration distribution files:
-    * `app/Config/bootstrap.php`
-    * `app/Config/core.php`
-    * `app/Config/database.php`
-1. Make temporary directories writable by your webserver
-
-# Build
-
-1. Place production configuration files in `config/`
-2. Run `./bin/build.sh` from root application directory.
+1. Install composer dependences: `composer install --dev`.
+1. Import MySQL tables using `config/boxmeup_2013-08-05.sql`.
+1. Configure sphinx search using `config/sphinx.conf`.
+1. Make temporary directories writable by your webserver: `chmod 0777 -R app/tmp`

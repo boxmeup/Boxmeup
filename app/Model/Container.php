@@ -86,11 +86,10 @@ class Container extends AppModel {
 		return $controller->paginate($this);
 	}	
 	
-	public function getContainerBySlug($slug, $user_id) {
+	public function getContainerBySlug($slug) {
 		return $this->find('first', array(
 			'conditions' => array(
-				'Container.slug' => $slug, 
-				'Container.user_id' => $user_id
+				'Container.slug' => $slug,
 			),
 			'contain' => array(
 				'ContainerItem',

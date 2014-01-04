@@ -1,23 +1,14 @@
 ._*
 .project
 
-# config
-app/Config/bootstrap.php
-app/Config/core.php
-app/Config/database.php
+app/Vendor/
 
-# Build config
-config/bootstrap.php
-config/core.php
-config/database.php
+# config
+app/Config/environment.php
 
 # cache
 app/tmp/**/*
 app/webroot/tmp/*
-
-# misc
-cakephp/
-cakephp/*/**
 
 !empty
 

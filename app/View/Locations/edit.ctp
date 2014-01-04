@@ -3,7 +3,7 @@
 ?>
 <h2><?php echo __('Edit Location'); ?></h2>
 <div class="row">
-	<div class="col-lg-7">
+	<div class="col-lg-6">
 		<?php 
 			echo $this->Form->create('Location', array('url' => array('controller' => 'locations', 'action' => 'edit', $location_uuid), 'class' => 'form-horizontal')); 
 			echo $this->Form->input('uuid', array('type' => 'hidden'));
@@ -30,10 +30,10 @@
 <?php
 	echo $this->Form->end();
 ?>
-	<div class="col-lg-5 well well-small">
+	<div class="col-lg-6 well well-small">
 	<?php
 		$address = !empty($this->request->data['Location']) ? implode(',', $this->request->data['Location']) : '';
 	?>
-		<img class="preview-map" src="http://maps.googleapis.com/maps/api/staticmap?size=350x350&sensor=false&maptype=roadmap&markers=size:small|color:red|<?php echo $address ?>" />
+		<img class="preview-map" src="http://maps.googleapis.com/maps/api/staticmap?size=400x350&sensor=false&maptype=roadmap&markers=size:small|color:red|<?php echo $address ?>" />
 	</div>
 </div>

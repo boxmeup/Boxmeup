@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-lg-4 col-offset-4">
+		<div class="col-lg-4 col-lg-offset-4">
 			<h2><?php echo __('Not found'); ?></h2>
 			<br/>
 			<p style="text-align: center"><?php echo $this->Html->image('missing-box.png'); ?></p>

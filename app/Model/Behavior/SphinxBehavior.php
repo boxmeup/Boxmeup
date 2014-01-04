@@ -8,7 +8,6 @@
  * @author  Vilen Tambovtsev
  * @license      http://www.opensource.org/licenses/mit-license.php The MIT License
  */
-require_once APP . '/vendors/sphinxapi.php';
 class SphinxBehavior extends ModelBehavior
 {
 
