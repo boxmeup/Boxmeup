@@ -41,7 +41,6 @@ CakePlugin::load('Api', array(
 CakePlugin::load('GChart');
 CakePlugin::load('Utility');
 CakePlugin::load('Feedback');
-CakePlugin::load('DebugKit');
 
 // Features
 // Site Theme
