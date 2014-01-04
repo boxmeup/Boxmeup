@@ -30,6 +30,11 @@
     "config": {
         "vendor-dir": "app/Vendor"
     },
+    "scripts": {
+        "post-install-cmd": [
+            "if [ ! -f ./app/Config/environment.php ]; then cp ./app/Config/environment.sample.php ./app/Config/environment.php; fi"
+        ]
+    },
     "extra" : {
         "installer-paths": {
             "app/Plugin/{$name}/": ["type:cakephp-plugin"]
