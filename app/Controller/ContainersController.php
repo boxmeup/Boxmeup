@@ -55,12 +55,15 @@ class ContainersController extends AppController {
 
 	public function view($slug=null) {
 		$this->helpers[] = 'Time';
-		$container = $this->Container->getContainerBySlug($slug, $this->Auth->user('id'));
-		if(!empty($container)) {
-			$this->verifyUser($container['Container']['id']);
-			$this->set('container_slug', $container['Container']['slug']);
-			$this->request->data['ContainerItem']['quantity'] = 1;
+		$container = $this->Container->getContainerBySlug($slug);
+		if (empty($container)) {
+			throw new NotFoundException('Container not found.');
 		}
+		if ($container['Container']['user_id'] !== $this->Auth->user('id')) {
+			throw new ForbiddenException('Not authorized to view this container.');
+		}
+		$this->set('container_slug', $container['Container']['slug']);
+		$this->request->data['ContainerItem']['quantity'] = 1;
 		$title_for_layout = $container['Container']['name'];
 		$container_items = $this->Container->ContainerItem->getPaginatedContainerItems($this, $container['Container']['id']);
 		$this->set(compact('container', 'container_items', 'title_for_layout'));
