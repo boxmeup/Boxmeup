@@ -15,6 +15,7 @@ class UsersController extends AppController {
 		$requires_auth = array(
 			'account',
 			'reset_password',
+			'auth'
 		);
 		if(in_array($this->request->action, $requires_auth)) {
 			$this->_secure = true;
@@ -174,7 +175,7 @@ class UsersController extends AppController {
 			if($this->User->verifyRecoveryKey($this->Auth->user('id'), $this->request->data['User']['recovery_key'])) {
 				$this->request->data['User']['id'] = $this->Auth->user('id');
 				$this->request->data['User']['reset_password'] = '0';
-				$this->request->data['User']['password'] = $this->User->hashPassword($this->request->data['User']['password']);
+				$this->request->data['User']['password'] = $this->request->data['User']['password'];
 				$result = $this->User->save($this->request->data);
 				if($result) {
 					$this->Session->setFlash(__('Successfully reset password.'), 'notification/success');
