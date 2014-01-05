@@ -5,7 +5,7 @@ class UsersController extends AppController {
 
 	public $name = 'Users';
 	
-	public $components = array('Email');
+	public $components = array('CustomEmail');
 
 	protected $ssl = array(
 		'login', 'signup', 'account', 'reset_password', 'auth'
@@ -148,19 +148,21 @@ class UsersController extends AppController {
 					$secretKey = ClassRegistry::init('Api.ApiUser')->getSecretKey($apiKey);
 					$dynKey = base64_encode(date('c'));
 					$hash = sha1($dynKey . $secretKey);
-					$this->Email->to = $this->request->data['User']['email'];
-					$this->Email->subject = 'Boxmeup Password Recovery';
-					$this->Email->replyTo = 'no-reply@boxmeupapp.com';
-					$this->Email->from = 'Boxmeup App <no-reply@boxmeupapp.com>';
-					$this->Email->template = 'forgot_password';
-					$this->Email->sendAs = 'text';
-					$this->set(array(
-						'password' => $new_password,
-						'api_key' => $apiKey,
-						'dynamic_key' => $dynKey,
-						'hash' => $hash
-					));
-					$this->Email->send();
+					$sent = $this->CustomEmail->send(
+						$this->request->data['User']['email'],
+						'Boxmeup Password Recovery',
+						'forgot_password',
+						array(
+							'password' => $new_password,
+							'api_key' => $apiKey,
+							'dynamic_key' => $dynKey,
+							'hash' => $hash
+						)
+					);
+					if (!$sent) {
+						$this->Session->setFlash(__('Failed to send recovery email.'), 'notification/error');
+						$this->redirect('/users/forgot_password');
+					}
 				}
 				$this->Session->setFlash(__('Successfully sent recovery request.'), 'notification/success');
 				$this->redirect('/login');

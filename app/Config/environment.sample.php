@@ -14,6 +14,12 @@ $config = array(
 				'database' => 'boxmeup'
 			)
 		),
+		'Email' => array(
+			'mailgun' => array(
+				'domain' => '',
+				'api_key' => ''
+			)
+		),
 		'Feature' => array(
 			'api' => true,
 			'mobile' => true,

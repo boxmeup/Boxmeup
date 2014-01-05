@@ -58,6 +58,9 @@ Configure::write('Feedback.github.project', Configure::read('Env.Feedback.github
 Configure::write('Feedback.github.auth_token', Configure::read('Env.Feedback.github.auth_token'));
 Configure::write('Feedback.github.labels', array('Feedback'));
 
+// Email Config
+Configure::write('Email.mailgun', Configure::read('Env.Email.mailgun'));
+
 // Message
 Configure::write('Message.message', Configure::read('Env.Message.message') ?: 'Some user message.');
 Configure::write('Message.cookie_suffix', Configure::read('Env.Message.cookie_suffix') ?: '001');
