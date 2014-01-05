@@ -2,6 +2,8 @@
 .project
 
 app/Vendor/
+app/Plugin/DebugKit
+app/Plugin/GChart
 
 # config
 app/Config/environment.php
