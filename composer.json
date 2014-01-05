@@ -22,7 +22,8 @@
         "composer/installers": "*",
         "pear-cakephp/cakephp": "2.3.10",
         "neutron/sphinxsearch-api": "2.0.8",
-        "cjsaylor/gchart": "2.0.2"
+        "cjsaylor/gchart": "2.0.2",
+        "mailgun/mailgun-php": "1.5"
     },
     "require-dev": {
         "cakephp/debug_kit": "2.2.*"
