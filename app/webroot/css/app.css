@@ -40,6 +40,15 @@ body { margin-top: 90px; margin-bottom: 90px;}
 	border-bottom-color: white;
 }
 
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+	z-index: 0;
+}
+
 @media (min-width: 1200px) {
 	.main-navigation {
 		width: 240px;
