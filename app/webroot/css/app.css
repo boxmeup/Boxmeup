@@ -50,8 +50,14 @@ body { margin-top: 90px; margin-bottom: 90px;}
 }
 
 @media (min-width: 1200px) {
+	.container>.navbar-header, .container>.navbar-collapse {
+		margin-left: 37px;
+	}
 	.main-navigation {
 		width: 240px;
+		height: 100%;
+		top: -5px;
+		padding-top: 100px;
 	}
 }
 
