@@ -108,6 +108,7 @@ class UsersController extends AppController {
 			if(empty($this->request->data['User']['password'])) {
 				unset($this->request->data['User']['password']);
 			}
+			$this->Cookie->write('language', $this->request->data['User']['locale'], false, '1 week');
 			if($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('Successfully updated account settings.'), 'notification/success');
 				$this->redirect(array('action' => 'account'));
@@ -117,6 +118,7 @@ class UsersController extends AppController {
 		} else {
 			$this->request->data['User']['email'] = $this->User->field('email', array('id' => $this->Auth->user('id')));
 		}
+		$this->request->data['User']['locale'] = $this->Cookie->read('language');
 		$api_key = ClassRegistry::init('Api.ApiUser')->getApiKey($this->Auth->user('id'));
 		$secret_key = ClassRegistry::init('Api.ApiUser')->getSecretKey($api_key);
 		$this->set(compact('api_key', 'secret_key'));

@@ -13,6 +13,13 @@
 	<label for="UserPassword" class="col-lg-3"><?php echo __('Update Password') ?></label>
 	<div class="col-lg-9">
 		<?php echo $this->Form->input('password', array('placeholder' => 'Leave blank if you do not wish to change.', 'label' => false, 'class' => 'form-control', 'required' => false)); ?>
+		
+	</div>
+</div>
+<div class="form-group">
+	<label for"Language" class="col-lg-3"><?php echo __('Language') ?></label>
+	<div class="col-lg-9">
+		<?php echo $this->Form->input('locale', array('id' => 'change-language-locale', 'label' => false, 'div' => false, 'class' => 'form-control', 'options' => $availableLanguages)); ?>
 		<br>
 		<button type="submit" class="btn btn-primary"><?php echo __('Update Account Settings') ?></button>
 	</div>
