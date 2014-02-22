@@ -55,7 +55,7 @@
 				<?php echo $this->element('app/navigation'); ?>
 			</div>
 			<div class="col-lg-9">
-				<div class="submenu" data-spy="affix" data-offset-top="50">
+				<div class="submenu">
 					<?php echo $this->element('app/submenu'); ?>
 					<div class="spacer"></div>
 				</div>
