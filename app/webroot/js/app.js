@@ -16,6 +16,13 @@ var boxmeup = {
 			.val('')
 			.removeAttr('checked')
 			.removeAttr('selected');
+	},
+	displayGotoTop: function(e) {
+		if ($(window).scrollTop() > 0) {
+			$('.to-top').removeClass('hidden');
+		} else {
+			$('.to-top').addClass('hidden');
+		}
 	}
 };
 
@@ -24,6 +31,8 @@ $(function() {
 		boxmeup.dismissMessage();
 		return false;
 	});
+
+	$(window).on('scroll', boxmeup.displayGotoTop);
 
 	// Search autocomplete
 	if (BMU_CLIENT.features.autocomplete) {
