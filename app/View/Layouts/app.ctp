@@ -11,7 +11,7 @@
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css');
 		echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
-		echo $this->Html->css('//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css');
+		echo $this->Html->css('//netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab/bootstrap.min.css');
 		echo $this->Html->css('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css');
 		echo $this->Html->css('app');
 		if (Configure::read('Feature.feedback')) {
