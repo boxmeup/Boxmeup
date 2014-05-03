@@ -8,6 +8,8 @@ class ContainersController extends AppController {
 
 	public $_secure = true;
 
+	public $uses = ['Container', 'Location'];
+
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->set('active', 'containers.index');
@@ -17,7 +19,7 @@ class ContainersController extends AppController {
 		$this->helpers[] = 'Time';
 		$total_containers = $this->Container->getTotalContainersPerUser($this->Auth->user('id'));
 		$total_container_items = $this->Container->getTotalContainerItemsPerUser($this->Auth->user('id'));
-		$total_locations = ClassRegistry::init('Location')->getTotalLocationsPerUser($this->Auth->user('id'));
+		$total_locations = $this->Location->getTotalLocationsPerUser($this->Auth->user('id'));
 
 		// Recent items
 		$recent_items = $this->Container->ContainerItem->getRecentItems($this->Auth->user('id'));
@@ -40,14 +42,14 @@ class ContainersController extends AppController {
 			$this->Session->setFlash('Start by creating a container.', 'notification/notice');
 			$this->redirect(array('action' => 'add'));
 		}
-		
+
 		// Check the cookie and render the view depending on what was selected
-		$location_list = ClassRegistry::init('Location')->getLocationList($this->Auth->user('id'), true);
+		$location_list = $this->Location->getLocationList($this->Auth->user('id'), true);
 		array_unshift($location_list, array('__UNASSIGNED__' => '-- Unassigned --'));
 		$this->set(compact('containers', 'control', 'location_list'));
 		$this->request->data['Location']['uuid'] = !empty($this->request->params['named']['location']) ? $this->request->params['named']['location'] : null;
 	}
-	
+
 	public function change_view($view) {
 		$this->Session->write('Feature.change_view', $view == 'list' ? 'list' : 'grid');
 		$this->redirect($this->referer());
@@ -71,20 +73,27 @@ class ContainersController extends AppController {
 	}
 
 	public function add() {
-		$this->set('title_for_layout', __('Add New Container'));
+		$location_list = $this->Location->getLocationList($this->Auth->user('id'), true);
+		$this->set(array(
+			'title_for_layout' => __('Add New Container'),
+			'location_list' => $location_list
+		));
 		if(!empty($this->request->data)) {
 			$this->request->data['Container']['user_id'] = $this->Auth->user('id');
-			$results = $this->Container->save($this->request->data);
+			if (!empty($this->request->data['Container']['location_id'])) {
+				$this->request->data['Container']['location_id'] = $this->Location->getIdByUUID($this->request->data['Container']['location_id']);
+			}
+			$this->Container->set($this->request->data);
+			$results = $this->Container->save();
 			if($results) {
 				$this->Session->setFlash('Successfully added new container', 'notification/success');
-				$page = (int) ceil($this->Container->getTotalContainersPerUser($this->Auth->user('id')) / $this->Container->pagination_limit);
 				$this->redirect(array('controller' => 'containers', 'action' => 'view', $results['Container']['slug']));
 			} else {
 				$this->Session->setFlash('There was a problem saving your container.', 'notification/error');
 			}
 		}
 	}
-	
+
 	public function ajax_add($container_item_id) {
 		$this->helpers[] = 'Time';
 		$item = $this->Container->ContainerItem->find('first', array(
@@ -112,7 +121,7 @@ class ContainersController extends AppController {
 				$this->Session->setFlash(__('Unable to update the container.'), 'notification/error');
 			}
 		} else {
-			$location_list = ClassRegistry::init('Location')->getLocationList($this->Auth->user('id'));
+			$location_list = $this->Location->getLocationList($this->Auth->user('id'));
 			$this->request->data = $this->Container->find('first', array(
 				'conditions' => array('uuid' => $container_uuid),
 				'contain' => array()
@@ -147,7 +156,7 @@ class ContainersController extends AppController {
 			'contain' => array()
 		)));
 	}
-	
+
 	public function export($container_uuid) {
 		$this->helpers[] = 'Csv';
 		$this->layout = false;
@@ -164,7 +173,7 @@ class ContainersController extends AppController {
 		));
 		$this->set(compact('data'));
 	}
-	
+
 	public function bulk_print() {
 		if(!empty($this->request->data)) {
 			$this->helpers[] = 'GChart.QR';

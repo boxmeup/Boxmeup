@@ -1,8 +1,6 @@
 php_value newrelic.appname "Boxmeup"
 
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteBase	   /app/
-    RewriteRule    ^$    webroot/    [L]
-    RewriteRule    (.*) webroot/$1    [L]
- </IfModule>
+RewriteEngine on
+RewriteBase	   /app/
+RewriteRule    ^$    webroot/    [L]
+RewriteRule    (.*) webroot/$1    [L]
