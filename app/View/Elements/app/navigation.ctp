@@ -54,5 +54,11 @@
 			</a>
 		</li>
 	<?php endforeach ?>
+		<li class="to-top hidden" style="border-top: 1px solid #ddd"></li>
+		<li>
+			<a href="#" class="to-top hidden">
+				<i class="icon-arrow-up" style="color: #666; margin-right: 15px"></i><?php echo __('Go to Top') ?>
+			</a>
+		</li>
 	</ul>
 </div>

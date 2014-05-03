@@ -5,12 +5,6 @@ $(function() {
 		modalTemplate = _.template(data);
 	});
 
-	// Language
-	$('body').on('change', '#change-language', function() {
-		url = $(this).attr('action');
-		window.location.href = url + '/' + $('#change-language-locale option:selected').val();
-	});
-
 	// Unregister BS3's default handler to intercept and handle remote handling to suit boxmeup
 	$(document).off('click.bs.modal.data-api', '[data-toggle="modal"]');
 	$(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {

@@ -40,9 +40,24 @@ body { margin-top: 90px; margin-bottom: 90px;}
 	border-bottom-color: white;
 }
 
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+	z-index: 0;
+}
+
 @media (min-width: 1200px) {
+	.container>.navbar-header, .container>.navbar-collapse {
+		margin-left: 37px;
+	}
 	.main-navigation {
 		width: 240px;
+		height: 100%;
+		top: -5px;
+		padding-top: 100px;
 	}
 }
 
