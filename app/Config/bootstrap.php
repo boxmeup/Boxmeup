@@ -47,7 +47,7 @@ CakePlugin::load('Feedback');
 // Configure::write('Site.theme', 'default');
 
 // Mobile themes
-Configure::write('Site.mobile_theme', Configure::read('Env.Site.mobile_theme') ?: 'mobile');
+Configure::write('Site.mobile_theme', Configure::read('Env.Site.mobile_theme') ?: 'Mobile');
 Configure::write('Site.jquery_mobile_theme', Configure::read('Env.Site.jquery_mobile_theme') ?: 'b');
 
 // Analytics
