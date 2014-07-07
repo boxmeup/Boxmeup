@@ -5,7 +5,8 @@ require.config({
 		angularRoute: '../bower_components/angular-route/angular-route.min',
 		bootstrap: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
 		jquery: '../bower_components/jquery/dist/jquery.min',
-		text: '../bower_components/requirejs-text/text'
+		text: '../bower_components/requirejs-text/text',
+		lodash: '../bower_components/lodash/dist/lodash.min'
 	},
 	shim: {
 		'angular' : {'exports' : 'angular'},
