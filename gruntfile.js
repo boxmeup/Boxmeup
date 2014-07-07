@@ -10,7 +10,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		jshint: {
 			options : {
-				jshintrc : "jshint.json"
+				jshintrc : "jshint.json",
+				ignores : [
+					'web/js/build.js'
+				]
 			},
 			source : ['web/js/*.js']
 		},
