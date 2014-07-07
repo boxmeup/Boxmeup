@@ -1,0 +1,7 @@
+SetEnv DEBUG 1
+
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+RewriteRule    ^$    web/    [L]
+RewriteRule    (.*) web/$1    [L]

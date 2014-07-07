@@ -1,0 +1,26 @@
+{
+	"name": "boxmeup",
+	"version": "3.0.0",
+	"authors": [
+		"Chris Saylor <cjsaylor@gmail.com>"
+	],
+	"homepage": "http://www.boxmeupapp.com",
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"web/bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"angular": "~1.2.1",
+		"angular-route": "~1.2.1",
+		"angular-scenario": "~1.2.1",
+		"angular-mocks": "~1.2.1",
+		"bootstrap-sass-official": "~3.2.0",
+		"html5-boilerplate": "~4.3.0",
+		"requirejs": "~2.1.9",
+		"requirejs-text": "~2.0.10"
+	}
+}

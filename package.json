@@ -1,0 +1,11 @@
+{
+  "name": "boxmeup",
+  "version": "3.0.0",
+  "author": "Chris Saylor <cjsaylor@gmail.com>",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-compass": "0.6.x",
+    "grunt-contrib-requirejs": "~0.4.4"
+  }
+}

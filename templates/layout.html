@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="boxmeup">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Boxmeup</title>
+	<link href="/favicon.ico" type="image/x-icon" rel="icon">
+	<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<!--[if lt IE 9]>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+ 	<![endif]-->
+</head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					<i class="icon-list" style="color: black"></i>
+				</button>
+				<a href="/" class="navbar-brand">Boxmeup</a>
+			</div>
+			<div class="navbar-collapse collapse navbar-responsive-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary dropdown-toggle navbar-btn" data-toggle="dropdown">
+								<i class="icon-user" style="margin-right: 5px"></i> Account <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="/account"><i class="icon-gears"></i> Settings</a></li>
+								<li><a href="/users/auth"><i class="icon-lock"></i> Applications</a></li>
+								<li class="divider"></li>
+								<li><a href="/logout"><i class="icon-off"></i> Sign Out</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<form action="/searches/find" autocomplete="off" class="navbar-form pull-right" id="SearchDashboardForm" method="post" accept-charset="utf-8">
+					<div style="display:none;">
+						<input type="hidden" name="_method" value="POST"/>
+					</div>
+					<input name="data[Search][query]" autocomplete="off" class="form-control" placeholder="Search" type="text" id="SearchQuery"/>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="well well-small main-navigation">
+					<ul class="nav nav-pills nav-stacked">
+							<li>
+							<a href="/dashboard"><i class="icon-dashboard" style="color: black; margin-right: 15px"></i>Dashboard</a>
+						</li>
+							<li>
+							<a href="/containers"><i class="icon-inbox" style="color: black; margin-right: 15px"></i>My Containers</a>
+						</li>
+							<li>
+							<a href="/container_items"><i class="icon-tasks" style="color: black; margin-right: 15px"></i>My Items</a>
+						</li>
+							<li>
+							<a href="/locations"><i class="icon-location-arrow" style="color: black; margin-right: 15px"></i>My Locations</a>
+						</li>
+							<li style="border-top:1px solid #ddd"></li>
+						<li class="dropdown-header">Quick Actions</li>
+							<li>
+							<a data-toggle="modal" data-target="#layout-modal" href="/forgot_login">
+								<i class="icon-qrcode" style="color: black; margin-right: 15px"></i>Login Your Phone			</a>
+						</li>
+							<li>
+							<a data-toggle="modal" data-target="#layout-modal" href="/containers/add">
+								<i class="icon-plus-sign" style="color: green; margin-right: 15px"></i>Add Container			</a>
+						</li>
+							<li class="to-top hidden" style="border-top: 1px solid #ddd"></li>
+						<li>
+							<a href="#" class="to-top hidden">
+								<i class="icon-arrow-up" style="color: #666; margin-right: 15px"></i>Go to Top			</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-9">
+				<div class="submenu">
+					<div id="submenu-content"></div>
+					<div class="spacer"></div>
+				</div>
+				<div id="ajax-error" class="alert alert-danger" style="display:none"></div>
+				<div class="row">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="layout-modal" data-role="dialog"></div>
+		<div class="footer navbar-fixed-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+						<a href="http://play.google.com/store/apps/details?id=com.boxmeup.app">
+							<img src="img/get_it_on_play_logo_small.png?1378946225" alt="Get it on Google Play" />				</a>
+					</div>
+					<div class="col-lg-8">
+						<div class="pull-right">
+							Copyright &copy; 2011-2014 <a href="/">Boxmeup</a>.  All rights reserved. -
+							<a href="/terms">Terms of Service</a>&nbsp;&nbsp;&nbsp;<a href="/privacy">Privacy Policy</a>&nbsp;&nbsp;&nbsp;<a href="http://status.boxmeupapp.com">Status</a>&nbsp;&nbsp;&nbsp;<a href="/developer">API</a>&nbsp;&nbsp;&nbsp;				</div>
+					</div>
+			</div>
+		</div>
+		{% if debug %}
+		<script data-main="js/main" src="/bower_components/requirejs/require.js"></script>
+		{% else %}
+		<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
+		<script>
+			require(['/js/build.js'], function() {});
+		</script>
+		{% endif %}
+</body>
+</html>
