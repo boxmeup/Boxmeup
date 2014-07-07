@@ -11,6 +11,7 @@ define([
 ) {
 	return app.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/dashboard', {
+			controller: 'Dashboard',
 			template: dashboardTemplate
 		});
 		$routeProvider.otherwise({redirectTo: '/dashboard'});
