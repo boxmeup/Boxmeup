@@ -1,6 +1,8 @@
 define([
 	'angular',
+	'lodash',
 
+	'Service/Notification',
 	'Service/Dashboard',
 	'Service/User',
 
@@ -12,7 +14,9 @@ define([
 	'angularRoute',
 ], function (
 	angular,
+	_,
 
+	notificationService,
 	dashboardService,
 	userService,
 
@@ -25,6 +29,7 @@ define([
 
 		app
 			// Services
+			.service('notification', notificationService)
 			.service('dashboard', dashboardService)
 			.service('user', userService)
 			// Controllers
@@ -32,6 +37,13 @@ define([
 			.controller('Account', accountController)
 			// Directives
 			.directive('bmuConfirmPassword', bmuConfirmPassword);
+
+		app.run(['$rootScope', 'notification', function($rootScope, notifier) {
+			$rootScope.$on('$routeChangeStart', function() {
+				notifier.clearAll.call(notifier);
+			});
+			$rootScope.notifyConsume = _.bind(notifier.consume, notifier);
+		}]);
 
 		return app;
 });
