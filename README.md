@@ -7,7 +7,7 @@ Boxmeup is a web and mobile application to help users keep track of what they ha
 
 * PHP 5.4+
 * MySQL 5.5
-* Sphinxsearch 1.0+
+* Sphinxsearch 2.0+
 * NodeJS (npm)
 * Bower
 * Compass
