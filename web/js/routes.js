@@ -18,6 +18,7 @@ define([
 		});
 		$routeProvider.when('/account', {
 			controller: 'Account',
+			controllerAs: 'AcctCtrl',
 			template: accountTemplate
 		});
 		$routeProvider.otherwise({redirectTo: '/dashboard'});
