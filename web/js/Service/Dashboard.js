@@ -36,7 +36,7 @@ define(['lodash'], function(_) {
 		deferred.resolve(data);
 
 		return deferred.promise;
-	}
+	};
 
 	return ['$q', Dashboard];
 
