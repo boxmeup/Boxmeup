@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 					'web/js/build.js'
 				]
 			},
-			source : ['web/js/*.js']
+			source : ['web/js/**/*.js']
 		},
 		compass: {
 			dist: {
