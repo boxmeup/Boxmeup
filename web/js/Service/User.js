@@ -1,7 +1,8 @@
 define(function() {
 
-	var User = function($q) {
+	var User = function($q, $timeout) {
 		this.$q = $q;
+		this.$timeout = $timeout;
 	};
 
 	/**
@@ -34,11 +35,13 @@ define(function() {
 			updated: 1
 		};
 
-		deferred.resolve(data);
+		this.$timeout(function() {
+			deferred.resolve(data);
+		}, 1000);
 
 		return deferred.promise;
 	};
 
-	return ['$q', User];
+	return ['$q', '$timeout', User];
 
 });

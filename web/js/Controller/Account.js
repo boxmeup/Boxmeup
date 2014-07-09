@@ -13,6 +13,7 @@ define(['lodash'], function(_) {
 	 * @return void
 	 */
 	Account.prototype.init = function() {
+		this.$scope.isSubmitting = false;
 		this.userService.details()
 			.then(_.bind(handleDetails, this.$scope));
 	};
@@ -23,9 +24,13 @@ define(['lodash'], function(_) {
 	 * @return void
 	 */
 	Account.prototype.update = function() {
+		this.$scope.isSubmitting = true;
 		this.userService.save(this.$scope.user)
 			.then(_.bind(notifyUserChange, this))
-			['catch'](_.bind(notifyUserChange, this, false));
+			['catch'](_.bind(notifyUserChange, this, false))
+			['finally'](_.bind(function() {
+				this.isSubmitting = false;
+			}, this.$scope));
 	};
 
 	/**
