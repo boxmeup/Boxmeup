@@ -21,6 +21,7 @@ body {
 
 .main-navigation, .main-navigation-bg {
 	position: fixed;
+	z-index: -1;
 }
 
 .nav .caret {

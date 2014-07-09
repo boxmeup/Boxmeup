@@ -1,4 +1,7 @@
 .pagination {
+	&.pf {
+		margin: 0;
+	}
 	&.active {
 		z-index: 0;
 	}
