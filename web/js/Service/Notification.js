@@ -61,11 +61,12 @@ define(['lodash'], function(_) {
 			this.messageBus = [];
 			return;
 		}
-		_.forEach(this.messageBus, _.bind(function(message, index) {
-			if(++this.messageBus[index].consumptionCount < message.persist) {
-				persistent.push(message, this.messageBus[index]);
+		_.forEach(this.messageBus, function(message, index) {
+
+			if(++message.consumptionCount < message.persist) {
+				persistent.push(message);
 			}
-		}, this));
+		});
 		this.messageBus = persistent;
 	};
 
