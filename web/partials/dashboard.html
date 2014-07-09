@@ -1,18 +1,21 @@
 <div class="loader" ng-if="!errors && (!stats || !recent)"></div>
-<div
-	ng-repeat="(key, data) in stats"
-	class="col-md-4"
->
-	<div class="panel panel-primary">
-		<div class="panel-heading">{{ key.charAt(0).toUpperCase() + key.substring(1) }}</div>
-		<div class="panel-body">
-			<h2 style="text-align: center">{{data[0] || number }} / {{ data[1] || '&infin;' }}</h2>
-			<div class="progress">
-				<div class="progress-bar" style="width: {{ data[2] || 0 }}%;"></div>
+<div class="row">
+	<div
+		ng-repeat="(key, data) in stats"
+		class="col-md-4"
+	>
+		<div class="panel panel-primary">
+			<div class="panel-heading">{{ key.charAt(0).toUpperCase() + key.substring(1) }}</div>
+			<div class="panel-body">
+				<h2 style="text-align: center">{{data[0] || number }} / {{ data[1] || '&infin;' }}</h2>
+				<div class="progress">
+					<div class="progress-bar" style="width: {{ data[2] || 0 }}%;"></div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 <div class="panel panel-default">
 	<div class="panel-heading">Recent Items</div>
 	<table class="table table-striped">
