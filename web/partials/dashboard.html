@@ -13,15 +13,16 @@
 		</div>
 	</div>
 </div>
-
-<h4>Recent Items</h4>
-<table class="table table-striped">
-	<tbody>
-		<tr ng-repeat="item in recent">
-			<td>{{ item.quantity }}</td>
-			<td>{{ item.body }}</td>
-			<td><a ng-href="/#/containers/{{ item.slug }}">{{ item.container }}</a></td>
-			<td>{{ item.modified | date : 'medium'}}</td>
-		</tr>
-	</tbody>
-</table>
+<div class="panel panel-default">
+	<div class="panel-heading">Recent Items</div>
+	<table class="table table-striped">
+		<tbody>
+			<tr ng-repeat="item in recent">
+				<td>{{ item.quantity }}</td>
+				<td>{{ item.body }}</td>
+				<td><a ng-href="/#/containers/{{ item.slug }}">{{ item.container }}</a></td>
+				<td>{{ item.modified | date : 'medium'}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

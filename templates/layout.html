@@ -43,14 +43,7 @@
 					</div>
 					<input name="data[Search][query]" autocomplete="off" class="form-control" placeholder="Search" type="text" id="SearchQuery"/>
 				</form>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3">
-				<div class="well well-small main-navigation">
+				<div class="main-navigation sidebar-collapse">
 					<ul class="nav nav-pills nav-stacked">
 							<li>
 							<a href="/#/dashboard"><i class="icon-dashboard" style="color: black; margin-right: 15px"></i>Dashboard</a>
@@ -82,18 +75,28 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-lg-9">
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="well well-small main-navigation-bg hidden-xs hidden-sm"></div>
+			</div>
+			<div class="col-md-9">
 				<div class="row">
-					{% verbatim %}
-					<div
-						class="alert alert-{{ message.type.toLowerCase() }}"
-						ng-repeat="message in notifyConsume()"
-						role="alert"
-						ng-bind="message.message"
-					>
+					<div class="col-lg-12">
+						{% verbatim %}
+						<div
+							class="alert alert-{{ message.type.toLowerCase() }}"
+							ng-repeat="message in notifyConsume()"
+							role="alert"
+							ng-bind="message.message"
+						>
+						</div>
+						{% endverbatim %}
+						{% block content %}{% endblock %}
 					</div>
-					{% endverbatim %}
-					{% block content %}{% endblock %}
 				</div>
 			</div>
 		</div>
