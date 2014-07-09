@@ -3,25 +3,31 @@ define([
 	'app',
 
 	'text!../partials/dashboard.html',
-	'text!../partials/user/account.html'
+	'text!../partials/user/account.html',
+	'text!../partials/container/list.html'
 ], function(
 	angular,
 	app,
 
 	dashboardTemplate,
-	accountTemplate
+	accountTemplate,
+	containerListTemplate
 ) {
 	return app.config(['$routeProvider', function($routeProvider) {
-		$routeProvider.when('/dashboard', {
-			controller: 'Dashboard',
-			template: dashboardTemplate
-		});
-		$routeProvider.when('/account', {
-			controller: 'Account',
-			controllerAs: 'AcctCtrl',
-			template: accountTemplate
-		});
-		$routeProvider.otherwise({redirectTo: '/dashboard'});
+		$routeProvider
+			.when('/dashboard', {
+				controller: 'Dashboard',
+				template: dashboardTemplate
+			})
+			.when('/account', {
+				controller: 'Account',
+				controllerAs: 'AcctCtrl',
+				template: accountTemplate
+			})
+			.when('/containers', {
+				template: containerListTemplate
+			})
+			.otherwise({redirectTo: '/dashboard'});
 	}]);
 
 });
