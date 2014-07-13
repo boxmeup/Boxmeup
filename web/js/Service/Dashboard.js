@@ -13,8 +13,8 @@ define(['lodash'], function(_) {
 	Dashboard.prototype.stats = function() {
 		var deferred = this.$q.defer();
 		var data = {
-			containers: [2, 10, 80],
-			items: [10, 25, 40],
+			containers: [10, 10, 100],
+			items: [15, 25, 60],
 			locations: [1, 5, 20]
 		};
 
