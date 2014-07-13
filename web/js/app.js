@@ -10,6 +10,7 @@ define([
 	'Controller/Account',
 
 	'Directive/bmuConfirmPassword',
+	'Directive/bmuNavbarCollapse',
 
 	'angularRoute',
 ], function (
@@ -23,7 +24,8 @@ define([
 	dashboardController,
 	accountController,
 
-	bmuConfirmPassword
+	bmuConfirmPassword,
+	bmuNavbarCollapse
 ) {
 		var app = angular.module('boxmeup', ['ngRoute']);
 
@@ -36,6 +38,7 @@ define([
 			.controller('Dashboard', dashboardController)
 			.controller('Account', accountController)
 			// Directives
+			.directive('bmuNavbarCollapse', bmuNavbarCollapse)
 			.directive('bmuConfirmPassword', bmuConfirmPassword);
 
 		app.run(['$rootScope', 'notification', function($rootScope, notifier) {
