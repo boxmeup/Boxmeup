@@ -36,3 +36,12 @@ body {
 .submenu {
 	z-index: 10;
 }
+
+@media (max-width: $screen-desktop - 1) {
+	body {
+		margin-bottom: 0;
+	}
+	.container {
+		width: 100%;
+	}
+}

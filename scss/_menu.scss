@@ -32,19 +32,10 @@
 }
 
 @media (max-width: $screen-desktop - 1) {
-	body {
-		margin-bottom: 125px;
-	}
-	.footer.navbar-fixed-bottom {
-		width: 100%;
-	}
 	.main-navigation {
 		width: 100%;
 		position: relative;
 		z-index: 0;
-	}
-	.container {
-		width: 100%;
 	}
 	.navbar-responsive-collapse {
 		.navbar-nav.input-group {
