@@ -1,6 +1,13 @@
+.navbar-nav.input-group {
+	width: 30em;
+	input {
+		margin: 8px 0;
+	}
+}
+
 @media (min-width: $screen-lg-desktop) {
 	.navbar>.container .navbar-brand {
-		margin-left: 50px;
+		margin-left: 0.4px;
 	}
 
 	.main-navigation, .main-navigation-bg {
@@ -12,6 +19,9 @@
 }
 
 @media (min-width: $screen-desktop) and (max-width: $screen-lg-desktop - 1) {
+	.navbar>.container {
+		width: 100%;
+	}
 	.main-navigation, .main-navigation-bg {
 		width: 240px;
 		height: 100%;
@@ -23,14 +33,23 @@
 
 @media (max-width: $screen-desktop - 1) {
 	body {
-		margin-bottom: 0px;
+		margin-bottom: 125px;
 	}
 	.footer.navbar-fixed-bottom {
 		width: 100%;
-		position: relative;
 	}
 	.main-navigation {
 		width: 100%;
 		position: relative;
+		z-index: 0;
+	}
+	.container {
+		width: 100%;
+	}
+	.navbar-responsive-collapse {
+		.navbar-nav.input-group {
+			width: 100%;
+			margin: 0;
+		}
 	}
 }
