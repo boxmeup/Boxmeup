@@ -6,23 +6,22 @@
 		<form class="form-inline">
 			<div class="btn-group">
 				<button type="button" class="btn btn-success">Add Container</button>
+				<button type="button" class="btn btn-primary"><i class="icon-print"></i> Bulk Print</button>
 				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 					More
 					<span class="caret"></span>
 				</button>
-				<ul class="dropdown-menu" role="menu">
-					<li><a href="#"><i class="icon-print"></i> Bulk Print</a></li>
-					<li class="divider"></li>
+				<ul class="dropdown-menu dropdown-menu-right" role="menu">
 					<li class="dropdown-header">Sort by</li>
 					<li><a href="#">Container Name</a></li>
 					<li><a href="#">Last Modified</a></li>
+					<li class="divider"></li>
+					<li class="dropdown-header">By Location</li>
+					<li><a href="#">-- Unassigned --</a></li>
+					<li><a href="#">Guest Bedroom</a></li>
+					<li><a href="#">All Locations</a></li>
 				</ul>
 			</div>
-			<select name="data[Location][uuid]" class="form-control" style="width: 120px" id="LocationUuid">
-				<option value="">All Locations</option>
-				<option value="__UNASSIGNED__">-- Unassigned --</option>
-				<option value="4f2d8a58-36a8-457a-8c9c-25ba4acfe4a3">Guest Bedroom</option>
-			</select>
 		</form>
 	</div>
 	<table class="table table-hover">
