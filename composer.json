@@ -30,5 +30,10 @@
 		"symfony/translation": "~2.3",
 		"symfony/twig-bridge": "~2.3",
 		"symfony/validator": "~2.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"Boxmeup\\Web\\": "src/"
+		}
 	}
 }

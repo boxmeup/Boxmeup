@@ -21,7 +21,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="/" class="navbar-brand">Boxmeup</a>
+				<a href="/app/#/dashboard" class="navbar-brand">Boxmeup</a>
 			</div>
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<ul class="nav navbar-nav navbar-right input-group">
@@ -31,20 +31,20 @@
 							<i class="icon-user" style="margin-right: 5px"></i> Account <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
-							<li><a href="/#/account"><i class="icon-gears"></i> Settings</a></li>
-							<li><a href="/#/users/auth"><i class="icon-lock"></i> Applications</a></li>
+							<li><a href="/app/#/account"><i class="icon-gears"></i> Settings</a></li>
+							<li><a href="/app/#/users/auth"><i class="icon-lock"></i> Applications</a></li>
 							<li class="divider"></li>
-							<li><a href="/logout"><i class="icon-off"></i> Sign Out</a></li>
+							<li><a href="{{ path('app_logout') }}"><i class="icon-off"></i> Sign Out</a></li>
 						</ul>
 					</div>
 				</ul>
 				
 				<div class="main-navigation sidebar-collapse">
 					<ul class="nav nav-pills nav-stacked">
-						<li><a href="/#/dashboard"><i class="icon-dashboard" style="color: black; margin-right: 15px"></i>Dashboard</a></li>
-						<li><a href="/#/containers"><i class="icon-inbox" style="color: black; margin-right: 15px"></i>My Containers</a></li>
-						<li><a href="/#/container_items"><i class="icon-tasks" style="color: black; margin-right: 15px"></i>My Items</a></li>
-						<li><a href="/#/locations"><i class="icon-location-arrow" style="color: black; margin-right: 15px"></i>My Locations</a></li>
+						<li><a href="/app/#/dashboard"><i class="icon-dashboard" style="color: black; margin-right: 15px"></i>Dashboard</a></li>
+						<li><a href="/app/#/containers"><i class="icon-inbox" style="color: black; margin-right: 15px"></i>My Containers</a></li>
+						<li><a href="/app/#/container_items"><i class="icon-tasks" style="color: black; margin-right: 15px"></i>My Items</a></li>
+						<li><a href="/app/#/locations"><i class="icon-location-arrow" style="color: black; margin-right: 15px"></i>My Locations</a></li>
 						<li style="border-top:1px solid #ddd"></li>
 						<li class="dropdown-header">Quick Actions</li>
 						<li>
@@ -96,7 +96,7 @@
 				<div class="row">
 					<div class="col-lg-4 hidden-xs hiden-sm">
 						<a href="http://play.google.com/store/apps/details?id=com.boxmeup.app">
-							<img src="img/get_it_on_play_logo_small.png?1378946225" alt="Get it on Google Play" /></a>
+							<img src="/img/get_it_on_play_logo_small.png?1378946225" alt="Get it on Google Play" /></a>
 					</div>
 					<div class="col-lg-8">
 						<div class="pull-right">
@@ -106,7 +106,7 @@
 			</div>
 		</div>
 		{% if debug %}
-		<script data-main="js/main" src="/bower_components/requirejs/require.js"></script>
+		<script data-main="/js/main" src="/bower_components/requirejs/require.js"></script>
 		{% else %}
 		<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
 		<script>

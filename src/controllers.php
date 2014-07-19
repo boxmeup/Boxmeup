@@ -1,22 +1,24 @@
 <?php
 
+namespace Boxmeup\Web;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-//Request::setTrustedProxies(array('127.0.0.1'));
+$app->mount('/app', include 'Controller/Main.php');
 
-$app->get('/', function () use ($app) {
-    return $app['twig']->render('app.html', [
-        'debug' => $app['debug']
-    ]);
-})
-->bind('application-main');
+$app->get('/', function() {
+    return 'Landing page placeholder. <a href="/app">App</a>';
+});
 
-$app->get('/test', function() use ($app) {
-    return $app->json(['test' => 'foo']);
+$app->get('/login', function(Request $request) use ($app) {
+    return $app['twig']->render('login.html', array(
+        'error'         => $app['security.last_error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
+    ));
 });
 
 $app->error(function (\Exception $e, $code) use ($app) {
