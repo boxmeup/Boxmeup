@@ -6,8 +6,15 @@
 			"email": "cjsaylor@gmail.com"
 		}
 	],
+	"repositories": [
+		{
+            "type": "vcs",
+            "url": "https://github.com/boxmeup/boxmeup-core"
+        }
+	],
 	"require": {
 		"php": ">=5.4.0",
+		"boxmeup/boxmeup-core": "dev-master",
 		"silex/silex": "~1.0",
 		"silex/web-profiler": "~1.0",
 		"symfony/browser-kit": "~2.3",
