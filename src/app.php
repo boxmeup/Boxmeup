@@ -9,17 +9,16 @@ use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\SessionServiceProvider;
+use Silex\Provider\DoctrineServiceProvider;
 
 $app = new Application();
 $app->register(new UrlGeneratorServiceProvider());
 $app->register(new ValidatorServiceProvider());
 $app->register(new ServiceControllerServiceProvider());
 $app->register(new TwigServiceProvider());
-$app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
-    // add custom globals, filters, tags, ...
+$app->register(new DoctrineServiceProvider());
+$app->register(new SessionServiceProvider());
 
-    return $twig;
-}));
 
 // Authentication
 $app->register(new SecurityServiceProvider(), [
@@ -39,9 +38,6 @@ $app->register(new SecurityServiceProvider(), [
 	    ]
     ]
 ]);
-$app->register(new SessionServiceProvider, array(
-    'session.storage.save_path' => '/tmp/bmu_sessions'
-));
 
 // Mixins
 $app->before(function ($request) {

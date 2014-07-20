@@ -2,3 +2,5 @@
 node_modules
 web/bower_components
 vendor
+
+config/environment.php
