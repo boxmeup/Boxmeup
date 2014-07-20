@@ -9,6 +9,7 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
+use Boxmeup\Web\Provider\UserProvider;
 
 class Application extends \Silex\Application {
 	use \Silex\Application\SecurityTrait;
@@ -22,7 +23,6 @@ $app->register(new TwigServiceProvider());
 $app->register(new DoctrineServiceProvider());
 $app->register(new SessionServiceProvider());
 
-
 // Authentication
 $app->register(new SecurityServiceProvider(), [
     'security.firewalls' => [
@@ -35,9 +35,9 @@ $app->register(new SecurityServiceProvider(), [
             	'default_target_path' => '/app'
 	        ],
 	        'logout' => ['logout_path' => '/app/logout'],
-	        'users' => [
-	            'test1' => ['ROLE_USER', '5FZ2Z8QIkA7UTZ4BYkoC+GsReLf569mSKDsfods6LYQ8t+a8EW9oaircfMpmaLbPBh4FOBiiFyLfuZmTSUwzZg=='],
-	        ]
+	        'users' => $app->share(function() use ($app) {
+	        	return new UserProvider($app['db']);
+	        })
 	    ]
     ]
 ]);
