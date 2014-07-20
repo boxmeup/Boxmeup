@@ -17,6 +17,7 @@
 		"boxmeup/boxmeup-core": "dev-master",
 		"silex/silex": "~1.0",
 		"silex/web-profiler": "~1.0",
+		"doctrine/dbal": "~2.2",
 		"symfony/browser-kit": "~2.3",
 		"symfony/class-loader": "~2.3",
 		"symfony/config": "~2.3",
