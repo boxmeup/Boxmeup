@@ -11,7 +11,7 @@ $main->get('/', function () use ($app) {
 })
 ->bind('application-main');
 
-$main->post('/login_check', function() use ($app) {
+$main->post('/login_check', function() {
 });
 
 $main->get('/test', function() use ($app) {
