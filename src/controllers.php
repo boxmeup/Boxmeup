@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-$app->mount('/app', include 'Controller/Main.php');
+$app->mount('/app', include 'Controller/main.php');
 
 $app->get('/', function() {
     return 'Landing page placeholder. <a href="/app">App</a>';
