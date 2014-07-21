@@ -10,6 +10,7 @@ use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Boxmeup\Web\Provider\UserProvider;
+use Boxmeup\Web\Provider\RepositoryServiceProvider;
 
 class Application extends \Silex\Application {
 	use \Silex\Application\SecurityTrait;
@@ -22,6 +23,7 @@ $app->register(new ServiceControllerServiceProvider());
 $app->register(new TwigServiceProvider());
 $app->register(new DoctrineServiceProvider());
 $app->register(new SessionServiceProvider());
+$app->register(new RepositoryServiceProvider());
 
 // Authentication
 $app->register(new SecurityServiceProvider(), [
@@ -36,7 +38,7 @@ $app->register(new SecurityServiceProvider(), [
 	        ],
 	        'logout' => ['logout_path' => '/app/logout'],
 	        'users' => $app->share(function() use ($app) {
-	        	return new UserProvider($app['db']);
+	        	return new UserProvider($app['repo.user']);
 	        })
 	    ]
     ]

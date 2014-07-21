@@ -6,20 +6,21 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Doctrine\DBAL\Connection;
 use Boxmeup\Web\Transform\UserTransform as User;
+use Boxmeup\Web\Repository\UserRepository;
+use Boxmeup\Web\Exception\NotFoundException;
 
 class UserProvider implements UserProviderInterface
 {
-    private $conn;
+    protected $userRepo;
 
     /**
      * Construct.
      * 
-     * @param Doctrine\DBAL\Connection $conn
+     * @param Boxmeup\Web\Repository\UserRepository $userRepo
      */
-    public function __construct(Connection $conn) {
-        $this->conn = $conn;
+    public function __construct(UserRepository $userRepo) {
+        $this->userRepo = $userRepo;
     }
 
     /**
@@ -29,13 +30,11 @@ class UserProvider implements UserProviderInterface
      * @return Boxmeup\Web\Transform\User
      */
     public function loadUserByUsername($email) {
-        $stmt = $this->conn->executeQuery('SELECT * FROM users WHERE email = ?', [strtolower($email)]);
-
-        if (!$user = $stmt->fetch()) {
+        try {
+            return $this->userRepo->byEmail($email);
+        } catch (NotFoundException $e) {
             throw new UsernameNotFoundException(sprintf('User with email "%s" does not exist.', $email));
         }
-
-        return new User($user);
     }
 
     /**
