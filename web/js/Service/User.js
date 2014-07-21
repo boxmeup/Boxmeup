@@ -1,6 +1,7 @@
 define(function() {
 
-	var User = function($q, $timeout) {
+	var User = function($http, $q, $timeout) {
+		this.$http = $http;
 		this.$q = $q;
 		this.$timeout = $timeout;
 	};
@@ -13,11 +14,10 @@ define(function() {
 	 */
 	User.prototype.details = function() {
 		var deferred = this.$q.defer();
-		var data = {
-			email: 'test@test.com'
-		};
 
-		deferred.resolve(data);
+		this.$http.get('/app/user')
+			.success(deferred.resolve)
+			.error(deferred.reject);
 
 		return deferred.promise;
 	};
@@ -42,6 +42,6 @@ define(function() {
 		return deferred.promise;
 	};
 
-	return ['$q', '$timeout', User];
+	return ['$http', '$q', '$timeout', User];
 
 });
