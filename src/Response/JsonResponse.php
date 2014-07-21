@@ -9,15 +9,13 @@ class JsonResponse extends DefaultJsonResponse
 	const NON_JSONP_RESPONSE_PREFIX = ")]}',\n";
 
 	/**
-	 * Set the data to be returned as the response.
+	 * Set the content of the response.
 	 *
-	 * @param array $data
-	 * @return Boxmeup\Web\Response\JsonResponse
-	 * @throws \InvalidArgumentException
+	 * @param mixed $content
 	 */
-	public function setData($data = []) {
-		parent::setData($data);
-		$this->data = static::NON_JSONP_RESPONSE_PREFIX . $this->data;
-		return $this->update();
+	public function setContent($content) {
+		parent::setContent($content);
+		$this->content = static::NON_JSONP_RESPONSE_PREFIX . $this->content;
+		return $this;
 	}
 }
