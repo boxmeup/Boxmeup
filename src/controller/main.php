@@ -14,6 +14,12 @@ $main->get('/', function () use ($app) {
 $main->post('/login_check', function() {
 });
 
+$main->get('/user', function() use ($app) {
+	return $app->json([
+		'email' => $app->user()->toArray()['email']
+	]);
+});
+
 $main->get('/test', function() use ($app) {
     return $app->json(['test' => 'foo']);
 });
