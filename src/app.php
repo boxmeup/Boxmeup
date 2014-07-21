@@ -2,6 +2,7 @@
 
 namespace Boxmeup\Web;
 
+use Boxmeup\Web\Application;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
@@ -11,10 +12,6 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Boxmeup\Web\Provider\UserProvider;
 use Boxmeup\Web\Provider\RepositoryServiceProvider;
-
-class Application extends \Silex\Application {
-	use \Silex\Application\SecurityTrait;
-}
 
 $app = new Application();
 $app->register(new UrlGeneratorServiceProvider());
