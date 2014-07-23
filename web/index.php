@@ -11,5 +11,4 @@ if (getenv('DEBUG')) {
 	require __DIR__.'/../config/prod.php';
 }
 
-require __DIR__.'/../src/controllers.php';
 $app->run();

@@ -12,6 +12,8 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Boxmeup\Web\Provider\UserProvider;
 use Boxmeup\Web\Provider\RepositoryServiceProvider;
+use Boxmeup\Web\Controller\AppController;
+use Boxmeup\Web\Controller\UserController;
 
 $app = new Application();
 $app->register(new UrlGeneratorServiceProvider());
@@ -41,9 +43,20 @@ $app->register(new SecurityServiceProvider(), [
     ]
 ]);
 
-// Mixins
-$app->before(function ($request) {
-    $request->getSession()->start();
+// Controllers
+$app['controller.app'] = $app->share(function() use ($app) {
+    return new AppController($app);
 });
+$app['controller.user'] = $app->share(function() use ($app) {
+    return new UserController($app);
+});
+
+// Mixins
+$app->before(function ($request) use ($app) {
+    $request->getSession()->start();
+    $app['twig']->addGlobal('debug', $app['debug']);
+});
+
+include 'routes.php';
 
 return $app;
