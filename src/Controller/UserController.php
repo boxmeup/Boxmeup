@@ -4,7 +4,9 @@ namespace Boxmeup\Web\Controller;
 
 use Boxmeup\Web\Application;
 use Boxmeup\Web\Response\JsonResponse;
+use Boxmeup\Web\Transform\UserTransform;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController
 {
@@ -25,5 +27,20 @@ class UserController
 		return $this->app->json([
 			'email' => $this->app->user()->toArray()['email']
 		]);
+	}
+
+	public function saveDetails(Request $request) {
+		$requestData = json_decode($request->getContent(), true);
+		if (!$user = $this->app->user()) {
+			$user = new UserTransform($requestData);
+		}
+		$user['email'] = $requestData['email'];
+		if ($requestData['password']) {
+			$user['password'] = $this->app->encodePassword($user, $requestData['password']);
+		}
+
+		$this->app['repo.user']->save($user);
+
+		return new Response('User saved.', $user['id'] ? 200 : 201);
 	}
 }

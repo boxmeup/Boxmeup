@@ -27,7 +27,7 @@ class UserRepository
 	/**
 	 * Retrieve a user by an email address.
 	 *
-	 * @param  string $email [description]
+	 * @param  string $email
 	 * @return Boxmeup\User\User;
 	 */
 	public function byEmail($email) {
@@ -41,5 +41,27 @@ class UserRepository
 		}
 
 		return new UserTransform($user);
+	}
+
+	public function save(UserTransform $user) {
+		return $this->{$user['id'] ? 'update' : 'create'}($user);
+	}
+
+	protected function create(UserTransform $user) {
+		throw new \DomainException('Not implemented yet.');
+	}
+
+	protected function update(UserTransform $user) {
+		$qb = $this->db->createQueryBuilder();
+		$qb
+			->update('users')
+			->set('email', ':email')
+			->set('password', ':password')
+			->where('id = :id')
+			->setParameter(':email', $user['email'])
+			->setParameter(':password', $user['password'])
+			->setParameter(':id', $user['id']);
+
+		return $qb->execute();
 	}
 }

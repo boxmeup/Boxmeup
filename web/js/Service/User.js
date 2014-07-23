@@ -1,16 +1,14 @@
 define(function() {
 
-	var User = function($http, $q, $timeout) {
+	var User = function($http, $q) {
 		this.$http = $http;
 		this.$q = $q;
-		this.$timeout = $timeout;
 	};
 
 	/**
 	 * Retrieve account details for an authenticated user.
 	 * 
 	 * @return promise
-	 * @todo implement
 	 */
 	User.prototype.details = function() {
 		var deferred = this.$q.defer();
@@ -27,21 +25,17 @@ define(function() {
 	 *
 	 * @param object user
 	 * @return promise
-	 * @todo implement
 	 */
 	User.prototype.save = function(user) {
 		var deferred = this.$q.defer();
-		var data = {
-			updated: 1
-		};
 
-		this.$timeout(function() {
-			deferred.resolve(data);
-		}, 1000);
+		this.$http.post('/app/user', user)
+			.success(deferred.resolve)
+			.error(deferred.reject);
 
 		return deferred.promise;
 	};
 
-	return ['$http', '$q', '$timeout', User];
+	return ['$http', '$q', User];
 
 });
