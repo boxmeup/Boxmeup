@@ -16,9 +16,9 @@ class UserController
 
 	public function login(Request $request) {
 		return $this->app['twig']->render('login.html', [
-	        'error' => $this->app['security.last_error']($request),
-	        'last_username' => $this->app['session']->get('_security.last_username'),
-	    ]);
+			'error' => $this->app['security.last_error']($request),
+			'last_username' => $this->app['session']->get('_security.last_username'),
+		]);
 	}
 
 	public function details() {

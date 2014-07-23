@@ -6,8 +6,8 @@ use Doctrine\DBAL\Connection;
 use Boxmeup\Web\Transform\UserTransform;
 use Boxmeup\Web\Exception\NotFoundException;
 
-class UserRepository {
-
+class UserRepository
+{
 	/**
 	 * Database connection.
 	 *
@@ -42,5 +42,4 @@ class UserRepository {
 
 		return new UserTransform($user);
 	}
-
 }

@@ -26,35 +26,35 @@ $app->register(new RepositoryServiceProvider());
 
 // Authentication
 $app->register(new SecurityServiceProvider(), [
-    'security.firewalls' => [
-	    'app' => [
-	        'pattern' => '^/app',
-	        'form' => [
-	        	'login_path' => '/login',
-	        	'check_path' => '/app/login_check',
-	        	'always_use_default_target_path' => true,
-            	'default_target_path' => '/app'
-	        ],
-	        'logout' => ['logout_path' => '/app/logout'],
-	        'users' => $app->share(function() use ($app) {
-	        	return new UserProvider($app['repo.user']);
-	        })
-	    ]
-    ]
+	'security.firewalls' => [
+		'app' => [
+			'pattern' => '^/app',
+			'form' => [
+				'login_path' => '/login',
+				'check_path' => '/app/login_check',
+				'always_use_default_target_path' => true,
+				'default_target_path' => '/app'
+			],
+			'logout' => ['logout_path' => '/app/logout'],
+			'users' => $app->share(function() use ($app) {
+				return new UserProvider($app['repo.user']);
+			})
+		]
+	]
 ]);
 
 // Controllers
 $app['controller.app'] = $app->share(function() use ($app) {
-    return new AppController($app);
+	return new AppController($app);
 });
 $app['controller.user'] = $app->share(function() use ($app) {
-    return new UserController($app);
+	return new UserController($app);
 });
 
 // Mixins
 $app->before(function ($request) use ($app) {
-    $request->getSession()->start();
-    $app['twig']->addGlobal('debug', $app['debug']);
+	$request->getSession()->start();
+	$app['twig']->addGlobal('debug', $app['debug']);
 });
 
 include 'routes.php';
