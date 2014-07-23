@@ -4,6 +4,7 @@ namespace Boxmeup\Web\Transform;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Boxmeup\User\User;
+use Boxmeup\Web\Util\Configure;
 
 class UserTransform extends User implements UserInterface
 {
@@ -43,9 +44,11 @@ class UserTransform extends User implements UserInterface
 	 * Salt used to encode the password.
 	 * 
 	 * @return string
-	 * @todo implement
+	 * @todo Implement a stronger salt algorythm
 	 */
 	public function getSalt() {
+		// This is temporary to support legacy users.
+		return Configure::get('Security.salt_base');
 	}
 
 	/**

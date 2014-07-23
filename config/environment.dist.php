@@ -8,5 +8,8 @@ return [
 			'user' => 'root',
 			'password' => 'root'
 		]
+	],
+	'Security' => [
+		'salt_base' => ''
 	]
 ];

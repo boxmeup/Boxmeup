@@ -14,6 +14,7 @@ use Boxmeup\Web\Provider\UserProvider;
 use Boxmeup\Web\Provider\RepositoryServiceProvider;
 use Boxmeup\Web\Controller\AppController;
 use Boxmeup\Web\Controller\UserController;
+use Boxmeup\Web\Security\Encoder\LegacyMessageDigestPasswordEncoder;
 
 $app = new Application();
 $app->register(new UrlGeneratorServiceProvider());
@@ -40,7 +41,15 @@ $app->register(new SecurityServiceProvider(), [
 				return new UserProvider($app['repo.user']);
 			})
 		]
-	]
+	],
+	// This is pretty weak. Will create a way to force the user to update their password
+	// and then use a stronger encoding.
+	'security.encoder.digest' => $app->share(function() {
+		// use the sha1 algorithm
+		// don't base64 encode the password
+		// use only 1 iteration
+		return new LegacyMessageDigestPasswordEncoder('sha1', false, 1);
+	})
 ]);
 
 // Controllers
