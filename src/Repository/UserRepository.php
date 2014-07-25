@@ -25,42 +25,93 @@ class UserRepository
 	}
 
 	/**
+	 * Retrieve a user by an ID.
+	 *
+	 * @param  string $id
+	 * @return Boxmeup\Web\Transform\UserTransform
+	 * @throws Boxmeup\Web\Exception\NotFoundException
+	 */
+	public function byId($id) {
+		try {
+			return $this->byEmailOrId($id);
+		} catch (NotFoundException $e) {
+			throw new NotFoundException('User not found by provided ID.');
+		}
+	}
+
+	/**
 	 * Retrieve a user by an email address.
 	 *
 	 * @param  string $email
-	 * @return Boxmeup\User\User;
+	 * @return Boxmeup\Web\Transform\UserTransform
+	 * @throws Boxmeup\Web\Exception\NotFoundException
 	 */
 	public function byEmail($email) {
+		try {
+			return $this->byEmailOrId($email);
+		} catch (NotFoundException $e) {
+			throw new NotFoundException('User not found by provided email.');
+		}
+	}
+
+	/**
+	 * Persist a user to storage.
+	 *
+	 * @param Boxmeup\Web\Transform\UserTransform $user
+	 * @return mixed
+	 */
+	public function save(UserTransform $user) {
+		return $this->{$user['id'] ? 'update' : 'create'}($user);
+	}
+
+	/**
+	 * Retrieve a user based on email or ID.
+	 *
+	 * @param string $value
+	 * @return Boxmeup\Web\Transform\UserTransform
+	 * @throws Boxmeup\Web\Exception\NotFoundException
+	 */
+	protected function byEmailOrId($value) {
 		$stmt = $this->db->executeQuery(
-			'SELECT * FROM users WHERE email = :email',
-			compact('email')
+			'SELECT * FROM users WHERE id = :value OR email = :value',
+			compact('value')
 		);
 
 		if(!$user = $stmt->fetch()) {
-			throw new NotFoundException('User not found by provided email.');
+			throw new NotFoundException('User not found by provided email or ID.');
 		}
 
 		return new UserTransform($user);
 	}
 
-	public function save(UserTransform $user) {
-		return $this->{$user['id'] ? 'update' : 'create'}($user);
-	}
-
+	/**
+	 * Create a new user.
+	 *
+	 * @param Boxmeup\Web\Transform\UserTransform $user
+	 * @return mixed
+	 */
 	protected function create(UserTransform $user) {
 		throw new \DomainException('Not implemented yet.');
 	}
 
+	/**
+	 * Update a user.
+	 *
+	 * @param UserTransform $user
+	 * @return mixed
+	 */
 	protected function update(UserTransform $user) {
 		$qb = $this->db->createQueryBuilder();
 		$qb
 			->update('users')
-			->set('email', ':email')
-			->set('password', ':password')
 			->where('id = :id')
-			->setParameter(':email', $user['email'])
-			->setParameter(':password', $user['password'])
 			->setParameter(':id', $user['id']);
+		foreach ($user->getUpdatableFields() as $field) {
+			$qb
+				->set($field, ':' . $field)
+				->setParameter(':' . $field, $user[$field]);
+		}
+		$qb->setParameter(':modified', date('Y-m-d H:i:s'));
 
 		return $qb->execute();
 	}
