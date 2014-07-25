@@ -7,16 +7,26 @@ use Silex\Application;
 
 class RepositoryServiceProvider implements ServiceProviderInterface
 {
+	const DEFAULT_PREFIX = 'repo.';
+
 	public function register(Application $app) {
 		if (!isset($app['repository.prefix'])) {
-			$app['repository.prefix'] = 'repo.';
+			$app['repository.prefix'] = static::DEFAULT_PREFIX;
 		}
 	}
 
 	public function boot(Application $app) {
+		$prefix = $app['repository.prefix'];
 		foreach ($app['repository.repositories'] as $name => $class) {
-			$app[$app['repository.prefix'] . $name] = $app->share(function($app) use ($class) {
-				return new $class($app['db']);
+			$dependents = [];
+			if (is_array($class)) {
+				foreach ($class[1] as $dependency) {
+					$dependents[$prefix . $dependency] = $app[$prefix . $dependency];
+				}
+				$class = $class[0];
+			}
+			$app[$prefix . $name] = $app->share(function($app) use ($class, $dependents) {
+				return new $class($app['db'], $dependents);
 			});
 		}
 	}
