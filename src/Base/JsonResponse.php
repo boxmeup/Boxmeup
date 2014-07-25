@@ -1,6 +1,6 @@
 <?php
 
-namespace Boxmeup\Web\Response;
+namespace Boxmeup\Web\Base;
 
 use Symfony\Component\HttpFoundation\JsonResponse as DefaultJsonResponse;
 

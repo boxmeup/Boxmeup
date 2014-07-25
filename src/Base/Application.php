@@ -1,10 +1,10 @@
 <?php
 
-namespace Boxmeup\Web;
+namespace Boxmeup\Web\Base;
 
-use Boxmeup\Web\Response\JsonResponse;
+use Silex\Application as SilexApplication;
 
-class Application extends \Silex\Application
+class Application extends SilexApplication
 {
 	use \Silex\Application\SecurityTrait;
 

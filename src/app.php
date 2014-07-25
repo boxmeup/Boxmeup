@@ -2,7 +2,7 @@
 
 namespace Boxmeup\Web;
 
-use Boxmeup\Web\Application;
+use Boxmeup\Web\Base\Application;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;

@@ -2,13 +2,14 @@
 
 namespace Boxmeup\Web\Controller;
 
-use Boxmeup\Web\Application;
+use Boxmeup\Web\Base\ControllerInterface;
+use Boxmeup\Web\Base\Application;
 use Boxmeup\Web\Response\JsonResponse;
 use Boxmeup\Web\Transform\UserTransform;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class UserController
+class UserController implements ControllerInterface
 {
 	protected $app;
 
@@ -35,7 +36,7 @@ class UserController
 			$user = new UserTransform($requestData);
 		}
 		$user['email'] = $requestData['email'];
-		if ($requestData['password']) {
+		if (!empty($requestData['password'])) {
 			$user['password'] = $this->app->encodePassword($user, $requestData['password']);
 		}
 

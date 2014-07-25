@@ -2,10 +2,11 @@
 
 namespace Boxmeup\Web\Controller;
 
-use Boxmeup\Web\Application;
+use Boxmeup\Web\Base\ControllerInterface;
+use Boxmeup\Web\Base\Application;
 use Symfony\Component\HttpFoundation\Response;
 
-class AppController
+class AppController implements ControllerInterface
 {
 	protected $app;
 
