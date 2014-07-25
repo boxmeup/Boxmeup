@@ -12,6 +12,7 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Boxmeup\Web\Provider\UserProvider;
 use Boxmeup\Web\Provider\RepositoryServiceProvider;
+use Boxmeup\Web\Provider\ControllerProvider;
 use Boxmeup\Web\Controller\AppController;
 use Boxmeup\Web\Controller\UserController;
 use Boxmeup\Web\Security\Encoder\LegacyMessageDigestPasswordEncoder;
@@ -24,6 +25,7 @@ $app->register(new TwigServiceProvider());
 $app->register(new DoctrineServiceProvider());
 $app->register(new SessionServiceProvider());
 $app->register(new RepositoryServiceProvider());
+$app->register(new ControllerProvider());
 
 // Authentication
 $app->register(new SecurityServiceProvider(), [
@@ -51,14 +53,6 @@ $app->register(new SecurityServiceProvider(), [
 		return new LegacyMessageDigestPasswordEncoder('sha1', false, 1);
 	})
 ]);
-
-// Controllers
-$app['controller.app'] = $app->share(function() use ($app) {
-	return new AppController($app);
-});
-$app['controller.user'] = $app->share(function() use ($app) {
-	return new UserController($app);
-});
 
 // Mixins
 $app->before(function ($request) use ($app) {

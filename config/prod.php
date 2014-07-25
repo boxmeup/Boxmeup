@@ -22,6 +22,10 @@ $app['session.storage.options'] = [
 	'name' => '_BMU_SESS'
 ];
 
+// Controllers
+$app['controllers.path'] = __DIR__ . '/../src/Controller';
+$app['controllers.namespace'] = '\Boxmeup\Web\Controller\\';
+
 // Repositories
 $app['repository.repositories'] = [
 	'user' => 'Boxmeup\Web\Repository\UserRepository'
