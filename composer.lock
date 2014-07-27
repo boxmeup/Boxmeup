@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "182293eb342cceb7842606d94580fe70",
+    "hash": "34a2c2c00b13a729334b17b36d3e0c49",
     "packages": [
         {
             "name": "boxmeup/boxmeup-core",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/boxmeup/boxmeup-core.git",
-                "reference": "39eec75cd651b16d4be8ff4d224a3a6f94e8a302"
+                "reference": "807e94fc3a9ab87f60b66b530f9621f6bfb217cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/39eec75cd651b16d4be8ff4d224a3a6f94e8a302",
-                "reference": "39eec75cd651b16d4be8ff4d224a3a6f94e8a302",
+                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/807e94fc3a9ab87f60b66b530f9621f6bfb217cc",
+                "reference": "807e94fc3a9ab87f60b66b530f9621f6bfb217cc",
                 "shasum": ""
             },
             "require": {
@@ -49,20 +49,20 @@
                 "source": "https://github.com/boxmeup/boxmeup-core/tree/master",
                 "issues": "https://github.com/boxmeup/boxmeup-core/issues"
             },
-            "time": "2014-07-24 21:19:55"
+            "time": "2014-07-27 20:49:08"
         },
         {
             "name": "cjsaylor/libdomain",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cjsaylor/libdomain.git",
-                "reference": "62d13f1198821616c9f9e038d5e5e5adc099b614"
+                "reference": "8a5de37754e8bcb07a32f7124eff925465567ec4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cjsaylor/libdomain/zipball/62d13f1198821616c9f9e038d5e5e5adc099b614",
-                "reference": "62d13f1198821616c9f9e038d5e5e5adc099b614",
+                "url": "https://api.github.com/repos/cjsaylor/libdomain/zipball/8a5de37754e8bcb07a32f7124eff925465567ec4",
+                "reference": "8a5de37754e8bcb07a32f7124eff925465567ec4",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,7 @@
                 }
             ],
             "description": "PHP classes and traits to facilitate domain driven design.",
-            "time": "2014-05-11 00:42:39"
+            "time": "2014-07-27 20:41:38"
         },
         {
             "name": "cocur/slugify",
