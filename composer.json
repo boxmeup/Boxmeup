@@ -8,9 +8,9 @@
 	],
 	"repositories": [
 		{
-            "type": "vcs",
-            "url": "https://github.com/boxmeup/boxmeup-core"
-        }
+			"type": "vcs",
+			"url": "https://github.com/boxmeup/boxmeup-core"
+		}
 	],
 	"require": {
 		"php": ">=5.4.0",
