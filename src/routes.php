@@ -5,10 +5,14 @@ namespace Boxmeup\Web;
 // Secured routes
 $main = $app['controllers_factory'];
 $main->get('/', 'controller.app:index');
+
+// User
 $main->get('/user', 'controller.user:details');
 $main->post('/user', 'controller.user:saveDetails');
-
 $main->post('/login_check', function() {});
+
+// Container
+$main->get('/container', 'controller.container:index');
 
 $app->mount('/app', $main);
 
