@@ -23,12 +23,12 @@ define(['lodash'], function(_) {
 	/**
 	 * Handle list service response.
 	 *
-	 * @param array list
-	 * @return void
 	 * @scope $scope
 	 */
-	var handleList = function(list) {
-		this.list = list;
+	var handleList = function(data) {
+		console.log(data);
+		this.list = data.containers;
+		this.total = data.total;
 	};
 
 	return ['$scope', 'container', 'notification', ContainerList];

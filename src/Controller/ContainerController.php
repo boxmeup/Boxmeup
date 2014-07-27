@@ -15,8 +15,11 @@ class ContainerController implements ControllerInterface
 	}
 
 	public function index() {
-		$containers = $this->app['repo.container']->getContainersByUser($this->app->user());
-		return $this->app->json($containers->toArray());
+		$results = $this->app['repo.container']->getContainersByUser($this->app->user());
+		return $this->app->json([
+			'containers' => $results['data']->toArray(),
+			'total' => $results['total']
+		]);
 	}
 
 }
