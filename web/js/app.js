@@ -5,9 +5,11 @@ define([
 	'Service/Notification',
 	'Service/Dashboard',
 	'Service/User',
+	'Service/Container',
 
 	'Controller/Dashboard',
 	'Controller/Account',
+	'Controller/ContainerList',
 
 	'Directive/bmuConfirmPassword',
 	'Directive/bmuNavbarCollapse',
@@ -20,9 +22,11 @@ define([
 	notificationService,
 	dashboardService,
 	userService,
+	containerService,
 
 	dashboardController,
 	accountController,
+	containerListController,
 
 	bmuConfirmPassword,
 	bmuNavbarCollapse
@@ -34,9 +38,11 @@ define([
 			.service('notification', notificationService)
 			.service('dashboard', dashboardService)
 			.service('user', userService)
+			.service('container', containerService)
 			// Controllers
 			.controller('Dashboard', dashboardController)
 			.controller('Account', accountController)
+			.controller('ContainerList', containerListController)
 			// Directives
 			.directive('bmuNavbarCollapse', bmuNavbarCollapse)
 			.directive('bmuConfirmPassword', bmuConfirmPassword);

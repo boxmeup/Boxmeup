@@ -1,4 +1,5 @@
-<div class="panel panel-default">
+<div class="loader" ng-if="!list"></div>
+<div class="panel panel-default" ng-if="list">
 	<div class="panel-heading">
 		<h4>Containers</h4>
 	</div>
@@ -34,39 +35,21 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td><a href="/containers/view/comp1">Comp Box 1</a></td>
-				<td>on 4/2/12</td>
+			<tr ng-repeat="container in list">
+				<td>{{ container.container_item_count }}</td>
+				<td><a href="/app/#/containers/view/{{ container.slug }}">{{ container.name }}</a></td>
+				<td>on {{ container.modified | date:short }}</td>
 				<td>
 					<div class="btn-group pull-right">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-gear"></i> <span class="caret"></span></button>
-								<ul class="dropdown-menu">
-									<li><a href="/containers/view/comp1"><i class="icon-zoom-in"></i> View</a></li>
-									<li><a data-toggle="modal" data-target="#layout-modal" href="/containers/edit/4f2d7c93-4394-4c21-a4da-5b6d4acfe4a3"><i class="icon-edit"></i> Edit</a></li>
-								<li class="divider"></li>
-								<li><a href="/containers/export/4f2d7c93-4394-4c21-a4da-5b6d4acfe4a3"><i class="icon-download-alt"></i> Export to CSV</a></li>
-								<li class="divider"></li>
-								<li><a href="/containers/delete/4f2d7c93-4394-4c21-a4da-5b6d4acfe4a3"><i class="icon-remove"></i> Delete</a></li>
-								</ul>
-					</div>
-				</td>
-			</tr>
-						<tr>
-				<td>1</td>
-				<td><a href="/containers/view/comp2">Comp Box 2</a></td>
-				<td>on 19/5/14</td>
-				<td>
-					<div class="btn-group pull-right">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-gear"></i> <span class="caret"></span></button>
-								<ul class="dropdown-menu">
-									<li><a href="/containers/view/comp2"><i class="icon-zoom-in"></i> View</a></li>
-									<li><a data-toggle="modal" data-target="#layout-modal" href="/containers/edit/4f2d7d76-2d34-42b0-bf95-4a9a4acfe4a3"><i class="icon-edit"></i> Edit</a></li>
-								<li class="divider"></li>
-								<li><a href="/containers/export/4f2d7d76-2d34-42b0-bf95-4a9a4acfe4a3"><i class="icon-download-alt"></i> Export to CSV</a></li>
-								<li class="divider"></li>
-								<li><a href="/containers/delete/4f2d7d76-2d34-42b0-bf95-4a9a4acfe4a3"><i class="icon-remove"></i> Delete</a></li>
-								</ul>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-gear"></i> <span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href="/app/#/containers/view/{{ container.slug }}"><i class="icon-zoom-in"></i> View</a></li>
+							<li><a href="/app/#/containers/edit/{{ container.slug }}"><i class="icon-edit"></i> Edit</a></li>
+							<li class="divider"></li>
+							<li><a href="/app/#/containers/export/{{ container.slug }}"><i class="icon-download-alt"></i> Export to CSV</a></li>
+							<li class="divider"></li>
+							<li><a href="/app/#/containers/delete/{{ container.slug }}"><i class="icon-remove"></i> Delete</a></li>
+						</ul>
 					</div>
 				</td>
 			</tr>

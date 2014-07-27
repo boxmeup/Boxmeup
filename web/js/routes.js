@@ -25,6 +25,8 @@ define([
 				template: accountTemplate
 			})
 			.when('/containers', {
+				controller: 'ContainerList',
+				controllerAs: 'ContListCtrl',
 				template: containerListTemplate
 			})
 			.otherwise({redirectTo: '/dashboard'});
