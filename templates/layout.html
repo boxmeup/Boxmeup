@@ -82,7 +82,7 @@
 							class="alert alert-{{ message.type.toLowerCase() }}"
 							ng-repeat="message in notifyConsume()"
 							role="alert"
-							ng-bind="message.message"
+							ng-bind-html="message.message"
 						>
 						</div>
 						{% endverbatim %}

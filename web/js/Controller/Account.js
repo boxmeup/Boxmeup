@@ -46,9 +46,9 @@ define(['lodash'], function(_) {
 	var notifyUserChange = function(message) {
 		this.notificationService.clearAll(true);
 		if (!message) {
-			this.notificationService.add('DANGER', 'Error saving account details.');
+			this.notificationService.add('DANGER', '<strong>Error!</strong> Account details <strong>not</strong> saved.');
 		} else {
-			this.notificationService.add('SUCCESS', 'Successfully updated account details.');
+			this.notificationService.add('SUCCESS', '<strong>Success!</strong> Account details updated.');
 		}
 	};
 

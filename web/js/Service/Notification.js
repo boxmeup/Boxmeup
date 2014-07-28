@@ -7,8 +7,9 @@ define(['lodash'], function(_) {
 		SUCCESS: 1
 	});
 
-	var Notification = function($log) {
+	var Notification = function($log, $sce) {
 		this.$log = $log;
+		this.$sce = $sce;
 		this.types = types;
 		this.messageBus = [];
 	};
@@ -32,7 +33,7 @@ define(['lodash'], function(_) {
 		persist = persist || 1;
 		this.messageBus.push({
 			type: type,
-			message: message,
+			message: this.$sce.trustAsHtml(message),
 			persist: persist,
 			consumptionCount: 0
 		});
@@ -70,6 +71,6 @@ define(['lodash'], function(_) {
 		this.messageBus = persistent;
 	};
 
-	return ['$log', Notification];
+	return ['$log', '$sce', Notification];
 
 });
