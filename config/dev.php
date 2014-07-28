@@ -2,6 +2,7 @@
 
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
+use Boxmeup\Web\Util\Configure;
 
 // include the prod configuration
 require __DIR__.'/prod.php';
@@ -15,4 +16,5 @@ $app->register(new MonologServiceProvider(), array(
 
 $app->register(new WebProfilerServiceProvider(), array(
     'profiler.cache_dir' => '/tmp/bmu_profiler.log',
+    'web_profiler.debug_toolbar.enable' => Configure::get('Debug.toolbar')
 ));

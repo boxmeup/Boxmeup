@@ -11,5 +11,8 @@ return [
 	],
 	'Security' => [
 		'salt_base' => ''
+	],
+	'Debug' => [
+		'toolbar' => false
 	]
 ];
