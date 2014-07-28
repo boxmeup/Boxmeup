@@ -13,7 +13,7 @@
 			}">
 			<div class="panel-heading">{{ key.charAt(0).toUpperCase() + key.substring(1) }}</div>
 			<div class="panel-body">
-				<h2 style="text-align: center">{{data[0] || number }} / {{ data[1] || '&infin;' }}</h2>
+				<h2 style="text-align: center">{{data[0] | number }} / {{ data[1] || '&infin;' }}</h2>
 				<div class="progress">
 					<div
 						class="progress-bar progress-bar-striped"
