@@ -3,7 +3,7 @@ define(function() {
 	var Container = function($http, $q) {
 		this.$http = $http;
 		this.$q = $q;
-	}
+	};
 
 	/**
 	 * Get a list of paginated containers.
