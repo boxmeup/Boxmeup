@@ -23,11 +23,24 @@ define(['lodash'], function(_) {
 	Dashboard.prototype.recent = function() {
 		var deferred = this.$q.defer();
 		var data = [
-			{quantity: 2, body: 'item1', slug: 'item1', container: 'Box1', modified: '2014-01-01 00:00:00'},
-			{quantity: 2, body: 'item1', slug: 'item1', container: 'Box1', modified: '2014-01-01 00:00:00'},
-			{quantity: 2, body: 'item1', slug: 'item1', container: 'Box1', modified: '2014-01-01 00:00:00'},
-			{quantity: 2, body: 'item1', slug: 'item1', container: 'Box1', modified: '2014-01-01 00:00:00'},
-			{quantity: 2, body: 'item1', slug: 'item1', container: 'Box1', modified: '2014-01-01 00:00:00'},
+			{
+				quantity: 2,
+				body: 'item1', 
+				container: {
+					slug: 'box1', 
+					name: 'Box1'
+				},
+				modified: '2014-01-01 00:00:00'
+			},
+			{
+				quantity: 5,
+				body: 'item1', 
+				container: {
+					slug: 'box1', 
+					name: 'Box1'
+				},
+				modified: '2014-01-01 00:00:00'
+			}
 		];
 
 		deferred.resolve(data);
