@@ -26,7 +26,6 @@ define(['lodash'], function(_) {
 	 * @scope $scope
 	 */
 	var handleList = function(data) {
-		console.log(data);
 		this.list = data.containers;
 		this.total = data.total;
 	};
