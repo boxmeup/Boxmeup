@@ -18,14 +18,25 @@ class DashboardController implements ControllerInterface
 	public function index() {
 		$stats = [];
 		$user = $this->app->user();
+		$containerSpec = new ContainerSpecification();
+
+		// Containers
 		$stats['containers'] = [
 			$this->app['repo.container']->getTotalContainersByUser($user),
-			ContainerSpecification::factory()->getLimit($user)
+			$containerSpec->getLimit($user)
 		];
 		$stats['containers'][] = min($stats['containers'][0] / $stats['containers'][1] * 100, 100);
-		// Placeholders
-		$stats['items'] = [15, 25, 60];
+
+		// Items
+		$stats['items'] = [
+			$this->app['repo.container_item']->getTotalItemsByUser($user),
+			$containerSpec->getItemLimit($user)
+		];
+		$stats['items'][] = min($stats['items'][0] / $stats['items'][1] * 100, 100);
+
+		// Placeholder
 		$stats['locations'] = [1, 5, 20];
+
 		return $this->app->json($stats);
 	}
 

@@ -1,14 +1,16 @@
 define(['lodash'], function(_) {
 
-	var Dashboard = function($scope, dashboardService) {
+	var Dashboard = function($scope, dashboardService, notificationService) {
 		this.$scope = $scope;
 		this.dashboardService = dashboardService;
+		this.notificationService = notificationService;
 		this.init();
 	};
 
 	Dashboard.prototype.init = function() {
 		this.dashboardService.stats()
-			.then(_.bind(handleStats, this.$scope));
+			.then(_.bind(handleStats, this.$scope))
+			['catch'](_.bind(handleError, this.notificationService));
 		this.dashboardService.recent()
 			.then(_.bind(handleRecent, this.$scope));
 	};
@@ -27,6 +29,13 @@ define(['lodash'], function(_) {
 		this.recent = recent;
 	};
 
-	return ['$scope', 'dashboard', Dashboard];
+	/**
+	 * @scope notification
+	 */
+	var handleError = function() {
+		this.add('WARNING', 'Unable to retrieve dashboard stats.');
+	}
+
+	return ['$scope', 'dashboard', 'notification', Dashboard];
 
 });
