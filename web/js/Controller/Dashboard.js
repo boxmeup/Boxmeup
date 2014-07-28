@@ -10,9 +10,10 @@ define(['lodash'], function(_) {
 	Dashboard.prototype.init = function() {
 		this.dashboardService.stats()
 			.then(_.bind(handleStats, this.$scope))
-			['catch'](_.bind(handleError, this.notificationService));
+			['catch'](_.bind(handleError, this.notificationService, 'stats'));
 		this.dashboardService.recent()
-			.then(_.bind(handleRecent, this.$scope));
+			.then(_.bind(handleRecent, this.$scope))
+			['catch'](_.bind(handleError, this.notificationService, 'recent items'));
 	};
 
 	/**
@@ -32,8 +33,9 @@ define(['lodash'], function(_) {
 	/**
 	 * @scope notification
 	 */
-	var handleError = function() {
-		this.add('WARNING', 'Unable to retrieve dashboard stats.');
+	var handleError = function(type) {
+		type || (type = 'stats');
+		this.add('WARNING', 'Unable to retrieve dashboard ' + type + '.');
 	}
 
 	return ['$scope', 'dashboard', 'notification', Dashboard];

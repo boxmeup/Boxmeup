@@ -1,5 +1,5 @@
-<div class="loader" ng-if="!stats || !recent" style="margin-bottom: 2em;"></div>
-<div class="row">
+<div class="loader" ng-if="!stats" style="margin-bottom: 2em;"></div>
+<div class="row" ng-if="stats">
 	<div
 		ng-repeat="(key, data) in stats"
 		class="col-sm-4"
@@ -29,8 +29,8 @@
 		</div>
 	</div>
 </div>
-
-<div class="panel panel-primary">
+<div class="loader" ng-if="!recent" style="margin-bottom: 2em;"></div>
+<div class="panel panel-primary" ng-if="recent">
 	<div class="panel-heading">Recent Items</div>
 	<table class="table table-striped">
 		<tbody>
