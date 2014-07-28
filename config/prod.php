@@ -30,5 +30,6 @@ $app['controllers.namespace'] = '\Boxmeup\Web\Controller\\';
 $app['repository.repositories'] = [
 	'user' => 'Boxmeup\Web\Repository\UserRepository',
 	'container' => 'Boxmeup\Web\Repository\ContainerRepository',
-	'container_item' => 'Boxmeup\Web\Repository\ContainerItemRepository'
+	'container_item' => 'Boxmeup\Web\Repository\ContainerItemRepository',
+	'location' => 'Boxmeup\Web\Repository\LocationRepository'
 ];
