@@ -12,18 +12,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/boxmeup/boxmeup-core.git",
-                "reference": "698a57b8856367339f3ec0775861c113d0c38993"
+                "reference": "3156390c9967703492a637cb6b9934ead67621f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/698a57b8856367339f3ec0775861c113d0c38993",
-                "reference": "698a57b8856367339f3ec0775861c113d0c38993",
+                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/3156390c9967703492a637cb6b9934ead67621f0",
+                "reference": "3156390c9967703492a637cb6b9934ead67621f0",
                 "shasum": ""
             },
             "require": {
                 "cjsaylor/libdomain": "~1.0.0",
                 "cocur/slugify": "v0.8",
-                "php": ">=5.4"
+                "php": ">=5.4",
+                "symfony/validator": "~2.5.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0.0"
@@ -49,7 +50,7 @@
                 "source": "https://github.com/boxmeup/boxmeup-core/tree/master",
                 "issues": "https://github.com/boxmeup/boxmeup-core/issues"
             },
-            "time": "2014-07-27 21:19:07"
+            "time": "2014-07-28 14:58:03"
         },
         {
             "name": "cjsaylor/libdomain",
