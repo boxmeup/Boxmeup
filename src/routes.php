@@ -6,6 +6,9 @@ namespace Boxmeup\Web;
 $main = $app['controllers_factory'];
 $main->get('/', 'controller.app:index');
 
+// Dashboard
+$main->get('/dashboard', 'controller.dashboard:index');
+
 // User
 $main->get('/user', 'controller.user:details');
 $main->post('/user', 'controller.user:saveDetails');

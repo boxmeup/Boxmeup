@@ -1,6 +1,7 @@
 define(['lodash'], function(_) {
 
-	var Dashboard = function($q) {
+	var Dashboard = function($http, $q) {
+		this.$http = $http;
 		this.$q = $q;
 	};
 
@@ -8,17 +9,13 @@ define(['lodash'], function(_) {
 	 * Retrieve usage stats.
 	 * 
 	 * @return promise
-	 * @todo implement
 	 */
 	Dashboard.prototype.stats = function() {
 		var deferred = this.$q.defer();
-		var data = {
-			containers: [10, 10, 100],
-			items: [15, 25, 60],
-			locations: [1, 5, 20]
-		};
 
-		deferred.resolve(data);
+		this.$http.get('/app/dashboard')
+			.success(deferred.resolve)
+			.error(deferred.reject);
 
 		return deferred.promise;
 	};
@@ -38,6 +35,6 @@ define(['lodash'], function(_) {
 		return deferred.promise;
 	};
 
-	return ['$q', Dashboard];
+	return ['$http', '$q', Dashboard];
 
 });
