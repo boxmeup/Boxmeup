@@ -60,7 +60,7 @@ class ContainerRepository
 	 * @return integer
 	 */
 	public function getTotalContainersByUser(UserTransform $user) {
-		$stmt = $this->getListStatement(['default' => true]);
+		$stmt = $this->getListStatement(['aggregate' => true]);
 		$stmt->bindValue(':user_id', $user['id'], \PDO::PARAM_INT);
 		$stmt->execute();
 		return (int)$stmt->fetch()['total'];
@@ -74,7 +74,8 @@ class ContainerRepository
 	 */
 	protected function getListStatement(array $options = []) {
 		$sql = 'select %s from containers where user_id = :user_id';
-		if (!$options['default']) {
+		$options = array_merge($this->defaultListOptions, $options);
+		if (!$options['aggregate']) {
 			return $this->db->prepare(sprintf($sql, '*') . ' limit :offset, :limit');
 		}
 		return $this->db->prepare(sprintf($sql, 'count(*) as total'));
