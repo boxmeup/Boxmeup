@@ -6,6 +6,7 @@ use Boxmeup\Web\Base\ControllerInterface;
 use Boxmeup\Web\Base\Application;
 use Boxmeup\Web\Response\JsonResponse;
 use Boxmeup\Container\Specification as ContainerSpecification;
+use Boxmeup\Location\Specification as LocationSpecification;
 
 class DashboardController implements ControllerInterface
 {
@@ -19,6 +20,7 @@ class DashboardController implements ControllerInterface
 		$stats = [];
 		$user = $this->app->user();
 		$containerSpec = new ContainerSpecification();
+		$locationSpec = new LocationSpecification();
 
 		// Containers
 		$stats['containers'] = [
@@ -34,8 +36,12 @@ class DashboardController implements ControllerInterface
 		];
 		$stats['items'][] = min($stats['items'][0] / $stats['items'][1] * 100, 100);
 
-		// Placeholder
-		$stats['locations'] = [1, 5, 20];
+		// Locations
+		$stats['locations'] = [
+			$this->app['repo.location']->getTotalLocationsByUser($user),
+			$locationSpec->getLimit($user)
+		];
+		$stats['locations'][] = min($stats['locations'][0] / $stats['locations'][1] * 100, 100);
 
 		return $this->app->json($stats);
 	}
