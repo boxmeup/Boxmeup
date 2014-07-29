@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/boxmeup/boxmeup-core.git",
-                "reference": "bb8abb3a095174f2505bd33cc16ba7f0e3bb8e71"
+                "reference": "04dd5013fee1b5b8e1942c2f6a3d9a4990798d8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/bb8abb3a095174f2505bd33cc16ba7f0e3bb8e71",
-                "reference": "bb8abb3a095174f2505bd33cc16ba7f0e3bb8e71",
+                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/04dd5013fee1b5b8e1942c2f6a3d9a4990798d8d",
+                "reference": "04dd5013fee1b5b8e1942c2f6a3d9a4990798d8d",
                 "shasum": ""
             },
             "require": {
@@ -27,6 +27,8 @@
                 "symfony/validator": "~2.5.2"
             },
             "require-dev": {
+                "doctrine/dbal": "~2.2",
+                "phpunit/dbunit": "1.3.*@dev",
                 "phpunit/phpunit": "~4.0.0"
             },
             "type": "library",
@@ -50,7 +52,7 @@
                 "source": "https://github.com/boxmeup/boxmeup-core/tree/master",
                 "issues": "https://github.com/boxmeup/boxmeup-core/issues"
             },
-            "time": "2014-07-29 00:13:46"
+            "time": "2014-07-29 04:36:53"
         },
         {
             "name": "cjsaylor/libdomain",
