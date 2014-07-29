@@ -35,12 +35,17 @@ module.exports = function(grunt) {
 					out: "web/js/build.js"
 				}
 			}
+		},
+		releaseStamp: {
+			out: 'release.txt'
 		}
 	});
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 
+	grunt.loadTasks('tasks');
+
 	grunt.registerTask('default', ['jshint']);
-	grunt.registerTask('build', ['compass', 'requirejs']);
+	grunt.registerTask('build', ['compass', 'requirejs', 'releaseStamp']);
 };
