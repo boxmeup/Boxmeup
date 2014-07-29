@@ -8,6 +8,24 @@ use Boxmeup\Web\Util\Configure;
 
 class UserTransform extends User implements UserInterface
 {
+	protected static $mapFields = ['id', 'email', 'password', 'created', 'modified'];
+
+	/**
+	 * Transform a user entity into an entity that supports a security user interface.
+	 *
+	 * @param Boxmeup\User\User $user
+	 * @return Boxmeup\Transform\UserTransform
+	 */
+	public static function transform(User $user) {
+		$map = [];
+		foreach (static::$mapFields as $field) {
+			$map[$field] = $user[$field];
+		}
+		// @todo fix this in the core
+		$map['role'] = (string)$user['role'];
+
+		return new static($map);
+	}
 
 	/**
 	 * Get an array of roles for this user.
