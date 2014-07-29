@@ -46,4 +46,10 @@ class DashboardController implements ControllerInterface
 		return $this->app->json($stats);
 	}
 
+	public function recent() {
+		$collection = $this->app['repo.container_item']->getRecentItemsByUser($this->app->user());
+
+		return $this->app->json($collection->toArray());
+	}
+
 }

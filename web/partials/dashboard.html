@@ -30,9 +30,9 @@
 	</div>
 </div>
 <div class="loader" ng-if="!recent" style="margin-bottom: 2em;"></div>
-<div class="panel panel-default" ng-if="recent">
+<div class="panel panel-default" ng-if="recent.entries">
 	<div class="panel-heading">Recent Items</div>
-	<ul class="list-group" ng-repeat="item in recent">
+	<ul class="list-group" ng-repeat="item in recent.entries">
 		<li class="list-group-item">
 			<span class="badge">{{ item.quantity }}</span>
 			{{ item.body }} in <a href="/app/#/container/view/{{ item.container.slug }}">{{ item.container.name }}</a>

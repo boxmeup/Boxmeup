@@ -8,6 +8,7 @@ $main->get('/', 'controller.app:index');
 
 // Dashboard
 $main->get('/dashboard', 'controller.dashboard:index');
+$main->get('/dashboard/recent', 'controller.dashboard:recent');
 
 // User
 $main->get('/user', 'controller.user:details');

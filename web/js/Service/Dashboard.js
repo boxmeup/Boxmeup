@@ -20,30 +20,17 @@ define(['lodash'], function(_) {
 		return deferred.promise;
 	};
 
+	/**
+	 * Retreive recent items.
+	 *
+	 * @return promise
+	 */
 	Dashboard.prototype.recent = function() {
 		var deferred = this.$q.defer();
-		var data = [
-			{
-				quantity: 2,
-				body: 'item1', 
-				container: {
-					slug: 'box1', 
-					name: 'Box1'
-				},
-				modified: '2014-01-01 00:00:00'
-			},
-			{
-				quantity: 5,
-				body: 'item1', 
-				container: {
-					slug: 'box1', 
-					name: 'Box1'
-				},
-				modified: '2014-01-01 00:00:00'
-			}
-		];
 
-		deferred.resolve(data);
+		this.$http.get('/app/dashboard/recent')
+			.success(deferred.resolve)
+			.error(deferred.reject);
 
 		return deferred.promise;
 	};
