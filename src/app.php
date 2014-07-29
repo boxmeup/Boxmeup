@@ -58,6 +58,7 @@ $app->register(new SecurityServiceProvider(), [
 $app->before(function ($request) use ($app) {
 	$request->getSession()->start();
 	$app['twig']->addGlobal('debug', $app['debug']);
+	$app['twig']->addGlobal('release', $app['release']);
 });
 
 include 'routes.php';

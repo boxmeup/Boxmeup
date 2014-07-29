@@ -2,6 +2,9 @@
 
 $config = require 'environment.php';
 
+// Release
+$app['release'] = file_get_contents(__DIR__ . '/../release.txt');
+
 // Twig templates
 $app['twig.path'] = array(dirname(__DIR__) . '/templates');
 $app['twig.options'] = array('cache' => '/tmp/bmu_cache_twig');

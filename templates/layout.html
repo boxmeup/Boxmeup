@@ -7,7 +7,7 @@
 	<link href="/favicon.ico" type="image/x-icon" rel="icon">
 	<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
 	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<link rel="stylesheet" type="text/css" href="/css/app_{{ release }}.css">
 	<!--[if lt IE 9]>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
  	<![endif]-->
@@ -110,7 +110,7 @@
 		{% else %}
 		<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
 		<script>
-			require(['/js/build.js']);
+			require(['/js/build_{{ release }}.js']);
 		</script>
 		{% endif %}
 </body>

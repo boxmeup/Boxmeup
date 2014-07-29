@@ -3,5 +3,7 @@ SetEnv DEBUG 1
 Options -MultiViews
 RewriteEngine On
 RewriteBase /
+RewriteRule ^js/build_.*\.js$ /js/build.js [L]
+RewriteRule ^css/app_.*\.css$ /css/app.css [L]
 RewriteRule    ^$    web/    [L]
 RewriteRule    (.*) web/$1    [L]
