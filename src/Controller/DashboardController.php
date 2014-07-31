@@ -5,7 +5,6 @@ namespace Boxmeup\Web\Controller;
 use Boxmeup\Web\Base\ControllerInterface;
 use Silex\ControllerProviderInterface;
 use Boxmeup\Web\Base\Application;
-use Boxmeup\Web\Response\JsonResponse;
 use Boxmeup\Container\Specification as ContainerSpecification;
 use Boxmeup\Location\Specification as LocationSpecification;
 

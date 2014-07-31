@@ -17,7 +17,7 @@ class UserProvider implements UserProviderInterface
     /**
      * Construct.
      * 
-     * @param Boxmeup\Repository\UserRepository $userRepo
+     * @param UserRepository $userRepo
      */
     public function __construct(UserRepository $userRepo) {
         $this->userRepo = $userRepo;
@@ -27,7 +27,7 @@ class UserProvider implements UserProviderInterface
      * Load the user information by username (in this case email address)
      *
      * @param string $email
-     * @return Boxmeup\Web\Transform\User
+     * @return User
      */
     public function loadUserByUsername($email) {
         try {
@@ -41,7 +41,7 @@ class UserProvider implements UserProviderInterface
      * Refresh the user information.
      *
      * @param UserInterface $user
-     * @return Boxmeup\Web\Transform\User See self::loadUserByUsername
+     * @return User See self::loadUserByUsername
      */
     public function refreshUser(UserInterface $user) {
         if (!$user instanceof User) {

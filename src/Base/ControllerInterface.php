@@ -7,7 +7,8 @@ interface ControllerInterface
 	/**
 	 * Constructor.
 	 *
-	 * @param Boxmeup\Web\Application $app
+	 * @param Application $app
+	 * @return void
 	 */
 	public function __construct(Application $app);
 }

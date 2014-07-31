@@ -13,8 +13,8 @@ class UserTransform extends User implements UserInterface
 	/**
 	 * Transform a user entity into an entity that supports a security user interface.
 	 *
-	 * @param Boxmeup\User\User $user
-	 * @return Boxmeup\Transform\UserTransform
+	 * @param User $user
+	 * @return UserTransform
 	 */
 	public static function transform(User $user) {
 		$map = [];
@@ -32,7 +32,7 @@ class UserTransform extends User implements UserInterface
 	 *
 	 * Roles aren't really utilized in this app, so just hardcoding.
 	 *
-	 * @return array
+	 * @return string[]
 	 */
 	public function getRoles() {
 		return ['ROLE_USER'];

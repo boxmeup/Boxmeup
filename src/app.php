@@ -14,8 +14,6 @@ use Boxmeup\Web\Provider\UserProvider;
 use Boxmeup\Web\Provider\RepositoryServiceProvider;
 use Boxmeup\Web\Provider\ControllerProvider;
 use Boxmeup\Web\Provider\RouteProvider;
-use Boxmeup\Web\Controller\AppController;
-use Boxmeup\Web\Controller\UserController;
 use Boxmeup\Web\Security\Encoder\LegacyMessageDigestPasswordEncoder;
 
 $app = new Application();

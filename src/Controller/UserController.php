@@ -5,7 +5,6 @@ namespace Boxmeup\Web\Controller;
 use Boxmeup\Web\Base\ControllerInterface;
 use Silex\ControllerProviderInterface;
 use Boxmeup\Web\Base\Application;
-use Boxmeup\Web\Response\JsonResponse;
 use Boxmeup\Web\Transform\UserTransform;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -4,6 +4,9 @@ namespace Boxmeup\Web\Util;
 
 class Configure {
 
+	/**
+	 * @param string $path
+	 */
 	public static function get($path) {
 		$loc = static::retrieveConfig();
 		foreach (explode('.', $path) as $step) {
