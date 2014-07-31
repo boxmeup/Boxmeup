@@ -39,7 +39,7 @@ class UserController implements ControllerInterface, ControllerProviderInterface
 	}
 
 	public function saveDetails(Request $request) {
-		if (!is_string($request->getContext())) {
+		if (!is_string($request->getContent())) {
 			throw new \InvalidArgumentException();
 		}
 		$requestData = json_decode($request->getContent(), true);
