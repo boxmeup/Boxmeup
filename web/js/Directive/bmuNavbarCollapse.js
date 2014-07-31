@@ -1,16 +1,14 @@
 define(['angular'], function(angular) {
 
-	return function() {
+	return ['$document', function($document) {
 		return {
 			link: function(scope, el) {
-				var toggle = el.find('.navbar-toggle');
+				var target = el.find('.navbar-collapse');
 				el.find('.navbar-collapse a').on('click', function() {
-					if (toggle.length && toggle.css('display') !== 'none') {
-						toggle.trigger('click');
-					}
+					target.collapse('hide');
 				});
 			}
 		};
-	};
+	}];
 
 });
