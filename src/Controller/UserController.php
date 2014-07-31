@@ -39,6 +39,9 @@ class UserController implements ControllerInterface, ControllerProviderInterface
 	}
 
 	public function saveDetails(Request $request) {
+		if (!is_string($request->getContext())) {
+			throw new \InvalidArgumentException();
+		}
 		$requestData = json_decode($request->getContent(), true);
 		if (!$user = $this->app->user()) {
 			$user = new UserTransform($requestData);
