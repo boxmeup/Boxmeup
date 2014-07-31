@@ -4,14 +4,16 @@ define([
 
 	'text!../partials/dashboard.html',
 	'text!../partials/user/account.html',
-	'text!../partials/container/list.html'
+	'text!../partials/container/list.html',
+	'text!../partials/container/add.html'
 ], function(
 	angular,
 	app,
 
 	dashboardTemplate,
 	accountTemplate,
-	containerListTemplate
+	containerListTemplate,
+	containerAddTemplate
 ) {
 	return app.config(['$routeProvider', function($routeProvider) {
 		$routeProvider
@@ -28,6 +30,11 @@ define([
 				controller: 'ContainerList',
 				controllerAs: 'ContListCtrl',
 				template: containerListTemplate
+			})
+			.when('/containers/add', {
+				controller: 'ContainerSave',
+				controllerAs: 'ContSaveCtrl',
+				template: containerAddTemplate
 			})
 			.otherwise({redirectTo: '/dashboard'});
 	}]);
