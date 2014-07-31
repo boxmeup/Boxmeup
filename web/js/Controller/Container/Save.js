@@ -11,13 +11,32 @@ define(['lodash'], function(_) {
 	 * Add a new container.
 	 *
 	 * @todo When adding a new container, redirect the path to view the container.
-	 * @todo Hook up service to actually save the contents
 	 */
 	ContainerSave.prototype.save = function() {
 		var isNew = !!!this.$scope.container.id;
-		this.notificationService.add('SUCCESS', '<strong>Success!</strong> Container successfully ' + (isNew ? 'added' : 'updated')  + '.', 2);
-		if (isNew) {
-			this.$location.path('/dashboard');
+		this.notificationService.clearAll(true);
+		this.containerService.save(this.$scope.container)
+			.then(_.bind(handleSaveResponse, this, false, isNew))
+			['catch'](_.bind(handleSaveResponse, this, true, isNew));
+	};
+
+	/**
+	 * @scope this
+	 */
+	var handleSaveResponse = function(isError, isNew, response) {
+		if (!isError) {
+			this.notificationService.add(
+				'SUCCESS', 
+				'<strong>Success!</strong> Container successfully ' + (isNew ? 'added' : 'updated')  + '.', isNew ? 2 : null
+			);
+			if (isNew) {
+				this.$location.path('/dashboard');
+			}
+		} else {
+			this.notificationService.add(
+				'DANGER',
+				'<strong>Error!</strong> ' + response.message
+			);
 		}
 	};
 

@@ -20,6 +20,22 @@ define(function() {
 		return deferred.promise;
 	};
 
+	/**
+	 * Save container data.
+	 *
+	 * @param object container
+	 * @return promise
+	 */
+	Container.prototype.save = function(container) {
+		var deferred = this.$q.defer();
+
+		this.$http.post('/app/container/save/', container)
+			.success(deferred.resolve)
+			.error(deferred.reject);
+
+		return deferred.promise;
+	}
+
 	return ['$http', '$q', Container];
 
 });
