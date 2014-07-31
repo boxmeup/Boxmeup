@@ -3,18 +3,27 @@
 namespace Boxmeup\Web\Controller;
 
 use Boxmeup\Web\Base\ControllerInterface;
+use Silex\ControllerProviderInterface;
 use Boxmeup\Web\Base\Application;
 use Boxmeup\Web\Response\JsonResponse;
 use Boxmeup\Web\Transform\UserTransform;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class UserController implements ControllerInterface
+class UserController implements ControllerInterface, ControllerProviderInterface
 {
 	protected $app;
 
 	public function __construct(Application $app) {
 		$this->app = $app;
+	}
+
+	public function connect(\Silex\Application $app) {
+		$controllers = $app['controllers_factory'];
+		$controllers->get('/', 'controller.user:details');
+		$controllers->post('/', 'controller.user:saveDetails');
+
+		return $controllers;
 	}
 
 	public function login(Request $request) {

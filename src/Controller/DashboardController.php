@@ -3,17 +3,26 @@
 namespace Boxmeup\Web\Controller;
 
 use Boxmeup\Web\Base\ControllerInterface;
+use Silex\ControllerProviderInterface;
 use Boxmeup\Web\Base\Application;
 use Boxmeup\Web\Response\JsonResponse;
 use Boxmeup\Container\Specification as ContainerSpecification;
 use Boxmeup\Location\Specification as LocationSpecification;
 
-class DashboardController implements ControllerInterface
+class DashboardController implements ControllerInterface, ControllerProviderInterface
 {
 	protected $app;
 
 	public function __construct(Application $app) {
 		$this->app = $app;
+	}
+
+	public function connect(\Silex\Application $app) {
+		$controllers = $app['controllers_factory'];
+		$controllers->get('/', 'controller.dashboard:index');
+		$controllers->get('/recent/', 'controller.dashboard:recent');
+
+		return $controllers;
 	}
 
 	public function index() {

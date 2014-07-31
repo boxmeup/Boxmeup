@@ -13,7 +13,7 @@ define(function() {
 	Container.prototype.list = function() {
 		var deferred = this.$q.defer();
 
-		this.$http.get('/app/container')
+		this.$http.get('/app/container/')
 			.success(deferred.resolve)
 			.error(deferred.reject);
 

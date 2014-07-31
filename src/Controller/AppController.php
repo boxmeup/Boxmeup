@@ -3,15 +3,23 @@
 namespace Boxmeup\Web\Controller;
 
 use Boxmeup\Web\Base\ControllerInterface;
+use Silex\ControllerProviderInterface;
 use Boxmeup\Web\Base\Application;
 use Symfony\Component\HttpFoundation\Response;
 
-class AppController implements ControllerInterface
+class AppController implements ControllerInterface, ControllerProviderInterface
 {
 	protected $app;
 
 	public function __construct(Application $app) {
 		$this->app = $app;
+	}
+
+	public function connect(\Silex\Application $app) {
+		$controllers = $app['controllers_factory'];
+		$controllers->get('/', 'controller.app:index');
+
+		return $controllers;
 	}
 
 	public function index() {

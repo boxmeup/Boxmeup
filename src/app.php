@@ -13,6 +13,7 @@ use Silex\Provider\DoctrineServiceProvider;
 use Boxmeup\Web\Provider\UserProvider;
 use Boxmeup\Web\Provider\RepositoryServiceProvider;
 use Boxmeup\Web\Provider\ControllerProvider;
+use Boxmeup\Web\Provider\RouteProvider;
 use Boxmeup\Web\Controller\AppController;
 use Boxmeup\Web\Controller\UserController;
 use Boxmeup\Web\Security\Encoder\LegacyMessageDigestPasswordEncoder;
@@ -26,6 +27,10 @@ $app->register(new DoctrineServiceProvider());
 $app->register(new SessionServiceProvider());
 $app->register(new RepositoryServiceProvider());
 $app->register(new ControllerProvider());
+$app->register(new RouteProvider());
+
+// Error handling
+$app->error('controller.app:error');
 
 // Authentication
 $app->register(new SecurityServiceProvider(), [
@@ -60,7 +65,5 @@ $app->before(function ($request) use ($app) {
 	$app['twig']->addGlobal('debug', $app['debug']);
 	$app['twig']->addGlobal('release', $app['release']);
 });
-
-include 'routes.php';
 
 return $app;

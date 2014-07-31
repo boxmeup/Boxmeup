@@ -13,7 +13,7 @@ define(function() {
 	User.prototype.details = function() {
 		var deferred = this.$q.defer();
 
-		this.$http.get('/app/user')
+		this.$http.get('/app/user/')
 			.success(deferred.resolve)
 			.error(deferred.reject);
 
@@ -29,7 +29,7 @@ define(function() {
 	User.prototype.save = function(user) {
 		var deferred = this.$q.defer();
 
-		this.$http.post('/app/user', user)
+		this.$http.post('/app/user/', user)
 			.success(deferred.resolve)
 			.error(deferred.reject);
 

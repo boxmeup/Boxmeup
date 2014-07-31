@@ -29,6 +29,14 @@ $app['session.storage.options'] = [
 $app['controllers.path'] = __DIR__ . '/../src/Controller';
 $app['controllers.namespace'] = '\Boxmeup\Web\Controller\\';
 
+// Mount points
+$app['mount.points'] = [
+	'/app' => 'app',
+	'/app/dashboard' => 'dashboard',
+	'/app/user' => 'user',
+	'/app/container' => 'container'
+];
+
 // Repositories
 $app['repository.repositories'] = [
 	'user' => 'Boxmeup\Repository\UserRepository',

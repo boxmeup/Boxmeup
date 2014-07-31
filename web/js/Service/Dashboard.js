@@ -13,7 +13,7 @@ define(['lodash'], function(_) {
 	Dashboard.prototype.stats = function() {
 		var deferred = this.$q.defer();
 
-		this.$http.get('/app/dashboard')
+		this.$http.get('/app/dashboard/')
 			.success(deferred.resolve)
 			.error(deferred.reject);
 
@@ -28,7 +28,7 @@ define(['lodash'], function(_) {
 	Dashboard.prototype.recent = function() {
 		var deferred = this.$q.defer();
 
-		this.$http.get('/app/dashboard/recent')
+		this.$http.get('/app/dashboard/recent/')
 			.success(deferred.resolve)
 			.error(deferred.reject);
 
