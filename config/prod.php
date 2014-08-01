@@ -40,7 +40,19 @@ $app['mount.points'] = [
 // Repositories
 $app['repository.repositories'] = [
 	'user' => 'Boxmeup\Repository\UserRepository',
-	'container' => 'Boxmeup\Repository\ContainerRepository',
+	'container' => [
+		'Boxmeup\Repository\ContainerRepository',
+		['user']
+	],
 	'container_item' => 'Boxmeup\Repository\ContainerItemRepository',
 	'location' => 'Boxmeup\Repository\LocationRepository'
+];
+
+// Converters
+$app['converter.converters'] = [
+	[
+		'prefix' => 'container',
+		'class' => 'Boxmeup\Web\Converter\ContainerConverter',
+		'repo' => 'container'
+	]
 ];

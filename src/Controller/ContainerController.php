@@ -7,6 +7,7 @@ use Silex\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Boxmeup\Web\Base\Application;
 use Boxmeup\Container\Container;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class ContainerController implements ControllerInterface, ControllerProviderInterface
 {
@@ -20,6 +21,7 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
 		$controllers = $app['controllers_factory'];
 		$controllers->get('/', 'controller.container:index');
 		$controllers->post('/save/', 'controller.container:save');
+		$controllers->delete('/{container}/', 'controller.container:remove')->convert('container', 'converter.container:convert');
 
 		return $controllers;
 	}
@@ -45,6 +47,15 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
 		}
 
 		return $this->app->json($container->toArray());
+	}
+
+	public function remove($container) {
+		if ($container['user']['id'] !== $this->app->user()['id']) {
+			throw new AccessDeniedHttpException('User not allowed to access this container.');
+		}
+		$this->app['repo.container']->remove($container);
+
+		return $this->app->json(['message' => 'Container removed!']);
 	}
 
 }
