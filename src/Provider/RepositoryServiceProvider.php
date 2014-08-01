@@ -21,7 +21,7 @@ class RepositoryServiceProvider implements ServiceProviderInterface
 			$dependents = [];
 			if (is_array($class)) {
 				foreach ($class[1] as $dependency) {
-					$dependents[$prefix . $dependency] = $app[$prefix . $dependency];
+					$dependents[$dependency] = $app[$prefix . $dependency];
 				}
 				$class = $class[0];
 			}
