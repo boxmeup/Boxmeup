@@ -36,6 +36,22 @@ define(function() {
 		return deferred.promise;
 	}
 
+	/**
+	 * Remove a container.
+	 *
+	 * @param string slug Container slug
+	 * @return promise
+	 */
+	Container.prototype.remove = function(slug) {
+		var deferred = this.$q.defer();
+
+		this.$http.delete('/app/container/' + slug + '/')
+			.success(deferred.resolve)
+			.error(deferred.reject);
+
+		return deferred.promise;
+	}
+
 	return ['$http', '$q', Container];
 
 });
