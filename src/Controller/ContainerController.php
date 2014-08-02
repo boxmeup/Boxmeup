@@ -39,6 +39,10 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
 			throw new \InvalidArgumentException();
 		}
 		$container = new Container(json_decode($request->getContent(), true));
+		if ($container['slug']) {
+			$original = $this->app['repo.container']->getContainerBySlug($container['slug']);
+			$this->checkAuthorization($original);
+		}
 		$container['user'] = $this->app->user();
 		try {
 			$this->app['repo.container']->save($container);
@@ -50,12 +54,24 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
 	}
 
 	public function remove($container) {
-		if ($container['user']['id'] !== $this->app->user()['id']) {
-			throw new AccessDeniedHttpException('User not allowed to access this container.');
-		}
+		$this->checkAuthorization($container);
 		$this->app['repo.container']->remove($container);
 
 		return $this->app->json(['message' => 'Container removed!']);
+	}
+
+
+	/**
+	 * Determines if the authenticated user is authorized for a container.
+	 *
+	 * @param Container $container
+	 * @return void
+	 * @throws AccessDeniedHttpException
+	 */
+	protected function checkAuthorization(Container $container) {
+		if ($container['user']['id'] !== $this->app->user()['id']) {
+			throw new AccessDeniedHttpException('User not allowed to access this container.');
+		}
 	}
 
 }
