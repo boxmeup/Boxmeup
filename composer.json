@@ -22,7 +22,8 @@
 		"symfony/debug": "~2.3",
 		"symfony/monolog-bridge": "~2.3",
 		"symfony/security": "~2.3",
-		"symfony/twig-bridge": "~2.3"
+		"symfony/twig-bridge": "~2.3",
+		"endroid/qrcode": "1.2.4"
 	},
 	"autoload": {
 		"psr-4": {
