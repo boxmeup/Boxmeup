@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Boxmeup\Web\Base\Application;
 use Boxmeup\Container\Container;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpFoundation\Response;
 
 class ContainerController implements ControllerInterface, ControllerProviderInterface
 {
@@ -22,6 +23,7 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
 		$controllers->get('/', 'controller.container:index');
 		$controllers->post('/save/', 'controller.container:save');
 		$controllers->delete('/{container}/', 'controller.container:remove')->convert('container', 'converter.container:convert');
+		$controllers->get('/{container}/qrcode.jpg', 'controller.container:qrcode')->convert('container', 'converter.container:convert');
 
 		return $controllers;
 	}
@@ -60,6 +62,15 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
 		return $this->app->json(['message' => 'Container removed!']);
 	}
 
+	public function qrcode($container) {
+		$this->checkAuthorization($container);
+		$qrCode = $this->app['qrcode'];
+		$qrCode->setText($this->app->url('application') . '#/containers/view/' . $container['slug']);
+		$qrCode->setSize(250);
+		$qrCode->setPadding(10);
+
+		return new Response($qrCode->get('jpg'), 200, ['Content-Type' => 'image/jpeg']);
+	}
 
 	/**
 	 * Determines if the authenticated user is authorized for a container.

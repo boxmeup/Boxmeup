@@ -17,7 +17,7 @@ class AppController implements ControllerInterface, ControllerProviderInterface
 
 	public function connect(\Silex\Application $app) {
 		$controllers = $app['controllers_factory'];
-		$controllers->get('/', 'controller.app:index');
+		$controllers->get('/', 'controller.app:index')->bind('application');
 
 		return $controllers;
 	}

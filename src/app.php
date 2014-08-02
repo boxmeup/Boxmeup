@@ -16,6 +16,7 @@ use Boxmeup\Web\Provider\ControllerProvider;
 use Boxmeup\Web\Provider\ConverterProvider;
 use Boxmeup\Web\Provider\RouteProvider;
 use Boxmeup\Web\Security\Encoder\LegacyMessageDigestPasswordEncoder;
+use Endroid\QrCode\QrCode;
 
 $app = new Application();
 $app->register(new UrlGeneratorServiceProvider());
@@ -58,6 +59,11 @@ $app->register(new SecurityServiceProvider(), [
 		return new LegacyMessageDigestPasswordEncoder('sha1', false, 1);
 	})
 ]);
+
+// QR Code service
+$app['qrcode'] = $app->share(function() {
+	return new QrCode();
+});
 
 // Mixins
 $app->before(function ($request) use ($app) {
