@@ -1,0 +1,70 @@
+<!--<div class="loader" ng-if="!list"></div>-->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4 class="pull-left">Container Name</h4>
+		<div class="btn-group pull-right">
+			<a href="" class="btn btn-default visible-sm-inline visible-md-inline visible-lg-inline"><i class="icon-print"></i> Print Label</a>
+			<ul class="dropdown-menu dropdown-menu-right" role="menu">
+				<li class="visible-xs-inline"><a href=""><i class="icon-print"></i> Print Label</a></li>
+				<li><a href=""><i class="icon-download"></i> Export List</a></li>
+				<li class="divider"></li>
+				<li><a href="#"><i class="icon-remove"></i> Delete Container</a></li>
+			</ul>
+			<a href="" class="btn btn-default" data-toggle="dropdown"><span class="caret"></span></a>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="panel-body">
+		<form
+			name="addItem"
+			method="post"
+			role="form"
+			class="form-inline"
+			accept-charset="utf-8">
+				<input type="text" id="ItemBody" name="body" class="form-control" ng-model="item.body" maxlength="100" style="width: 20em" placeholder="Item description" required>
+				<div class="input-group">
+					<span class="input-group-addon">&times;</span>
+					<input type="text" id="ItemQuantity" name="quantity" class="form-control" ng-model="item.quantity" maxlength="5" style="width: 5em" required>
+				</div>
+				<button type="submit" class="btn btn-success">Add Item</button>
+		</form>
+	</div>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Quantity</th>
+				<th>Description</th>
+				<th>Last Modified</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Some item description</td>
+				<td>on 2014-01-01 00:00:00</td>
+				<td>
+					<div class="btn-group pull-right">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-gear"></i> <span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href=""><i class="icon-edit"></i> Edit</a></li>
+							<li class="divider"></li>
+							<li><a href=""><i class="icon-remove"></i> Delete Item</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="panel-footer">
+		<ul class="pagination pf">
+			<li><a href="#">&laquo;</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">&raquo;</a></li>
+		</ul>
+	</div>
+</div>

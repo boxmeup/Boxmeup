@@ -5,7 +5,8 @@ define([
 	'text!../partials/dashboard.html',
 	'text!../partials/user/account.html',
 	'text!../partials/container/list.html',
-	'text!../partials/container/add.html'
+	'text!../partials/container/add.html',
+	'text!../partials/container/view.html'
 ], function(
 	angular,
 	app,
@@ -13,7 +14,8 @@ define([
 	dashboardTemplate,
 	accountTemplate,
 	containerListTemplate,
-	containerAddTemplate
+	containerAddTemplate,
+	containerViewTemplate
 ) {
 	return app.config(['$routeProvider', function($routeProvider) {
 		$routeProvider
@@ -35,6 +37,9 @@ define([
 				controller: 'ContainerSave',
 				controllerAs: 'ContSaveCtrl',
 				template: containerAddTemplate
+			})
+			.when('/containers/view/:slug', {
+				template: containerViewTemplate
 			})
 			.otherwise({redirectTo: '/dashboard'});
 	}]);
