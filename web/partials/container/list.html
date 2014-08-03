@@ -1,18 +1,15 @@
 <div class="loader" ng-if="!list"></div>
 <div class="panel panel-default" ng-if="list">
 	<div class="panel-heading">
-		<h4>Containers</h4>
-	</div>
-	<div class="panel-body">
-		<form class="form-inline">
+		<h4 class="pull-left">Containers</h4>
+		<form class="form-inline pull-right">
 			<div class="btn-group">
-				<a href="/app/#/containers/add" class="btn btn-success">Add Container</a>
-				<button type="button" class="btn btn-primary hidden-xs hidden-sm"><i class="icon-print"></i> Bulk Print</button>
-				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-					More
-					<span class="caret"></span>
-				</button>
+				<a href="/app/#/containers/add" class="btn btn-success hidden-xs"><i class="icon-plus"></i> Add Container</a>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
 				<ul class="dropdown-menu dropdown-menu-right" role="menu">
+					<li class="visible-xs-inline"><a href="/app/#/containers/add"><i class="icon-plus"></i> Add Container</a></li>
+					<li><a href=""><i class="icon-print"></i> Bulk Print</a></li>
+					<li class="divider"></li>
 					<li class="dropdown-header">Sort by</li>
 					<li><a href="#">Container Name</a></li>
 					<li><a href="#">Last Modified</a></li>
@@ -24,6 +21,7 @@
 				</ul>
 			</div>
 		</form>
+		<div class="clearfix"></div>
 	</div>
 	<table class="table table-hover" ng-controller="ContainerSave as SaveCtrl">
 		<thead>
