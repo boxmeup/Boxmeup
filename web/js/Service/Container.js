@@ -34,7 +34,7 @@ define(function() {
 			.error(deferred.reject);
 
 		return deferred.promise;
-	}
+	};
 
 	/**
 	 * Remove a container.
@@ -50,7 +50,7 @@ define(function() {
 			.error(deferred.reject);
 
 		return deferred.promise;
-	}
+	};
 
 	return ['$http', '$q', Container];
 

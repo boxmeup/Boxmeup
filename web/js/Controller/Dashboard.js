@@ -34,9 +34,9 @@ define(['lodash'], function(_) {
 	 * @scope notification
 	 */
 	var handleError = function(type) {
-		type || (type = 'stats');
+		type = type || 'stats';
 		this.add('WARNING', 'Unable to retrieve dashboard ' + type + '.');
-	}
+	};
 
 	return ['$scope', 'dashboard', 'notification', Dashboard];
 

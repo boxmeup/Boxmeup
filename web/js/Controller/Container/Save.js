@@ -35,7 +35,7 @@ define(['lodash'], function(_) {
 		this.containerService.remove(slug)
 			.then(_.bind(handleRemoveResponse, this, false, action))
 			['catch'](_.bind(handleRemoveResponse, this, true, action));
-	}
+	};
 
 	/**
 	 * @scope this
@@ -68,7 +68,7 @@ define(['lodash'], function(_) {
 		} else {
 			this.notificationService.add('DANGER', '<strong>Error!</strong> Failed to remove container.');
 		}
-	}
+	};
 
 	return ['$scope', '$location', '$route', 'container', 'notification', ContainerSave];
 
