@@ -1,12 +1,16 @@
 define(['angular'], function(angular) {
 
-	return ['$document', function($document) {
+	return ['$window', function($window) {
 		return {
 			link: function(scope, el) {
-				var target = el.find('.navbar-collapse');
-				el.find('.navbar-collapse a').on('click', function() {
-					target.collapse('hide');
-				});
+				var breakPoint = 991, $$window = $($window);
+				scope.navCollapse = true;
+				scope.collapse = function() {
+					if ($$window.width() > breakPoint) {
+						return;
+					}
+					scope.navCollapse = !scope.navCollapse;
+				}
 			}
 		};
 	}];

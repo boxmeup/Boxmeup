@@ -16,14 +16,14 @@
 	<div class="navbar navbar-default navbar-fixed-top" bmu-navbar-collapse>
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+				<button type="button" class="navbar-toggle" ng-click="collapse()">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
 				<a href="/app/#/dashboard" class="navbar-brand">Boxmeup</a>
 			</div>
-			<div class="navbar-collapse collapse navbar-responsive-collapse">
+			<div class="navbar-collapse collapse navbar-responsive-collapse" ng-class="{in: !navCollapse}">
 				<ul class="nav navbar-nav navbar-right input-group">
 					<input name="data[Search][query]" autocomplete="off" class="form-control" placeholder="Search" type="text" id="SearchQuery"/>
 					<div class="btn-group input-group-btn">
@@ -31,8 +31,8 @@
 							<i class="icon-user" style="margin-right: 5px"></i> Account <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
-							<li><a href="/app/#/account"><i class="icon-gears"></i> Settings</a></li>
-							<li><a href="/app/#/users/auth"><i class="icon-lock"></i> Applications</a></li>
+							<li><a href="/app/#/account" ng-click="collapse()"><i class="icon-gears"></i> Settings</a></li>
+							<li><a href="/app/#/users/auth" ng-click="collapse()"><i class="icon-lock"></i> Applications</a></li>
 							<li class="divider"></li>
 							<li><a href="{{ path('app_logout') }}"><i class="icon-off"></i> Sign Out</a></li>
 						</ul>
@@ -41,10 +41,10 @@
 				
 				<div class="main-navigation sidebar-collapse">
 					<ul class="nav nav-pills nav-stacked">
-						<li><a href="/app/#/dashboard"><i class="icon-dashboard" style="color: black; margin-right: 15px"></i>Dashboard</a></li>
-						<li><a href="/app/#/containers"><i class="icon-inbox" style="color: black; margin-right: 15px"></i>My Containers</a></li>
-						<li><a href="/app/#/container_items"><i class="icon-tasks" style="color: black; margin-right: 15px"></i>My Items</a></li>
-						<li><a href="/app/#/locations"><i class="icon-location-arrow" style="color: black; margin-right: 15px"></i>My Locations</a></li>
+						<li><a href="/app/#/dashboard" ng-click="collapse()"><i class="icon-dashboard" style="color: black; margin-right: 15px"></i>Dashboard</a></li>
+						<li><a href="/app/#/containers" ng-click="collapse()"><i class="icon-inbox" style="color: black; margin-right: 15px"></i>My Containers</a></li>
+						<li><a href="/app/#/container_items" ng-click="collapse()"><i class="icon-tasks" style="color: black; margin-right: 15px"></i>My Items</a></li>
+						<li><a href="/app/#/locations" ng-click="collapse()"><i class="icon-location-arrow" style="color: black; margin-right: 15px"></i>My Locations</a></li>
 						<li style="border-top:1px solid #ddd"></li>
 						<li class="dropdown-header">Quick Actions</li>
 						<li>
@@ -53,7 +53,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="/app/#/containers/add">
+							<a href="/app/#/containers/add" ng-click="collapse()">
 								<i class="icon-plus-sign" style="color: green; margin-right: 15px"></i>Add Container
 							</a>
 						</li>
