@@ -9,6 +9,7 @@ use Boxmeup\Web\Base\Application;
 use Boxmeup\Container\Container;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpFoundation\Response;
+use Boxmeup\Exception\NotFoundException;
 
 class ContainerController implements ControllerInterface, ControllerProviderInterface
 {
@@ -41,9 +42,11 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
 			throw new \InvalidArgumentException();
 		}
 		$container = new Container(json_decode($request->getContent(), true));
-		if ($container['slug']) {
+		try {
 			$original = $this->app['repo.container']->getContainerBySlug($container['slug']);
 			$this->checkAuthorization($original);
+		} catch (NotFoundException $e) {
+			// no op
 		}
 		$container['user'] = $this->app->user();
 		try {
