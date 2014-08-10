@@ -47,7 +47,7 @@ define(['lodash'], function(_) {
 				'<strong>Success!</strong> Container successfully ' + (isNew ? 'added' : 'updated')  + '.', isNew ? 2 : null
 			);
 			if (isNew) {
-				this.$location.path('/dashboard');
+				this.$location.path('/containers/view/' + response.slug);
 			}
 		} else {
 			this.notificationService.add(
