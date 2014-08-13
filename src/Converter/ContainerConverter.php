@@ -8,19 +8,21 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ContainerConverter
 {
-	protected $repo;
+    protected $repo;
 
-	public function __construct(ContainerRepository $repo) {
-		$this->repo = $repo;
-	}
+    public function __construct(ContainerRepository $repo)
+    {
+        $this->repo = $repo;
+    }
 
-	public function convert($slug) {
-		try {
-			$container = $this->repo->getContainerBySlug($slug);
-		} catch (NotFoundException $e) {
-			throw new NotFoundHttpException($e);
-		}
+    public function convert($slug)
+    {
+        try {
+            $container = $this->repo->getContainerBySlug($slug);
+        } catch (NotFoundException $e) {
+            throw new NotFoundHttpException($e);
+        }
 
-		return $container;
-	}
+        return $container;
+    }
 }

@@ -2,27 +2,30 @@
 
 namespace Boxmeup\Web\Util;
 
-class Configure {
-
-	/**
+class Configure
+{
+    /**
 	 * @param string $path
 	 */
-	public static function get($path) {
-		$loc = static::retrieveConfig();
-		foreach (explode('.', $path) as $step) {
-			$loc = $loc[$step];
-		}
-		return $loc;
-	}
+    public static function get($path)
+    {
+        $loc = static::retrieveConfig();
+        foreach (explode('.', $path) as $step) {
+            $loc = $loc[$step];
+        }
 
-	protected static function retrieveConfig() {
-		static $cache = null;
+        return $loc;
+    }
 
-		if ($cache === null) {
-			$cache = require __DIR__ . '/../../config/environment.php';
-		}
+    protected static function retrieveConfig()
+    {
+        static $cache = null;
 
-		return $cache;
-	}
+        if ($cache === null) {
+            $cache = require __DIR__ . '/../../config/environment.php';
+        }
+
+        return $cache;
+    }
 
 }
