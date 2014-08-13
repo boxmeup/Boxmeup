@@ -25,9 +25,17 @@
 		"symfony/twig-bridge": "~2.3",
 		"endroid/qrcode": "1.2.4"
 	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "1.5.4"
+	},
 	"autoload": {
 		"psr-4": {
 			"Boxmeup\\Web\\": "src/"
 		}
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"bash contrib/setup.sh"
+		]
 	}
 }
