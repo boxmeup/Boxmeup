@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 
-	grunt.loadTasks('tasks');
+	grunt.loadTasks('contrib/tasks');
 
 	grunt.registerTask('default', ['jshint']);
 	grunt.registerTask('build', ['compass', 'requirejs', 'releaseStamp']);
