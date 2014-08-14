@@ -48,4 +48,5 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', ['jshint']);
 	grunt.registerTask('build', ['compass', 'requirejs', 'releaseStamp']);
+	grunt.registerTask('travis', ['jshint']);
 };
