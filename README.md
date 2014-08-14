@@ -3,8 +3,9 @@ Boxmeup
 
 Boxmeup is a web and mobile application to help users keep track of what they have in their containers and how to find items in specific containers.
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/boxmeup/Boxmeup/badges/quality-score.png?b=3.0)](https://scrutinizer-ci.com/g/boxmeup/Boxmeup/?branch=3.0)
-[![Huboard](https://img.shields.io/badge/Hu-Board-7965cc.svg)](https://huboard.com/boxmeup/Boxmeup)
+[![Build Status](https://img.shields.io/travis/boxmeup/Boxmeup/3.0.svg?style=flat)](https://travis-ci.org/boxmeup/Boxmeup)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/boxmeup/boxmeup.svg?style=flat)](https://scrutinizer-ci.com/g/boxmeup/Boxmeup/?branch=3.0)
+[![Huboard](https://img.shields.io/badge/Hu-Board-7965cc.svg?style=flat)](https://huboard.com/boxmeup/Boxmeup)
 
 # Requirements
 
