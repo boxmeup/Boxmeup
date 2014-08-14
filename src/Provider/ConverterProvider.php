@@ -17,7 +17,7 @@ class ConverterProvider implements ServiceProviderInterface
     {
         foreach ($app['converter.converters'] as $converter) {
             $app[static::PREFIX . $converter['prefix']] = $app->share(function () use ($app, $converter) {
-                return new $converter['class'()]($app['repo.' . $converter['repo']]);
+                return new $converter['class']($app['repo.' . $converter['repo']]);
             });
         }
     }
