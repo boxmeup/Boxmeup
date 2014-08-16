@@ -37,3 +37,11 @@ To get debug mode:
 
 * For apache: set `DEBUG 1` in `.htaccess`
 * For all others, set the environment variable `DEBUG=1` for runtime.
+
+# Contributing
+
+See the [CONTRIBUTING.md](https://github.com/boxmeup/Boxmeup/blob/3.0/CONTRIBUTING.md) document.
+
+# License (GPLv3)
+
+This software is licensed under GPLv3. See the [LICENSE.md](https://github.com/boxmeup/Boxmeup/blob/3.0/LICENSE.md) for complete GPLv3 license attached to this software.
