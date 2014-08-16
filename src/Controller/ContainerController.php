@@ -24,6 +24,7 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
     {
         $controllers = $app['controllers_factory'];
         $controllers->get('/', 'controller.container:index');
+        $controllers->get('/{container}', 'controller.container:get')->convert('container', 'converter.container:convert');
         $controllers->post('/save/', 'controller.container:save');
         $controllers->delete('/{container}/', 'controller.container:remove')->convert('container', 'converter.container:convert');
         $controllers->get('/{container}/qrcode.jpg', 'controller.container:qrcode')->convert('container', 'converter.container:convert');
@@ -39,6 +40,12 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
             'containers' => $results['data']->toArray(),
             'total' => $results['total']
         ]);
+    }
+
+    public function get($container)
+    {
+        $this->checkAuthorization($container);
+        return $this->app->json($container->toArray());
     }
 
     public function save(Request $request)
@@ -97,5 +104,4 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
             throw new AccessDeniedHttpException('User not allowed to access this container.');
         }
     }
-
 }
