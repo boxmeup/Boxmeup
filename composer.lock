@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/boxmeup/boxmeup-core.git",
-                "reference": "f7f8db95b634b29e5984a563195c0098e29a17fc"
+                "reference": "28df00588d30621e31ba873274db8d4701a722f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/f7f8db95b634b29e5984a563195c0098e29a17fc",
-                "reference": "f7f8db95b634b29e5984a563195c0098e29a17fc",
+                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/28df00588d30621e31ba873274db8d4701a722f5",
+                "reference": "28df00588d30621e31ba873274db8d4701a722f5",
                 "shasum": ""
             },
             "require": {
@@ -27,9 +27,10 @@
                 "symfony/validator": "~2.5.2"
             },
             "require-dev": {
-                "doctrine/dbal": "~2.2",
+                "doctrine/dbal": "~2.2.0",
                 "phpunit/dbunit": "1.3.*@dev",
-                "phpunit/phpunit": "~4.0.0"
+                "phpunit/phpunit": "~4.0.0",
+                "squizlabs/php_codesniffer": "1.5.4"
             },
             "type": "library",
             "autoload": {
@@ -37,6 +38,11 @@
                     "Boxmeup\\": "src/",
                     "Boxmeup\\Test\\": "tests/"
                 }
+            },
+            "scripts": {
+                "post-install-cmd": [
+                    "bash contrib/setup.sh"
+                ]
             },
             "license": [
                 "MIT"
@@ -52,7 +58,7 @@
                 "source": "https://github.com/boxmeup/boxmeup-core/tree/master",
                 "issues": "https://github.com/boxmeup/boxmeup-core/issues"
             },
-            "time": "2014-08-01 12:07:17"
+            "time": "2014-08-16 15:40:56"
         },
         {
             "name": "cjsaylor/libdomain",
@@ -1886,6 +1892,7 @@
     "stability-flags": {
         "boxmeup/boxmeup-core": 20
     },
+    "prefer-stable": false,
     "platform": {
         "php": ">=5.4.0"
     },
