@@ -49,7 +49,9 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
         $container = new Container(json_decode($request->getContent(), true));
         try {
             $original = $this->app['repo.container']->getContainerBySlug($container['slug']);
-            $this->checkAuthorization($original);
+            if (isset($container['id'])) {
+                $this->checkAuthorization($original);
+            }
         } catch (NotFoundException $e) {
             // no op
         }
