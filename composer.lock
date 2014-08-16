@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/boxmeup/boxmeup-core.git",
-                "reference": "28df00588d30621e31ba873274db8d4701a722f5"
+                "reference": "61f6e3c2c2b10ca07ead70867c8594e8464f5f84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/28df00588d30621e31ba873274db8d4701a722f5",
-                "reference": "28df00588d30621e31ba873274db8d4701a722f5",
+                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/61f6e3c2c2b10ca07ead70867c8594e8464f5f84",
+                "reference": "61f6e3c2c2b10ca07ead70867c8594e8464f5f84",
                 "shasum": ""
             },
             "require": {
@@ -58,7 +58,7 @@
                 "source": "https://github.com/boxmeup/boxmeup-core/tree/master",
                 "issues": "https://github.com/boxmeup/boxmeup-core/issues"
             },
-            "time": "2014-08-16 15:40:56"
+            "time": "2014-08-16 21:41:10"
         },
         {
             "name": "cjsaylor/libdomain",
