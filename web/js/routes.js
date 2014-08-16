@@ -39,6 +39,8 @@ define([
 				template: containerAddTemplate
 			})
 			.when('/containers/view/:slug', {
+				controller: 'ContainerSave',
+				controllerAs: 'ContSaveCtrl',
 				template: containerViewTemplate
 			})
 			.otherwise({redirectTo: '/dashboard'});

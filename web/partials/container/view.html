@@ -1,14 +1,15 @@
-<!--<div class="loader" ng-if="!list"></div>-->
-<div class="panel panel-default">
+<div class="loader" ng-if="!container"></div>
+<div class="panel panel-default" ng-if="container">
 	<div class="panel-heading">
-		<h4 class="pull-left">Container Name</h4>
+		<h4 class="pull-left">{{ container.name }}</h4>
 		<div class="btn-group pull-right">
 			<a href="" class="btn btn-default visible-sm-inline visible-md-inline visible-lg-inline"><i class="icon-print"></i> Print Label</a>
 			<ul class="dropdown-menu dropdown-menu-right" role="menu">
 				<li class="visible-xs-inline"><a href=""><i class="icon-print"></i> Print Label</a></li>
 				<li><a href=""><i class="icon-download"></i> Export List</a></li>
+				<li><a href=""><i class="icon-pencil"></i> Edit Container</a></li>
 				<li class="divider"></li>
-				<li><a href="#"><i class="icon-remove"></i> Delete Container</a></li>
+				<li><a href="#" ng-click="ContSaveCtrl.remove(container.slug, 'redirect')"><i class="icon-remove"></i> Delete Container</a></li>
 			</ul>
 			<a href="" class="btn btn-default" data-toggle="dropdown"><span class="caret"></span></a>
 		</div>
@@ -20,7 +21,8 @@
 			method="post"
 			role="form"
 			class="form-inline"
-			accept-charset="utf-8">
+			accept-charset="utf-8"
+			ng-controller="ContainerAdd as CntAdd">
 				<input type="text" id="ItemBody" name="body" class="form-control" ng-model="item.body" maxlength="100" style="width: 20em" placeholder="Item description" required>
 				<div class="input-group">
 					<span class="input-group-addon">&times;</span>
@@ -29,7 +31,7 @@
 				<button type="submit" class="btn btn-success">Add Item</button>
 		</form>
 	</div>
-	<table class="table table-hover">
+	<table class="table table-hover" ng-if="container.entries">
 		<thead>
 			<tr>
 				<th>Quantity</th>
@@ -39,10 +41,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>Some item description</td>
-				<td>on 2014-01-01 00:00:00</td>
+			<tr ng-repeat="item in container.entries">
+				<td>{{ item.quantity }}</td>
+				<td>{{ item.body }}</td>
+				<td>on {{ item.modified | date }}</td>
 				<td>
 					<div class="btn-group pull-right">
 						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-gear"></i> <span class="caret"></span></button>

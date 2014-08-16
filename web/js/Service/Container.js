@@ -6,6 +6,22 @@ define(function() {
 	};
 
 	/**
+	 * Get a container by a slug.
+	 *
+	 * @param string slug
+	 * @return promise
+	 */
+	Container.prototype.get = function(slug) {
+		var deferred = this.$q.defer();
+
+		this.$http.get('/app/container/' + slug)
+			.success(deferred.resolve)
+			.error(deferred.reject);
+
+		return deferred.promise;
+	};
+
+	/**
 	 * Get a list of paginated containers.
 	 *
 	 * @return promise

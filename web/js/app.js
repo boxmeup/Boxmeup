@@ -11,6 +11,7 @@ define([
 	'Controller/Account',
 	'Controller/ContainerList',
 	'Controller/Container/Save',
+	'Controller/Container/Add',
 
 	'Directive/bmuConfirmPassword',
 	'Directive/bmuNavbarCollapse',
@@ -29,6 +30,7 @@ define([
 	accountController,
 	containerListController,
 	containerSaveController,
+	containerAddController,
 
 	bmuConfirmPassword,
 	bmuNavbarCollapse
@@ -46,6 +48,7 @@ define([
 			.controller('Account', accountController)
 			.controller('ContainerList', containerListController)
 			.controller('ContainerSave', containerSaveController)
+			.controller('ContainerAdd', containerAddController)
 			// Directives
 			.directive('bmuNavbarCollapse', bmuNavbarCollapse)
 			.directive('bmuConfirmPassword', bmuConfirmPassword);

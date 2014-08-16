@@ -11,6 +11,18 @@ define(['lodash'], function(_) {
 		this.$route = $route;
 		this.containerService = containerService;
 		this.notificationService = notificationService;
+		if (this.$route.current.params.slug) {
+			this.retrieve(this.$route.current.params.slug);
+		}
+	};
+
+	ContainerSave.prototype.retrieve = function(slug) {
+		if (!slug) {
+			return;
+		}
+		this.containerService.get(slug)
+			.then(_.bind(handleGetResponse, this, false))
+			['catch'](_.bind(handleGetResponse, this, true));
 	};
 
 	/**
@@ -35,6 +47,16 @@ define(['lodash'], function(_) {
 		this.containerService.remove(slug)
 			.then(_.bind(handleRemoveResponse, this, false, action))
 			['catch'](_.bind(handleRemoveResponse, this, true, action));
+	};
+
+	/**
+	 * @scope this
+	 */
+	var handleGetResponse = function(isError, response) {
+		if (isError) {
+			this.notificationService.add('DANGER', '<strong>Error!</strong> Unable to retrieve container.');
+		}
+		this.$scope.container = response;
 	};
 
 	/**
