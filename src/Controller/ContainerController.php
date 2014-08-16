@@ -24,7 +24,7 @@ class ContainerController implements ControllerInterface, ControllerProviderInte
     {
         $controllers = $app['controllers_factory'];
         $controllers->get('/', 'controller.container:index');
-        $controllers->get('/{container}', 'controller.container:get')->convert('container', 'converter.container:convert');
+        $controllers->get('/{container}', 'controller.container:get')->convert('container', 'converter.container:convertItems');
         $controllers->post('/save/', 'controller.container:save');
         $controllers->delete('/{container}/', 'controller.container:remove')->convert('container', 'converter.container:convert');
         $controllers->get('/{container}/qrcode.jpg', 'controller.container:qrcode')->convert('container', 'converter.container:convert');

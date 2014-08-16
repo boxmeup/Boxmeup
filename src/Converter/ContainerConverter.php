@@ -17,8 +17,18 @@ class ContainerConverter
 
     public function convert($slug)
     {
+        return $this->getContainer($slug);
+    }
+
+    public function convertItems($slug)
+    {
+        return $this->getContainer($slug, ContainerRepository::CONT_INCLUDE_ITEMS);
+    }
+
+    protected function getContainer($slug, $options = 0)
+    {
         try {
-            $container = $this->repo->getContainerBySlug($slug, ContainerRepository::CONT_INCLUDE_ITEMS);
+            $container = $this->repo->getContainerBySlug($slug, $options);
         } catch (NotFoundException $e) {
             throw new NotFoundHttpException($e);
         }
