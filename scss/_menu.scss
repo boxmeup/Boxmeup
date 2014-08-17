@@ -1,3 +1,5 @@
+@import "compass/css3/border-radius";
+
 .navbar-nav.input-group {
 	width: 30em;
 	input {
@@ -5,9 +7,25 @@
 	}
 }
 
+.main-navigation, .main-navigation-bg {
+	position: fixed;
+	z-index: -10;
+	a {
+		color: #fff;
+	}
+}
+
 @media (min-width: $screen-lg-desktop) {
 	.navbar>.container .navbar-brand {
-		margin-left: 0.4px;
+		margin-left: 0.4em;
+	}
+
+	#search-query {
+		@include border-radius(0);
+	}
+
+	.main-navigation a {
+		color: #333;
 	}
 
 	.main-navigation, .main-navigation-bg {
@@ -21,6 +39,15 @@
 @media (min-width: $screen-desktop) and (max-width: $screen-lg-desktop - 1) {
 	.navbar>.container {
 		width: 100%;
+	}
+	.navbar>.container .navbar-brand {
+		margin-left: 0.4em;
+	}
+	.main-navigation a {
+		color: #333;
+	}
+	#search-query {
+		@include border-radius(0);
 	}
 	.main-navigation, .main-navigation-bg {
 		width: 240px;

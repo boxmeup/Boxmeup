@@ -5,23 +5,12 @@ body {
 
 .beta { background: url(/img/beta_ribbon.png) no-repeat left top; position: fixed; left: 0; top: 0; width: 78px; height: 75px; z-index: 1040; }
 
-.footer {
-	padding: 20px 0;
-	margin-top: 50px;
-	color: #eee;
-	background-color: rgb(39, 39, 39);
-}
-
 .navbar-brand {
 	background: url(../img/logo-icon.png) left center no-repeat;
+	margin-left: 0.4em;
 	padding-left: 36px;
 	font-size: 24px;
 	color: black;
-}
-
-.main-navigation, .main-navigation-bg {
-	position: fixed;
-	z-index: -1;
 }
 
 .nav .caret {

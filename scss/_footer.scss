@@ -1,3 +1,21 @@
+@import "compass/css3/opacity";
+
+.footer {
+	padding: 20px 0;
+	margin-top: 50px;
+	color: $footer_color;
+	background-color: #e6e6e6;
+	z-index: 1;
+
+	a {
+		color: #ff6b45;
+
+		&:hover {
+			text-decoration: none;
+			@include opacity(0.7);
+		}
+	}
+}
 @media (max-width: $screen-desktop - 1) {
 	.footer.navbar-fixed-bottom {
 		position: relative;

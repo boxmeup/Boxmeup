@@ -24,10 +24,9 @@
 				<a href="/app/#/dashboard" class="navbar-brand">Boxmeup</a>
 			</div>
 			<div class="navbar-collapse collapse navbar-responsive-collapse" ng-class="{in: !navCollapse}">
-				<ul class="nav navbar-nav navbar-right input-group">
-					<input name="data[Search][query]" autocomplete="off" class="form-control" placeholder="Search" type="text" id="SearchQuery"/>
-					<div class="btn-group input-group-btn">
-						<button type="button" class="btn btn-primary dropdown-toggle navbar-btn" data-toggle="dropdown">
+				<ul class="nav navbar-nav navbar-right">
+					<div class="btn-group">
+						<button type="button" class="btn btn-warning dropdown-toggle navbar-btn" data-toggle="dropdown">
 							<i class="icon-user" style="margin-right: 5px"></i> Account <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
@@ -41,20 +40,19 @@
 				
 				<div class="main-navigation sidebar-collapse">
 					<ul class="nav nav-pills nav-stacked">
-						<li><a href="/app/#/dashboard" ng-click="collapse()"><i class="icon-dashboard" style="color: black; margin-right: 15px"></i>Dashboard</a></li>
-						<li><a href="/app/#/containers" ng-click="collapse()"><i class="icon-inbox" style="color: black; margin-right: 15px"></i>My Containers</a></li>
-						<li><a href="/app/#/container_items" ng-click="collapse()"><i class="icon-tasks" style="color: black; margin-right: 15px"></i>My Items</a></li>
-						<li><a href="/app/#/locations" ng-click="collapse()"><i class="icon-location-arrow" style="color: black; margin-right: 15px"></i>My Locations</a></li>
+						<li><input name="search" autocomplete="off" class="form-control" placeholder="Search" type="text" id="search-query"/></li>
+						<li><a href="/app/#/dashboard" ng-click="collapse()"><i class="icon-dashboard" style="margin-right: 15px"></i>Dashboard</a></li>
+						<li><a href="/app/#/containers" ng-click="collapse()"><i class="icon-inbox" style="margin-right: 15px"></i>My Containers</a></li>
+						<li><a href="/app/#/container_items" ng-click="collapse()"><i class="icon-tasks" style="margin-right: 15px"></i>My Items</a></li>
+						<li><a href="/app/#/locations" ng-click="collapse()"><i class="icon-location-arrow" style="margin-right: 15px"></i>My Locations</a></li>
 						<li style="border-top:1px solid #ddd"></li>
 						<li class="dropdown-header">Quick Actions</li>
-						<li>
-							<a data-toggle="modal" data-target="#layout-modal" href="/forgot_login">
-								<i class="icon-qrcode" style="color: black; margin-right: 15px"></i>Login Your Phone
-							</a>
+						<li class="hidden-xs">
+							<a href=""><i class="icon-qrcode" style="margin-right: 15px"></i>Login Your Phone</a>
 						</li>
 						<li>
 							<a href="/app/#/containers/add" ng-click="collapse()">
-								<i class="icon-plus-sign" style="color: green; margin-right: 15px"></i>Add Container
+								<i class="icon-plus-sign" style="margin-right: 15px"></i>Add Container
 							</a>
 						</li>
 						<li class="to-top hidden" style="border-top: 1px solid #ddd"></li>
@@ -94,14 +92,25 @@
 		<div class="footer navbar-fixed-bottom">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-4 hidden-xs hiden-sm">
-						<a href="http://play.google.com/store/apps/details?id=com.boxmeup.app">
-							<img src="/img/get_it_on_play_logo_small.png?1378946225" alt="Get it on Google Play" /></a>
+					<div class="col-xs-4">
+						<small><a href="/">Boxmeup</a> Copyright &copy; 2014</small>
 					</div>
-					<div class="col-lg-8">
+					<div class="col-sm-8 hidden-xs">
 						<div class="pull-right">
-							Copyright &copy; 2011-2014 <a href="/">Boxmeup</a>.  All rights reserved. -
-							<a href="/terms">Terms of Service</a>&nbsp;&nbsp;&nbsp;<a href="/privacy">Privacy Policy</a>&nbsp;&nbsp;&nbsp;<a href="http://status.boxmeupapp.com">Status</a>&nbsp;&nbsp;&nbsp;<a href="/developer">API</a>&nbsp;&nbsp;&nbsp;				</div>
+							<small><a href="/terms">Terms</a>&nbsp;&nbsp;&nbsp;<a href="/privacy">Privacy</a>&nbsp;&nbsp;&nbsp;<a href="http://status.boxmeupapp.com">Status</a>&nbsp;&nbsp;&nbsp;<a href="/developer">API</a></small>
+						</div>
+					</div>
+					<div class="col-xs-8 visible-xs-block">
+						<div class="btn-group pull-right dropup">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="/terms">Terms</a></li>
+								<li><a href="/privacy">Privacy</a></li>
+								<li><a href="/developer">API</a></li>
+							</ul>
+						</div>
 					</div>
 			</div>
 		</div>
