@@ -1,5 +1,13 @@
 @import "compass/css3/border-radius";
 
+.navbar-brand {
+	background: url(../img/logo-icon.png) left center no-repeat;
+	margin-left: 0.4em;
+	padding-left: 36px;
+	font-size: 24px;
+	color: black;
+}
+
 .navbar-nav.input-group {
 	width: 30em;
 	input {
