@@ -112,15 +112,17 @@
 							</ul>
 						</div>
 					</div>
+				</div>
 			</div>
 		</div>
-		{% if debug %}
-		<script data-main="/js/main" src="/bower_components/requirejs/require.js"></script>
-		{% else %}
-		<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
-		<script>
-			require(['/js/build_{{ release }}.js']);
-		</script>
-		{% endif %}
+	</div>
+	{% if debug %}
+	<script data-main="/js/main" src="/bower_components/requirejs/require.js"></script>
+	{% else %}
+	<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
+	<script>
+		require(['/js/build_{{ release }}.js']);
+	</script>
+	{% endif %}
 </body>
 </html>
