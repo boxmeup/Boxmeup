@@ -25,17 +25,17 @@
 			</div>
 			<div class="navbar-collapse collapse navbar-responsive-collapse" ng-class="{in: !navCollapse}">
 				<ul class="nav navbar-nav navbar-right">
-					<div class="btn-group">
-						<button type="button" class="btn btn-warning dropdown-toggle navbar-btn" data-toggle="dropdown">
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="icon-user" style="margin-right: 5px"></i> Account <span class="caret"></span>
-						</button>
+						</a>
 						<ul class="dropdown-menu">
 							<li><a href="/app/#/account" ng-click="collapse()"><i class="icon-gears"></i> Settings</a></li>
 							<li><a href="/app/#/users/auth" ng-click="collapse()"><i class="icon-lock"></i> Applications</a></li>
 							<li class="divider"></li>
 							<li><a href="{{ path('app_logout') }}"><i class="icon-off"></i> Sign Out</a></li>
 						</ul>
-					</div>
+					</li>
 				</ul>
 				
 				<div class="main-navigation sidebar-collapse">
