@@ -12,16 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/boxmeup/boxmeup-core.git",
-                "reference": "61f6e3c2c2b10ca07ead70867c8594e8464f5f84"
+                "reference": "08966d2453cc8d163ed56e60e2ae29aab645e4af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/61f6e3c2c2b10ca07ead70867c8594e8464f5f84",
-                "reference": "61f6e3c2c2b10ca07ead70867c8594e8464f5f84",
+                "url": "https://api.github.com/repos/boxmeup/boxmeup-core/zipball/08966d2453cc8d163ed56e60e2ae29aab645e4af",
+                "reference": "08966d2453cc8d163ed56e60e2ae29aab645e4af",
                 "shasum": ""
             },
             "require": {
-                "cjsaylor/libdomain": "~1.0.0",
+                "cjsaylor/libdomain": "~2.0.0",
                 "cocur/slugify": "v0.8",
                 "php": ">=5.4",
                 "symfony/validator": "~2.5.2"
@@ -58,20 +58,20 @@
                 "source": "https://github.com/boxmeup/boxmeup-core/tree/master",
                 "issues": "https://github.com/boxmeup/boxmeup-core/issues"
             },
-            "time": "2014-08-16 21:41:10"
+            "time": "2014-08-31 01:37:30"
         },
         {
             "name": "cjsaylor/libdomain",
-            "version": "1.0.3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cjsaylor/libdomain.git",
-                "reference": "c92c58e59d17d006618ba08ed33641c605b7ee2b"
+                "reference": "8a0748714faaf23d5849ea27ee4f0a264f508e95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cjsaylor/libdomain/zipball/c92c58e59d17d006618ba08ed33641c605b7ee2b",
-                "reference": "c92c58e59d17d006618ba08ed33641c605b7ee2b",
+                "url": "https://api.github.com/repos/cjsaylor/libdomain/zipball/8a0748714faaf23d5849ea27ee4f0a264f508e95",
+                "reference": "8a0748714faaf23d5849ea27ee4f0a264f508e95",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
                 }
             ],
             "description": "PHP classes and traits to facilitate domain driven design.",
-            "time": "2014-07-27 21:08:58"
+            "time": "2014-08-28 02:51:10"
         },
         {
             "name": "cocur/slugify",
