@@ -1,10 +1,10 @@
 language: php
+sudo: false
 php:
-  - 5.4
+  - 5.5
 
 before_script:
   - composer install --dev
-  - npm install grunt-cli -g
   - npm install
 
-script: grunt travis
+script: ./node_modules/.bin/grunt ci
