@@ -17,7 +17,6 @@
 		"boxmeup/boxmeup-core": "dev-master",
 		"silex/silex": "~1.0",
 		"silex/web-profiler": "~1.0",
-		"doctrine/dbal": "~2.2",
 		"symfony/class-loader": "~2.3",
 		"symfony/debug": "~2.3",
 		"symfony/monolog-bridge": "~2.3",
