@@ -1,6 +1,8 @@
 Boxmeup
 =======
 
+[![Join the chat at https://gitter.im/boxmeup/Boxmeup](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/boxmeup/Boxmeup?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Boxmeup is a web and mobile application to help users keep track of what they have in their containers and how to find items in specific containers.
 
 [![Build Status](https://img.shields.io/travis/boxmeup/Boxmeup/3.0.svg?style=flat)](https://travis-ci.org/boxmeup/Boxmeup)
