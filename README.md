@@ -11,7 +11,7 @@ Boxmeup is a web and mobile application to help users keep track of what they ha
 
 # Requirements
 
-* PHP 5.4+
+* PHP 5.5+
 * MySQL 5.5
 * Sphinxsearch 2.0+
 * Composer
@@ -35,10 +35,7 @@ grunt build
 
 # Debug
 
-To get debug mode:
-
-* For apache: set `DEBUG 1` in `.htaccess`
-* For all others, set the environment variable `DEBUG=1` for runtime.
+To get debug mode the `APPLICATION_ENV` must be set to `dev`. This is expected to arrive in `$_SERVER`.
 
 # Contributing
 
