@@ -13,9 +13,9 @@
 		}
 	],
 	"require": {
-		"php": ">=5.4.0",
+		"php": ">=5.5.0",
 		"boxmeup/boxmeup-core": "dev-master",
-		"silex/silex": "~1.0",
+		"silex/silex": "~1.2.0",
 		"silex/web-profiler": "~1.0",
 		"symfony/class-loader": "~2.3",
 		"symfony/debug": "~2.3",
