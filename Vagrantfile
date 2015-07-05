@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
         "server_root_password" => "root",
         "server_repl_password" => "root",
         "server_debian_password" => "root",
-        "bind_address" => "33.33.0.65",
+        "bind_address" => "33.33.0.80",
         "allow_remote_root" => true
       }
     }
