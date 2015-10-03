@@ -1,6 +1,10 @@
 Boxmeup
 =======
 
+> Please note, the 3.0 branch is **unstable** and **incomplete**! The current hosted version of the application is on the master branch (>= 2.4, < 3).
+
+> If you would like to contribute to the version that can be deployed right away, please target pull requests to the master branch, it can be integrated into the 3.0 branch as well if desired (or applicable).
+
 [![Join the chat at https://gitter.im/boxmeup/Boxmeup](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/boxmeup/Boxmeup?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Boxmeup is a web and mobile application to help users keep track of what they have in their containers and how to find items in specific containers.
