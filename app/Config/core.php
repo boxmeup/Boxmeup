@@ -44,7 +44,7 @@
  * If running via cli - apc is disabled by default. ensure it's available and enabled in this case
  *
  * Note: 'default' and other application caches should be configured in app/Config/bootstrap.php.
- *       Please check the comments in boostrap.php for more info on the cache engines available 
+ *       Please check the comments in boostrap.php for more info on the cache engines available
  *       and their setttings.
  */
 $engine = 'File';
@@ -68,7 +68,7 @@ $prefix = 'boxmeup_';
 Cache::config('_cake_core_', array(
 	'engine' => $engine,
 	'prefix' => $prefix . 'cake_core_',
-	'path' => CACHE . 'persistent' . DS,
+	'path' => '/tmp/boxmeup/persistent/',
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
@@ -80,7 +80,7 @@ Cache::config('_cake_core_', array(
 Cache::config('_cake_model_', array(
 	'engine' => $engine,
 	'prefix' => $prefix . 'cake_model_',
-	'path' => CACHE . 'models' . DS,
+	'path' => '/tmp/boxmeup/models/',
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));

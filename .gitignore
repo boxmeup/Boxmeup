@@ -6,11 +6,10 @@ app/Plugin/DebugKit
 app/Plugin/GChart
 
 # config
-app/Config/environment.php
+.env
 
 # cache
 app/tmp/**/*
 app/webroot/tmp/*
 
 !empty
-
