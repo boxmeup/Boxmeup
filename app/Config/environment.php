@@ -24,10 +24,13 @@ $config = array(
 				'api_key' => getenv('MAILGUN_API_KEY')
 			)
 		),
+		'Analytics' => array(
+			'tracking_code' => 'UA-6305561-5'
+		),
 		'Feature' => array(
 			'api' => false,
 			'mobile' => true,
-			'analytics' => false,
+			'analytics' => getenv('GA_ANALYTICS'),
 			'feedback' => false,
 			'user_registration' => true,
 			'bulk_export' => true,
