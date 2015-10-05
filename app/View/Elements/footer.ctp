@@ -1,7 +1,5 @@
 <?php
 	$footer_links = array(
-		__('Status') => 'http://status.boxmeupapp.com',
-		__('Blog') => 'http://blog.boxmeupapp.com',
 		__('Terms of Service') => '/terms',
 		__('Privacy Policy') => '/privacy'
 	);

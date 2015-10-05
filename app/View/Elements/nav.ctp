@@ -18,9 +18,6 @@
 		</div>
 	</li>
 </ul>
-<?php 
+<?php
 	}
 ?>
-<ul class="nav navbar-nav navbar-right" style="margin-right: 20px;">
-	<li><?php echo $this->Html->link(__('Blog'), 'http://blog.boxmeupapp.com'); ?></li>
-</ul>

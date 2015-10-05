@@ -1,8 +1,7 @@
 <?php
 	$footer_links = array(
 		__('Terms of Service') => '/terms',
-		__('Privacy Policy') => '/privacy',
-		__('Status') => 'http://status.boxmeupapp.com'
+		__('Privacy Policy') => '/privacy'
 	);
 	if (Configure::read('Feature.api')) {
 		$footer_links[__('API')] = '/developer';
