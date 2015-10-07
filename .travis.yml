@@ -1,10 +1,19 @@
-language: php
-sudo: false
-php:
-  - 5.5
+language: ruby
+sudo: required
+services:
+  - docker
 
 before_script:
   - composer install --dev
   - npm install
 
 script: ./node_modules/.bin/grunt ci
+
+after_success:
+  - npm i -g bower
+  - bower install
+  - gem install compass
+  - ./node_modules/.bin/grunt build
+  - docker build -t cjsaylor/boxmeup .
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push cjsaylor/boxmeup
