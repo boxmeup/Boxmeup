@@ -15,9 +15,7 @@ Boxmeup is a web and mobile application to help users keep track of what they ha
 
 # Requirements
 
-* PHP 5.5+
-* MySQL 5.5
-* Sphinxsearch 2.0+
+* Docker v1.8+ (PHP 5.6, Apache 2.4, MySQL 5.6, Sphinxsearch 2.0+)
 * Composer
 * NodeJS (npm)
 * Bower
@@ -28,7 +26,8 @@ Boxmeup is a web and mobile application to help users keep track of what they ha
 
 ```bash
 npm install && bower install && composer install
-cp config/environment.dist.php config/environment.php
+cp .env.sample .env
+docker-compose up -d
 ```
 
 # Build CSS/JS
@@ -39,7 +38,7 @@ grunt build
 
 # Debug
 
-To get debug mode the `APPLICATION_ENV` must be set to `dev`. This is expected to arrive in `$_SERVER`.
+Debug mode is controlled by the `APPLICATION_ENV` environment variable. The debug toolbar is controlled via `DEBUG` environment variables.
 
 # Contributing
 
