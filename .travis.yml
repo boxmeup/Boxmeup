@@ -13,6 +13,6 @@ after_success:
   - bower install
   - gem install compass
   - ./node_modules/.bin/grunt build
-  - docker build -t cjsaylor/boxmeup .
+  - docker build -q -t cjsaylor/boxmeup .
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push cjsaylor/boxmeup
