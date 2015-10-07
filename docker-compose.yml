@@ -1,0 +1,25 @@
+mysql:
+  image: mysql:5.6
+  env_file: .env
+  ports:
+    - 3306:3306
+sphinx:
+  image: centurylink/sphinx:2.1.9.02
+  links:
+    - mysql
+  ports:
+    - 9312:9312
+    - 9306:9306
+  volumes:
+    - ./config/sphinx:/usr/local/etc
+  command: ./searchd.sh
+app:
+  build: .
+  links:
+    - mysql
+    - sphinx
+  ports:
+    - 80:80
+  env_file: .env
+  volumes:
+    - ./:/var/www/html
