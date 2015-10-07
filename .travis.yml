@@ -1,10 +1,11 @@
-language: php
-sudo: false
-php:
-  - 5.5
+language: ruby
+sudo: required
+services:
+  - docker
 
 before_script:
-  - composer install --dev
   - npm install
 
 script: ./node_modules/.bin/grunt ci
+
+after_success: ./contrib/deploy.sh

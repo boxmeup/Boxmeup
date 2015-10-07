@@ -1,11 +1,9 @@
-contrib
+vendor
 .bowerrc
 .gitignore
 .env
 .travis.yml
 bower.json
-composer.json
-composer.lock
 CONTRIBUTING.md
 gruntfile.js
 jshint.json
