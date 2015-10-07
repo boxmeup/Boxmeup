@@ -6,4 +6,4 @@ cookbooks/
 web/bower_components
 vendor
 
-config/environment.php
+.env
