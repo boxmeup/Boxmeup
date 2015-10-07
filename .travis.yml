@@ -4,7 +4,6 @@ services:
   - docker
 
 before_script:
-  - composer install --dev
   - npm install
 
 script: ./node_modules/.bin/grunt ci
