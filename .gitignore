@@ -1,5 +1,3 @@
-.sass-cache
-.vagrant
 tmp/
 node_modules
 cookbooks/
@@ -7,3 +5,9 @@ web/bower_components
 vendor
 
 .env
+
+# Build locations
+
+web/css/**/*
+web/js/build.js
+release.txt

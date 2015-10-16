@@ -5,8 +5,12 @@
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-cli": "^0.1.13",
-    "grunt-contrib-compass": "0.6.x",
+    "grunt-contrib-copy": "^0.8.1",
     "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-requirejs": "~0.4.4"
+    "grunt-contrib-requirejs": "~0.4.4",
+    "grunt-sass": "^1.0.0"
+  },
+  "dependencies": {
+    "compass-mixins": "^0.12.7"
   }
 }
