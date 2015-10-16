@@ -11,7 +11,6 @@ Boxmeup is a web and mobile application to help users keep track of what they ha
 
 [![Build Status](https://img.shields.io/travis/boxmeup/Boxmeup/3.0.svg?style=flat)](https://travis-ci.org/boxmeup/Boxmeup)
 [![Docker Image](https://img.shields.io/docker/pulls/cjsaylor/boxmeup.svg?style=flat)](https://hub.docker.com/r/cjsaylor/boxmeup)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/boxmeup/boxmeup.svg?style=flat)](https://scrutinizer-ci.com/g/boxmeup/Boxmeup/?branch=3.0)
 [![Huboard](https://img.shields.io/badge/Hu-Board-7965cc.svg?style=flat)](https://huboard.com/boxmeup/Boxmeup)
 
 # Requirements
@@ -20,7 +19,6 @@ Boxmeup is a web and mobile application to help users keep track of what they ha
 * Composer
 * NodeJS (npm)
 * Bower
-* Compass
 * Grunt CLI
 
 # Quick start

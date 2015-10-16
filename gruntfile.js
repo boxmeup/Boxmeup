@@ -17,13 +17,27 @@ module.exports = function(grunt) {
 			},
 			source : ['web/js/**/*.js']
 		},
-		compass: {
+		sass: {
 			dist: {
 				options: {
-					sassDir: 'scss',
-					cssDir: 'web/css',
-					environment: 'production'
+					outputStyle: 'compressed'
+				},
+				files: {
+					'web/css/app.css': 'scss/app.scss',
+					'web/css/login.css': 'scss/login.scss'
 				}
+			}
+		},
+		copy: {
+			'compass-mixins': {
+				files: [
+					{
+						expand: true,
+						cwd: 'node_modules/compass-mixins/lib',
+						src: '**/*',
+						dest: 'scss/vendor/compass-mixins/'
+					}
+				]
 			}
 		},
 		requirejs: {
@@ -41,12 +55,14 @@ module.exports = function(grunt) {
 		}
 	});
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-sass');
 
 	grunt.loadTasks('contrib/tasks');
 
-	grunt.registerTask('default', ['jshint']);
-	grunt.registerTask('build', ['compass', 'requirejs', 'releaseStamp']);
+	grunt.registerTask('build-sass', ['copy:compass-mixins', 'sass:dist']);
+	grunt.registerTask('default', ['jshint', 'build-sass']);
+	grunt.registerTask('build', ['build-sass', 'requirejs', 'releaseStamp']);
 	grunt.registerTask('ci', ['jshint']);
 };
