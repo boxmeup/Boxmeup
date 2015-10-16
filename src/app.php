@@ -10,6 +10,7 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
+use Silex\Provider\HttpFragmentServiceProvider;
 use Boxmeup\Web\Provider\UserProvider;
 use Boxmeup\Web\Provider\RepositoryServiceProvider;
 use Boxmeup\Web\Provider\ControllerProvider;
@@ -29,6 +30,7 @@ $app->register(new RepositoryServiceProvider());
 $app->register(new ControllerProvider());
 $app->register(new ConverterProvider());
 $app->register(new RouteProvider());
+$app->register(new HttpFragmentServiceProvider());
 
 // Error handling
 $app->error('controller.app:error');
