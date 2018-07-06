@@ -11,16 +11,10 @@
             "email": "cjsaylor@gmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "pear",
-            "url": "http://pear.cakephp.org"
-        }
-    ],
     "require": {
         "php": ">=5.3.10",
         "composer/installers": "*",
-        "pear-cakephp/cakephp": "2.3.10",
+        "cakephp/cakephp": "2.10.11",
         "neutron/sphinxsearch-api": "2.0.8",
         "cjsaylor/gchart": "2.0.2",
         "mailgun/mailgun-php": "1.5"

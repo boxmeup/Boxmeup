@@ -8,8 +8,8 @@ class User extends AppModel {
 				'rule' => array('email'),
 				'message' => 'Invalid email address.',
 			),
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'You must enter an email address.'
 			),
 			'unique' => array(
@@ -18,8 +18,8 @@ class User extends AppModel {
 			)
 		),
 		'password' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'You must specify a password.'
 			),
 			'minLength' => array(
@@ -44,8 +44,8 @@ class User extends AppModel {
 		return true;
 	}
 
-	public function afterSave($created) {
-		if($created) {
+	public function afterSave($created, $options = []) {
+		if ($created) {
 			ClassRegistry::init('Api.ApiUser')->save(array('ApiUser' => array(
 				'user_id' => $this->id,
 				'api_key' => Security::hash($this->data['User']['email'], null, true),
@@ -62,11 +62,11 @@ class User extends AppModel {
 			'contain' => array()
 		));
 	}
-	
+
 	public function getUserIdByEmail($email) {
 		return $this->field('id', array('email' => $email));
 	}
-	
+
 	public function verifyEmail($email) {
 		return $this->find('count', array(
 			'conditions' => array(
@@ -84,7 +84,7 @@ class User extends AppModel {
 			'contains' => array()
 		)) > 0;
 	}
-	
+
 	public function resetPassword($email) {
 		$user_id = $this->getUserIdByEmail($email);
 		$rand_password = $this->genRandomString();
@@ -96,23 +96,23 @@ class User extends AppModel {
 
 		return $result ? $rand_password : false;
 	}
-	
+
 	public function verifyRecoveryKey($user_id, $key) {
 		$hashed_key_on_file = $this->field('password', array('id' => $user_id));
 		$hash_key = $this->hashPassword($key);
 		return $hashed_key_on_file === $hash_key;
 	}
-	
+
 	public function hashPassword($password) {
 		return AuthComponent::password($password);
 	}
-	
+
 	private function genRandomString($length = 8) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyz';
-		$string = '';    
+		$string = '';
 		for ($p = 0; $p < $length; $p++)
 			$string .= $characters[mt_rand(0, strlen($characters))];
-			
+
 		return $string;
 	}
 }

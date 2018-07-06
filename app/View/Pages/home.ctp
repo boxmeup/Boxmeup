@@ -8,7 +8,7 @@
 			<div class="col-lg-4">
 				<?php if(Configure::read('Feature.user_registration')) { ?>
 				<?php
-					echo $this->Form->create('User', array('action' => 'signup'));
+					echo $this->Form->create('User', array('url' => ['controller' => 'users', 'action' => 'signup']));
 					echo $this->Form->input('email', array('label' => false, 'placeholder' => __('Email Address'), 'class' => 'form-control input-lg'));
 				?>
 				<br>
@@ -27,7 +27,7 @@
 				<?php } else { ?>
 					<p><?php echo __('User registration is temporarily unavailable.'); ?></p>
 				<?php } ?>
-			</div>	
+			</div>
 		</div>
 	</div>
 </div>

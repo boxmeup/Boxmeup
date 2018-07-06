@@ -7,13 +7,13 @@ class ApiUser extends ApiAppModel {
 			'numeric' => array(
 				'rule' => array('numeric'),
 			),
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 			),
 		),
 		'api_key' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 			),
 		),
 	);

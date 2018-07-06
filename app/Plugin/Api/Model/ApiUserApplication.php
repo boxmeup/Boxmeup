@@ -11,13 +11,13 @@ class ApiUserApplication extends ApiAppModel {
 			'numeric' => array(
 				'rule' => array('numeric')
 			),
-			'notempty' => array(
-				'rule' => array('notempty')
+			'notBlank' => array(
+				'rule' => array('notBlank')
 			)
 		),
 		'token' => array(
-			'notempty' => array(
-				'rule' => array('notempty')
+			'notBlank' => array(
+				'rule' => array('notBlank')
 			)
 		)
 	);
@@ -147,7 +147,7 @@ class ApiUserApplication extends ApiAppModel {
 			$user = $result['User'];
 			Cache::write($key, $user);
 		}
-		
+
 		return $user;
 	}
 

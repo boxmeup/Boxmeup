@@ -38,7 +38,7 @@
 		<div data-role="panel" id="left-panel" data-theme="a">
 			<ul data-role="listview" data-theme="a">
 				<?php if (!empty($User)) : ?>
-					<li data-icon="grid" data-iconpos="left"><?=$this->Html->link('Containers', '/', array('data-ajax' => 'false')); ?></li>
+					<li data-icon="grid" data-iconpos="left"><?=$this->Html->link('Containers', '/containers', array('data-ajax' => 'false')); ?></li>
 					<li data-icon="search"><?=$this->Html->link('Search', '/searches/find', array('data-ajax' => 'false')); ?></li>
 					<li data-icon="gear"><?=$this->Html->link('My Account', '/account', array('data-ajax' => 'false')); ?></li>
 					<li data-icon="delete"><?=$this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'), array('data-ajax' => 'false'));?></li>

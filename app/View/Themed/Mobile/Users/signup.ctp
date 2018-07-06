@@ -1,6 +1,6 @@
 <?php if(Configure::read('Feature.user_registration')) { ?>
 	<?php
-		echo $this->Form->create('User', array('action' => 'signup', 'data-ajax' => 'false'));
+		echo $this->Form->create('User', array('url' => ['controller' => 'users', 'action' => 'signup'], 'data-ajax' => 'false'));
 		echo $this->Form->input('email', array('label' => __('Email Address')));
 		echo $this->Form->input('password', array('label' => __('Password')));
 		// Simple bot circumvent

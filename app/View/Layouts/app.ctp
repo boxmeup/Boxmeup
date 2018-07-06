@@ -41,7 +41,7 @@
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 					<i class="icon-list" style="color: black"></i>
 				</button>
-				<a href="/" class="navbar-brand">Boxmeup</a>
+				<a href="/dashboard" class="navbar-brand">Boxmeup</a>
 			</div>
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<?php echo $this->element('app/account'); ?>
@@ -72,7 +72,7 @@
 		if(Configure::read('Feature.beta')) {
 			echo $this->Html->tag('div', '', array('class' => 'beta'));
 		}
-		echo $this->element('app/footer'); 
+		echo $this->element('app/footer');
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
 		echo $this->Html->script('//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js');
@@ -84,7 +84,7 @@
 		if (Configure::read('Feature.feedback')) {
 			echo $this->element('Feedback.feedback');
 		}
-		
+
 	?>
 </body>
 </html>
