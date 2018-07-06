@@ -19,7 +19,7 @@ app:
     - mysql
     - sphinx
   ports:
-    - 80:80
+    - 4000:80
   env_file: .env
   volumes:
     - ./:/var/www/html
