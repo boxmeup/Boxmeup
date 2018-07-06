@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:7.2.7-apache
 
 COPY config/apache.conf /etc/apache2/sites-available/000-default.conf
 COPY config/php.ini /usr/local/etc/php/
