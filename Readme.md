@@ -15,6 +15,12 @@ tells you where it is!
 * PHP 7.2+
 * Docker CE (including Docker Compose)
 
+For non-docker installs
+
+* PHP 7.2+
+* Sphinxsearch 2.1.9+
+* MySQL 5.6
+
 ## Setup
 
 1. `cp docker-compose-dev.yml docker-compose.yml`
