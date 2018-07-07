@@ -14,8 +14,8 @@ class Container extends AppModel {
 			),
 		),
 		'name' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Please provide a label name for this box.',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -84,8 +84,8 @@ class Container extends AppModel {
         );
 
 		return $controller->paginate($this);
-	}	
-	
+	}
+
 	public function getContainerBySlug($slug) {
 		return $this->find('first', array(
 			'conditions' => array(
@@ -161,7 +161,7 @@ class Container extends AppModel {
 		foreach($results as $key => $result) {
 			unset($results[$key]['Location']['id']);
 		}
-		
+
 		return $results;
 	}
 }

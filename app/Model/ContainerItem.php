@@ -12,13 +12,13 @@ class ContainerItem extends AppModel {
 		),
 		'body' => array(
 			'empty' => array(
-				'rule' => 'notEmpty',
+				'rule' => 'notBlank',
 				'message' => 'Please enter some content for the item.'
 			)
 		),
 		'quantity' => array(
 			'empty' => array(
-				'rule' => 'notEmpty',
+				'rule' => 'notBlank',
 				'message' => 'Please enter a quantity.'
 			),
 			'numeric' => array(
@@ -39,9 +39,9 @@ class ContainerItem extends AppModel {
             'counterCache' => true
 		)
 	);
-	
+
 	public $pagination_limit = 20;
-	
+
 	public function getPaginatedContainerItems(&$controller, $container_uuid) {
 		$controller->paginate = array(
 			'conditions' => array(
@@ -57,7 +57,7 @@ class ContainerItem extends AppModel {
 	public function getContainerSlug($container_uuid) {
 		return $this->Container->field('slug', array('uuid' => $container_uuid));
 	}
-	
+
 	public function getRecentItems($user_id) {
 		return $this->find('all', array(
 			'limit' => 5,
@@ -66,7 +66,7 @@ class ContainerItem extends AppModel {
 			'conditions' => array('Container.user_id' => $user_id)
 		));
 	}
-	
+
 	public function getAllItems($user_id) {
 		return $this->find('all', array(
 			'fields' => array('container_id', 'body', 'quantity', 'created', 'modified'),
@@ -100,7 +100,7 @@ class ContainerItem extends AppModel {
 
 		return $controller->paginate($this);
 	}
-	
+
 	// API Methods
 	public function getApiContainerItems($user_id, $conditions = array()) {
 		$conditions = array_merge(array('user_id' => $user_id), $conditions);

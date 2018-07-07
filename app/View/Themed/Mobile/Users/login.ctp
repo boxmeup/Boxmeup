@@ -3,7 +3,7 @@
 ?>
 <div style="width: 250px; margin: 0 auto;">
 	<?php
-		echo $this->Form->create('User', array('action' => 'login', 'data-ajax' => 'false'));
+		echo $this->Form->create('User', array('url' => ['controller' => 'users', 'action' => 'login'], 'data-ajax' => 'false'));
 		echo $this->Form->input('email', array('style' => 'width: 250px'));
 		echo $this->Form->input('password', array('style' => 'width: 250px; margin-bottom: 10px;'));
 		echo $this->Html->link('Forgot password?', array('action' => 'forgot_password')).'<br/>'.'<br/>';

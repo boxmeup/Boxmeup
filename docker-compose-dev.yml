@@ -1,0 +1,38 @@
+version: "2"
+
+services:
+  mysql:
+    image: mysql:5.6
+    env_file: .env
+    ports:
+      - 3306:3306
+    networks:
+      - boxmeup-nw
+    restart: always
+  sphinx:
+    image: centurylink/sphinx:2.1.9.02
+    volumes:
+      - ./config/sphinx:/usr/local/etc
+    command: bash -c "sleep 5 && indexer container_items && indexer container_items_delta && ./searchd.sh"
+    networks:
+      - boxmeup-nw
+    depends_on:
+      - mysql
+    restart: always
+  app:
+    build: .
+    env_file: .env
+    networks:
+      - boxmeup-nw
+    ports:
+      - 4000:80
+    depends_on:
+      - mysql
+      - sphinx
+    volumes:
+    - ./:/var/www/html
+    restart: always
+
+networks:
+  boxmeup-nw:
+    driver: bridge
