@@ -13,7 +13,7 @@ tells you where it is!
 ## Requirements
 
 * PHP 7.2+
-* Sphinxsearch 2.1.9+
+* Docker CE (including Docker Compose)
 
 ## Setup
 
@@ -27,3 +27,7 @@ To build the sphinxsearch index, ensure you have the mysql container running and
 ```
 ./bin/sphinx_index.sh
 ```
+
+## Running the app
+
+Visit [http://localhost:4000](http:localhost:4000)
