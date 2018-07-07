@@ -12,12 +12,18 @@ tells you where it is!
 
 ## Requirements
 
-* PHP 5.3+
-* Sphinxsearch 2.0.4+
+* PHP 7.2+
+* Sphinxsearch 2.1.9+
 
 ## Setup
 
-1. Install composer dependences: `composer install --dev`.
-1. Import MySQL tables using `config/boxmeup_2013-08-05.sql`.
-1. Configure sphinx search using `config/sphinx.conf`.
-1. Make temporary directories writable by your webserver: `chmod 0777 -R app/tmp`
+1. `cp docker-compose-dev.yml docker-compose.yml`
+1. `./bin/setup.sh`
+
+## Search index build
+
+To build the sphinxsearch index, ensure you have the mysql container running and run:
+
+```
+./bin/sphinx_index.sh
+```
