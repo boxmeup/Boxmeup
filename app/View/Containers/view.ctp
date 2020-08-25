@@ -12,7 +12,7 @@
 	", array('inline' => false));
 	echo $this->Html->script('views/containers/view', array('inline' => false));
 ?>
-<h2><?php echo $container['Container']['name']; ?></h2>
+<h2><?php echo Sanitize::html($container['Container']['name'], array('remove' => true)); ?></h2>
 <p>
 <?php
 	if(!empty($container['Location']['name'])) {
