@@ -1,3 +1,7 @@
+# Deprecated
+
+Further development of boxmeupapp.com happens at https://github.com/boxmeup/boxmeup-go
+
 # About
 Boxmeup is a web application designed to organize your containers, boxes, and
 other bulk storage items.  Simply create a "container", label it, input items into
